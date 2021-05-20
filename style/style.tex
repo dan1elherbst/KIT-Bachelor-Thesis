@@ -1,0 +1,88 @@
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Packages
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\usepackage{subfiles}
+
+% deutsche Sprache
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[ngerman]{babel}
+
+% Literaturverzeichnis
+\usepackage[backend=biber, style=alphabetic]{biblatex}
+
+\usepackage[pdftex]{graphicx}
+\usepackage{latexsym}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{tikz} % \foreach-Befehl
+\usepackage{hyperref} % Verweise
+\usepackage{lmodern} % keine pixelige Schrift
+\usepackage{mathtools} % defby
+\usepackage{enumitem} % a b c enumeration
+\setlist{nosep} % no vertical space between list items
+\usepackage{dsfont} % indicator function
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% weitere Einstellungen
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+% Abstand obere Blattkante zur Kopfzeile ist 2.54cm - 15mm
+\setlength{\topmargin}{-15mm}
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Umgebungen
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newtheorem{Satz}{Satz}[section]
+\newtheorem{Definition}[Satz]{Definition} 
+\newtheorem{Lemma}[Satz]{Lemma}		   
+
+\numberwithin{equation}{section} 
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Text-Commands
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newcommand{\tobechanged}[1]{\textbf{\textcolor{red}{#1}}}
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Mathe-Commands und -Umgebungen
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newcommand{\C}{\mathbb{C}} % komplexe
+\newcommand{\K}{\mathbb{K}} % komplexe
+\newcommand{\R}{\mathbb{R}} % reelle
+\newcommand{\Q}{\mathbb{Q}} % rationale
+\newcommand{\Z}{\mathbb{Z}} % ganze
+\newcommand{\N}{\mathbb{N}} % natuerliche
+\newcommand{\defby}{\vcentcolon =}
+\newcommand{\Set}[1]{\ensuremath{\left\{\, #1 \,\right\}}}
+\newcommand{\set}[1]{\ensuremath{\left\{#1\right\}}}
+\newcommand{\setcomp}[2]{\Set{#1 \; | \; #2}}
+\newcommand{\fct}[5]{\ensuremath{#1 \colon #2 \to #3, \; #4 \mapsto #5 }}
+\newcommand{\indfct}{\mathds{1}}
+\newcommand\restr[2]{\ensuremath{\left.#1\right|_{#2}}}
+\newcommand{\setc}[1]{{#1}^\mathsf{c}}
+\newcommand{\convdown}{\downarrow}
+
+\newenvironment{enumeratethm}{\vspace*{0.5em} \begin{enumerate}[label=(\alph*)]}{\end{enumerate} \vspace*{0.5em}}
+
+
+

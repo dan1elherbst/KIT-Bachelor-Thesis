@@ -1,0 +1,21 @@
+\documentclass[../main/main.tex]{subfiles}
+
+\begin{document}
+	
+	\section{Einleitung}
+	
+	\begin{Lemma}
+		Sei $(X, d)$ ein metrischer Raum und $C \subseteq X$ eine abgeschlossene Teilmenge. Ferner definieren wir für $n \in \N$
+		$$ A_n \defby \setcomp{y \in X}{d(y, C) < \frac{1}{n}} \quad \text{und} \quad \fct{f_n}{X}{\R}{x}{\max \set{0, 1-n d(x, C)}} \text{,}$$
+		wobei wir $d(y, C) \defby \inf_{x \in C} d(y, x)$ setzen.
+		Dann gilt:
+		\begin{enumeratethm}
+			\item $A_n$ ist offen für alle $n \in \N$.
+			\item $C = \bigcap_{n \in \N} A_n$, insbesondere ist $C$ also eine $G_\delta$-Menge.
+			\item Für alle $n$ ist $f_n$ ist gleichmäßig stetig und $\restr{f_n}{A_n^\mathsf{c}} = 0$.
+			\item $f_n \convdown \indfct_C$.
+		\end{enumeratethm}
+	\end{Lemma}
+	
+\end{document}
+
