@@ -4,18 +4,85 @@
 	
 	\section{Einleitung}
 	
-	\begin{Lemma}
+	\tobechanged{Hier steht eine Einführung}
+	
+	\begin{Definition}[Polnischer Raum]
+		Ein polnischer Raum ist ein separabler topologischer Raum $(X, \mathcal{O})$, dessen Topologie von einer Metrik, bezüglich der $X$ vollständig ist, erzeugt wird.
+	\end{Definition}
+
+	\begin{Definition}[Borelsche $\sigma$-Algebra]
+		\label{def:borel}
+		Sei $(X, \mathcal{O})$ ein topologischer Raum. Dann definieren wir die Borelsche $\sigma$-Algebra
+		$$\mathcal{B} \defby \sigma(\mathcal{O})$$
+		über $X$. Ferner sei
+		$$\mathcal{M}_{+,1}(X) \defby \setcomp{\fct{\mu}{\mathcal{B}}{[0,1]}}{\mu \; \text{ist Wahrscheinlichkeitsmaß}}\text{.}$$
+	\end{Definition}
+
+	\begin{Definition}[Schwache Regularität von Maßen]
+		\label{def:regularity}
+		In der Situation von Definition~\ref{def:regularity}, wobei zusätzlich $\mu$ ein endliches Maß auf $\mathcal{B}$ sei, nennen wir $A \in \mathcal{B}$ schwach von innen bzw. von außen regulär, falls
+		$$\mu(A) = \sup_{\substack{C \subseteq A \\ C^\mathsf{c} \in \mathcal{O}}} \mu(C) \quad \text{bzw.} \quad \mu(A) = \inf_{\substack{U \supseteq A \\ U \in \mathcal{O}}} \mu(U)\text{.}$$
+		Sind alle $A \in \mathcal{B}$ schwach von innen und von außen regulär, so nennen wir $\mu$ ein schwach reguläres Maß.
+	\end{Definition}
+
+	\begin{Satz}
+		Ist $(X, d)$ ein metrischer Raum, so ist jedes $\mu \in \mathcal{M}_{+, 1}(X)$ schwach regulär.
+	\end{Satz}
+
+	Für den Beweis des Satzes benötigen wir zunächst zwei Hilfssätze.
+	
+	\begin{Hilfssatz}
+		In der Situation von Definition~\ref{def:regularity} ist
+		$$\mathcal{S} \defby \setcomp{A \in \mathcal{B}}{A \text{ von innen und von außen regulär bzgl. } \mu}$$
+		eine $\sigma$-Algebra.
+	\end{Hilfssatz}
+
+	\begin{proof}
+		\tobechanged{Klar.}
+	\end{proof}
+	
+	\begin{Hilfssatz}
 		Sei $(X, d)$ ein metrischer Raum und $C \subseteq X$ eine abgeschlossene Teilmenge. Ferner definieren wir für $n \in \N$
-		$$ A_n \defby \setcomp{y \in X}{d(y, C) < \frac{1}{n}} \quad \text{und} \quad \fct{f_n}{X}{\R}{x}{\max \set{0, 1-n d(x, C)}} \text{,}$$
+		$$ A_n \defby \setcomp{y \in X}{d(y, C) < \frac{1}{n}} \quad \text{und} \quad \fctmap{f_n}{X}{\R}{x}{\max \set{0, 1-n d(x, C)}} \text{,}$$
 		wobei wir $d(y, C) \defby \inf_{x \in C} d(y, x)$ setzen.
 		Dann gilt:
 		\begin{enumeratethm}
 			\item $A_n$ ist offen für alle $n \in \N$.
 			\item $C = \bigcap_{n \in \N} A_n$, insbesondere ist $C$ also eine $G_\delta$-Menge.
-			\item Für alle $n$ ist $f_n$ ist gleichmäßig stetig und $\restr{f_n}{A_n^\mathsf{c}} = 0$.
+			\item Für alle $n$ ist $\restr{f_n}{A_n^\mathsf{c}} = 0$ und $f_n$ ist gleichmäßig stetig.
 			\item $f_n \convdown \indfct_C$.
 		\end{enumeratethm}
-	\end{Lemma}
+	\end{Hilfssatz}
+
+	\begin{proof}
+		
+		zu (a): Wir wählen $y \in A_n$, also $y \in X, \; d(y, C) < \frac{1}{n}$. Mit $r_n \defby \frac{1}{n} - d(y, C) > 0$
+		gilt dann für alle $x \in X, \; d(x, y) < r_n$:
+		$$d(x, C) \leq d(x, y) + d(y, C) < \frac{1}{n} \text{,}$$
+		und damit gilt $B_{r_n}(y) \subseteq A_n$ und $A_n$ ist offen.
+		
+		zu (b): Sicherlich ist $C \subseteq A_n$ für alle $n \in \N$ und damit $C \subseteq \bigcap_{n \in \N} A_n$. Umgekehrt ist für ein beliebiges $y \in \bigcap_{n \in \N} A_n$
+		$$d(y, C) = \inf_{x \in C} d(y, x) = 0 \text{,}$$
+		was impliziert, dass es eine Folge $(x_n)_n \in C^\N$ gibt mit $x_n \rightarrow y$, und wegen der Abgeschlossenheit von $C$ ist damit $y \in C$, also auch $\bigcap_{n \in \N} A_n \subseteq C$.
+		
+		zu (c): Für $x \in A_n^\mathsf{c}$ ist $d(x, C) \geq \frac{1}{n}$ und damit $1 - nd(x, C) \leq 0$, also $\restr{f_n}{A_n^\mathsf{c}} = 0$. Außerdem gilt für beliebige $x, y \in X$:
+		\begin{align*}
+			| f_n(x) - f_n(y) | \; &= \; | \max \set{0, 1-n d(x, C)} - \max \set{0, 1-n d(y, C)} | \\
+								   &= \; \begin{cases}
+								   	n | d(y, C) - d(x, C) | & \quad d(x, C) < \frac{1}{n} \; \text{und} \; d(y, C) < \frac{1}{n} \\
+								   	1 - nd(x, C)            & \quad d(x, C) < \frac{1}{n} \; \text{und} \; d(y, C) \geq \frac{1}{n} \\
+								   	1 - nd(y, C)            & \quad d(x, C) \geq \frac{1}{n} \; \text{und} \; d(y, C) < \frac{1}{n} \\
+								   	0                       & \quad d(x, C) \geq \frac{1}{n} \; \text{und} \; d(y, C) \geq \frac{1}{n}
+								   \end{cases} \\
+							      &\leq \; n | d(y, C) - d(x, C) | \; \leq \; nd(x, y)
+		\end{align*}
+		und damit ist $f_n$ lipschitzstetig, also auch gleichmäßig stetig.
+		
+		zu (d): Offensichtlich ist $(f_n)_n$ fallend. Für $x \in C^\mathsf{c}$ ist $d(x, C) > 0$ und damit
+		$$f_n(x) = \max \set{0, 1-n d(x, C)} \; \xrightarrow{n \to \infty} \; 0 \text{,}$$
+		für $x \in C$ ist dagegen $f_n(x) = 1$ konstant, womit die Behauptung folgt.
+		
+	\end{proof}
 	
 \end{document}
 
