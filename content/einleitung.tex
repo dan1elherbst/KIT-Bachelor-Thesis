@@ -16,7 +16,7 @@
 		Sei $(X, \mathcal{O})$ ein topologischer Raum. Dann definieren wir die Borelsche $\sigma$-Algebra
 		$$\mathcal{B} \defby \sigma(\mathcal{O})$$
 		über $X$. Ferner sei
-		$$\mathcal{M}_{+,1}(X) \defby \setcomp{\fct{\mu}{\mathcal{B}}{[0,1]}}{\mu \; \text{ist Wahrscheinlichkeitsmaß}}\text{.}$$
+		$$\Probmeasures{X} \defby \setcomp{\fct{\mu}{\mathcal{B}}{[0,1]}}{\mu \; \text{ist Wahrscheinlichkeitsmaß}}\text{.}$$
 	\end{Definition}
 
 	\begin{Definition}[Schwache Regularität von Maßen]
@@ -31,13 +31,49 @@
 	\end{Definition}
 
 	\begin{Satz}
-		Ist $(X, d)$ ein metrischer Raum, so ist jedes $\mu \in \mathcal{M}_{+, 1}(X)$ 
+		\label{thm:weakregularity}
+		Ist $(X, d)$ ein metrischer Raum, so ist jedes $\mu \in \Probmeasures{X}$ 
 		schwach regulär.
 	\end{Satz}
 
 	Für den Beweis des Satzes benötigen wir zunächst zwei Hilfssätze.
 	
 	\begin{Hilfssatz}
+		\label{lem:sigmaalg}
+		In der Situation von Definition~\ref{def:regularity} ist
+		$$\mathcal{S} \defby \setcomp{B \in \mathcal{B}}{B \text{ schwach regulär bzgl. } \mu}$$
+		eine $\sigma$-Algebra.
+	\end{Hilfssatz}
+	
+	\begin{proof}
+		$\emptyset, X \in \mathcal{S}$ ist offensichtlich. Jedes $B \in \mathcal{S}$ ist schwach regulär 
+		von innen und von außen und daher gilt wegen $\mu(X) < \infty$
+		$$\mu(B^\mathsf{c}) \, = \, \mu(X) - \mu(B) \, = \, \mu(X) - \sup_{\substack{C \subseteq B \\ C^\mathsf{c} \in \mathcal{O}}} \mu(C) \, = \, \inf_{\substack{U \supseteq B^\mathsf{c} \\ U \in \mathcal{O}}} \mu(U)$$
+		sowie analog
+		$$\mu(B^\mathsf{c}) \, = \, \mu(X) - \mu(B) \, = \, \mu(X) - \inf_{\substack{U \supseteq B \\ U \in \mathcal{O}}} \mu(C) \, = \, \sup_{\substack{C \subseteq B^\mathsf{c} \\ C^\mathsf{c} \in \mathcal{O}}} \mu(U) \text{,}$$
+		womit die schwache Regularität von $B^\mathsf{c}$ folgt. 
+		
+		Es bleibt also zu zeigen, dass für $(B_n)_n \in \mathcal{S}^\N$ auch $B \defby \bigcup_{n \in \N} B_n$ 
+		schwach regulär ist. Hierfür zeigen zunächst die schwache Regularität von innen. 
+		Sei dazu $\varepsilon > 0$ und wähle für $n \in \N$ jeweils abgeschlossene Mengen 
+		$C_n \subseteq B_n$ mit $\mu(B_n) - \mu(C_n) < \frac{\varepsilon}{3^n}$.
+		Wenn wir nun $N$ so groß wählen, dass $\mu\left( B \setminus \bigcup_{n=1}^N B_n \right) < \frac{\varepsilon}{2}$ 
+		(was wegen $\mu(B) < \infty$ immer geht), so gilt mit $C := \bigcup_{n=1}^N C_k$, dass 
+		\begin{align*}
+			\mu(B) - \mu(C) = \mu(B\setminus C) \; &=    \; \mu\left( \left( B \setminus \bigcup_{n=1}^N B_n \right) \; \cup \; \left( \bigcup_{n=1}^N B_n  \setminus C \right) \right) \\
+			&\leq \; \mu \left( B \setminus \bigcup_{n=1}^N B_n \right) + \sum_{n=1}^{N} \mu(B_n \setminus C_n) \\
+			&<    \; \frac{\varepsilon}{2} + \sum_{n=1}^{\infty} \frac{\varepsilon}{3^n} \; = \; \varepsilon
+		\end{align*}
+		und weil $C$ abgeschlossen ist, folgt, dass $B$ schwach regulär von innen ist.
+		
+		Wählen wir nun für alle $n$ offene Mengen $U_n \supseteq B_n$ so, 
+		dass $\mu(U_n) - \mu(B_n) < \frac{\varepsilon}{2^n}$, und setzen $U := \bigcup_{n \in \N} U_n$, so gilt
+		$$\mu(U) - \mu(B) \; \leq \; \sum_{n=1}^\infty \mu(U_n \setminus B) \; \leq \; \sum_{n=1}^\infty \mu(U_n \setminus B_n) \; < \; \varepsilon$$
+		und weil $U$ offen ist, folgt insgesamt die schwache Regularität von $\mu$.
+	\end{proof}
+	
+	\begin{Hilfssatz}
+		\label{lem:opensets}
 		Sei $(X, d)$ ein metrischer Raum und $C \subseteq X$ eine abgeschlossene 
 		Teilmenge. Ferner definieren wir für $n \in \N$
 		$$ A_n \defby \setcomp{y \in X}{d(y, C) < \frac{1}{n}} \quad \text{und} \quad \fctmap{f_n}{X}{\R}{x}{\max \set{0, 1-n d(x, C)}} \text{,}$$
@@ -52,7 +88,6 @@
 	\end{Hilfssatz}
 
 	\begin{proof}
-		
 		zu (a): Wir wählen $y \in A_n$, also $y \in X, \; d(y, C) < \frac{1}{n}$. 
 		Mit $r_n \defby \frac{1}{n} - d(y, C) > 0$
 		gilt dann für alle $x \in X, \; d(x, y) < r_n$:
@@ -83,41 +118,62 @@
 		zu (d): Offensichtlich ist $(f_n)_n$ fallend. Für $x \in C^\mathsf{c}$ ist $d(x, C) > 0$ und damit
 		$$f_n(x) = \max \set{0, 1-n d(x, C)} \; \xrightarrow{n \to \infty} \; 0 \text{,}$$
 		für $x \in C$ ist dagegen $f_n(x) = 1$ konstant, womit die Behauptung folgt.
-		
 	\end{proof}
 
-	\begin{Hilfssatz}
-		In der Situation von Definition~\ref{def:regularity} ist
+	\begin{proof}[Beweis von Satz~\ref{thm:weakregularity}]
+		Es ist nun zu zeigen, dass für jedes $\mu \in \Probmeasures{X}$
+		die Menge 
 		$$\mathcal{S} \defby \setcomp{B \in \mathcal{B}}{B \text{ schwach regulär bzgl. } \mu}$$
-		eine $\sigma$-Algebra.
-	\end{Hilfssatz}
-	
-	\begin{proof}
-		$\emptyset, X \in \mathcal{S}$ ist offensichtlich. Jedes $B \in \mathcal{S}$ ist schwach regulär 
-		von innen und von außen und daher gilt wegen $\mu(X) < \infty$
-		$$\mu(B^\mathsf{c}) \, = \, \mu(X) - \mu(B) \, = \, \mu(X) - \sup_{\substack{C \subseteq B \\ C^\mathsf{c} \in \mathcal{O}}} \mu(C) \, = \, \inf_{\substack{U \supseteq B^\mathsf{c} \\ U \in \mathcal{O}}} \mu(U)$$
-		sowie analog
-		$$\mu(B^\mathsf{c}) \, = \, \mu(X) - \mu(B) \, = \, \mu(X) - \inf_{\substack{U \supseteq B \\ U \in \mathcal{O}}} \mu(C) \, = \, \sup_{\substack{C \subseteq B^\mathsf{c} \\ C^\mathsf{c} \in \mathcal{O}}} \mu(U) \text{,}$$
-		womit die schwache Regularität von $B^\mathsf{c}$ folgt. 
+		bereits ganz $\mathcal{B}$ ist. 
+		Da nach Hilfssatz~\ref{lem:sigmaalg} $\mathcal{S}$ eine $\sigma$-Algebra ist und $\mathcal{B}$ von den abgeschlossenen Mengen erzeugt wird, genügt es zu zeigen, dass diese in $\mathcal{S}$
+		enthalten sind. 
 		
-		Es bleibt also zu zeigen, dass für $(B_n)_n \in \mathcal{S}^\N$ auch $B \defby \bigcup_{n \in \N} B_n$ 
-		schwach regulär ist. Hierfür zeigen zunächst die schwache Regularität von innen. 
-		Sei dazu $\varepsilon > 0$ und wähle für $n \in \N$ jeweils abgeschlossene Mengen 
-		$C_n \subseteq B_n$ mit $\mu(B_n) - \mu(C_n) < \frac{\varepsilon}{3^n}$.
-		Wenn wir nun $N$ so groß wählen, dass $\mu\left( B \setminus \bigcup_{n=1}^N B_n \right) < \frac{\varepsilon}{2}$ 
-		(was wegen $\mu(B) < \infty$ immer geht), so gilt mit $C := \bigcup_{n=1}^N C_k$, dass 
-		\begin{align*}
-			\mu(B) - \mu(C) = \mu(B\setminus C) \; &=    \; \mu\left( \left( B \setminus \bigcup_{n=1}^N B_n \right) \; \cup \; \left( \bigcup_{n=1}^N B_n  \setminus C \right) \right) \\
-			                                       &\leq \; \mu \left( B \setminus \bigcup_{n=1}^N B_n \right) + \sum_{n=1}^{N} \mu(B_n \setminus C_n) \\
-			                                       &<    \; \frac{\varepsilon}{2} + \sum_{n=1}^{\infty} \frac{\varepsilon}{3^n} \; = \; \varepsilon
-		\end{align*}
-		und weil $C$ abgeschlossen ist, folgt, dass $B$ schwach regulär von innen ist.
+		Jedes abgeschlossene $C \in \mathcal{B}$ ist sicherlich schwach regulär von innen. Nun wählen wir $A_n, \; n \in \N$ wie in Hilfssatz~\ref{lem:opensets}. Wegen $A_n \convdown C$ und $\mu(X) < \infty$
+		folgt mit der Maßstetigkeit von oben, dass
+		$$\mu(A_n) \convdown \mu(C)$$
+		und da alle $A_n$ offen sind, ist $C$ auch schwach regulär von außen.
 		
-		Wählen wir nun für alle $n$ offene Mengen $U_n \supseteq B_n$ so, 
-		dass $\mu(U_n) - \mu(B_n) < \frac{\varepsilon}{2^n}$, und setzen $U := \bigcup_{n \in \N} U_n$, so gilt
-		$$\mu(U) - \mu(B) \; \leq \; \sum_{n=1}^\infty \mu(U_n \setminus B) \; \leq \; \sum_{n=1}^\infty \mu(U_n \setminus B_n) \; < \; \varepsilon$$
-		und weil $U$ offen ist, folgt insgesamt die schwache Regularität von $\mu$.
+		Insgesamt folgt also $\mathcal{S} = \mathcal{B}$ und damit die Behauptung.
 	\end{proof}
+
+	\begin{Satz}
+		Sei $(X,d)$ ein metrischer Raum und seien $\mu, \nu \in \Probmeasures{X}$. Dann sind äquivalent:
+		\begin{equivalentthm}
+			\item $\mu = \nu$
+			\item Für alle gleichmäßig stetigen Funktionen $\fct{f}{X}{\R}$ ist $\measureint{}{f}{\mu} = \measureint{}{f}{\nu}$
+			\item Für alle abgeschlossenen Mengen $C \in \mathcal{B}$ ist $\mu(C) = \nu(C)$.
+		\end{equivalentthm}
+	\end{Satz}
+
+	\begin{proof}
+		(i) $\Rightarrow$ (ii) ist klar.
+		
+		(ii) $\Rightarrow$ (iii): Gelte (ii) und sei $C \subseteq X$ abgeschlossen. Dann gilt für die gleichmäßig stetigen Funktionen $f_n$ aus Hilfssatz~\ref{lem:opensets}
+		$$\measureint{}{f_n}{\mu} = \measureint{}{f_n}{\nu}\text{,} \quad n \in \N \text{.}$$
+		Wegen $| f_n | \leq 1$ und $f_n \convdown \indfct_C$ folgt mit dem Satz von Lebesgue 
+		$$\measureint{}{f_n}{\mu} \; \to \; \mu(C) \quad \text{und} \quad \measureint{}{f_n}{\nu} \; \to \; \nu(C)$$
+		und damit gilt (iii).
+		
+		(iii) $\Rightarrow$ (i): Da $\mu$ und $\nu$ nach Satz~\ref{thm:weakregularity} schwach regulär sind, folgt die Behauptung ebenfalls direkt.
+	\end{proof}
+
+	\begin{Definition}[Schwache Konvergenz von Maßen]
+		Ist $(\mu_n)_n \in \Probmeasures{X}$ eine Folge, so sagen wir, dass $(\mu_n)_n$ schwach gegen $\mu \in \Probmeasures{X}$ konvergiert, falls
+		für alle $f \in C(X)$, den stetigen beschränkten Funktionen, gilt, dass
+		$$\measureint{}{f}{\mu_n} \; \xrightarrow{n \to \infty} \; \measureint{}{f}{\mu} \text{.}$$
+	\end{Definition}
+
+	\begin{Satz}[Portmanteau]
+		Sei $(X, d)$ ein metrischer Raum, so sind für $(\mu_n)_n \in \Probmeasures{X}^\N$ und $\mu \in \Probmeasures{X}$ äquivalent:
+		\begin{equivalentthm}
+			\item $(\mu_n)_n$ konvergiert schwach gegen $\mu$
+			\item Für alle abgeschlossenen Mengen $C \subseteq X$ gilt: $$\limsup_{n \to \infty} \mu_n(C) \; \leq \; \mu(C)$$
+			\item Für alle offenen Mengen $U \subseteq X$ gilt: $$\liminf_{n \to \infty} \mu_n(U) \; \geq \; \mu(U)$$
+			\item Für alle $B \in \mathcal{B}$ mit $\mu(\partial B) = 0$ gilt $$\lim_{n \to \infty} \mu_n(A) \; = \; \mu(A) \text{.}$$
+		\end{equivalentthm}
+	\end{Satz}
+
+	
 	
 \end{document}
 
