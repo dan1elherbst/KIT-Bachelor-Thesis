@@ -173,6 +173,54 @@
 		\end{equivalentthm}
 	\end{Satz}
 
+	\begin{proof}
+		(i) $\Rightarrow$ (ii): Sei $C \subseteq X$ abgeschlossen und definiere die zugehörigen $f_m, \; m \in \N$ aus Hilfssatz~\ref{lem:opensets}, welche sowohl stetig als auch beschränkt sind.
+		Dann gilt für alle $m \in \N$
+		$$\mu_n(C) \; = \; \measureint{}{\indfct_C}{\mu_n} \; \leq \; \measureint{}{f_m}{\mu_n} \; \xrightarrow{n \to \infty} \measureint{}{f_m}{\mu} \text{,}$$
+		also 
+		$$\limsup_{n \to \infty} \mu_n(C) \; \leq \; \measureint{}{f_m}{\mu} \quad \forall m \in \N$$
+		und mit $f_m \convdown \indfct_C$ sowie $| f_m | \leq 1$ liefert der Satz von Lebesgue, dass
+		$$\measureint{}{f_m}{\mu} \; \xrightarrow{m \to \infty} \measureint{}{\indfct_C}{\mu} \; = \; \mu(C) \text{,}$$
+		woraus
+		$$\limsup_{n \to \infty} \mu_n(C) \; \leq \; \mu(C)$$
+		folgt.
+		
+		(ii) $\Leftrightarrow$ (iii): Sei $U$ offen, also $C \defby U^\mathsf{c}$ abgeschlossen. Dann gilt
+		$$\mu(X) - \liminf_{n \to \infty} \mu_n(U) \; = \; \limsup_{n \to \infty} \mu_n(C) \; \leq \; \mu(C) \; = \; \mu(X) - \mu(U)$$
+		und damit 
+		$$\liminf_{n \to \infty} \mu_n(U) \; \geq \; \mu(U) \text{.}$$
+		Die andere Richtung geht vollständig analog.
+		
+		(ii), (iii) $\Rightarrow$ (iv): Sei $A \in \mathcal{B}$ mit $\mu(\partial A) = 0$. Dann gilt zunächst
+		$$A^\mathsf{o} \subseteq A \subseteq \overline{A}, \quad \partial A = \overline{A} \setminus A^\mathsf{o} \quad \text{und damit } \quad \mu(A^\mathsf{o}) = \mu(A) = \mu(\overline{A}) \text{,}$$
+		und wegen 
+		$$\limsup_{n \to \infty} \mu_n(\overline{A}) \; \leq \; \mu(\overline{A}) \quad \text{und} \quad \liminf_{n \to \infty} \mu_n(A^\mathsf{o}) \; \geq \; \mu(A^\mathsf{o})$$
+		folgt
+		$$\lim_{n \to \infty} \mu_n(A) \; = \; \mu(A) \text{.}$$
+		
+		(iv) $\Rightarrow$ (i): Sei $f \in C(X)$ und $a < b \in \R$ mit $a < f < b$. Setzen wir
+		$$S \defby \setcomp{c \in (a, b)}{\mu(\set{f = c}) > 0} \text{,}$$
+		so ist S abzählbar (denn für $n \in \N$ ist $S_n \defby \setcomp{c \in (a, b)}{\mu(\set{f = c}) > \frac{1}{n}}$ endlich und $S = \bigcup_{n \in \N} S_n$).
+		Damit können wir für jedes $m \in \N$ 
+		\[a = \underbrace{c_0^{(m)} < \dots < c_{2m}^{(m)}}_{\notin S} = b \text{,} \qquad c_{j+1}^{(m)} - c_j^{(m)} \leq \frac{b-a}{m} \label{eq:1.9.1} \tag{1.9.1}\]
+		finden, wobei wir
+		$$A_j^{(m)} \defby \set{c_j^{(m)} < f \leq c_{j+1}^{(m)}}\text{,} \qquad j = 0,\dots,2m-1$$
+		setzen. Wegen der Stetigkeit von $f$ gilt dann $\partial A_j^{(m)} \subseteq \set{f = c_j^{(m)}} \cup \set{f = c_{j+1}^{(m)}}$, also 
+		$$\mu(A_j^{(m)}) = 0 \text{,} \qquad j = 0,\dots,2m-1 \text{.}$$
+		Setzen wir nun
+		$$u_m \defby \sum_{j=0}^{2m-1} c_j^{(m)} \indfct_{A_j^{(m)}} \text{,} \qquad m \in \N \text{,}$$
+		so ist nach (iv)
+		\[\measureint{}{u_m}{\mu_n} \; = \; \sum_{j=0}^{2m-1} c_j^{(m)} \mu_n(A_j^{(m)}) \; \xrightarrow{n \to \infty} \; \sum_{j=0}^{2m-1} c_j^{(m)} \mu(A_j^{(m)}) \; = \; \measureint{}{u_m}{\mu} \label{eq:1.9.2} \tag{1.9.2}\]
+		und wegen \eqref{eq:1.9.1} gilt
+		\[\left| \measureint{}{f}{\mu_n} - \measureint{}{u_m}{\mu_n} \right| \; \leq \; \frac{b-a}{m} \quad \forall n \in \N \text{,} \qquad \left| \measureint{}{f}{\mu} - \measureint{}{u_m}{\mu} \right| \; \leq \; \frac{b-a}{m} \text{.} \label{eq:1.9.3} \tag{1.9.3}\]
+		Damit gilt für alle $m, n \in \N$
+		$$ \left| \measureint{}{f}{\mu} - \measureint{}{f}{\mu_n} \right| \; \leq \; 
+		\left| \measureint{}{f}{\mu} - \measureint{}{u_m}{\mu} \right| + \left| \measureint{}{u_m}{\mu} - \measureint{}{u_m}{\mu_n} \right| + \left| \measureint{}{u_m}{\mu_n} - \measureint{}{f}{\mu_n} \right| \text{,}$$
+		also wegen \eqref{eq:1.9.2} und \eqref{eq:1.9.3} für alle $m$
+		$$ \limsup_{n \to \infty} \left| \measureint{}{f}{\mu} - \measureint{}{f}{\mu_n} \right| \; \leq \; 2 \cdot \frac{b-a}{m} \quad \left(\xrightarrow{m \to \infty} \; 0\right) \text{,}$$
+		was die Behauptung impliziert.
+	\end{proof}
+
 	
 	
 \end{document}
