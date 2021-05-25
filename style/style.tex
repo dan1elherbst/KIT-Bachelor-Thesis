@@ -27,9 +27,8 @@
 \setlist{nosep} % no vertical space between list items
 \usepackage{dsfont} % indicator function
 \usepackage{mdframed} % framed theorems
-\edef\restoreparindent{\parindent=\the\parindent\relax}
 \usepackage{parskip}
-\restoreparindent
+\usepackage{csquotes}
 
 
 
@@ -52,6 +51,8 @@
 \newmdtheoremenv[backgroundcolor=black!3]{Definition}{Definition}[section]
 \newmdtheoremenv[backgroundcolor=black!3]{Satz}[Definition]{Satz}
 \newmdtheoremenv[backgroundcolor=black!3]{Hilfssatz}[Definition]{Hilfssatz}   
+
+\newtheorem*{Bemerkung}{Bemerkung}
 
 \numberwithin{equation}{section} 
 

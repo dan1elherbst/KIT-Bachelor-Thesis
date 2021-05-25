@@ -1,0 +1,324 @@
+\documentclass[../main/main.tex]{subfiles}
+
+\begin{document}
+	
+	\section{Grundlagen}
+	\label{Grundlagen}
+	
+	In diesem Abschnitt möchten wir zunächst einige maßtheoretische Grundlagen vorstellen, 
+	die wir später benötigen werden.
+
+	\begin{Definition}[Polnischer Raum]
+		Ein polnischer Raum ist ein separabler topologischer Raum $(X, \mathcal{O})$, 
+		dessen Topologie von einer Metrik, bezüglich der $X$ vollständig ist, erzeugt wird.
+	\end{Definition}
+
+	\begin{Definition}[Borelsche $\sigma$-Algebra]
+		\label{def:borel}
+		Sei $(X, \mathcal{O})$ ein topologischer Raum. Dann definieren wir die Borelsche 
+		$\sigma$-Algebra
+		$$\mathcal{B} \defby \sigma(\mathcal{O})$$
+		über $X$. Ferner sei
+		$$\Probmeasures{X} \defby \setcomp{\fct{\mu}{\mathcal{B}}{[0,1]}}{\mu \; 
+			\text{ist Wahrscheinlichkeitsmaß}}\text{.}$$
+	\end{Definition}
+
+	\begin{Definition}[Schwache Regularität von Maßen]
+		\label{def:regularity}
+		In der Situation von Definition~\ref{def:borel}, wobei zusätzlich $\mu$ ein 
+		endliches Maß auf $\mathcal{B}$ sei, nennen wir $B \in \mathcal{B}$ schwach von 
+		innen bzw. von außen regulär, falls
+		$$\mu(B) = \sup_{\substack{C \subseteq B \\ C^\mathsf{c} \in \mathcal{O}}} \mu(C) 
+		\quad \text{bzw.} \quad \mu(B) = \inf_{\substack{U \supseteq B \\ U \in \mathcal{O}}} 
+		\mu(U)\text{.}$$
+		Wir nennen $B \in \mathcal{B}$ schwach regulär, wenn $B$ schwach von innen und 
+		von außen regulär ist. Sind alle $B \in \mathcal{B}$ schwach regulär, 
+		so nennen wir $\mu$ ein schwach reguläres Maß.
+	\end{Definition}
+
+	\begin{Bemerkung}
+		Ersetzen wir in der obigen Definition \enquote{abgeschlossen} durch \enquote{kompakt}, 
+		so erhalten wir analog den Begriff der Regularität. (Schwache) Regularität ist eine 
+		Approximationseigenschaft von Maßen, die häufig benutzt wird, um gewisse Aussagen 
+		zunächst für abgeschlossene bzw. kompakte und für offene Mengen zu zeigen, um diese 
+		anschließend auf ganz $\mathcal{B}$ auszuweiten.
+	\end{Bemerkung}
+
+	Im Falle von Wahrscheinlichkeitsmaßen auf metrischen Räumen kann schwache Regularität 
+	recht einfach gezeigt werden, wie wir im Folgenden sehen werden.
+
+	\begin{Satz}
+		\label{thm:weakregularity}
+		Ist $(X, d)$ ein metrischer Raum, so ist jedes $\mu \in \Probmeasures{X}$ schwach regulär.
+	\end{Satz}
+
+	Für den Beweis des Satzes benötigen wir noch zwei Hilfssätze. Hilfssatz~\ref{lem:sigmaalg} wird 
+	uns zunächst ermöglichen, die schwache Regularität nur auf einem Erzeuger von $\mathcal{B}$ 
+	zu zeigen (für den wir dann die abgeschlossenen Mengen wählen).
+	
+	\begin{Hilfssatz}
+		\label{lem:sigmaalg}
+		In der Situation von Definition~\ref{def:regularity} ist
+		$$\mathcal{S} \defby \setcomp{B \in \mathcal{B}}{B \text{ schwach regulär bzgl. } \mu}$$
+		eine $\sigma$-Algebra.
+	\end{Hilfssatz}
+	
+	\begin{proof}
+		$\emptyset, X \in \mathcal{S}$ ist offensichtlich. Jedes $B \in \mathcal{S}$ ist schwach regulär 
+		von innen und von außen und daher gilt wegen $\mu(X) < \infty$
+		$$\mu(B^\mathsf{c}) \, = \, \mu(X) - \mu(B) \, = \, \mu(X) - \sup_{\substack{C \subseteq B \\ 
+				C^\mathsf{c} \in \mathcal{O}}} \mu(C) \, = \, \inf_{\substack{U \supseteq B^\mathsf{c} \\ 
+				U \in \mathcal{O}}} \mu(U)$$
+		sowie analog
+		$$\mu(B^\mathsf{c}) \, = \, \mu(X) - \mu(B) \, = \, \mu(X) - \inf_{\substack{U \supseteq B \\ 
+				U \in \mathcal{O}}} \mu(C) \, = \, \sup_{\substack{C \subseteq B^\mathsf{c} \\ C^\mathsf{c} 
+				\in \mathcal{O}}} \mu(U) \text{,}$$
+		womit die schwache Regularität von $B^\mathsf{c}$ folgt. 
+		
+		Es bleibt also zu zeigen, dass für $(B_n)_n \in \mathcal{S}^\N$ auch $B \defby 
+		\bigcup_{n \in \N} B_n$ schwach regulär ist. 
+		Hierfür zeigen zunächst die schwache Regularität von innen. 
+		Sei dazu $\varepsilon > 0$ und wähle für $n \in \N$ jeweils abgeschlossene Mengen 
+		$C_n \subseteq B_n$ mit $\mu(B_n) - \mu(C_n) < \frac{\varepsilon}{3^n}$.
+		Wenn wir nun $N$ so groß wählen, dass $\mu\left( B \setminus \bigcup_{n=1}^N B_n \right) 
+		< \frac{\varepsilon}{2}$ 
+		(was wegen $\mu(B) < \infty$ immer geht), so gilt mit $C := \bigcup_{n=1}^N C_k$, dass 
+		\begin{align*}
+			\mu(B) - \mu(C) = \mu(B\setminus C) \; &=
+			    \; \mu\left( \left( B \setminus \bigcup_{n=1}^N B_n \right) \; \cup \; 
+			    \left( \bigcup_{n=1}^N B_n  \setminus C \right) \right) \\
+			&\leq \; \mu \left( B \setminus \bigcup_{n=1}^N B_n \right) + 
+			\sum_{n=1}^{N} \mu(B_n \setminus C_n) \\
+			&<    \; \frac{\varepsilon}{2} + 
+			\sum_{n=1}^{\infty} \frac{\varepsilon}{3^n} \; = \; \varepsilon
+		\end{align*}
+		und weil $C$ abgeschlossen ist, folgt, dass $B$ schwach regulär von innen ist.
+		
+		Wählen wir nun für alle $n$ offene Mengen $U_n \supseteq B_n$ so, 
+		dass $\mu(U_n) - \mu(B_n) < \frac{\varepsilon}{2^n}$, und setzen 
+		$U := \bigcup_{n \in \N} U_n$, so gilt 
+		$$\mu(U) - \mu(B) \; \leq \; \sum_{n=1}^\infty \mu(U_n \setminus B) \; \leq \; 
+		\sum_{n=1}^\infty \mu(U_n \setminus B_n) \; < \; \varepsilon$$
+		und weil $U$ offen ist, folgt insgesamt die schwache Regularität von $\mu$.
+	\end{proof}
+
+	Der folgende Hilfssatz~\ref{lem:opensets} liefert uns noch eine Möglichkeit, 
+	abgeschlossene Mengen von außen durch offene Mengen zu approximieren, womit wir im 
+	Beweis von Satz~\ref{thm:weakregularity} die äußere Regularität von abgeschlossenen 
+	Mengen zeigen werden können. Insbesondere die in Hilfssatz~\ref{lem:opensets} definierten 
+	Funktionen $f_n$ werden  auch im weiteren Verlauf noch nützlich sein.
+	
+	\begin{Hilfssatz}
+		\label{lem:opensets}
+		Sei $(X, d)$ ein metrischer Raum und $C \subseteq X$ eine abgeschlossene 
+		Teilmenge. Ferner definieren wir für $n \in \N$
+		$$ A_n \defby \setcomp{y \in X}{d(y, C) < \frac{1}{n}} \quad \text{und} \quad 
+		\fctmap{f_n}{X}{\R}{x}{\max \set{0, 1-n d(x, C)}} \text{,}$$
+		wobei wir $d(y, C) \defby \inf_{x \in C} d(y, x)$ setzen.
+		Dann gilt:
+		\begin{enumeratethm}
+			\item $A_n$ ist offen für alle $n \in \N$.
+			\item $C = \bigcap_{n \in \N} A_n$, insbesondere ist $C$ also eine $G_\delta$-Menge.
+			\item Für alle $n$ ist $\restr{f_n}{A_n^\mathsf{c}} = 0$ und $f_n$ ist gleichmäßig stetig.
+			\item $f_n \convdown \indfct_C$.
+		\end{enumeratethm}
+	\end{Hilfssatz}
+
+	\begin{proof}
+		zu (a): Wir wählen $y \in A_n$, also $y \in X, \; d(y, C) < \frac{1}{n}$. 
+		Mit $r_n \defby \frac{1}{n} - d(y, C) > 0$
+		gilt dann für alle $x \in X, \; d(x, y) < r_n$:
+		$$d(x, C) \leq d(x, y) + d(y, C) < \frac{1}{n} \text{,}$$
+		und damit gilt $B_{r_n}(y) \subseteq A_n$ und $A_n$ ist offen.
+		
+		zu (b): Sicherlich ist $C \subseteq A_n$ für alle $n \in \N$ und damit 
+		$C \subseteq \bigcap_{n \in \N} A_n$. 
+		Umgekehrt ist für ein beliebiges $y \in \bigcap_{n \in \N} A_n$
+		$$d(y, C) = \inf_{x \in C} d(y, x) = 0 \text{,}$$
+		was impliziert, dass es eine Folge $(x_n)_n \in C^\N$ gibt mit $x_n \rightarrow y$, 
+		und wegen der Abgeschlossenheit von $C$ ist damit $y \in C$, also auch 
+		$\bigcap_{n \in \N} A_n \subseteq C$.
+		
+		zu (c): Für $x \in A_n^\mathsf{c}$ ist $d(x, C) \geq \frac{1}{n}$ und 
+		damit $1 - nd(x, C) \leq 0$, also $\restr{f_n}{A_n^\mathsf{c}} = 0$. 
+		Außerdem gilt für beliebige $x, y \in X$:
+		\begin{align*}
+			| f_n(x) - f_n(y) | \; &= \; | \max \set{0, 1-n d(x, C)} - \max \set{0, 1-n d(y, C)} | \\
+								   &= \; \begin{cases}
+								   	n | d(y, C) - d(x, C) | & \quad d(x, C) < \frac{1}{n} 
+								   							\; \text{und} \; d(y, C) < \frac{1}{n} \\
+								   	1 - nd(x, C)            & \quad d(x, C) < \frac{1}{n} 
+								   							\; \text{und} \; d(y, C) \geq \frac{1}{n} \\
+								   	1 - nd(y, C)            & \quad d(x, C) \geq \frac{1}{n} 
+								   							\; \text{und} \; d(y, C) < \frac{1}{n} \\
+								   	0                       & \quad d(x, C) \geq \frac{1}{n} 
+								   							\; \text{und} \; d(y, C) \geq \frac{1}{n}
+								   \end{cases} \\
+							      &\leq \; n | d(y, C) - d(x, C) | \; \leq \; nd(x, y)
+		\end{align*}
+		und damit ist $f_n$ lipschitzstetig, also auch gleichmäßig stetig.
+		
+		zu (d): Offensichtlich ist $(f_n)_n$ fallend. Für $x \in C^\mathsf{c}$ ist $d(x, C) > 0$ und damit
+		$$f_n(x) = \max \set{0, 1-n d(x, C)} \; \xrightarrow{n \to \infty} \; 0 \text{,}$$
+		für $x \in C$ ist dagegen $f_n(x) = 1$ konstant, womit die Behauptung folgt.
+	\end{proof}
+
+	Ausgestattet mit den Hilfssätzen \ref{lem:sigmaalg} und \ref{lem:opensets} kann nun, 
+	wie oben bereits skizziert, Satz~\ref{thm:weakregularity} bewiesen werden.
+
+	\begin{proof}[Beweis von Satz~\ref{thm:weakregularity}]
+		Es ist nun zu zeigen, dass für jedes $\mu \in \Probmeasures{X}$
+		die Menge 
+		$$\mathcal{S} \defby \setcomp{B \in \mathcal{B}}{B \text{ schwach regulär bzgl. } \mu}$$
+		bereits ganz $\mathcal{B}$ ist. 
+		Da nach Hilfssatz~\ref{lem:sigmaalg} $\mathcal{S}$ eine $\sigma$-Algebra ist und 
+		$\mathcal{B}$ von den abgeschlossenen Mengen erzeugt wird, genügt es zu zeigen, 
+		dass diese in $\mathcal{S}$ enthalten sind. 
+		
+		Jedes abgeschlossene $C \in \mathcal{B}$ ist sicherlich schwach regulär von innen. 
+		Nun wählen wir $A_n, \; n \in \N$ wie in Hilfssatz~\ref{lem:opensets}. 
+		Wegen $A_n \convdown C$ und $\mu(X) < \infty$ folgt mit der Maßstetigkeit von oben, dass
+		$$\mu(A_n) \convdown \mu(C)$$
+		und da alle $A_n$ offen sind, ist $C$ auch schwach regulär von außen.
+		
+		Insgesamt folgt also $\mathcal{S} = \mathcal{B}$ und damit die Behauptung.
+	\end{proof}
+
+	\begin{Satz}
+		Sei $(X,d)$ ein metrischer Raum und seien $\mu, \nu \in \Probmeasures{X}$. Dann sind äquivalent:
+		\begin{equivalentthm}
+			\item $\mu = \nu$
+			\item Für alle gleichmäßig stetigen Funktionen $\fct{f}{X}{\R}$ ist
+					 $\measureint{}{f}{\mu} = \measureint{}{f}{\nu}$
+			\item Für alle abgeschlossenen Mengen $C \in \mathcal{B}$ ist $\mu(C) = \nu(C)$.
+		\end{equivalentthm}
+	\end{Satz}
+
+	\begin{proof}
+		(i) $\Rightarrow$ (ii) ist klar.
+		
+		(ii) $\Rightarrow$ (iii): Gelte (ii) und sei $C \subseteq X$ abgeschlossen. 
+		Dann gilt für die gleichmäßig stetigen Funktionen $f_n$ aus Hilfssatz~\ref{lem:opensets}
+		$$\measureint{}{f_n}{\mu} = \measureint{}{f_n}{\nu}\text{,} \quad n \in \N \text{.}$$
+		Wegen $| f_n | \leq 1$ und $f_n \convdown \indfct_C$ folgt mit dem Satz von Lebesgue 
+		$$\measureint{}{f_n}{\mu} \; \to \; \mu(C) \quad \text{und} \quad \measureint{}{f_n}{\nu} 
+			\; \to \; \nu(C)$$
+		und damit gilt (iii).
+		
+		(iii) $\Rightarrow$ (i): Da $\mu$ und $\nu$ nach Satz~\ref{thm:weakregularity} 
+		schwach regulär sind, folgt die Behauptung ebenfalls direkt.
+	\end{proof}
+
+	\begin{Definition}[Schwache Konvergenz von Maßen]
+		Ist $(\mu_n)_n \in \Probmeasures{X}$ eine Folge, so sagen wir, dass $(\mu_n)_n$ 
+		schwach gegen $\mu \in \Probmeasures{X}$ konvergiert, falls für alle $f \in C(X)$, 
+		den stetigen beschränkten Funktionen, gilt, dass
+		$$\measureint{}{f}{\mu_n} \; \xrightarrow{n \to \infty} \; \measureint{}{f}{\mu} \text{.}$$
+		In diesem Fall schreiben wir
+		$$\mu_n \xrightarrow{w} \mu \text{.}$$
+	\end{Definition}
+
+	Eine Charakterisierung der schwachen Konvergenz von Maßen liefert der folgende Satz:
+
+	\begin{Satz}[Portmanteau]
+		Sei $(X, d)$ ein metrischer Raum, so sind für $(\mu_n)_n \in \Probmeasures{X}^\N$ 
+		und $\mu \in \Probmeasures{X}$ äquivalent:
+		\begin{equivalentthm}
+			\item $\mu_n \xrightarrow{w} \mu$
+			\item Für alle abgeschlossenen Mengen $C \subseteq X$ gilt: 
+				$$\limsup_{n \to \infty} \mu_n(C) \; \leq \; \mu(C)$$
+			\item Für alle offenen Mengen $U \subseteq X$ gilt: 
+				$$\liminf_{n \to \infty} \mu_n(U) \; \geq \; \mu(U)$$
+			\item Für alle $B \in \mathcal{B}$ mit $\mu(\partial B) = 0$ 
+				ist $$\lim_{n \to \infty} \mu_n(A) \; = \; \mu(A) \text{.}$$
+		\end{equivalentthm}
+	\end{Satz}
+
+	\begin{proof}
+		(i) $\Rightarrow$ (ii): Sei $C \subseteq X$ abgeschlossen und definiere 
+		die zugehörigen $f_m, \; m \in \N$ aus Hilfssatz~\ref{lem:opensets}, 
+		welche sowohl stetig als auch beschränkt sind.
+		Dann gilt für alle $m \in \N$
+		$$\mu_n(C) \; = \; \measureint{}{\indfct_C}{\mu_n} \; \leq \; 
+			\measureint{}{f_m}{\mu_n} \; \xrightarrow{n \to \infty} 
+			\measureint{}{f_m}{\mu} \text{,}$$
+		also 
+		$$\limsup_{n \to \infty} \mu_n(C) \; \leq \; 
+			\measureint{}{f_m}{\mu} \quad \forall m \in \N$$
+		und mit $f_m \convdown \indfct_C$ sowie $| f_m | \leq 1$ 
+		liefert der Satz von Lebesgue, dass
+		$$\measureint{}{f_m}{\mu} \; \xrightarrow{m \to \infty} 
+			\measureint{}{\indfct_C}{\mu} \; = \; \mu(C) \text{,}$$
+		woraus
+		$$\limsup_{n \to \infty} \mu_n(C) \; \leq \; \mu(C)$$
+		folgt.
+		
+		(ii) $\Leftrightarrow$ (iii): Sei $U$ offen, also 
+		$C \defby U^\mathsf{c}$ abgeschlossen. Dann gilt
+		$$\mu(X) - \liminf_{n \to \infty} \mu_n(U) \; = \; 
+			\limsup_{n \to \infty} \mu_n(C) \; \leq \; 
+			\mu(C) \; = \; \mu(X) - \mu(U)$$
+		und damit 
+		$$\liminf_{n \to \infty} \mu_n(U) \; \geq \; \mu(U) \text{.}$$
+		Die andere Richtung geht vollkommen analog.
+		
+		(ii), (iii) $\Rightarrow$ (iv): Sei $A \in \mathcal{B}$ mit 
+		$\mu(\partial A) = 0$. Dann gilt zunächst
+		$$A^\mathsf{o} \subseteq A \subseteq \overline{A}, \quad 
+			\partial A = \overline{A} \setminus A^\mathsf{o} \quad 
+			\text{und damit } \quad \mu(A^\mathsf{o}) = 
+			\mu(A) = \mu(\overline{A}) \text{,}$$
+		und wegen 
+		$$\limsup_{n \to \infty} \mu_n(\overline{A}) \; \leq \; 
+			\mu(\overline{A}) \quad \text{und} \quad 
+			\liminf_{n \to \infty} \mu_n(A^\mathsf{o}) \; \geq \; 
+			\mu(A^\mathsf{o})$$
+		folgt
+		$$\lim_{n \to \infty} \mu_n(A) \; = \; \mu(A) \text{.}$$
+		
+		(iv) $\Rightarrow$ (i): Sei $f \in C(X)$ und $a < b \in \R$ 
+		mit $a < f < b$. Setzen wir
+		$$S \defby \setcomp{c \in (a, b)}{\mu(\set{f = c}) > 0} \text{,}$$
+		so ist S abzählbar (denn für $n \in \N$ ist 
+		$S_n \defby \setcomp{c \in (a, b)}{\mu(\set{f = c}) > \frac{1}{n}}$ 
+		endlich und $S = \bigcup_{n \in \N} S_n$).
+		Damit können wir für jedes $m \in \N$ 
+		\[a = \underbrace{c_0^{(m)} < \dots < c_{2m}^{(m)}}_{\notin S} = 
+			b \text{,} \qquad c_{j+1}^{(m)} - c_j^{(m)} \leq \frac{b-a}{m} 
+			\label{eq:2.9.1} \tag{2.9.1}\]
+		finden, wobei wir
+		$$A_j^{(m)} \defby \set{c_j^{(m)} < f \leq c_{j+1}^{(m)}}\text{,}
+			 \qquad j = 0,\dots,2m-1$$
+		setzen. 
+		Wegen der Stetigkeit von $f$ gilt dann 
+		$\partial A_j^{(m)} \subseteq \set{f = c_j^{(m)}} \cup \set{f = c_{j+1}^{(m)}}$, 
+		also 
+		$$\mu(A_j^{(m)}) = 0 \text{,} \qquad j = 0,\dots,2m-1 \text{.}$$
+		Setzen wir nun
+		$$u_m \defby \sum_{j=0}^{2m-1} c_j^{(m)} \indfct_{A_j^{(m)}} 
+			\text{,} \qquad m \in \N \text{,}$$
+		so ist nach (iv)
+		\[\measureint{}{u_m}{\mu_n} \; = \; \sum_{j=0}^{2m-1} c_j^{(m)} \mu_n(A_j^{(m)}) 
+			\; \xrightarrow{n \to \infty} \; \sum_{j=0}^{2m-1} c_j^{(m)} \mu(A_j^{(m)}) \; = \; 
+			\measureint{}{u_m}{\mu} \label{eq:2.9.2} \tag{2.9.2}\]
+		und wegen \eqref{eq:1.9.1} gilt
+		\[\left| \measureint{}{f}{\mu_n} - \measureint{}{u_m}{\mu_n} \right| \; \leq \; 
+			\frac{b-a}{m} \quad \forall n \in \N \text{,} \qquad 
+			\left| \measureint{}{f}{\mu} - \measureint{}{u_m}{\mu} \right| \; \leq \; 
+			\frac{b-a}{m} \text{.} \label{eq:2.9.3} \tag{2.9.3}\]
+		Damit gilt für alle $m, n \in \N$
+		$$ \left| \measureint{}{f}{\mu} - \measureint{}{f}{\mu_n} \right| \; \leq \; 
+			\left| \measureint{}{f}{\mu} - \measureint{}{u_m}{\mu} \right| + 
+			\left| \measureint{}{u_m}{\mu} - \measureint{}{u_m}{\mu_n} \right| + 
+			\left| \measureint{}{u_m}{\mu_n} - \measureint{}{f}{\mu_n} \right| \text{,}$$
+		also wegen \eqref{eq:2.9.2} und \eqref{eq:2.9.3} für alle $m$
+		$$ \limsup_{n \to \infty} \left| \measureint{}{f}{\mu} - \measureint{}{f}{\mu_n} \right|
+			 \; \leq \; 2 \cdot \frac{b-a}{m} \quad 
+			 \left(\xrightarrow{m \to \infty} \; 0\right) \text{,}$$
+		was die Behauptung impliziert.
+	\end{proof}
+
+	
+	
+\end{document}
+
