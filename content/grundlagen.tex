@@ -39,7 +39,7 @@
 	\begin{Bemerkung}
 		Ersetzen wir in der obigen Definition \enquote{abgeschlossen} durch \enquote{kompakt}, 
 		so erhalten wir analog den Begriff der Regularität. (Schwache) Regularität ist eine 
-		Approximationseigenschaft von Maßen, die häufig benutzt wird, um gewisse Aussagen 
+		Approximationseigenschaft von Maßen, die es uns etwa erlaubt, gewisse Aussagen 
 		zunächst für abgeschlossene bzw. kompakte und für offene Mengen zu zeigen, um diese 
 		anschließend auf ganz $\mathcal{B}$ auszuweiten.
 	\end{Bemerkung}
@@ -101,6 +101,10 @@
 		\sum_{n=1}^\infty \mu(U_n \setminus B_n) \; < \; \varepsilon$$
 		und weil $U$ offen ist, folgt insgesamt die schwache Regularität von $\mu$.
 	\end{proof}
+
+	\begin{Bemerkung}
+		Sofern $X$ kompakt ist, bleibt der obige Hilfssatz~\ref{lem:sigmaalg} gültig, wenn man \enquote{schwach regulär} durch \enquote{regulär} ersetzt. Der hier vorgestellte Beweis ist eine Anpassung von \cite[Lemma 4.5.5]{Simon.2015}, wo die Aussage für kompakte $X$ bewiesen wird.
+	\end{Bemerkung}
 
 	Der folgende Hilfssatz~\ref{lem:opensets} liefert uns noch eine Möglichkeit, 
 	abgeschlossene Mengen von außen durch offene Mengen zu approximieren, womit wir im 
@@ -164,7 +168,7 @@
 	\end{proof}
 
 	Ausgestattet mit den Hilfssätzen \ref{lem:sigmaalg} und \ref{lem:opensets} kann nun, 
-	wie oben bereits skizziert, Satz~\ref{thm:weakregularity} bewiesen werden.
+	wie oben bereits angedeutet wurde, Satz~\ref{thm:weakregularity} bewiesen werden.
 
 	\begin{proof}[Beweis von Satz~\ref{thm:weakregularity}]
 		Es ist nun zu zeigen, dass für jedes $\mu \in \Probmeasures{X}$
@@ -210,7 +214,8 @@
 	\end{proof}
 
 	\begin{Definition}[Schwache Konvergenz von Maßen]
-		Ist $(\mu_n)_n \in \Probmeasures{X}$ eine Folge, so sagen wir, dass $(\mu_n)_n$ 
+		Ist $(\mu_n)_n \in \Probmeasures{X}^\N$ eine Folge von Wahrscheinlichkeitsmaßen,
+		 so sagen wir, dass $(\mu_n)_n$ 
 		schwach gegen $\mu \in \Probmeasures{X}$ konvergiert, falls für alle $f \in C(X)$, 
 		den stetigen beschränkten Funktionen, gilt, dass
 		$$\measureint{}{f}{\mu_n} \; \xrightarrow{n \to \infty} \; \measureint{}{f}{\mu} \text{.}$$
@@ -274,6 +279,9 @@
 			\liminf_{n \to \infty} \mu_n(A^\mathsf{o}) \; \geq \; 
 			\mu(A^\mathsf{o})$$
 		folgt
+		$$\limsup_{n \to \infty} \mu_n(A) \; \leq \; 
+		\mu(A) \; \leq \; \liminf_{n \to \infty} \mu_n(A) \text{,}$$
+		also insgesamt
 		$$\lim_{n \to \infty} \mu_n(A) \; = \; \mu(A) \text{.}$$
 		
 		(iv) $\Rightarrow$ (i): Sei $f \in C(X)$ und $a < b \in \R$ 
