@@ -303,14 +303,17 @@
 	\end{proof} 
 
 	\begin{Definition}[Hilbertwürfel]
-		Der \emph{Hilbertwürfel} ist der topologische Raum $H = [0, 1]^\N$ ausgestattet mit der Produkttopologie, also der kleinsten Topologie, bezüglich der alle Projektionen $\fctmap{\pi_n}{H}{[0, 1]}{x}{x_n}$ stetig sind.
+		Der \emph{Hilbertwürfel} ist der topologische Raum $H = [0, 1]^\N$ 
+		ausgestattet mit der Produkttopologie, also der kleinsten Topologie, 
+		bezüglich der alle Projektionen $\fctmap{\pi_n}{H}{[0, 1]}{x}{x_n}$ stetig sind.
 	\end{Definition}
 
 	\begin{Hilfssatz}
 		\label{lem:hilbertcube}
 		Für den Hilbertwürfel $H$ gelten folgende Aussagen:
 		\begin{enumeratethm}
-			\item Eine Folge $(x^{(k)})_k \in H^\N$ konvergiert genau dann gegen ein $x \in H$, wenn alle Komponenten konvergieren, also, wenn
+			\item Eine Folge $(x^{(k)})_k \in H^\N$ konvergiert genau dann gegen 
+			ein $x \in H$, wenn alle Komponenten konvergieren, also, wenn
 			$\lim_{n \to \infty} x_n^{(k)} = x_n$ für alle $n \in \N$ gilt.
 			\item Setzen wir für $x, y \in H$
 			$$d(x, y) \defby \max_{n \in \N} \frac{|x_n - y_n|}{2^n} \text{,}$$
@@ -319,28 +322,50 @@
 	\end{Hilfssatz}
 
 	\begin{proof}
-		Die Hinrichtung von (a) folgt aus der Stetigkeit der Projektionen $\pi_n, \; n \in \N$. Für die Rückrichtung bemerke man zunächst, dass Mengen der Form 
-		\[U = \prod_{n=1}^{\infty} U_n\text{,} \quad U_n \subseteq [0, 1] \text{ offen, } \quad U_n = [0, 1] \text{ für fast alle } n \label{eq:2.5} \tag{2.5}\]
+		Die Hinrichtung von (a) folgt aus der Stetigkeit der Projektionen 
+		$\pi_n, \; n \in \N$. Für die Rückrichtung bemerke man zunächst, dass Mengen der Form 
+		\[U = \prod_{n=1}^{\infty} U_n\text{,} \quad U_n \subseteq [0, 1] \text{ offen, }
+		 \quad U_n = [0, 1] \text{ für fast alle } n \label{eq:2.5} \tag{2.5}\]
 		eine Basis der Topologie von $H$ bilden. 
-		Konvergiert nun also $(x^{(k)})_k \in H^\N$ komponentenweise gegen $x \in H$, so enthält jede offene Umgebung von $x$ von der Form \eqref{eq:2.5} auch fast alle Folgenglieder $x^{(k)}, \; k \in \N$ und damit konvergiert auch $(x^{(k)})_k$ gegen $x$.
+		Konvergiert nun also $(x^{(k)})_k \in H^\N$ komponentenweise gegen $x \in H$, 
+		so enthält jede offene Umgebung von $x$ von der Form \eqref{eq:2.5} auch fast 
+		alle Folgenglieder $x^{(k)}, \; k \in \N$ und damit konvergiert 
+		auch $(x^{(k)})_k$ gegen $x$.
 		
-		Offenbar wird durch $d$ aus (b) eine Metrik auf $H$ definiert. Es genügt also zu zeigen, dass $d$ die Topologie von $H$ induziert. 
-		Für $x \in H$ und $r > 0$ ist $B_r(x) = \prod_{n=1}^{\infty} B_{2^n r}(x_n) \subseteq H$ offen. Ist nun $U = \prod_{n=1}^{\infty} U_n$ wie in \eqref{eq:2.5}, so lässt sich leicht einsehen, dass es für jedes $x \in U$ ein $r > 0$ gibt mit $B_r(x) \subseteq U$, also ist $U$ offen bezüglich der von $d$ erzeugten Topologie und insgesamt wird $H$ von $d$ metrisiert.
+		Offenbar wird durch $d$ aus (b) eine Metrik auf $H$ definiert. 
+		Es genügt also zu zeigen, dass $d$ die Topologie von $H$ induziert. 
+		Für $x \in H$ und $r > 0$ ist $B_r(x) = \prod_{n=1}^{\infty} B_{2^n r}(x_n) \subseteq H$ 
+		offen. Ist nun $U = \prod_{n=1}^{\infty} U_n$ wie in \eqref{eq:2.5}, 
+		so lässt sich leicht einsehen, dass es für jedes $x \in U$ ein $r > 0$ 
+		gibt mit $B_r(x) \subseteq U$, also ist $U$ offen bezüglich der von $d$ 
+		erzeugten Topologie und insgesamt wird $H$ von $d$ metrisiert.
 	\end{proof}
 
 	\begin{Bemerkung}
-		Der aus der Topologie bekannte \emph{Satz von Tychonoff} liefert unmittelbar, dass $H$ als Produkt kompakter topologischer Räume ebenfalls kompakt ist.
-		Außerdem lässt sich unter Ausnutzung von Aussage (a) aus Hilfssatz~\ref{lem:hilbertcube} leicht zeigen, dass $(H, d)$ vollständig ist. Weil Mengen der Form \eqref{eq:2.5}, bei denen $U_n$ ausschließlich rationale Intervalle sind, eine abzählbare Basis der Topologie von $H$ bilden, ist $H$ sogar separabel und damit insgesamt ein kompakter polnischer Raum.
+		Der aus der Topologie bekannte \emph{Satz von Tychonoff} liefert 
+		unmittelbar, dass $H$ als Produkt kompakter topologischer Räume 
+		ebenfalls kompakt ist.
+		Außerdem lässt sich unter Ausnutzung von Aussage (a) aus 
+		Hilfssatz~\ref{lem:hilbertcube} leicht zeigen, dass $(H, d)$ 
+		vollständig ist. Weil Mengen der Form \eqref{eq:2.5}, bei denen 
+		$U_n$ ausschließlich rationale Intervalle sind, eine abzählbare 
+		Basis der Topologie von $H$ bilden, ist $H$ sogar separabel und 
+		damit insgesamt ein kompakter polnischer Raum.
 	\end{Bemerkung}
 
 	\begin{Satz}[Charakterisierung polnischer Räume]
-		Ein topologischer Raum $(X, \mathcal{O})$ ist genau dann polnisch, wenn es eine $G_\delta$-Teilmenge $Y \subseteq H$ gibt, sodass $X$ zu $Y$ homöomorph ist. 
+		Ein topologischer Raum $(X, \mathcal{O})$ ist genau dann polnisch, 
+		wenn es eine $G_\delta$-Teilmenge $Y \subseteq H$ gibt, sodass $X$ 
+		zu $Y$ homöomorph ist. 
 		
-		Darüber hinaus entsprechen die kompakten polnischen Räume bis auf Homöomorphie den abgeschlossenen Teilmengen von $H$.
+		Darüber hinaus entsprechen die kompakten polnischen Räume bis auf 
+		Homöomorphie den abgeschlossenen Teilmengen von $H$.
 	\end{Satz}
 
 	\begin{Hilfssatz}
-		Sei $(X, d)$ ein separabler metrischer Raum und sei $D \defby \setcomp{x_n}{n \in \N} \subseteq X$ eine abzählbare dichte Teilmenge. Außerdem setzen wir
+		Sei $(X, d)$ ein separabler metrischer Raum und sei 
+		$D \defby \setcomp{x_n}{n \in \N} \subseteq X$ eine abzählbare 
+		dichte Teilmenge. Außerdem setzen wir
 		\[\fctmap{\varphi}{X}{H}{x}{(\min(1, d(x, x_n)))_n} \text{.} \label{eq:2.6} \tag{2.6}\]
 		Dann gilt das Folgende:
 		\begin{enumeratethm}
@@ -350,17 +375,27 @@
 	\end{Hilfssatz}
 
 	\begin{proof}
-		Wir zeigen zunächst, dass $\varphi$ injektiv ist. Dazu seien $y, z \in H$ mit $\varphi(y) = \varphi(z)$, also gilt
+		Wir zeigen zunächst, dass $\varphi$ injektiv ist. 
+		Dazu seien $y, z \in H$ mit $\varphi(y) = \varphi(z)$, also gilt
 		\[\min(1, d(y, x_n)) = \min(1, d(z, x_n)) \label{eq:2.7} \tag{2.7}\]
-		für alle $n \in \N$. Weil es eine Folge $(y_n)_n \in D^\N$ mit $y_n \to y$ gibt und diese wegen \eqref{eq:2.7} auch gegen $z$ konvergiert, folgt die Gleichheit von $y$ und $z$.
+		für alle $n \in \N$. Weil es eine Folge $(y_n)_n \in D^\N$ mit 
+		$y_n \to y$ gibt und diese wegen \eqref{eq:2.7} auch gegen $z$ 
+		konvergiert, folgt die Gleichheit von $y$ und $z$.
 		
-		Die Stetigkeit von $\varphi$ folgt direkt, weil die Komponentenfunktionen $x \mapsto \min(1, d(x, x_n))$ jeweils stetig sind. 
-		Seien nun $(y_k)_k \in X^\N$ und $y \in X$ mit $\varphi(y_k) \to \varphi(y)$, also
-		\[\min(1, d(y_k, x_n)) \; \to \; \min(1, d(y, x_n)), \quad k \to \infty \label{2.8} \tag{2.8}\]
-		für alle $n \in \N$. Wählt man nun $\varepsilon < 1$ beliebig, so existiert ein $n \in \N$ mit $d(y, x_n) \leq \varepsilon$. Wegen \eqref{2.8} ist dann auch
+		Die Stetigkeit von $\varphi$ folgt direkt, weil die 
+		Komponentenfunktionen $x \mapsto \min(1, d(x, x_n))$ jeweils stetig sind. 
+		Seien nun $(y_k)_k \in X^\N$ und $y \in X$ mit $\varphi(y_k) \to \varphi(y)$, 
+		also
+		\[\min(1, d(y_k, x_n)) \; \to \; \min(1, d(y, x_n)), 
+			\quad k \to \infty \label{2.8} \tag{2.8}\]
+		für alle $n \in \N$. Wählt man nun $\varepsilon < 1$ beliebig, 
+		so existiert ein $n \in \N$ mit $d(y, x_n) \leq \varepsilon$. 
+		Wegen \eqref{2.8} ist dann auch
 		$d(y_k, x_n) \to d(y, x_k), \; k \to \infty$. Es gilt also die Ungleichung
-		$$\limsup_{k \to \infty} d(y_k, y) \; \leq \; \limsup_{k \to \infty} d(y_k, x_n) + d(y, x_n) \; \leq \; 2\varepsilon$$
-		und mit $\varepsilon \to 0$ folgt die Stetigkeit von $\varphi^{-1}$, womit Aussage (a) gezeigt ist.
+		$$\limsup_{k \to \infty} d(y_k, y) \; \leq \; 
+			\limsup_{k \to \infty} d(y_k, x_n) + d(y, x_n) \; \leq \; 2\varepsilon$$
+		und mit $\varepsilon \to 0$ folgt die Stetigkeit von $\varphi^{-1}$, 
+		womit Aussage (a) gezeigt ist.
 	\end{proof}
 
 	
