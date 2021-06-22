@@ -389,43 +389,83 @@
 		und mit $\varepsilon \to 0$ folgt die Stetigkeit von $\varphi^{-1}$, 
 		womit Aussage (a) gezeigt ist.
 		
-		Nun beweisen wir noch Aussage (b). Da $\varphi$ ein Homöomorphismus auf sein Bild ist, ist $\varphi(B_{1/k}(x_m)) \subseteq \varphi(X)$ für alle $k, m \in \N$ relativ offen, also gibt es jeweils offene Mengen $V_{k, m} \subseteq H$ mit
-		\[\varphi(B_{1/k}(x_m)) \; = \; V_{k, m} \cap \varphi(X) \text{.} \label{eq:2.9} \tag{2.9}\]
+		Nun beweisen wir noch Aussage (b). Da $\varphi$ ein Homöomorphismus auf sein 
+		Bild ist, ist $\varphi(B_{1/k}(x_m)) \subseteq \varphi(X)$ für alle 
+		$k, m \in \N$ relativ offen, also gibt es jeweils offene Mengen 
+		$V_{k, m} \subseteq H$ mit
+		\[\varphi(B_{1/k}(x_m)) \; = \; V_{k, m} 
+			\cap \varphi(X) \text{.} \label{eq:2.9} \tag{2.9}\]
 		Wir möchten jetzt zeigen, dass
-		\[\varphi(X) \; = \; \overline{\varphi(X)} \, \cap \, \bigcap_{k \in \N} \left( \bigcup_{m \in \N} V_{k, m} \right) \label{eq:2.10} \tag{2.10}\]
-		gilt. Weil $\overline{\varphi(X)}$ nach Hilfssatz~\ref{lem:opensets} als abgeschlossene Menge eine $G_\delta$-Menge ist, folgt aus \eqref{eq:2.10} direkt die Aussage (b).
+		\[\varphi(X) \; = \; \overline{\varphi(X)} \, \cap \, 
+			\bigcap_{k \in \N} \left( \bigcup_{m \in \N} V_{k, m} \right) 
+			\label{eq:2.10} \tag{2.10}\]
+		gilt. 
+		Weil $\overline{\varphi(X)}$ nach Hilfssatz~\ref{lem:opensets} 
+		als abgeschlossene Menge eine $G_\delta$-Menge ist, 
+		folgt aus \eqref{eq:2.10} direkt die Aussage (b).
 		
-		Für jedes $m \in \N$ ist sicherlich $\varphi(X) \subseteq \bigcup_{m \in \N} V_{k, m}$, weshalb \enquote{$\subseteq$} in \eqref{eq:2.10} unmittelbar folgt.
-		Wir nehmen nun an, dass $z$ in der rechten Seite von \eqref{eq:2.10} liegt. Dann gibt es für jedes $k \in \N$ ein $m_k \in \N$ mit $z \in V_{k, m_k}$. Ferner existiert wegen $z \in \overline{\varphi(X)}$ eine Folge $(y_k)_k \in X^\N$ mit $\varphi(y_k) \to z$, wobei wir zusätzlich
+		Für jedes $m \in \N$ ist sicherlich $\varphi(X) \subseteq 
+		\bigcup_{m \in \N} V_{k, m}$, weshalb \enquote{$\subseteq$} 
+		in \eqref{eq:2.10} unmittelbar folgt.
+		Wir nehmen nun an, dass $z$ in der rechten Seite von \eqref{eq:2.10} liegt. 
+		Dann gibt es für jedes $k \in \N$ ein $m_k \in \N$ mit $z \in V_{k, m_k}$. 
+		Ferner existiert wegen $z \in \overline{\varphi(X)}$ eine Folge $(y_k)_k \in X^\N$ 
+		mit $\varphi(y_k) \to z$, wobei wir zusätzlich
 		$\varphi(y_k) \in \bigcap_{j=1}^{k} V_{j, m_j}$
 		fordern. Weil damit nach \eqref{eq:2.9} auch für alle $k \in \N$
 		\[y_k \in \bigcap_{j=1}^{k} B_{1/k}(x_m)\]
-		gilt, ist $(y_k)_k$ eine Cauchyfolge. Aufgrund der Vollständigkeit von $(X, d)$ gibt es also ein $y \in X$ mit $y_k \to y$, was $z = \varphi(y) \in \varphi(X)$ impliziert.
+		gilt, ist $(y_k)_k$ eine Cauchyfolge. Aufgrund der Vollständigkeit von 
+		$(X, d)$ gibt es also ein $y \in X$ mit $y_k \to y$, was 
+		$z = \varphi(y) \in \varphi(X)$ impliziert.
 	\end{proof}
 
 	\begin{Hilfssatz}
 		\label{lem:characterizationpolishspaces2}
-		Sei $X$ ein polnischer Raum. Dann ist jede $G_\delta$-Teilmenge von $X$ (ausgestattet mit der Teilraumtopologie) ebenfalls polnisch.
+		Sei $X$ ein polnischer Raum. Dann ist jede $G_\delta$-Teilmenge 
+		von $X$ (ausgestattet mit der Teilraumtopologie) ebenfalls polnisch.
 	\end{Hilfssatz}
 
 	\begin{proof}
-		Sei $P \subseteq X$ eine $G_\delta$-Teilmenge und $U_n \subseteq X, \, n \in \N$ offene Mengen mit $P = \bigcap_{n \in \N} U_n$, wobei wir außerdem $A_n \defby U_n^{\mathsf{c}}$ schreiben. Ferner sei $d$ eine Metrik, die $X$ vollständig metrisiert. Da $P$ als Teilmenge eines separablen metrischen Raumes selbst separabel ist, genügt es, die vollständige Metrisierbarkeit von $P$ zu beweisen.
+		Sei $P \subseteq X$ eine $G_\delta$-Teilmenge und 
+		$U_n \subseteq X, \, n \in \N$ offene Mengen mit 
+		$P = \bigcap_{n \in \N} U_n$, wobei wir außerdem 
+		$A_n \defby U_n^{\mathsf{c}}$ schreiben. Ferner sei 
+		$d$ eine Metrik, die $X$ vollständig metrisiert. 
+		Da $P$ als Teilmenge eines separablen metrischen Raumes 
+		selbst separabel ist, genügt es, die vollständige Metrisierbarkeit 
+		von $P$ zu beweisen.
 		
 		Für $x, y \in P$ definieren wir
 		\[d^\ast(x, y) \; \defby \; d(x, y) + \sum_{n=1}^{\infty} \min \left(
 		\frac{1}{2^n}, \left| \frac{1}{d(x, A_n)} - \frac{1}{d(y, A_n)} \right|
 		\right) \text{.}\]
-		Offensichtlich ist $d^\ast$ eine Metrik auf $P$, die dieselbe Topologie wie $d$ erzeugt. 
+		Offensichtlich ist $d^\ast$ eine Metrik auf $P$, 
+		die dieselbe Topologie wie $d$ erzeugt. 
 		
-		Wir möchten nun zeigen, dass $(P, d^\ast)$ vollständig ist. Sei dazu $(x_k)_k \in P^\N$ eine Cauchyfolge. Wegen $d \leq d^\ast$ ist $(x_k)_k$ dann auch bezüglich $d$ eine Cauchyfolge und die Vollständigkeit von $(X, d)$ liefert die Existenz eines Grenzwertes $x \in X$. Angenommen $x \notin P$, so gibt es ein $m \in \N$ mit $x \in A_m$. Damit gilt aber für alle $k \in \N$
-		$$\sup_{l \geq k} d^\ast(x_k, x_l) \; \geq \; \sup_{l \geq k} \, \sum_{n=1}^{\infty} \min \left(
-		\frac{1}{2^n}, \left| \frac{1}{d(x_k, A_n)} - \frac{1}{d(x_l, A_n)} \right|
-		\right) \; \geq \; \frac{1}{2^m} \; > \; 0 \text{,}$$
-		was der Tatsache widerspricht, dass $(x_k)_k$ eine Cauchyfolge bezüglich $d^\ast$ ist. Damit muss also $x \in P$ gelten. Aus der Stetigkeit von $x \mapsto d(x, A_n)$ folgt mit dem Satz von Lebesgue unmittelbar die Konvergenz 
+		Wir möchten nun zeigen, dass $(P, d^\ast)$ vollständig ist. 
+		Sei dazu $(x_k)_k \in P^\N$ eine Cauchyfolge. Wegen $d \leq d^\ast$ 
+		ist $(x_k)_k$ dann auch bezüglich $d$ eine Cauchyfolge und die 
+		Vollständigkeit von $(X, d)$ liefert die Existenz eines Grenzwertes 
+		$x \in X$. Angenommen $x \notin P$, so gibt es ein $m \in \N$ mit 
+		$x \in A_m$. Damit gilt aber für alle $k \in \N$
+		$$\sup_{l \geq k} d^\ast(x_k, x_l) \; \geq \; \sup_{l \geq k} 
+			\, \sum_{n=1}^{\infty} \min \left(
+			\frac{1}{2^n}, \left| \frac{1}{d(x_k, A_n)} -
+			 \frac{1}{d(x_l, A_n)} \right|
+			\right) \; \geq \; \frac{1}{2^m} \; > \; 0 \text{,}$$
+		was der Tatsache widerspricht, dass $(x_k)_k$ eine Cauchyfolge 
+		bezüglich $d^\ast$ ist. Damit muss also $x \in P$ gelten. 
+		Aus der Stetigkeit von $x \mapsto d(x, A_n)$ folgt mit dem 
+		Satz von Lebesgue unmittelbar die Konvergenz 
 		$d^\ast(x_k, x) \to 0$ für $k \to \infty$.
 	\end{proof}
 
-	Da wir in Hilfssatz~\ref{lem:characterizationpolishspaces} bereits gesehen haben, dass jeder polnische Raum homöomporph zu einer $G_\delta$-Teilmenge vom Hilbertwürfel $H$ ist und wir durch Lemma~\ref{lem:characterizationpolishspaces2} nun auch wissen, dass jede $G_\delta$-Teilmenge von $H$ tatsächlich polnisch ist, haben wir also insgesamt den folgenden Satz bewiesen:
+	Da wir in Hilfssatz~\ref{lem:characterizationpolishspaces} bereits 
+	gesehen haben, dass jeder polnische Raum homöomporph zu einer 
+	$G_\delta$-Teilmenge vom Hilbertwürfel $H$ ist und wir durch 
+	Lemma~\ref{lem:characterizationpolishspaces2} nun auch wissen, 
+	dass jede $G_\delta$-Teilmenge von $H$ tatsächlich polnisch ist, 
+	haben wir also insgesamt den folgenden Satz bewiesen:
 
 	\begin{Satz}[Charakterisierung polnischer Räume]
 		\label{thm:characterizationpolishspaces}
@@ -435,7 +475,11 @@
 	\end{Satz}
 
 	\begin{Bemerkung}
-		Da eine Teilmenge von $H$ genau dann kompakt ist, wenn sie abgeschlossen (und damit nach Hilfssatz~\ref{lem:opensets} eine $G_\delta$-Teilmenge) ist, entsprechen die kompakten polnischen Räume bis auf Homöomorphie den abgeschlossenen Teilmengen von $H$.
+		Da eine Teilmenge von $H$ genau dann kompakt ist, wenn sie 
+		abgeschlossen (und damit nach Hilfssatz~\ref{lem:opensets} 
+		eine $G_\delta$-Teilmenge) ist, entsprechen die kompakten 
+		polnischen Räume bis auf Homöomorphie den abgeschlossenen 
+		Teilmengen von $H$.
 	\end{Bemerkung}
 
 	
