@@ -416,7 +416,8 @@
 		\[y_k \in \bigcap_{j=1}^{k} B_{1/k}(x_m)\]
 		gilt, ist $(y_k)_k$ eine Cauchyfolge. Aufgrund der Vollständigkeit von 
 		$(X, d)$ gibt es also ein $y \in X$ mit $y_k \to y$, was 
-		$z = \varphi(y) \in \varphi(X)$ impliziert.
+		$z = \varphi(y) \in \varphi(X)$ und damit \enquote{$\supseteq$} in \eqref{eq:2.10} impliziert.
+		
 	\end{proof}
 
 	\begin{Hilfssatz}
@@ -429,7 +430,7 @@
 		Sei $P \subseteq X$ eine $G_\delta$-Teilmenge und 
 		$U_n \subseteq X, \, n \in \N$ offene Mengen mit 
 		$P = \bigcap_{n \in \N} U_n$, wobei wir außerdem 
-		$A_n \defby U_n^{\mathsf{c}}$ schreiben. Ferner sei 
+		$C_n \defby U_n^{\mathsf{c}}$ schreiben. Ferner sei 
 		$d$ eine Metrik, die $X$ vollständig metrisiert. 
 		Da $P$ als Teilmenge eines separablen metrischen Raumes 
 		selbst separabel ist, genügt es, die vollständige Metrisierbarkeit 
@@ -437,7 +438,7 @@
 		
 		Für $x, y \in P$ definieren wir
 		\[d^\ast(x, y) \; \defby \; d(x, y) + \sum_{n=1}^{\infty} \min \left(
-		\frac{1}{2^n}, \left| \frac{1}{d(x, A_n)} - \frac{1}{d(y, A_n)} \right|
+		\frac{1}{2^n}, \left| \frac{1}{d(x, C_n)} - \frac{1}{d(y, C_n)} \right|
 		\right) \text{.}\]
 		Offensichtlich ist $d^\ast$ eine Metrik auf $P$, 
 		die dieselbe Topologie wie $d$ erzeugt. 
@@ -447,15 +448,15 @@
 		ist $(x_k)_k$ dann auch bezüglich $d$ eine Cauchyfolge und die 
 		Vollständigkeit von $(X, d)$ liefert die Existenz eines Grenzwertes 
 		$x \in X$. Angenommen $x \notin P$, so gibt es ein $m \in \N$ mit 
-		$x \in A_m$. Damit gilt aber für alle $k \in \N$
+		$x \in C_m$. Damit ist aber für alle $k \in \N$
 		$$\sup_{l \geq k} d^\ast(x_k, x_l) \; \geq \; \sup_{l \geq k} 
 			\, \sum_{n=1}^{\infty} \min \left(
-			\frac{1}{2^n}, \left| \frac{1}{d(x_k, A_n)} -
-			 \frac{1}{d(x_l, A_n)} \right|
+			\frac{1}{2^n}, \left| \frac{1}{d(x_k, C_n)} -
+			 \frac{1}{d(x_l, C_n)} \right|
 			\right) \; \geq \; \frac{1}{2^m} \; > \; 0 \text{,}$$
 		was der Tatsache widerspricht, dass $(x_k)_k$ eine Cauchyfolge 
-		bezüglich $d^\ast$ ist. Damit muss also $x \in P$ gelten. 
-		Aus der Stetigkeit von $x \mapsto d(x, A_n)$ folgt mit dem 
+		bezüglich $d^\ast$ ist. Also muss $x \in P$ gelten. 
+		Aus der Stetigkeit von $x \mapsto d(x, C_n)$ folgt mit dem 
 		Satz von Lebesgue unmittelbar die Konvergenz 
 		$d^\ast(x_k, x) \to 0$ für $k \to \infty$.
 	\end{proof}
@@ -475,12 +476,39 @@
 	\end{Satz}
 
 	\begin{Bemerkung}
-		Da eine Teilmenge von $H$ genau dann kompakt ist, wenn sie 
+		Eine Teilmenge von $H$ ist genau dann kompakt, wenn sie 
 		abgeschlossen (und damit nach Hilfssatz~\ref{lem:opensets} 
-		eine $G_\delta$-Teilmenge) ist, entsprechen die kompakten 
-		polnischen Räume bis auf Homöomorphie den abgeschlossenen 
+		eine $G_\delta$-Teilmenge) ist. Deshalb entsprechen die kompakten 
+		polnischen Räume gerade den abgeschlossenen 
 		Teilmengen von $H$.
 	\end{Bemerkung}
+
+	\begin{Hilfssatz}
+		$(C(H), \norm{\cdot}_\infty)$ ist separabel.
+	\end{Hilfssatz}
+
+	\begin{proof}
+		Wir definieren zunächst 
+		\[\mathcal{D} \; \defby \; \mathrm{span}_\R \setcomp{\fctmap{f}{H}{\R}{x
+			}{\prod_{j=1}^{n} f_j(x_j)}}{n \in \N, \; f_1,\dots,f_n \in C([0, 1])} \text{.}\]
+		Weil $\mathcal{D}$ eine punktetrennende reelle Unteralgebra von $C(H)$ ist, für die keine Auswertungsfunktion $\mathcal{D} \ni f \mapsto f(x), \; x \in H$ konstant $0$ ist, lässt sich mit dem Satz von Stone-Weierstraß folgern, dass $\mathcal{D} \subseteq C(H)$ dicht bezüglich $\norm{\cdot}_\infty$ ist.
+		Außerdem ist $(C([0, 1]), \norm{\cdot}_\infty)$ separabel, also gibt es eine abzählbare, dichte Teilmenge $\mathcal{P} \subseteq C([0, 1])$. Schließlich setzen wir
+		\[\mathcal{D}^\ast \; \defby \; \mathrm{span}_\Q \setcomp{\fctmap{f}{H}{\R}{x
+			}{\prod_{j=1}^{n} f_j(x_j)}}{n \in \N, \; f_1,\dots,f_n \in \mathcal{P}} \text{.}\]
+		Dann ist $\mathcal{D}^\ast$ abzählbar und wegen $ \mathcal{D} \subseteq \overline{\mathcal{D}^\ast} \subseteq C(H)$ gilt die Gleichheit $\overline{\mathcal{D}^\ast} = C(H)$. Demnach ist $(C(H), \norm{\cdot}_\infty)$ also separabel.
+	\end{proof}
+
+	\begin{Bemerkung}
+		Analog kann man den obigen Beweis allgemeiner für stetige Funktionen auf einem abzählbaren Produkt kompakter Hausdorffräume, deren stetige Funktionen jeweils separabel bezüglich $\norm{\cdot}_\infty$ sind, führen. Das Vorgehen wird in \cite[Lemma 4.12.1 und Proposition 4.12.2]{Simon.2015} skizziert.
+	\end{Bemerkung}
+
+	\begin{Satz}
+		Sei $X$ ein polnischer Raum. Dann gibt es eine abzähbare Menge $\mathcal{F} \subseteq C(X)$, die dicht liegt in jedem $L^p(X, \mu)$ mit $p < \infty$, $\mu \in \Probmeasures{X}$.
+	\end{Satz}
+
+	\begin{proof}
+		
+	\end{proof}
 
 	
 
