@@ -490,33 +490,71 @@
 
 	\begin{proof}
 		Wir definieren zunächst 
-		\[\mathcal{D} \; \defby \; \mathrm{span}_\R \setcomp{\fctmap{f}{H}{\R}{x
-			}{\prod_{j=1}^{n} f_j(x_j)}}{n \in \N, \; f_1,\dots,f_n \in C([0, 1])} \text{.}\]
-		Weil $\mathcal{D}$ eine punktetrennende reelle Unteralgebra von $C(H)$ ist, für die keine Auswertungsfunktion $\mathcal{D} \ni f \mapsto f(x), \; x \in H$ konstant $0$ ist, lässt sich mit dem Satz von Stone-Weierstraß folgern, dass $\mathcal{D} \subseteq C(H)$ dicht bezüglich $\norm{\cdot}_\infty$ ist.
-		Außerdem ist $(C([0, 1]), \norm{\cdot}_\infty)$ separabel, also gibt es eine abzählbare, dichte Teilmenge $\mathcal{P} \subseteq C([0, 1])$. Schließlich setzen wir
-		\[\mathcal{D}^\ast \; \defby \; \mathrm{span}_\Q \setcomp{\fctmap{f}{H}{\R}{x
-			}{\prod_{j=1}^{n} f_j(x_j)}}{n \in \N, \; f_1,\dots,f_n \in \mathcal{P}} \text{.}\]
-		Dann ist $\mathcal{D}^\ast$ abzählbar und wegen $ \mathcal{D} \subseteq \overline{\mathcal{D}^\ast} \subseteq C(H)$ gilt die Gleichheit $\overline{\mathcal{D}^\ast} = C(H)$. Demnach ist $(C(H), \norm{\cdot}_\infty)$ also separabel.
+		\[\mathcal{D} \; \defby \; \mathrm{span}_\R 
+			\setcomp{\fctmap{f}{H}{\R}{x
+			}{\prod_{j=1}^{n} f_j(x_j)}}{n \in \N, \; f_1,
+			\dots,f_n \in C([0, 1])} \text{.}\]
+		Weil $\mathcal{D}$ eine punktetrennende reelle 
+		Unteralgebra von $C(H)$ ist, für die keine 
+		Auswertungsfunktion $\mathcal{D} \ni f \mapsto f(x), 
+			\; x \in H$ konstant $0$ ist, lässt sich mit dem 
+		Satz von Stone-Weierstraß folgern, dass $\mathcal{D} \subseteq C(H)$ 
+		dicht bezüglich $\norm{\cdot}_\infty$ ist.
+		Außerdem ist $(C([0, 1]), \norm{\cdot}_\infty)$ separabel, 
+		also gibt es eine abzählbare, dichte Teilmenge 
+		$\mathcal{P} \subseteq C([0, 1])$. Schließlich setzen wir
+		\[\mathcal{D}^\ast \; \defby \; \mathrm{span}_\Q 
+			\setcomp{\fctmap{f}{H}{\R}{x}{\prod_{j=1}^{n} f_j(x_j)}}
+			{n \in \N, \; f_1,\dots,f_n \in \mathcal{P}} \text{.}\]
+		Dann ist $\mathcal{D}^\ast$ abzählbar und wegen 
+		$ \mathcal{D} \subseteq \overline{\mathcal{D}^\ast} 
+		\subseteq C(H)$ gilt die Gleichheit $\overline{\mathcal{D}^\ast} = C(H)$. 
+		Demnach ist $(C(H), \norm{\cdot}_\infty)$ also separabel.
 	\end{proof}
 
 	\begin{Bemerkung}
-		Analog kann man den obigen Beweis allgemeiner für stetige Funktionen auf einem abzählbaren Produkt kompakter Hausdorffräume, deren stetige Funktionen jeweils separabel bezüglich $\norm{\cdot}_\infty$ sind, führen. Das Vorgehen wird in \cite[Lemma 4.12.1 und Proposition 4.12.2]{Simon.2015} skizziert.
+		Analog kann man den obigen Beweis allgemeiner für stetige Funktionen 
+		auf einem abzählbaren Produkt kompakter Hausdorffräume, deren 
+		stetige Funktionen jeweils separabel bezüglich $\norm{\cdot}_\infty$ 
+		sind, führen. Das Vorgehen wird in \cite[Lemma 4.12.1 und 
+		Proposition 4.12.2]{Simon.2015} skizziert.
 	\end{Bemerkung}
 
 	\begin{Satz}
-		Sei $X$ ein polnischer Raum. Dann gibt es eine abzähbare Menge $\mathcal{D} \subseteq C(X)$, die dicht liegt in jedem $L^p(X, \mu)$ mit $p \in [1, \infty)$, $\mu \in \Probmeasures{X}$.
+		Sei $X$ ein polnischer Raum. Dann gibt es eine abzähbare Menge 
+		$\mathcal{D} \subseteq C(X)$, die dicht liegt in jedem 
+		$L^p(X, \mu)$ mit $p \in [1, \infty)$, $\mu \in \Probmeasures{X}$.
 	\end{Satz}
 
 	\begin{proof}
-		Wir beweisen zuerst, dass $C(H) \subseteq L^p(H, \mu)$ für beliebiges $p \in [1, \infty)$, $\mu \in \Probmeasures{X}$ dicht liegt. 
+		Wir beweisen zuerst, dass $C(H) \subseteq L^p(H, \mu)$ für beliebiges 
+		$p \in [1, \infty)$, $\mu \in \Probmeasures{X}$ dicht liegt. 
 		
-		Sei dazu $A \in \mathcal{B}$ eine Borel-messbare Teilmenge von $H$. Aufgrund der schwachen Regularität von $\mu$ (vgl. Satz~\ref{thm:weakregularity}) gibt es für $n \in \N$ abgeschlossene Mengen $C_n$ und offene Mengen $U_n$ mit $C_n \subseteq A \subseteq U_n$ und $\mu(U_n \setminus C_n) < \frac{1}{n}$. Setzen wir nun für alle $n$
-		\[\fctmap{f_n}{H}{[0, 1]}{x}{\frac{d(x, C_n)}{d(x, C_n) + d(x, U_n^\mathsf{c})}} \text{,} \quad f_n \in C(H)\]
+		Sei dazu $A \in \mathcal{B}$ eine Borel-messbare Teilmenge von $H$. 
+		Aufgrund der schwachen Regularität von $\mu$ (vgl. Satz~\ref{thm:weakregularity}) 
+		gibt es für $n \in \N$ abgeschlossene Mengen $C_n$ und offene Mengen 
+		$U_n$ mit $C_n \subseteq A \subseteq U_n$ und 
+		$\mu(U_n \setminus C_n) < \frac{1}{n}$. Setzen wir nun für alle $n$
+		\[\fctmap{f_n}{H}{[0, 1]}{x}{\frac{d(x, C_n)}{d(x, C_n) + 
+				d(x, U_n^\mathsf{c})}} \text{,} \quad f_n \in C(H)\]
 		so ist
-		\[ \norm{f_n - \indfct_A}_p^p \; = \; \measureint{}{\abs{f_n - \indfct_A}^p}{\mu} \; \leq \; \mu(U_n \setminus C_n) \; < \; \frac{1}{n} \to 0 \text{,} \quad n \to \infty \text{.}\]
-		Insobesondere folgt direkt, dass sich auch jede einfache Funktion beliebig gut bezüglich $\norm{\cdot}_p$ durch Funktionen aus $C(H)$ approximieren lassen kann. Weil die einfachen Funktionen aber dicht in $L^p(H, \mu)$ liegen, muss auch $C(H) \subseteq L^p(H, \mu)$ eine dichte Teilmenge sein.
+		\[ \norm{f_n - \indfct_A}_p^p \; = \; 
+			\measureint{}{\abs{f_n - \indfct_A}^p}{\mu} \; \leq \; 
+			\mu(U_n \setminus C_n) \; < \; \frac{1}{n} \to 0 \text{,} 
+			\quad n \to \infty \text{.}\]
+		Insobesondere folgt direkt, dass sich auch jede einfache Funktion 
+		beliebig gut bezüglich $\norm{\cdot}_p$ durch Funktionen aus $C(H)$ 
+		approximieren lassen kann. Weil die einfachen Funktionen aber dicht 
+		in $L^p(H, \mu)$ liegen, muss auch $C(H) \subseteq L^p(H, \mu)$ eine 
+		dichte Teilmenge sein.
 		
-		Aus Hilfssatz~\ref{lem:hilbertcubefunctionseparability} wissen wir bereits, dass es eine abzählbare Teilmenge $\mathcal{D}\subseteq C(H)$ gibt, die $\norm{\cdot}_\infty$-dicht in $C(H)$ liegt. Zudem gilt $\norm{f}_p \leq \norm{f}_\infty$ für $f \in C(H)$, also impliziert $\norm{\cdot}_\infty$-Konvergenz in $C(H)$ auch $\norm{\cdot}_p$-Konvergenz. Somit folgt insgesamt, dass auch $\mathcal{D} \subseteq L^p(H, \mu)$ dicht bezüglich $\norm{\cdot}_p$ ist.
+		Aus Hilfssatz~\ref{lem:hilbertcubefunctionseparability} wissen wir 
+		bereits, dass es eine abzählbare Teilmenge $\mathcal{D}\subseteq C(H)$ 
+		gibt, die $\norm{\cdot}_\infty$-dicht in $C(H)$ liegt. Zudem gilt 
+		$\norm{f}_p \leq \norm{f}_\infty$ für $f \in C(H)$, also impliziert 
+		$\norm{\cdot}_\infty$-Konvergenz in $C(H)$ auch $\norm{\cdot}_p$-Konvergenz. 
+		Somit folgt insgesamt, dass auch $\mathcal{D} \subseteq L^p(H, \mu)$ dicht 
+		bezüglich $\norm{\cdot}_p$ ist.
 		
 		\tobechanged{Nun gehen wir zum Fall eines beliebigen polnischen Raumes $X$ über.}
 	\end{proof}
