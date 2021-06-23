@@ -65,7 +65,8 @@
 	\end{Hilfssatz}
 	
 	\begin{proof}
-		Offensichtlich liegen $\emptyset$ und $X$ in $\mathcal{S}$. Sei $B \in \mathcal{S}$ und damit schwach regulär 
+		Offensichtlich liegen $\emptyset$ und $X$ in $\mathcal{S}$. Sei 
+		$B \in \mathcal{S}$ und damit schwach regulär 
 		von innen und von außen. Wegen $\mu(X) < \infty$ gilt dann
 		$$\mu(B^\mathsf{c}) 
 		\, = \, \mu(X) - \mu(B) 
@@ -77,7 +78,8 @@
 		\, = \, \mu(X) - \mu(B) 
 		\, = \, \mu(X) - \inf_{\substack{U \supseteq B \\ U \in \mathcal{O}}} \mu(C)
 		\, = \, \sup_{\substack{U \supseteq B \\ U \in \mathcal{O}}} (\mu(X) - \mu(U))
-		\, = \, \sup_{\substack{C \subseteq B^\mathsf{c} \\ C^\mathsf{c} \in \mathcal{O}}} \mu(U) \text{.}$$
+		\, = \, \sup_{\substack{C \subseteq B^\mathsf{c} \\ C^\mathsf{c} \in 
+				\mathcal{O}}} \mu(U) \text{.}$$
 		Also ist auch $B^\mathsf{c}$ schwach regulär. 
 		
 		Es bleibt nun zu zeigen, dass für $(B_n)_n \in \mathcal{S}^\N$ auch $B \defby 
@@ -86,7 +88,8 @@
 		Sei dazu $\varepsilon > 0$. Für $n \in \N$ gibt es jeweils abgeschlossene Mengen 
 		$C_n \subseteq B_n$ mit $\mu(B_n) - \mu(C_n) < \frac{\varepsilon}{3^n}$.
 		Wir wählen nun $N$ so groß, dass $\mu\left( B \setminus \bigcup_{n=1}^N B_n \right) 
-		< \frac{\varepsilon}{2}$ ist (was wegen $\mu(B) < \infty$ immer geht). Für die abgeschlossene Menge $C := \bigcup_{n=1}^N C_k$ gilt dann die Ungleichung 
+		< \frac{\varepsilon}{2}$ ist (was wegen $\mu(B) < \infty$ immer geht). 
+		Für die abgeschlossene Menge $C := \bigcup_{n=1}^N C_k$ gilt dann die Ungleichung 
 		\begin{align*}
 			\mu(B) - \mu(C) = \mu(B\setminus C) \; &=
 			    \; \mu\left( \left( B \setminus \bigcup_{n=1}^N B_n \right) \; \cup \; 
@@ -98,7 +101,8 @@
 		\end{align*}
 		also ist $B$ schwach regulär von innen.
 		
-		Ferner existieren für alle $n$ offene Mengen $U_n \supseteq B_n$ mit $\mu(U_n) - \mu(B_n) < \frac{\varepsilon}{2^n}$. Wir setzen 
+		Ferner existieren für alle $n$ offene Mengen $U_n \supseteq B_n$ 
+		mit $\mu(U_n) - \mu(B_n) < \frac{\varepsilon}{2^n}$. Wir setzen 
 		$U := \bigcup_{n \in \N} U_n$ und berechnen  
 		$$\mu(U) - \mu(B) \; \leq \; \sum_{n=1}^\infty \mu(U_n \setminus B) \; \leq \; 
 		\sum_{n=1}^\infty \mu(U_n \setminus B_n) \; < \; \varepsilon \text{.}$$
@@ -106,7 +110,10 @@
 	\end{proof}
 
 	\begin{Bemerkung}
-		Sofern $X$ kompakt ist, bleibt der obige Hilfssatz~\ref{lem:sigmaalg} gültig, wenn man \enquote{schwach regulär} durch \enquote{regulär} ersetzt. Der hier vorgestellte Beweis ist eine Anpassung von \cite[Lemma 4.5.5]{Simon.2015}, wo die Aussage für kompakte $X$ bewiesen wird.
+		Sofern $X$ kompakt ist, bleibt der obige Hilfssatz~\ref{lem:sigmaalg} 
+		gültig, wenn man \enquote{schwach regulär} durch \enquote{regulär} 
+		ersetzt. Der hier vorgestellte Beweis ist eine Anpassung von 
+		\cite[Lemma 4.5.5]{Simon.2015}, wo die Aussage für kompakte $X$ bewiesen wird.
 	\end{Bemerkung}
 
 	Der folgende Hilfssatz~\ref{lem:opensets} liefert uns noch eine Möglichkeit, 
@@ -140,10 +147,13 @@
 		eine Folge $(x_n)_n \in C^\N$ mit $x_n \rightarrow y$. 
 		Wegen der Abgeschlossenheit von $C$ liegt $y$ damit in $C$, sodass (b) gezeigt ist.
 		
-		Aussage (c) ist klar ($f_n$ ist als Komposition lipschitzstetiger Funktionen selbst lipschitzstetig).
+		Aussage (c) ist klar ($f_n$ ist als Komposition 
+		lipschitzstetiger Funktionen selbst lipschitzstetig).
 		
-		Schließlich fällt $f_n$ und für $x \in C$ gilt $f_n(x) = 1$. Für $x \in C^\mathsf{c}$ ist $d(x, C) > 0$ und damit
-		$$f_n(x) = \max \set{0, 1-n d(x, C)} \to 0 \text{,} \quad n \to \infty \text{,}$$
+		Schließlich fällt $f_n$ und für $x \in C$ gilt $f_n(x) = 1$. 
+		Für $x \in C^\mathsf{c}$ ist $d(x, C) > 0$ und damit
+		$$f_n(x) = \max \set{0, 1-n d(x, C)} 
+			\to 0 \text{,} \quad n \to \infty \text{,}$$
 		womit die Behauptung folgt.
 	\end{proof}
 
@@ -155,18 +165,22 @@
 		die Menge 
 		$$\mathcal{S} \defby \setcomp{B \in \mathcal{B}}{B \text{ schwach regulär bzgl. } \mu}$$
 		bereits ganz $\mathcal{B}$ ist. 
-		Da $\mathcal{S}$ nach Hilfssatz~\ref{lem:sigmaalg} eine $\sigma$-Algebra ist und 
+		Da $\mathcal{S}$ nach Hilfssatz~\ref{lem:sigmaalg} eine 
+		$\sigma$-Algebra ist und 
 		$\mathcal{B}$ von den abgeschlossenen Mengen erzeugt wird, genügt es zu zeigen, 
 		dass diese in $\mathcal{S}$ enthalten sind. 
 		
 		Sei $C \in \mathcal{B}$. Dann ist $C$ sicherlich schwach regulär von innen. 
-		Nun verwenden wir die offenen Mengen $A_n, \; n \in \N$ aus Hilfssatz~\ref{lem:opensets}. 
-		Wegen $A_n \convdown C$ und $\mu(X) < \infty$ folgt mit der Maßstetigkeit von oben die Konvergenz $\mu(A_n) \convdown \mu(C)$,
+		Nun verwenden wir die offenen Mengen $A_n, \; n \in \N$ aus 
+		Hilfssatz~\ref{lem:opensets}. 
+		Wegen $A_n \convdown C$ und $\mu(X) < \infty$ folgt mit der 
+		Maßstetigkeit von oben die Konvergenz $\mu(A_n) \convdown \mu(C)$,
 		sodass $C$ auch schwach regulär von außen ist.
 	\end{proof}
 
 	\begin{Satz}
-		Sei $(X,d)$ ein metrischer Raum und seien $\mu, \nu \in \Probmeasures{X}$. Dann sind die folgenden Aussagen äquivalent:
+		Sei $(X,d)$ ein metrischer Raum und seien $\mu, \nu \in \Probmeasures{X}$. 
+		Dann sind die folgenden Aussagen äquivalent:
 		\begin{equivalentthm}
 			\item $\mu = \nu$.
 			\item Für alle gleichmäßig stetigen Funktionen $\fct{f}{X}{\R}$ ist
@@ -176,7 +190,8 @@
 	\end{Satz}
 
 	\begin{proof}
-		Die Implikation (i) $\Rightarrow$ (ii) ist klar und (iii) $\Rightarrow$ (i) folgt aus Satz~\ref{thm:weakregularity}.
+		Die Implikation (i) $\Rightarrow$ (ii) ist klar und (iii) 
+		$\Rightarrow$ (i) folgt aus Satz~\ref{thm:weakregularity}.
 		
 		(ii) $\Rightarrow$ (iii): Gelte (ii) und sei $C \subseteq X$ abgeschlossen. 
 		Dann gilt für die gleichmäßig stetigen Funktionen $f_n$ aus Hilfssatz~\ref{lem:opensets}
@@ -187,13 +202,16 @@
 		und damit gilt (iii).
 	\end{proof}
 
-	\tobechanged{Hier steht ein Kommentar.} $\Bdcontfct{X}$ bezeichne im Folgenden die Menge aller stetigen beschränkten Funktionen von $X$ nach $\R$.
+	\tobechanged{Hier steht ein Kommentar.} $\Bdcontfct{X}$ bezeichne 
+	im Folgenden die Menge aller stetigen beschränkten Funktionen von $X$ nach $\R$.
 
 	\begin{Definition}[Schwache Konvergenz von Maßen]
 		Sei $(\mu_n)_n \in \Probmeasures{X}^\N$ eine Folge von Wahrscheinlichkeitsmaßen.
 		Dann sagen wir, dass $(\mu_n)_n$ 
-		\emph{schwach} gegen $\mu \in \Probmeasures{X}$ \emph{konvergiert}, falls für alle $f \in \Bdcontfct{X}$
-		$$\measureint{}{f}{\mu_n} \to \measureint{}{f}{\mu}\text{,} \quad n \to \infty $$
+		\emph{schwach} gegen $\mu \in \Probmeasures{X}$ \emph{konvergiert}, 
+		falls für alle $f \in \Bdcontfct{X}$
+		$$\measureint{}{f}{\mu_n} \to \measureint{}{f}{\mu}\text{,} 
+			\quad n \to \infty $$
 		gilt. In diesem Fall schreiben wir
 		$$\mu_n \xrightarrow{w} \mu \text{.}$$
 	\end{Definition}
@@ -228,7 +246,8 @@
 		Wegen $f_m \convdown \indfct_C$ und $| f_m | \leq 1$ 
 		liefert der Satz von Lebesgue die Konvergenz
 		$$\measureint{}{f_m}{\mu} \; \to \;
-			\measureint{}{\indfct_C}{\mu} \; = \; \mu(C) \text{,} \quad m \to \infty \text{,}$$
+			\measureint{}{\indfct_C}{\mu} \; = \; \mu(C) \text{,} 
+			\quad m \to \infty \text{,}$$
 		woraus
 		$$\limsup_{n \to \infty} \mu_n(C) \; \leq \; \mu(C)$$
 		folgt.
@@ -278,7 +297,8 @@
 		und Aussage (iv) führt dann auf
 		\[\measureint{}{u_m}{\mu_n} \; = \; \sum_{j=0}^{2m-1} c_j^{(m)} \mu_n(A_j^{(m)}) 
 			\; \to \; \sum_{j=0}^{2m-1} c_j^{(m)} \mu(A_j^{(m)}) \; = \; 
-			\measureint{}{u_m}{\mu} \text{,} \quad n \to \infty \text{.} \label{eq:2.2} \tag{2.2}\]
+			\measureint{}{u_m}{\mu} \text{,} \quad n \to \infty \text{.} 
+			\label{eq:2.2} \tag{2.2}\]
 		Außerdem folgen aus \eqref{eq:2.1} die Ungleichungen
 		\[\left| \measureint{}{f}{\mu_n} - \measureint{}{u_m}{\mu_n} \right| \; \leq \; 
 			\frac{b-a}{m} \text{,} \qquad 
@@ -291,13 +311,18 @@
 			\left| \measureint{}{f}{\mu} - \measureint{}{u_m}{\mu} \right| + 
 			\left| \measureint{}{u_m}{\mu} - \measureint{}{u_m}{\mu_n} \right| + 
 			\left| \measureint{}{u_m}{\mu_n} - \measureint{}{f}{\mu_n} \right| \\
-			&\leq \; 2 \cdot \frac{b-a}{m} + \left| \measureint{}{u_m}{\mu_n} - \measureint{}{f}{\mu_n} \right| \label{eq:2.4} \tag{2.4}\text{.}
+			&\leq \; 2 \cdot \frac{b-a}{m} + \left| \measureint{}{u_m}{\mu_n} - 
+			\measureint{}{f}{\mu_n} \right| \label{eq:2.4} \tag{2.4}\text{.}
 		\end{align*}
 		\eqref{eq:2.2} und \eqref{eq:2.4} liefern also letztendlich für alle $m$
 		\begin{align*}
-			\limsup_{n \to \infty} \left| \measureint{}{f}{\mu} - \measureint{}{f}{\mu_n} \right|
-			\; &\leq \; 2 \cdot \frac{b-a}{m} + \limsup_{n \to \infty} \left| \measureint{}{u_m}{\mu_n} - \measureint{}{f}{\mu_n} \right| \\
-			&= \; 2 \cdot \frac{b-a}{m} \; \to \; 0 \text{,} \quad m \to \infty \text{,}
+			\limsup_{n \to \infty} \left| \measureint{}{f}{\mu} - 
+			\measureint{}{f}{\mu_n} \right|
+			\; &\leq \; 2 \cdot \frac{b-a}{m} + 
+			\limsup_{n \to \infty} \left| \measureint{}{u_m}{\mu_n} - 
+			\measureint{}{f}{\mu_n} \right| \\
+			&= \; 2 \cdot \frac{b-a}{m} \; \to \; 0 \text{,} 
+			\quad m \to \infty \text{,}
 		\end{align*}
 		was (i) impliziert.
 	\end{proof} 
@@ -305,7 +330,8 @@
 	\begin{Definition}[Hilbertwürfel]
 		Der \emph{Hilbertwürfel} ist der topologische Raum $H = [0, 1]^\N$ 
 		ausgestattet mit der Produkttopologie, also der kleinsten Topologie, 
-		bezüglich der alle Projektionen $\fctmap{\pi_n}{H}{[0, 1]}{x}{x_n}$ für $n \in \N$ stetig sind.
+		bezüglich der alle Projektionen $\fctmap{\pi_n}{H}{[0, 1]}{x}{x_n}$ 
+		für $n \in \N$ stetig sind.
 	\end{Definition}
 
 	\begin{Hilfssatz}
@@ -334,7 +360,8 @@
 		
 		Offenbar wird durch $d$ aus (b) eine Metrik auf $H$ definiert. 
 		Es genügt also zu zeigen, dass $d$ die Topologie von $H$ induziert. 
-		Für $x \in H$ und $r > 0$ ist $B_r(x) = \prod_{n=1}^{\infty} B_{2^n r}(x_n) \subseteq H$ 
+		Für $x \in H$ und $r > 0$ ist 
+		$B_r(x) = \prod_{n=1}^{\infty} B_{2^n r}(x_n) \subseteq H$ 
 		offen. Ist nun $U = \prod_{n=1}^{\infty} U_n$ wie in \eqref{eq:2.5}, 
 		so lässt sich leicht einsehen, dass es für jedes $x \in U$ ein $r > 0$ 
 		gibt mit $B_r(x) \subseteq U$, also ist $U$ offen bezüglich der von $d$ 
@@ -362,7 +389,8 @@
 		Dann gilt das Folgende:
 		\begin{enumeratethm}
 			\item $\varphi$ ein Homöomorphismus zwischen $X$ und $\varphi(X)$.
-			\item Ist $(X, d)$ vollständig, so ist $\varphi(X) \subseteq H$ eine $G_\delta$-Teilmenge.
+			\item Ist $(X, d)$ vollständig, so ist $\varphi(X) \subseteq H$ 
+			eine $G_\delta$-Teilmenge.
 		\end{enumeratethm}
 	\end{Hilfssatz}
 
@@ -416,7 +444,8 @@
 		\[y_k \in \bigcap_{j=1}^{k} B_{1/k}(x_m)\]
 		gilt, ist $(y_k)_k$ eine Cauchyfolge. Aufgrund der Vollständigkeit von 
 		$(X, d)$ gibt es also ein $y \in X$ mit $y_k \to y$, was 
-		$z = \varphi(y) \in \varphi(X)$ und damit \enquote{$\supseteq$} in \eqref{eq:2.10} impliziert.
+		$z = \varphi(y) \in \varphi(X)$ und damit \enquote{$\supseteq$} 
+		in \eqref{eq:2.10} impliziert.
 		
 	\end{proof}
 
