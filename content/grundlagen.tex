@@ -202,10 +202,11 @@
 		und damit gilt (iii).
 	\end{proof}
 
-	\tobechanged{Hier steht ein Kommentar.} $\Bdcontfct{X}$ bezeichne 
+	$\Bdcontfct{X}$ bezeichne 
 	im Folgenden die Menge aller stetigen beschränkten Funktionen von $X$ nach $\R$.
 
 	\begin{Definition}[Schwache Konvergenz von Maßen]
+		\label{def:weakconvergence}
 		Sei $(\mu_n)_n \in \Probmeasures{X}^\N$ eine Folge von Wahrscheinlichkeitsmaßen.
 		Dann sagen wir, dass $(\mu_n)_n$ 
 		\emph{schwach} gegen $\mu \in \Probmeasures{X}$ \emph{konvergiert}, 
@@ -219,6 +220,7 @@
 	Eine Charakterisierung der schwachen Konvergenz von Maßen liefert der folgende Satz:
 
 	\begin{Satz}[Portmanteau]
+		\label{thm:portmanteau}
 		Sei $(X, d)$ ein metrischer Raum, $(\mu_n)_n \in \Probmeasures{X}^\N$ 
 		und $\mu \in \Probmeasures{X}$. Dann sind die folgenden Aussagen äquivalent:
 		\begin{equivalentthm}
@@ -342,8 +344,8 @@
 			ein $x \in H$, wenn alle Komponenten konvergieren, also, wenn
 			$\lim_{n \to \infty} x_n^{(k)} = x_n$ für alle $n \in \N$ gilt.
 			\item Setzen wir für $x, y \in H$
-			$$d(x, y) \defby \max_{n \in \N} \frac{|x_n - y_n|}{2^n} \text{,}$$
-			so definiert $d$ eine Metrik, die $H$ metrisiert.
+			$$\rho(x, y) \defby \max_{n \in \N} \frac{|x_n - y_n|}{2^n} \text{,}$$
+			so definiert $\rho$ eine Metrik, die $H$ metrisiert.
 		\end{enumeratethm}
 	\end{Hilfssatz}
 
@@ -358,14 +360,14 @@
 		alle Folgenglieder $x^{(k)}, \; k \in \N$ und damit konvergiert 
 		auch $(x^{(k)})_k$ gegen $x$.
 		
-		Offenbar wird durch $d$ aus (b) eine Metrik auf $H$ definiert. 
-		Es genügt also zu zeigen, dass $d$ die Topologie von $H$ induziert. 
+		Offenbar wird durch $\rho$ aus (b) eine Metrik auf $H$ definiert. 
+		Es genügt also zu zeigen, dass $\rho$ die Topologie von $H$ induziert. 
 		Für $x \in H$ und $r > 0$ ist 
 		$B_r(x) = \prod_{n=1}^{\infty} B_{2^n r}(x_n) \subseteq H$ 
 		offen. Ist nun $U = \prod_{n=1}^{\infty} U_n$ wie in \eqref{eq:2.5}, 
 		so lässt sich leicht einsehen, dass es für jedes $x \in U$ ein $r > 0$ 
-		gibt mit $B_r(x) \subseteq U$, also ist $U$ offen bezüglich der von $d$ 
-		erzeugten Topologie und insgesamt wird $H$ von $d$ metrisiert.
+		gibt mit $B_r(x) \subseteq U$, also ist $U$ offen bezüglich der von $\rho$ 
+		erzeugten Topologie und insgesamt wird $H$ von $\rho$ metrisiert.
 	\end{proof}
 
 	\begin{Bemerkung}
@@ -373,7 +375,7 @@
 		unmittelbar, dass $H$ als Produkt kompakter topologischer Räume 
 		ebenfalls kompakt ist.
 		Außerdem lässt sich unter Ausnutzung von Aussage (a) aus 
-		Hilfssatz~\ref{lem:hilbertcube} leicht zeigen, dass $(H, d)$ 
+		Hilfssatz~\ref{lem:hilbertcube} leicht zeigen, dass $(H, \rho)$ 
 		vollständig ist. Weil Mengen der Form \eqref{eq:2.5}, bei denen 
 		$U_n$ ausschließlich rationale Intervalle sind, eine abzählbare 
 		Basis der Topologie von $H$ bilden, ist $H$ sogar separabel und 
@@ -550,42 +552,97 @@
 	\end{Bemerkung}
 
 	\begin{Satz}
-		Sei $X$ ein polnischer Raum. Dann gibt es eine abzähbare Menge 
-		$\mathcal{D} \subseteq C(X)$, die dicht liegt in jedem 
+		\label{thm:Lp}
+		Sei $X$ ein polnischer Raum. Dann gibt es eine abzählbare Menge 
+		$\mathcal{D} \subseteq \Bdcontfct{X}$, die dicht liegt in jedem 
 		$L^p(X, \mu)$ mit $p \in [1, \infty)$, $\mu \in \Probmeasures{X}$.
 	\end{Satz}
 
 	\begin{proof}
-		Wir beweisen zuerst, dass $C(H) \subseteq L^p(H, \mu)$ für beliebiges 
-		$p \in [1, \infty)$, $\mu \in \Probmeasures{X}$ dicht liegt. 
+		Wir beweisen zuerst, dass $C(H) = \Bdcontfct{H} \subseteq L^p(H, \mu)$ für beliebiges 
+		$p \in [1, \infty)$, $\mu \in \Probmeasures{H}$ dicht liegt. 
 		
 		Sei dazu $A \in \mathcal{B}$ eine Borel-messbare Teilmenge von $H$. 
 		Aufgrund der schwachen Regularität von $\mu$ (vgl. Satz~\ref{thm:weakregularity}) 
 		gibt es für $n \in \N$ abgeschlossene Mengen $C_n$ und offene Mengen 
 		$U_n$ mit $C_n \subseteq A \subseteq U_n$ und 
 		$\mu(U_n \setminus C_n) < \frac{1}{n}$. Setzen wir nun für alle $n$
-		\[\fctmap{f_n}{H}{[0, 1]}{x}{\frac{d(x, C_n)}{d(x, C_n) + 
-				d(x, U_n^\mathsf{c})}} \text{,} \quad f_n \in C(H)\]
+		\[\fctmap{f_n}{H}{[0, 1]}{x}{\frac{\rho(x, C_n)}{\rho(x, C_n) + 
+				\rho(x, U_n^\mathsf{c})}} \text{,} \quad f_n \in \Bdcontfct{H} \text{,}\]
 		so ist
-		\[ \norm{f_n - \indfct_A}_p^p \; = \; 
+		\[ \norm{f_n - \indfct_A}_{L^p(H, \mu)}^p \; = \; 
 			\measureint{}{\abs{f_n - \indfct_A}^p}{\mu} \; \leq \; 
 			\mu(U_n \setminus C_n) \; < \; \frac{1}{n} \to 0 \text{,} 
 			\quad n \to \infty \text{.}\]
 		Insobesondere folgt direkt, dass sich auch jede einfache Funktion 
-		beliebig gut bezüglich $\norm{\cdot}_p$ durch Funktionen aus $C(H)$ 
+		beliebig gut bezüglich $\norm{\cdot}_{L^p(H, \mu)}$ durch Funktionen aus $\Bdcontfct{H}$ 
 		approximieren lassen kann. Weil die einfachen Funktionen aber dicht 
-		in $L^p(H, \mu)$ liegen, muss auch $C(H) \subseteq L^p(H, \mu)$ eine 
+		in $L^p(H, \mu)$ liegen, muss auch $\Bdcontfct{H} \subseteq L^p(H, \mu)$ eine 
 		dichte Teilmenge sein.
 		
 		Aus Hilfssatz~\ref{lem:hilbertcubefunctionseparability} wissen wir 
-		bereits, dass es eine abzählbare Teilmenge $\mathcal{D}\subseteq C(H)$ 
-		gibt, die $\norm{\cdot}_\infty$-dicht in $C(H)$ liegt. Zudem gilt 
-		$\norm{f}_p \leq \norm{f}_\infty$ für $f \in C(H)$, also impliziert 
-		$\norm{\cdot}_\infty$-Konvergenz in $C(H)$ auch $\norm{\cdot}_p$-Konvergenz. 
-		Somit folgt insgesamt, dass auch $\mathcal{D} \subseteq L^p(H, \mu)$ dicht 
-		bezüglich $\norm{\cdot}_p$ ist.
+		bereits, dass es eine abzählbare Teilmenge $\mathcal{D}\subseteq \Bdcontfct{H}$ 
+		gibt, die $\norm{\cdot}_\infty$-dicht in $\Bdcontfct{H}$ liegt. Zudem gilt 
+		$\norm{f}_{L^p(H, \mu)} \leq \norm{f}_\infty$ für $f \in \Bdcontfct{H}$, also impliziert 
+		$\norm{\cdot}_\infty$-Konvergenz in $\Bdcontfct{H}$ auch $\norm{\cdot}_{L^p(H, \mu)}$-Konvergenz. 
+		Somit folgt insgesamt, dass auch $\mathcal{D} \subseteq L^p(H, \mu)$ dicht ist.
 		
-		\tobechanged{Nun gehen wir zum Fall eines beliebigen polnischen Raumes $X$ über.}
+		Nun möchten wir die Aussage auf einen beliebigen polnischen Raum $X$ ausweiten, wofür wir $\fct{\varphi}{X}{H}$ aus \eqref{eq:2.6} nutzen.
+		Wir definieren hierzu das Bildmaß $\nu \defby \mu^\varphi \in \Probmeasures{H}$ auf der Borelschen $\sigma$-Algebra von $H$ und setzen
+		\[\fctmap{\Phi}{L^p(H, \nu)}{L^p(X, \mu)}{f}{f \circ \varphi} \text{.}\]
+		Für $f \in L^p(H, \nu)$ gilt dann
+		\[ \norm{f \circ \varphi}_{L^p(X, \mu)} \; = \; \measureint{}{\abs{f \circ \varphi}^p}{\mu} \; = \; \measureint{}{\abs{f}^p}{\mu^\varphi} \; = \; \measureint{}{\abs{f}^p}{\nu} \; = \; \norm{f}_{L^p(H, \nu)} \text{.} \]
+		Wegen $\nu(\varphi(X)) = 1$ ist $\Phi$ bijektiv und damit insgesamt eine Isometrie zwischen $L^p(H, \nu)$ und $L^p(X, \mu)$. Insbesondere ist also auch 
+		\[\Phi(\mathcal{D}) = \setcomp{f \circ \varphi}{f \in \mathcal{D}} \subseteq \Bdcontfct{X}\]
+		unabhängig von $p$ und $\mu$ eine abzählbare dichte Teilmenge von $L^p(X, \mu)$.
+	\end{proof}
+
+	\begin{Satz}
+		Sei $X$ ein polnischer Raum. Dann gibt es eine Metrik $D$ auf $\Probmeasures{X}$, sodass Konvergenz bezüglich $D$ gleichbedeutend mit schwacher Konvergenz (vgl. Definition~\ref{def:weakconvergence}) ist.
+	\end{Satz}
+
+	\begin{proof}
+		Wir möchten direkt unsere Erkenntnisse aus dem Beweis des vorigen Satzes~\ref{thm:Lp} anwenden. Mit der Notation von dort sei zunächst 
+		\[\setcomp{h_m}{m \in \N} \defby \Phi(\mathcal{D}) \subseteq \Bdcontfct{X} \text{.}\] 
+		Wir behaupten, dass
+		\[D(\mu, \nu) \; \defby \; \sum_{m=1}^{\infty} \frac{\abs{\measureint{}{h_m}{\mu} - \measureint{}{h_m}{\nu}}}{2^m \cdot \norm{h_m}_\infty} \text{,} \qquad \mu, \nu \in \Probmeasures{X} \]
+		die schwache Konvergenz metrisiert. Offenbar gilt dann für eine Folge $(\mu_k)_k \in \Probmeasures{X}^\N$ und $\mu \in \Probmeasures{X}$ die Äquivalenz
+		\[ D(\mu_k, \mu) \to 0 \quad \iff \quad \forall m \in \N: \; \measureint{}{h_m}{\mu_k} \to \measureint{}{h_m}{\mu}\text{,} \quad k \to \infty \text{.} \label{eq:2.11} \tag{2.11} \]
+		An \eqref{eq:2.11} sehen wir direkt, dass aus der schwachen Konvergenz $\mu_k \xrightarrow{w} \mu$ die Konvergenz bezüglich $D$ folgt. Wir müssen also nur noch beweisen, dass die rechte Seite von \eqref{eq:2.11} schwache Konvergenz impliziert. Hierfür werden wir zeigen, dass für jede abgeschlossene Menge $C \subseteq X$ die Funktionen $f_n, \; n \in \N$ aus Hilfssatz~\ref{lem:opensets} (wofür wir eine geeignete Metrik auf $X$ wählen) dieselbe Bedingung wie die $h_m$ auf der rechten Seite von \eqref{eq:2.11} erfüllen. Genau wie im Beweis der Implikation $(1) \Rightarrow (2)$ aus dem Beweis des Portmanteau-Satzes (Satz~\ref{thm:portmanteau}) lässt sich dann die Bedingung $(2)$ aus dem Portmanteau-Satz folgern und damit schließlich die schwache Konvergenz $\mu_k \xrightarrow{w} \mu$.
+		
+		Für den verbleibenden Teil des Beweises definieren wir auf $X$ die Metrik
+		\[ \rho^\ast(x, y) \defby \rho(\varphi(x), \varphi(y)) \text{,} \]
+		wobei $\fct{\varphi}{X}{H}$ wieder die Abbildung aus \eqref{eq:2.6} sei. $\rho^\ast$ induziert die Topologie von $X$, vollständig ist $(X, \rho^\ast)$ aber im Allgemeinen natürlich nicht. Nun zeigen wir, dass für 
+		\[\fctmap{f_n}{X}{\R}{x}{\max \set{0, 1-n \rho^\ast(x, C)}}\] 
+		mit $n \in \N$ und $C \subseteq X$ abgeschlossen (hierbei handelt es sich um die Funktionen aus Hilfssatz~\ref{lem:opensets}) die Konvergenz
+		\[ \measureint{}{f_n}{\mu_k} \; \to \; \measureint{}{f_n}{\mu} \text{,} \quad k \to \infty \label{eq:2.12} \tag{2.12}\]
+		gilt. Zunächst bemerken wir, dass es Funktionen $g_n \in \Bdcontfct{H}$ gibt mit $f_n = g_n \circ \varphi$. Mit der Notation aus Hilfssatz~\ref{lem:hilbertcubefunctionseparability} und Satz~\ref{thm:Lp} existiert nun eine Folge $(g_n^{(l)})_l \in \mathcal{D}$ mit $g_n^{(l)} \to g_n$ bezüglich $\norm{\cdot}_\infty$. Setzen wir 
+		$f_n^{(l)} \defby \Phi(g_n^{(l)}) = g_n^{(l)} \circ \varphi \in \Phi(\mathcal{D})$, so gilt ebenfalls
+		\[ \norm{f_n^{(l)} - f_n}_\infty \; \to \; 0 \text{,} \quad l \to \infty \text{.} \label{eq:2.13} \tag{2.13} \]
+		Per Annahme ist für alle $l \in \N$
+		\[ \measureint{}{f_n^{(l)}}{\mu_k} \; \to \; \measureint{}{f_n^{(l)}}{\mu} \text{,} \quad k \to \infty \text{.} \label{eq:2.14} \tag{2.14} \]
+		Also können wir für alle $k, l \in \N$ wie folgt abschätzen:
+		\begin{align*}
+			\left| \measureint{}{f_n}{\mu} - \measureint{}{f_n}{\mu_k} \right| \; &\leq \; 
+			\left| \measureint{}{f_n}{\mu} - \measureint{}{f_n^{(l)}}{\mu} \right| + 
+			\left| \measureint{}{f_n^{(l)}}{\mu} - \measureint{}{f_n^{(l)}}{\mu_k} \right| \\
+			& \qquad + 
+			\left| \measureint{}{f_n^{(l)}}{\mu_k} - \measureint{}{f_n}{\mu_k} \right| \\
+			&\leq \; 2 \cdot \norm{f_n^{(l)} - f_n}_\infty + \left| \measureint{}{f_n^{(l)}}{\mu} - 
+			\measureint{}{f_n^{(l)}}{\mu_k} \right| \text{.}
+		\end{align*}
+		Dies impliziert aber wegen \eqref{eq:2.13} und \eqref{eq:2.14}
+		\begin{align*}
+			\limsup_{k \to \infty} \left| \measureint{}{f_n}{\mu} - 
+			\measureint{}{f_n}{\mu_k} \right|
+			\; &\leq \; 2 \cdot \norm{f_n^{(l)} - f_n}_\infty + 
+			\limsup_{k \to \infty} \left| \measureint{}{f_n^{(l)}}{\mu} - 
+			\measureint{}{f_n^{(l)}}{\mu_k} \right| \\
+			&= \; 2 \cdot \norm{f_n^{(l)} - f_n}_\infty \; \to \; 0 \text{,} 
+			\quad l \to \infty \text{,}
+		\end{align*}
+		und damit auch \eqref{eq:2.12}, womit wir den Beweis abschließen.
+	
 	\end{proof}
 
 	
