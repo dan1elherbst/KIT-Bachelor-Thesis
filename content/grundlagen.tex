@@ -642,7 +642,47 @@
 			\quad l \to \infty \text{,}
 		\end{align*}
 		und damit auch \eqref{eq:2.12}, womit wir den Beweis abschließen.
-	
+	\end{proof}
+
+	\begin{Definition}
+		Sei $X$ ein polnischer Raum und $\mu \in \Probmeasures{X}$. Dann nennen wir $\mu$ \emph{straff}, falls es für jedes $\varepsilon > 0$ eine kompakte Teilmenge
+		$K_\varepsilon \subseteq X$ gibt mit 
+		\[ \mu(K_\varepsilon) \geq 1  - \varepsilon \text{.} \]
+	\end{Definition}
+
+	\begin{Satz}
+		\label{thm:tightness}
+		Sei $X$ ein polnischer Raum und $\mu \in \Probmeasures{X}$. Dann ist $\mu$ straff.
+	\end{Satz}
+
+	\begin{proof}
+		Sei $d$ eine Metrik, bezüglich der $(X, d)$ vollständig ist und sei $\mathcal{D} \defby \setcomp{x_m}{m \in \N} \subseteq X$ eine abzählbare dichte Teilmenge. Für $k \in \N$ gilt also $\bigcup_{m \in \N} B_{1/k}(x_m) = X$ und Maßstetigkeit von unten impliziert 
+		$\lim_{M \to \infty} \bigcup_{m=1}^{M} B_{1/k}(x_m) = 1$.
+		
+		Sei nun $\varepsilon > 0$. Dann finden wir natürliche Zahlen $M_1 \leq M_2 \leq \dots$ mit
+		\[ \mu\left( \bigcup_{m=1}^{M_k} B_{1/k}(x_m) \right) \; \geq \; 1 - \frac{\varepsilon}{2^k} \]
+		für alle $k \in \N$. Wir setzen nun
+		\[ S_\varepsilon \; \defby \; \bigcap_{k \in \N} \left( \bigcup_{m=1}^{M_k} B_{1/k}(x_m) \right) \quad \text{und} \quad K_\varepsilon \defby \overline{S_\varepsilon} \text{.} \]
+		Offenbar ist $S_\varepsilon$ totalbeschränkt und damit ist $K_\varepsilon = \overline{S_\varepsilon}$ kompakt (dies folgt etwa aus \cite[Satz 2.3.8]{Simon.2015}, hier geht die Vollständigkeit von $(X, d)$ ein).
+		Außerdem berechnen wir
+		\[ \mu(K_\varepsilon) \; \geq \; \mu(S_\varepsilon) \; \geq \; 1 - \sum_{k=1}^{\infty} \left( 1 - \mu\left( \bigcup_{m=1}^{M_k} B_{1/k}(x_m) \right) \right) \; \geq \; 1 - \sum_{k=1}^{\infty} \frac{\varepsilon}{2^k} \; = \; 1 - \varepsilon \text{.} \]
+		Weil $\varepsilon > 0$ beliebig gewählt war, ist $\mu$ also straff.
+	\end{proof}
+
+	Ausgestattet mit des Konzepts der Straffheit können wir nun folgenden Satz beweisen:
+
+	\begin{Korollar}
+		Ist $X$ ein polnischer Raum, so ist jedes $\mu \in \Probmeasures{X}$ regulär.
+	\end{Korollar}
+
+	\begin{proof}
+		Sei $\mu \in \Probmeasures{X}$ und $B \subseteq X$ Borel-messbar. Wegen \ref{thm:weakregularity} wissen wir bereits, dass 
+		\[\mu(B) = \sup_{\substack{C \subseteq B \\ C \text{ abgeschlossen}}} \mu(C) 
+		\quad \text{bzw.} \quad \mu(B) = \inf_{\substack{U \supseteq B \\ U \text{ offen}}} 
+		\mu(U)\]
+		gilt. Sei nun $\varepsilon > 0$. Dann gibt es eine abgeschlossene Teilmenge $C \subseteq B \subseteq X$ mit $\mu(B \setminus C) < \varepsilon$. Außerdem gibt es nach Satz~\ref{thm:tightness} eine kompakte Menge $K^\ast \subseteq X$ mit $\mu(K^\ast) \geq 1 - \varepsilon$. Setzen wir nun $K \defby K^\ast \cap C$, so ist $K$ ebenfalls kompakt und $K \subseteq B$ mit 
+		\[ \mu(B \setminus K) \; = \; \mu((B \setminus C) \cap (B \setminus K^\ast)) \; \leq \; \mu(B \setminus C) + \mu(K^{\ast \mathsf{c}}) \; \leq \; 2 \varepsilon \text{.} \]
+		Daher folgt \[\mu(B) = \sup_{\substack{K \subseteq B \\ K \text{ kompakt}}} \mu(K)\] und insgesamt $\mu$ ist regulär.
 	\end{proof}
 
 	
