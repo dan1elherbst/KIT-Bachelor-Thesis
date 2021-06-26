@@ -605,6 +605,7 @@
 	\end{proof}
 
 	\begin{Satz}
+		\label{thm:weakconvergencemetrizable}
 		Sei $X$ ein polnischer Raum. Dann gibt es eine Metrik $D$ auf $\Probmeasures{X}$, 
 		sodass Konvergenz bezüglich $D$ gleichbedeutend mit schwacher Konvergenz 
 		(vgl. Definition~\ref{def:weakconvergence}) ist.
@@ -745,7 +746,21 @@
 		und insgesamt $\mu$ ist regulär.
 	\end{proof}
 
-	
+	\begin{Hilfssatz}
+		Sei $(X, d)$ ein metrischer Raum. Dann ist $(\Probmeasures{X}, D)$ 
+		mit $D$ aus Satz~\ref{thm:weakconvergencemetrizable} genau dann kompakt, 
+		wenn $(X, d)$ kompakt ist.
+	\end{Hilfssatz}
+
+	\begin{proof}
+		Sei zunächst $(X, d)$ kompakt. Dann ist $C(X) = \Bdcontfct{X}$ und $(C(X), \norm{\cdot}_\infty)$ ist ein Banachraum, dessen Dualraum wir 
+		$(C(X)^\ast, \norm{\cdot}_{C(X)^{\ast}})$ nennen.
+		Wir setzen nun
+		\[ A \defby \setcomp{l \in C(X)^\ast}{\norm{l}_{C(X)^\ast} \leq 1, \; l(\indfct_{X}) = 1, \; \forall f \in C(X) \text{ mit } f \geq 0 : l(f) \geq 0} \subseteq C(X)^\ast \]
+		und
+		\[ \fctmap{\Phi}{\Probmeasures{X}}{A}{\mu}{\left[\fctmap{l_\mu}{C(X)}{\R}{f}{\measureint{}{f}{\mu}}\right]} \text{.} \]
+		Der Rieszsche Darstellungssatz liefert die Bijektivität von $\Phi$.
+	\end{proof}
 
 	
 	
