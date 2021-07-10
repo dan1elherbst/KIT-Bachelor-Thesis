@@ -7,20 +7,18 @@
 	
 	In diesem Abschnitt möchten wir zunächst einige maßtheoretische Grundlagen vorstellen, 
 	die wir später benötigen werden.
-
-	\begin{Definition}[Polnischer Raum]
-		Ein \emph{polnischer Raum} ist ein separabler und vollständig metrisierbarer topologischer Raum.
-	\end{Definition}
-
+	
 	\begin{Definition}[Borelsche $\sigma$-Algebra]
 		\label{def:borel}
 		Sei $(X, \mathcal{O})$ ein topologischer Raum. Dann definieren wir die \emph{Borelsche 
-		$\sigma$-Algebra}
-		$$\mathcal{B} \defby \sigma(\mathcal{O})$$
-		über $X$. Ferner sei
-		$$\Probmeasures{X} \defby \setcomp{\fct{\mu}{\mathcal{B}}{[0,1]}}{\mu \; 
-			\text{ist Wahrscheinlichkeitsmaß}}\text{.}$$
+			$\sigma$-Algebra}
+		$$\mathcal{B}(X) = \mathcal{B} \defby \sigma(\mathcal{O})$$
+		über $X$.
 	\end{Definition}
+	
+	\tobechanged{Ferner sei
+		$$\Probmeasures{X} \defby \setcomp{\fct{\mu}{\mathcal{B}}{[0,1]}}{\mu \; 
+			\text{ist Wahrscheinlichkeitsmaß}}\text{.}$$}
 
 	\begin{Definition}[Schwache Regularität von Maßen]
 		\label{def:regularity}
@@ -115,28 +113,6 @@
 		ersetzt. Der hier vorgestellte Beweis ist eine Anpassung von 
 		\cite[Lemma 4.5.5]{Simon.2015}, wo die Aussage für kompakte $X$ bewiesen wird.
 	\end{Bemerkung}
-
-	Der folgende Hilfssatz~\ref{lem:opensets} liefert uns noch eine Möglichkeit, 
-	abgeschlossene Mengen von außen durch offene Mengen zu approximieren, womit wir im 
-	Beweis von Satz~\ref{thm:weakregularity} die äußere Regularität von abgeschlossenen 
-	Mengen zeigen werden können. Insbesondere die in Hilfssatz~\ref{lem:opensets} definierten 
-	Funktionen $f_n$ werden auch noch im weiteren Verlauf nützlich sein.
-	
-	\begin{Hilfssatz}
-		\label{lem:opensets}
-		Sei $(X, d)$ ein metrischer Raum und $C \subseteq X$ eine abgeschlossene 
-		Teilmenge. Ferner definieren wir für $n \in \N$
-		$$ A_n \defby \setcomp{y \in X}{d(y, C) < \frac{1}{n}} \quad \text{und} \quad 
-		\fctmap{f_n}{X}{\R}{x}{\max \set{0, 1-n d(x, C)}} \text{,}$$
-		wobei wir $d(y, C) \defby \inf_{x \in C} d(y, x)$ setzen.
-		Dann gilt:
-		\begin{enumeratethm}
-			\item $A_n$ ist offen für alle $n \in \N$.
-			\item $C = \bigcap_{n \in \N} A_n$, insbesondere ist $C$ also eine $G_\delta$-Menge.
-			\item Für alle $n$ ist $\restr{f_n}{A_n^\mathsf{c}} = 0$ und $f_n$ ist lipschitzstetig.
-			\item $f_n \convdown \indfct_C$.
-		\end{enumeratethm}
-	\end{Hilfssatz}
 
 	\begin{proof}
 		Aussage (a) folgt aus der Stetigkeit von $y \mapsto d(y, C)$.
@@ -329,235 +305,13 @@
 		was (i) impliziert.
 	\end{proof} 
 
-	\begin{Definition}[Hilbertwürfel]
-		Der \emph{Hilbertwürfel} ist der topologische Raum $H = [0, 1]^\N$ 
-		ausgestattet mit der Produkttopologie, also der kleinsten Topologie, 
-		bezüglich der alle Projektionen $\fctmap{\pi_n}{H}{[0, 1]}{x}{x_n}$ 
-		für $n \in \N$ stetig sind.
-	\end{Definition}
-
-	\begin{Hilfssatz}
-		\label{lem:hilbertcube}
-		Für den Hilbertwürfel $H$ gelten folgende Aussagen:
-		\begin{enumeratethm}
-			\item Eine Folge $(x^{(k)})_k \in H^\N$ konvergiert genau dann gegen 
-			ein $x \in H$, wenn alle Komponenten konvergieren, also, wenn
-			$\lim_{n \to \infty} x_n^{(k)} = x_n$ für alle $n \in \N$ gilt.
-			\item Setzen wir für $x, y \in H$
-			$$\rho(x, y) \defby \max_{n \in \N} \frac{|x_n - y_n|}{2^n} \text{,}$$
-			so definiert $\rho$ eine Metrik, die $H$ metrisiert.
-		\end{enumeratethm}
-	\end{Hilfssatz}
-
-	\begin{proof}
-		Die Hinrichtung von (a) folgt aus der Stetigkeit der Projektionen 
-		$\pi_n, \; n \in \N$. Für die Rückrichtung bemerke man zunächst, dass Mengen der Form 
-		\[U = \prod_{n=1}^{\infty} U_n\text{,} \quad U_n \subseteq [0, 1] \text{ offen, }
-		 \quad U_n = [0, 1] \text{ für fast alle } n \label{eq:2.5} \tag{2.5}\]
-		eine Basis der Topologie von $H$ bilden. 
-		Konvergiert nun also $(x^{(k)})_k \in H^\N$ komponentenweise gegen $x \in H$, 
-		so enthält jede offene Umgebung von $x$ von der Form \eqref{eq:2.5} auch fast 
-		alle Folgenglieder $x^{(k)}, \; k \in \N$ und damit konvergiert 
-		auch $(x^{(k)})_k$ gegen $x$.
-		
-		Offenbar wird durch $\rho$ aus (b) eine Metrik auf $H$ definiert. 
-		Es genügt also zu zeigen, dass $\rho$ die Topologie von $H$ induziert. 
-		Für $x \in H$ und $r > 0$ ist 
-		$B_r(x) = \prod_{n=1}^{\infty} B_{2^n r}(x_n) \subseteq H$ 
-		offen. Ist nun $U = \prod_{n=1}^{\infty} U_n$ wie in \eqref{eq:2.5}, 
-		so lässt sich leicht einsehen, dass es für jedes $x \in U$ ein $r > 0$ 
-		gibt mit $B_r(x) \subseteq U$, also ist $U$ offen bezüglich der von $\rho$ 
-		erzeugten Topologie und insgesamt wird $H$ von $\rho$ metrisiert.
-	\end{proof}
-
-	\begin{Bemerkung}
-		Der aus der Topologie bekannte \emph{Satz von Tychonoff} liefert 
-		unmittelbar, dass $H$ als Produkt kompakter topologischer Räume 
-		ebenfalls kompakt ist.
-		Außerdem lässt sich unter Ausnutzung von Aussage (a) aus 
-		Hilfssatz~\ref{lem:hilbertcube} leicht zeigen, dass $(H, \rho)$ 
-		vollständig ist. Weil Mengen der Form \eqref{eq:2.5}, bei denen 
-		$U_n$ ausschließlich rationale Intervalle sind, eine abzählbare 
-		Basis der Topologie von $H$ bilden, ist $H$ sogar separabel und 
-		damit insgesamt ein kompakter polnischer Raum.
-	\end{Bemerkung}
-
-	\begin{Hilfssatz}
-		\label{lem:characterizationpolishspaces}
-		Sei $(X, d)$ ein separabler metrischer Raum und sei 
-		$D \defby \setcomp{x_n}{n \in \N} \subseteq X$ eine abzählbare 
-		dichte Teilmenge. Außerdem setzen wir
-		\[\fctmap{\varphi}{X}{H}{x}{(\min(1, d(x, x_n)))_n} \text{.} \label{eq:2.6} \tag{2.6}\]
-		Dann gilt das Folgende:
-		\begin{enumeratethm}
-			\item $\varphi$ ein Homöomorphismus zwischen $X$ und $\varphi(X)$.
-			\item Ist $(X, d)$ vollständig, so ist $\varphi(X) \subseteq H$ 
-			eine $G_\delta$-Teilmenge.
-		\end{enumeratethm}
-	\end{Hilfssatz}
-
-	\begin{proof}
-		Wir zeigen zunächst, dass $\varphi$ injektiv ist. 
-		Dazu seien $y, z \in H$ mit $\varphi(y) = \varphi(z)$, also gilt
-		\[\min(1, d(y, x_n)) = \min(1, d(z, x_n)) \label{eq:2.7} \tag{2.7}\]
-		für alle $n \in \N$. Weil es eine Folge $(y_n)_n \in D^\N$ mit 
-		$y_n \to y$ gibt und diese wegen \eqref{eq:2.7} auch gegen $z$ 
-		konvergiert, folgt die Gleichheit von $y$ und $z$.
-		
-		Die Stetigkeit von $\varphi$ folgt direkt, weil die 
-		Komponentenfunktionen $x \mapsto \min(1, d(x, x_n))$ jeweils stetig sind. 
-		Seien nun $(y_k)_k \in X^\N$ und $y \in X$ mit $\varphi(y_k) \to \varphi(y)$, 
-		also
-		\[\min(1, d(y_k, x_n)) \; \to \; \min(1, d(y, x_n)), 
-			\quad k \to \infty \label{2.8} \tag{2.8}\]
-		für alle $n \in \N$. Wählt man nun $\varepsilon < 1$ beliebig, 
-		so existiert ein $n \in \N$ mit $d(y, x_n) \leq \varepsilon$. 
-		Wegen \eqref{2.8} ist dann auch
-		$d(y_k, x_n) \to d(y, x_k), \; k \to \infty$. Es gilt also die Ungleichung
-		$$\limsup_{k \to \infty} d(y_k, y) \; \leq \; 
-			\limsup_{k \to \infty} d(y_k, x_n) + d(y, x_n) \; \leq \; 2\varepsilon$$
-		und mit $\varepsilon \to 0$ folgt die Stetigkeit von $\varphi^{-1}$, 
-		womit Aussage (a) gezeigt ist.
-		
-		Nun beweisen wir noch Aussage (b). Da $\varphi$ ein Homöomorphismus auf sein 
-		Bild ist, ist $\varphi(B_{1/k}(x_m)) \subseteq \varphi(X)$ für alle 
-		$k, m \in \N$ relativ offen, also gibt es jeweils offene Mengen 
-		$V_{k, m} \subseteq H$ mit
-		\[\varphi(B_{1/k}(x_m)) \; = \; V_{k, m} 
-			\cap \varphi(X) \text{.} \label{eq:2.9} \tag{2.9}\]
-		Wir möchten jetzt zeigen, dass
-		\[\varphi(X) \; = \; \overline{\varphi(X)} \, \cap \, 
-			\bigcap_{k \in \N} \left( \bigcup_{m \in \N} V_{k, m} \right) 
-			\label{eq:2.10} \tag{2.10}\]
-		gilt. 
-		Weil $\overline{\varphi(X)}$ nach Hilfssatz~\ref{lem:opensets} 
-		als abgeschlossene Menge eine $G_\delta$-Menge ist, 
-		folgt aus \eqref{eq:2.10} direkt die Aussage (b).
-		
-		Für jedes $m \in \N$ ist sicherlich $\varphi(X) \subseteq 
-		\bigcup_{m \in \N} V_{k, m}$, weshalb \enquote{$\subseteq$} 
-		in \eqref{eq:2.10} unmittelbar folgt.
-		Wir nehmen nun an, dass $z$ in der rechten Seite von \eqref{eq:2.10} liegt. 
-		Dann gibt es für jedes $k \in \N$ ein $m_k \in \N$ mit $z \in V_{k, m_k}$. 
-		Ferner existiert wegen $z \in \overline{\varphi(X)}$ eine Folge $(y_k)_k \in X^\N$ 
-		mit $\varphi(y_k) \to z$, wobei wir zusätzlich
-		$\varphi(y_k) \in \bigcap_{j=1}^{k} V_{j, m_j}$
-		fordern. Weil damit nach \eqref{eq:2.9} auch für alle $k \in \N$
-		\[y_k \in \bigcap_{j=1}^{k} B_{1/k}(x_m)\]
-		gilt, ist $(y_k)_k$ eine Cauchyfolge. Aufgrund der Vollständigkeit von 
-		$(X, d)$ gibt es also ein $y \in X$ mit $y_k \to y$, was 
-		$z = \varphi(y) \in \varphi(X)$ und damit \enquote{$\supseteq$} 
-		in \eqref{eq:2.10} impliziert.
-		
-	\end{proof}
-
-	\begin{Hilfssatz}
-		\label{lem:characterizationpolishspaces2}
-		Sei $X$ ein polnischer Raum. Dann ist jede $G_\delta$-Teilmenge 
-		von $X$ (ausgestattet mit der Teilraumtopologie) ebenfalls polnisch.
-	\end{Hilfssatz}
-
-	\begin{proof}
-		Sei $P \subseteq X$ eine $G_\delta$-Teilmenge und 
-		$U_n \subseteq X, \, n \in \N$ offene Mengen mit 
-		$P = \bigcap_{n \in \N} U_n$, wobei wir außerdem 
-		$C_n \defby U_n^{\mathsf{c}}$ schreiben. Ferner sei 
-		$d$ eine Metrik, die $X$ vollständig metrisiert. 
-		Da $P$ als Teilmenge eines separablen metrischen Raumes 
-		selbst separabel ist, genügt es, die vollständige Metrisierbarkeit 
-		von $P$ zu beweisen.
-		
-		Für $x, y \in P$ definieren wir
-		\[d^\ast(x, y) \; \defby \; d(x, y) + \sum_{n=1}^{\infty} \min \left(
-		\frac{1}{2^n}, \left| \frac{1}{d(x, C_n)} - \frac{1}{d(y, C_n)} \right|
-		\right) \text{.}\]
-		Offensichtlich ist $d^\ast$ eine Metrik auf $P$, 
-		die dieselbe Topologie wie $d$ erzeugt. 
-		
-		Wir möchten nun zeigen, dass $(P, d^\ast)$ vollständig ist. 
-		Sei dazu $(x_k)_k \in P^\N$ eine Cauchyfolge. Wegen $d \leq d^\ast$ 
-		ist $(x_k)_k$ dann auch bezüglich $d$ eine Cauchyfolge und die 
-		Vollständigkeit von $(X, d)$ liefert die Existenz eines Grenzwertes 
-		$x \in X$. Angenommen $x \notin P$, so gibt es ein $m \in \N$ mit 
-		$x \in C_m$. Damit ist aber für alle $k \in \N$
-		$$\sup_{l \geq k} d^\ast(x_k, x_l) \; \geq \; \sup_{l \geq k} 
-			\, \sum_{n=1}^{\infty} \min \left(
-			\frac{1}{2^n}, \left| \frac{1}{d(x_k, C_n)} -
-			 \frac{1}{d(x_l, C_n)} \right|
-			\right) \; \geq \; \frac{1}{2^m} \; > \; 0 \text{,}$$
-		was der Tatsache widerspricht, dass $(x_k)_k$ eine Cauchyfolge 
-		bezüglich $d^\ast$ ist. Also muss $x \in P$ gelten. 
-		Aus der Stetigkeit von $x \mapsto d(x, C_n)$ folgt mit dem 
-		Satz von Lebesgue unmittelbar die Konvergenz 
-		$d^\ast(x_k, x) \to 0$ für $k \to \infty$.
-	\end{proof}
-
-	Da wir in Hilfssatz~\ref{lem:characterizationpolishspaces} bereits 
-	gesehen haben, dass jeder polnische Raum homöomporph zu einer 
-	$G_\delta$-Teilmenge vom Hilbertwürfel $H$ ist und wir durch 
-	Lemma~\ref{lem:characterizationpolishspaces2} nun auch wissen, 
-	dass jede $G_\delta$-Teilmenge von $H$ tatsächlich polnisch ist, 
-	haben wir also insgesamt den folgenden Satz bewiesen:
-
-	\begin{Satz}[Charakterisierung polnischer Räume]
-		\label{thm:characterizationpolishspaces}
-		Ein topologischer Raum $(X, \mathcal{O})$ ist genau dann polnisch, 
-		wenn es eine $G_\delta$-Teilmenge $Y \subseteq H$ gibt, sodass $X$ 
-		zu $Y$ homöomorph ist. 
-	\end{Satz}
-
-	\begin{Bemerkung}
-		Eine Teilmenge von $H$ ist genau dann kompakt, wenn sie 
-		abgeschlossen (und damit nach Hilfssatz~\ref{lem:opensets} 
-		eine $G_\delta$-Teilmenge) ist. Deshalb entsprechen die kompakten 
-		polnischen Räume gerade den abgeschlossenen 
-		Teilmengen von $H$.
-	\end{Bemerkung}
-
-	\begin{Hilfssatz}
-		\label{lem:hilbertcubefunctionseparability}
-		$(C(H), \norm{\cdot}_\infty)$ ist separabel.
-	\end{Hilfssatz}
-
-	\begin{proof}
-		Wir definieren zunächst 
-		\[\mathcal{D} \; \defby \; \mathrm{span}_\R 
-			\setcomp{\fctmap{f}{H}{\R}{x
-			}{\prod_{j=1}^{n} f_j(x_j)}}{n \in \N, \; f_1,
-			\dots,f_n \in C([0, 1])} \text{.}\]
-		Weil $\mathcal{D}$ eine punktetrennende reelle 
-		Unteralgebra von $C(H)$ ist, für die keine 
-		Auswertungsfunktion $\mathcal{D} \ni f \mapsto f(x), 
-			\; x \in H$ konstant $0$ ist, lässt sich mit dem 
-		Satz von Stone-Weierstraß folgern, dass $\mathcal{D} \subseteq C(H)$ 
-		dicht bezüglich $\norm{\cdot}_\infty$ ist.
-		Außerdem ist $(C([0, 1]), \norm{\cdot}_\infty)$ separabel, 
-		also gibt es eine abzählbare, dichte Teilmenge 
-		$\mathcal{P} \subseteq C([0, 1])$. Schließlich setzen wir
-		\[\mathcal{D}^\ast \; \defby \; \mathrm{span}_\Q 
-			\setcomp{\fctmap{f}{H}{\R}{x}{\prod_{j=1}^{n} f_j(x_j)}}
-			{n \in \N, \; f_1,\dots,f_n \in \mathcal{P}} \text{.}\]
-		Dann ist $\mathcal{D}^\ast$ abzählbar und wegen 
-		$ \mathcal{D} \subseteq \overline{\mathcal{D}^\ast} 
-		\subseteq C(H)$ gilt die Gleichheit $\overline{\mathcal{D}^\ast} = C(H)$. 
-		Demnach ist $(C(H), \norm{\cdot}_\infty)$ also separabel.
-	\end{proof}
-
-	\begin{Bemerkung}
-		Analog kann man den obigen Beweis allgemeiner für stetige Funktionen 
-		auf einem abzählbaren Produkt kompakter Hausdorffräume, deren 
-		stetige Funktionen jeweils separabel bezüglich $\norm{\cdot}_\infty$ 
-		sind, führen. Das Vorgehen wird in \cite[Lemma 4.12.1 und 
-		Proposition 4.12.2]{Simon.2015} skizziert.
-	\end{Bemerkung}
-
 	\begin{Satz}
 		\label{thm:Lp}
 		Sei $X$ ein polnischer Raum. Dann gibt es eine abzählbare Menge 
 		$\mathcal{D} \subseteq \Bdcontfct{X}$, die dicht liegt in jedem 
 		$L^p(X, \mu)$ mit $p \in [1, \infty)$, $\mu \in \Probmeasures{X}$.
 	\end{Satz}
-
+	
 	\begin{proof}
 		Wir beweisen zuerst, dass $C(H) = \Bdcontfct{H} \subseteq L^p(H, \mu)$ für beliebiges 
 		$p \in [1, \infty)$, $\mu \in \Probmeasures{H}$ dicht liegt. 
@@ -571,9 +325,9 @@
 				\rho(x, U_n^\mathsf{c})}} \text{,} \quad f_n \in \Bdcontfct{H} \text{,}\]
 		so ist
 		\[ \norm{f_n - \indfct_A}_{L^p(H, \mu)}^p \; = \; 
-			\measureint{}{\abs{f_n - \indfct_A}^p}{\mu} \; \leq \; 
-			\mu(U_n \setminus C_n) \; < \; \frac{1}{n} \to 0 \text{,} 
-			\quad n \to \infty \text{.}\]
+		\measureint{}{\abs{f_n - \indfct_A}^p}{\mu} \; \leq \; 
+		\mu(U_n \setminus C_n) \; < \; \frac{1}{n} \to 0 \text{,} 
+		\quad n \to \infty \text{.}\]
 		Insobesondere folgt direkt, dass sich auch jede einfache Funktion 
 		beliebig gut bezüglich $\norm{\cdot}_{L^p(H, \mu)}$ durch Funktionen aus $\Bdcontfct{H}$ 
 		approximieren lassen kann. Weil die einfachen Funktionen aber dicht 
@@ -594,10 +348,10 @@
 		\[\fctmap{\Phi}{L^p(H, \nu)}{L^p(X, \mu)}{f}{f \circ \varphi} \text{.}\]
 		Für $f \in L^p(H, \nu)$ gilt dann
 		\[ \norm{f \circ \varphi}_{L^p(X, \mu)} 
-			\; = \; \measureint{}{\abs{f \circ \varphi}^p}{\mu} 
-			\; = \; \measureint{}{\abs{f}^p}{\mu^\varphi} 
-			\; = \; \measureint{}{\abs{f}^p}{\nu} 
-			\; = \; \norm{f}_{L^p(H, \nu)} \text{.} \]
+		\; = \; \measureint{}{\abs{f \circ \varphi}^p}{\mu} 
+		\; = \; \measureint{}{\abs{f}^p}{\mu^\varphi} 
+		\; = \; \measureint{}{\abs{f}^p}{\nu} 
+		\; = \; \norm{f}_{L^p(H, \nu)} \text{.} \]
 		Wegen $\nu(\varphi(X)) = 1$ ist $\Phi$ bijektiv und damit insgesamt eine Isometrie 
 		zwischen $L^p(H, \nu)$ und $L^p(X, \mu)$. Insbesondere ist also auch 
 		\[\Phi(\mathcal{D}) = \setcomp{f \circ \varphi}{f \in \mathcal{D}} \subseteq \Bdcontfct{X}\]
@@ -762,6 +516,11 @@
 		Der Rieszsche Darstellungssatz liefert die Bijektivität von $\Phi$.
 	\end{proof}
 
+	\[ \left( \begin{array}{c | c}
+		1 & 2 \\
+		\hline
+		3 & 4
+	\end{array} \right) \]
 	
 	
 \end{document}
