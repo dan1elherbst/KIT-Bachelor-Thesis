@@ -121,6 +121,9 @@
 		wenn es eine $G_\delta$-Teilmenge $Y \subseteq H$ gibt, sodass $X$ 
 		zu $Y$ homöomorph ist. 
 	\end{Satz}
+
+	Wir werden den Beweis von Satz~\ref{thm:characterizationpolishspaces} in seine beiden Teilrichtungen
+	aufteilen und jeweils in Hilfssätze auslagern, beginnend mit der Hinrichtung.
 	
 	\begin{Hilfssatz}
 		\label{lem:characterizationpolishspaces}
@@ -188,8 +191,10 @@
 		$(X, d)$ gibt es also ein $y \in X$ mit $y_k \to y$, was 
 		$z = \varphi(y) \in \varphi(X)$ und damit \enquote{$\supseteq$} 
 		in \eqref{eq:2.10} impliziert.
-		
 	\end{proof}
+
+	Für die Rückrichtung zeigen wir die (nur vermeintlich allgemeinere) Aussage, 
+	dass $G_\delta$-Teilmengen polnischer Räume wieder polnisch sind.
 	
 	\begin{Hilfssatz}
 		\label{lem:characterizationpolishspaces2}
@@ -237,15 +242,10 @@
 	$G_\delta$-Teilmenge vom Hilbertwürfel $H$ ist und wir durch 
 	Lemma~\ref{lem:characterizationpolishspaces2} nun auch wissen, 
 	dass jede $G_\delta$-Teilmenge von $H$ tatsächlich polnisch ist, 
-	haben wir also insgesamt den folgenden Satz bewiesen:
+	haben wir nun also insgesamt Satz~\ref{thm:characterizationpolishspaces}
+	bewiesen.
 	
-	\begin{Bemerkung}
-		Eine Teilmenge von $H$ ist genau dann kompakt, wenn sie 
-		abgeschlossen (und damit nach Hilfssatz~\ref{lem:opensets} 
-		eine $G_\delta$-Teilmenge) ist. Deshalb entsprechen die kompakten 
-		polnischen Räume gerade den abgeschlossenen 
-		Teilmengen von $H$.
-	\end{Bemerkung}
+	\tobechanged{Gilt der folgende Hilfssatz auch für kompakte polnische Räume?}
 	
 	\begin{Hilfssatz}
 		\label{lem:hilbertcubefunctionseparability}
