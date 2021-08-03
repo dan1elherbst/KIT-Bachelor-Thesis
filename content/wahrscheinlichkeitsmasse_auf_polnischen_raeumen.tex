@@ -229,7 +229,8 @@
 
 	\begin{Satz}[Prokhorov]
 		\label{thm:prokhorov}
-		Sei $X$ ein polnischer Raum und $A \subseteq \Probmeasures{X}$, wobei $\Probmeasures{X}$ mit der Topologie der schwachen Konvergenz versehen sei. Dann sind folgende Aussagen äquivalent:
+		Sei $X$ ein polnischer Raum und $A \subseteq \Probmeasures{X}$, wobei $\Probmeasures{X}$ mit der 
+		Topologie der schwachen Konvergenz versehen sei. Dann sind folgende Aussagen äquivalent:
 		\begin{equivalentthm}
 			\item $A$ ist straff.
 			\item $\overline{A} \subseteq \Probmeasures{X}$ ist kompakt.
@@ -237,10 +238,12 @@
 	\end{Satz}
 
 	\begin{proof}
-		Sei zunächst $A \subseteq \Probmeasures{X}$ straff. Wir möchten nun beweisen, dass $\overline{A}$ kompakt ist, was wegen der Metrisierbarkeit von $\Probmeasures{X}$ äquivalent dazu ist,
+		Sei zunächst $A \subseteq \Probmeasures{X}$ straff. Wir möchten nun beweisen, dass $\overline{A}$ 
+		kompakt ist, was wegen der Metrisierbarkeit von $\Probmeasures{X}$ äquivalent dazu ist,
 		dass alle Folgen $(\mu_n)_n \in A^\N$ eine schwach konvergente Teilfolge besitzen. 
 		
-		Aufgrund der Straffheit von $A$ gibt es für jedes $m \in \N$ ein Kompaktum $K^{(m)} \subseteq X$, das für alle $n \in \N$
+		Aufgrund der Straffheit von $A$ gibt es für jedes $m \in \N$ ein Kompaktum $K^{(m)} \subseteq X$, 
+		das für alle $n \in \N$
 		\[ \mu_n(K^{(m)}) \geq 1 - \frac{1}{m+1} \label{4.5} \tag{4.5} \]
 		erfüllt. Ohne Einschränkung dürfen wir außerdem annehmen, dass 
 		\[ K^{(m)} \subseteq K^{(m+1)} \label{4.6} \tag{4.6} \] 
@@ -253,45 +256,62 @@
 		für alle $m \in \N$ kompakt bezüglich der Topologie der schwachen Konvergenz ist. Damit existiert ein Maß 
 		$\nu^{(1)} \in \Unitmeasures{K^{(1)}}$ und eine Teilfolge $(\mu_{n_j}^{(1)})_k$ von $(\mu_n)_n$ mit
 		\[ \restr{\mu_{n_j}^{(1)}}{K^{(1)}} \; \xrightarrow{w} \; \nu^{(1)} \text{.} \]
-		Auf dieselbe Art und Weise findet man nun für alle $m\geq 2$ sukzessive Maße $\nu^{(m)} \in \Unitmeasures{K^{(m)}}$ und Teilfolgen $(\mu_{n_j}^{(m)})_k$ von $(\mu_{n_j}^{(m-1)})_k$ mit
+		Auf dieselbe Art und Weise findet man nun für alle $m\geq 2$ sukzessive Maße 
+		$\nu^{(m)} \in \Unitmeasures{K^{(m)}}$ und Teilfolgen $(\mu_{n_j}^{(m)})_k$ von $(\mu_{n_j}^{(m-1)})_k$ mit
 		\[ \restr{\mu_{n_j}^{(m)}}{K^{(m)}} \; \xrightarrow{w} \; \nu^{(m)}, \quad j \to \infty \text{.} \]
-		Nun diagonalisieren wir und erhalten mit $\mu_{n_j} \; \defby \; \mu_{n_j}^{(j)}$ eine Teilfolge $(\mu_{n_j})_j$ von $(\mu_n)_n$, die
+		Nun diagonalisieren wir und erhalten mit $\mu_{n_j} \; \defby \; \mu_{n_j}^{(j)}$ eine Teilfolge 
+		$(\mu_{n_j})_j$ von $(\mu_n)_n$, die
 		\[ \restr{\mu_{n_j}}{K^{(m)}} \; \xrightarrow{w} \; \nu^{(m)}, \quad j \to \infty \label{4.7} \tag{4.7} \]
 		für alle $m \in \N$ erfüllt.
 		
-		Außerdem können Maße $\nu^{(m)}, \; m \in \N$ via $\nu^{(m)}(B) \defby \nu^{(m)}(B \cap K^{(m)}), \; B \in \mathcal{B}(X)$ einfach auf $X$ fortsetzen. Mit dieser Konvention können wir nun beweisen, dass die Maße
+		Außerdem können Maße $\nu^{(m)}, \; m \in \N$ via 
+		$\nu^{(m)}(B) \defby \nu^{(m)}(B \cap K^{(m)}), \; B \in \mathcal{B}(X)$ einfach auf $X$ fortsetzen. 
+		Mit dieser Konvention können wir nun beweisen, dass die Maße
 		$\nu^{(m)}, \; m \in \N$ in dem Sinne monoton wachsen, dass 
 		\[ \nu^{(m)}(B) \leq \nu^{(m+1)}(B) \label{4.8} \tag{4.8} \]
 		für alle $B \in \mathcal{B}(X)$ und $m \in \N$ gilt:
 		
-		Wegen schwacher Regularität (vgl. Satz~\ref{thm:weakregularity}) genügt es, die Ungleichung \eqref{4.8} für abgeschlossene Mengen zu zeigen. Sei also $m \in \N$ fixiert, $C \subseteq X$ abgeschlossen 
-		und seien $\fct{f_k}{X}{\R}, \; k \in \N$ die gleichmäßig stetigen, beschränkten Funktionen aus Hilfssatz~\ref{lem:opensets}. Unter Ausnutzung von \eqref{4.6} folgt nun 
+		Wegen schwacher Regularität (vgl. Satz~\ref{thm:weakregularity}) genügt es, die Ungleichung \eqref{4.8} 
+		für abgeschlossene Mengen zu zeigen. Sei also $m \in \N$ fixiert, $C \subseteq X$ abgeschlossen 
+		und seien $\fct{f_k}{X}{\R}, \; k \in \N$ die gleichmäßig stetigen, beschränkten Funktionen aus 
+		Hilfssatz~\ref{lem:opensets}. Unter Ausnutzung von \eqref{4.6} folgt nun 
 		\[ \measureint{K^{(m)}}{f_k}{\mu_{n_j}} \; \leq \; \measureint{K^{(m+1)}}{f_k}{\mu_{n_j}} \]
 		für alle $k, j \in \N$. Wegen 
-		\[ \measureint{K^{(m)}}{f_k}{\mu_{n_j}} \to \ \measureint{}{f_k}{\nu^{(m)}} \quad \text{und} \quad \measureint{K^{(m+1)}}{f_k}{\mu_{n_j}} \to \ \measureint{}{f_k}{\nu^{(m+1)}} \]
+		\[ \measureint{K^{(m)}}{f_k}{\mu_{n_j}} \to \ \measureint{}{f_k}{\nu^{(m)}} \quad \text{und} 
+			\quad \measureint{K^{(m+1)}}{f_k}{\mu_{n_j}} \to \ \measureint{}{f_k}{\nu^{(m+1)}} \]
 		ist damit auch 
 		\[ \measureint{}{f_k}{\nu^{(m)}} \; \leq \; \measureint{}{f_k}{\nu^{m+1}} \]
-		für alle $k \in \N$, was wiederum aufgrund der Konvergenz $f_k \convdown \indfct_C$ Ungleichung \eqref{4.8} impliziert.
+		für alle $k \in \N$, was wiederum aufgrund der Konvergenz $f_k \convdown \indfct_C$ Ungleichung 
+		\eqref{4.8} impliziert.
 		
 		Schlussendlich möchten wir nun nachweisen, dass durch
 		\[ \fctmap{\nu}{\mathcal{B}(X)}{[0, 1]}{B}{\sup_{m \in \N} \nu^{(m)}(B)} \]
 		ein Wahrscheinlichkeitsmaß auf $X$ definiert wird, gegen das $(\mu_{n_j})_j$ schwach konvergiert.
 		
-		Zunächst prüfen wir, dass $\nu$ ein Wahrscheinlichkeitsmaß ist. $\nu(\emptyset) = 0$ ist klar. Weil $\nu^{(m)}$ in $\Unitmeasures{K^{(m)}}$ liegt und wir \eqref{4.5} angenommen haben,
-		gilt 
+		Zunächst prüfen wir, dass $\nu$ ein Wahrscheinlichkeitsmaß ist. $\nu(\emptyset) = 0$ ist klar. 
+		Weil $\nu^{(m)}$ in $\Unitmeasures{K^{(m)}}$ liegt und wir \eqref{4.5} angenommen haben, gilt 
 		\[\nu^{(m)}(X) = \nu^{(m)}(K^{(m)}) \in [1 - \frac{1}{m+1}, 1]\] 
-		für alle $m \in \N$ und damit $\nu(X) = 1$. Für die $\sigma$-Additivität seien $B_k \in \mathcal{B}(X), \; k \in \N$ paarweise disjunkt. Dann gilt
+		für alle $m \in \N$ und damit $\nu(X) = 1$. Für die $\sigma$-Additivität seien 
+		$B_k \in \mathcal{B}(X), \; k \in \N$ paarweise disjunkt. Dann gilt
 		\begin{align*}
-			\nu \left( \bigcupdot_{k \in \N} B_k \right) \; &= \; \sup_{m \in \N} \; \nu^{(m)} \left( \bigcupdot_{k \in \N} B_k \right) \; = \; \sup_{m \in \N} \; \sum_{k=1}^{\infty} \nu^{(m)}(B_k) \\
-			                                                &\stackrel{\eqref{4.8}}{=} \; \sum_{k=1}^{\infty} \; \sup_{m \in \N} \nu^{(m)}(B_k) \; = \; \sum_{k=1}^{\infty} \nu(B_k) \text{,}
+			\nu \left( \bigcupdot_{k \in \N} B_k \right) \; &= \; \sup_{m \in \N} \; \nu^{(m)} \left( \bigcupdot_{k \in \N} B_k \right) 
+																\; = \; \sup_{m \in \N} \; \sum_{k=1}^{\infty} \nu^{(m)}(B_k) \\
+			                                                &\stackrel{\eqref{4.8}}{=} \; \sum_{k=1}^{\infty} \; \sup_{m \in \N} \nu^{(m)}(B_k) 
+			                                                	\; = \; \sum_{k=1}^{\infty} \nu(B_k) \text{,}
 		\end{align*}
-		wobei in der vorletzten Gleichung der Satz von Beppo Levi verwendet wurde. Insgesamt haben wir also $\nu \in \Probmeasures{X}$ nachgewiesen.
+		wobei in der vorletzten Gleichung der Satz von Beppo Levi verwendet wurde. 
+		Insgesamt haben wir also $\nu \in \Probmeasures{X}$ nachgewiesen.
 		
-		Jetzt bleibt lediglich zu zeigen dass $(\mu_{n_j})_j$ tatsächlich schwach gegen $\nu$ konvergiert. Hierfür möchten wir die Charakterisierung (ii) des Portmanteau-Theorems (Satz~\ref{thm:portmanteau}) verwenden.
-		Sei dazu $C \subseteq X$ abgeschlossen. Zunächst liefert ebendieser Satz für alle $j, m \in \N$ die Abschätzung $\mu_{n_j}(C \cap K^{(m)}) \leq \nu^{(m)}(C)$ und wegen \eqref{4.5} ist $\mu_{n_j}(C \cap K^{(m) \mathsf{c}}) \leq  \frac{1}{m+1}$. Insgesamt folgt daraus 
+		Jetzt bleibt lediglich zu zeigen dass $(\mu_{n_j})_j$ tatsächlich schwach gegen $\nu$ konvergiert. 
+		Hierfür möchten wir die Charakterisierung (ii) des Portmanteau-Theorems (Satz~\ref{thm:portmanteau}) verwenden.
+		Sei dazu $C \subseteq X$ abgeschlossen. Zunächst liefert ebendieser Satz für alle $j, m \in \N$ die 
+		Abschätzung $\mu_{n_j}(C \cap K^{(m)}) \leq \nu^{(m)}(C)$ und wegen \eqref{4.5} ist 
+		$\mu_{n_j}(C \cap K^{(m) \mathsf{c}}) \leq  \frac{1}{m+1}$. Insgesamt folgt daraus 
 		\begin{align*}
-			\limsup_{j \to \infty} \mu_{n_j}(C) \; &=    \; \lim_{m \to \infty} \limsup_{j \to \infty} \left( \mu_{n_j}(C \cap K^{(m)}) + \mu_{n_j}(C \cap K^{(m) \mathsf{c}}) \right) \\
-			                                       &\leq \; \lim_{m \to \infty} \left( \nu^{(m)}(C) + \frac{1}{m+1} \right) \; = \; \nu(C) \text{,}
+			\limsup_{j \to \infty} \mu_{n_j}(C) \; &=    \; \lim_{m \to \infty} \limsup_{j \to \infty} 
+														\left( \mu_{n_j}(C \cap K^{(m)}) + \mu_{n_j}(C \cap K^{(m) \mathsf{c}}) \right) \\
+			                                       &\leq \; \lim_{m \to \infty} \left( \nu^{(m)}(C) + \frac{1}{m+1} \right) 
+			                                       		\; = \; \nu(C) \text{,}
 		\end{align*}
 		was den Beweis der Hinrichtung von Satz~\ref{thm:prokhorov} abschließt.
 	\end{proof}
