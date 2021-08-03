@@ -91,6 +91,7 @@
 \newcommand{\setc}[1]{{#1}^\mathsf{c}}
 \newcommand{\convdown}{\downarrow}
 \newcommand{\Probmeasures}[1]{\mathcal{M}_{+,1}(#1)}
+\newcommand{\Unitmeasures}[1]{\mathcal{M}_{+,\leq 1}(#1)}
 \newcommand{\Finitemeasures}[1]{\mathcal{M}_{+}(#1)}
 \newcommand{\Bdcontfct}[1]{C_b(#1)}
 \newcommand{\measureintx}[4]{\int_{#1} \, #2 \, #3(\mathrm{d}#4)}
@@ -99,6 +100,22 @@
 \newcommand{\absl}[1]{\left| \, #1 \,\right|}
 \newcommand{\norm}[1]{\left\lVert#1\right\rVert}
 \newcommand{\norml}[1]{\left\lVert \, #1\, \right\rVert}
+
+% disjoint unions
+\makeatletter
+\def\moverlay{\mathpalette\mov@rlay}
+\def\mov@rlay#1#2{\leavevmode\vtop{%
+		\baselineskip\z@skip \lineskiplimit-\maxdimen
+		\ialign{\hfil$\m@th#1##$\hfil\cr#2\crcr}}}
+\newcommand{\charfusion}[3][\mathord]{
+	#1{\ifx#1\mathop\vphantom{#2}\fi
+		\mathpalette\mov@rlay{#2\cr#3}
+	}
+	\ifx#1\mathop\expandafter\displaylimits\fi}
+\makeatother
+
+\newcommand{\cupdot}{\charfusion[\mathbin]{\cup}{\cdot}}
+\newcommand{\bigcupdot}{\charfusion[\mathop]{\bigcup}{\cdot}}
 
 \newenvironment{enumeratethm}{\vspace*{0.5em} \begin{enumerate}[label=(\alph*)]}{\end{enumerate} \vspace*{0.5em}}
 \newenvironment{equivalentthm}{\vspace*{0.5em} \begin{enumerate}[label=(\roman*)]}{\end{enumerate} \vspace*{0.5em}}
