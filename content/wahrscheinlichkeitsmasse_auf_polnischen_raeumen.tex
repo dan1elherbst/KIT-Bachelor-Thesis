@@ -136,6 +136,14 @@
 		\end{align*}
 		und damit auch \eqref{eq:2.12}, womit wir den Beweis abschließen.
 	\end{proof}
+
+	\begin{Satz}
+		Sei $(X, d)$ ein metrischer Raum. Dann ist $X$ genau dann kompakt, wenn $\Probmeasures{X}$ kompakt ist.
+	\end{Satz}
+
+	\begin{proof}
+		\tobechanged{Hier steht dann der Beweis.}
+	\end{proof}
 	
 	\subsection{Straffheit und der Satz von Prokhorov}
 	
@@ -202,5 +210,13 @@
 		= \sup_{\substack{K \subseteq B \\ K \text{ kompakt}}} \mu(K)\] 
 		und insgesamt $\mu$ ist regulär.
 	\end{proof}
+
+	\begin{Satz}[Prokhorov]
+		Sei $X$ ein polnischer Raum und $A \subseteq \Probmeasures{X}$, wobei $\Probmeasures{X}$ mit der Topologie der schwachen Konvergenz versehen sei. Dann sind folgende Aussagen äquivalent:
+		\begin{equivalentthm}
+			\item $\overline{A} \subseteq \Probmeasures{X}$ ist kompakt.
+			\item $A$ ist straff.
+		\end{equivalentthm}
+	\end{Satz}
 	
 \end{document}

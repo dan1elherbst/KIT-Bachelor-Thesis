@@ -4,14 +4,10 @@
 	
 	\section{Maße auf metrischen Räumen}
 	
-	Im folgenden Kapitel möchten wir einige Eigenschaften von endlichen Borel-Maßen auf metrischen Räumen
-	festhalten. Unter anderem werden wir hierzu allgemeiner endliche Borel-Maße auf topologischen Räumen 
-	mit einer Topologie bzw. einem Konvergenzbegriff versehen, dem der sogenannten \emph{schwachen Konvergenz}, 
-	welche die \emph{Verteilungskonvergenz} aus der Stochastik auf andere Räume als $\R$ verallgemeinert. 
-	Erst die Einschränkung auf die Klasse der polnischen Räume wird uns einige nichttriviale Erkenntnisse über die 
-	Topologie dieses Raumes der Wahrscheinlichkeitsmaße ermöglichen.
+	Im folgenden Kapitel möchten wir einige Eigenschaften von endlichen Maßen auf topologischen bzw. metrischen Räumen
+	festhalten und diese selbst mit einem Konvergenzbegriff sowie einer zugehörigen Topologie versehen.
 	
-	Zunächst müssen wir noch ein paar wenige Begriffe definieren.
+	Hierzu müssen wir zunächst noch ein paar wenige Begriffe definieren.
 	Sei $X$ ein topologischer Raum mit der Topologie $\mathcal{O}$. Dann definieren wir die
 	\emph{Borel-$\sigma$-Algebra} 
 	$$\mathcal{B}(X) = \mathcal{B} \defby \sigma(\mathcal{O}) \text{.}$$
@@ -26,6 +22,11 @@
 	
 	\subsection{(Schwache) Regularität}
 	
+	(Schwache) Regularität ist eine 
+	Approximationseigenschaft von Maßen, die es uns etwa erlaubt, gewisse Aussagen 
+	zunächst für abgeschlossene bzw. kompakte und für offene Mengen zu zeigen, um diese 
+	anschließend auf ganz $\mathcal{B}(X)$ auszuweiten. 
+	
 	\begin{Definition}[Schwache Regularität von Maßen]
 		\label{def:regularity}
 		Sei $X$ ein topologischer Raum und $\mu$ ein endliches Borel-Maß auf $X$. 
@@ -39,16 +40,15 @@
 		so nennen wir $\mu$ ein \emph{schwach reguläres Maß}.
 	\end{Definition}
 
-	Ersetzen wir in der obigen Definition \enquote{abgeschlossen} durch \enquote{kompakt}, 
-	so erhalten wir analog den Begriff der \emph{Regularität}. (Schwache) Regularität ist eine 
-	Approximationseigenschaft von Maßen, die es uns etwa erlaubt, gewisse Aussagen 
-	zunächst für abgeschlossene bzw. kompakte und für offene Mengen zu zeigen, um diese 
-	anschließend auf ganz $\mathcal{B}(X)$ auszuweiten.
-	
-	Offenbar ist eine abgeschlossene (bzw. offene) Menge schwach regulär von innen (bzw. außen).
+	\begin{Bemerkung}
+		Ersetzen wir in der obigen Definition \enquote{abgeschlossen} durch \enquote{kompakt}, 
+		so erhalten wir analog den Begriff der \emph{Regularität}. 
+		
+		Offenbar ist eine abgeschlossene (bzw. offene) Menge schwach regulär von innen (bzw. außen).
+	\end{Bemerkung}
 	
 	Im Falle von endlichen Maßen auf metrischen Räumen kann schwache Regularität 
-	recht einfach gezeigt werden, wie wir im Folgenden sehen werden.
+	recht leicht gezeigt werden, wie wir im Folgenden sehen werden.
 	
 	\begin{Satz}
 		\label{thm:weakregularity}
@@ -140,6 +140,12 @@
 	\end{proof}
 
 	\subsection{Schwache Konvergenz}
+	
+	Wie zuvor angekündigt werden wir nun endliche Borel-Maße auf topologischen Räumen selbst
+	mit einer Topologie bzw. einem Konvergenzbegriff versehen, dem der sogenannten \emph{schwachen Konvergenz}, 
+	welche die aus der Stochastik bekannte \emph{Verteilungskonvergenz} auf andere Räume als $\R$ verallgemeinert. 
+	Erst die Einschränkung auf die Klasse der polnischen Räume als Grundraum wird uns einige nichttriviale Erkenntnisse 
+	über die Topologie dieses Raumes der Wahrscheinlichkeitsmaße ermöglichen.
 	
 	$\Bdcontfct{X}$ bezeichne 
 	im Folgenden die Menge aller stetigen beschränkten Funktionen von $X$ nach $\R$.
@@ -324,35 +330,19 @@
 		$I_f$ disjunkte Umgebungen von $\mu$ und $\nu$ in $\Finitemeasures{X}$ sind.
 	\end{Bemerkung}
 
-	\subsection{Beziehung zur Schwach-$\ast$-Konvergenz}
-
-	Ist $X$ ein topologischer Raum, so ist $(C_b(X), \norm{\cdot}_\infty)$ ein Banachraum. Wir betrachten nun die Abbildung
-	$$\fctmap{\Phi}{\Finitemeasures{X}}{C_b(X)^\ast}{\mu}{\left[\fctmap{l_\mu}{\Bdcontfct{X}}{\R}{f}{\measureint{}{f}{\mu}}\right]} \text{,}$$
-	die wegen $\abs{\measureint{}{f}{\mu}} \leq \mu(X) \norm{f}_\infty$ und $\mu(X) < \infty$ wohldefiniert ist und einem endlichen Maß
-	$\mu \in \Finitemeasures{X}$ ein zugehöriges lineares Funktional aus $C_b(X)^\ast$ zuordnet. Ist $\Finitemeasures{X}$ nun mit der
-	Topologie der schwachen Konvergenz ausgestattet und $\Bdcontfct{X}^\ast$ mit der Schwach-$\ast$-Topologie, so ist $\Phi$ 
-	offensichtlich \tobechanged{folgenstetig}, beziehungsweise ist schwache Konvergenz in $\Finitemeasures{X}$ sogar äquivalent zur Schwach-$\ast$-Konvergenz der Bilder unter $\Phi$.
+	\begin{Bemerkung}[Schwach-$\ast$-Konvergenz]
+		Ist $X$ ein topologischer Raum, so ist $(C_b(X), \norm{\cdot}_\infty)$ ein Banachraum. Wir betrachten nun die Abbildung
+		$$\fctmap{\Phi}{\Finitemeasures{X}}{C_b(X)^\ast}{\mu}{\left[\fctmap{l_\mu}{\Bdcontfct{X}}{\R}{f}{\measureint{}{f}{\mu}}\right]} \text{,}$$
+		die wegen $\abs{\measureint{}{f}{\mu}} \leq \mu(X) \norm{f}_\infty$ und $\mu(X) < \infty$ wohldefiniert ist und einem endlichen Maß
+		$\mu \in \Finitemeasures{X}$ ein zugehöriges lineares Funktional aus $C_b(X)^\ast$ zuordnet. Sind $\Finitemeasures{X}$ bzw. $\Bdcontfct{X}^\ast$ nun mit der
+		Topologie der schwachen Konvergenz bzw. mit der Schwach-$\ast$-Topologie ausgestattet, so ist schwache Konvergenz in $\Finitemeasures{X}$ äquivalent zur Schwach-$\ast$-Konvergenz der Bilder unter $\Phi$.
 		
-	Handelt es sich bei $X$ nun um einen metrischen Raum, so ist $\Phi$ sogar injektiv:
-	Satz~\ref{thm:measureequality} (ii) ermöglicht es uns, für $\mu, \nu \in \Finitemeasures{X}$ aus $l_\mu = l_\nu$ die Gleichheit 
-	$\mu = \nu$ zu schließen.
-	
-	Der folgende Satz zeigt besonders instruktiv, wie sich diese Verbindung zwischen schwacher Konvergenz von Maßen und Schwach-$\ast$-Konvergenz ausnutzen lässt.
-	
-	\begin{Satz}
-		Sei $(X, d)$ ein metrischer Raum. Dann ist $\Probmeasures{X}$ 
-		genau dann kompakt bezüglich der Topologie der schwachen Konvergenz, 
-		wenn $(X, d)$ kompakt ist.
-	\end{Satz}
-	
-	\begin{proof}
-		Sei zunächst $(X, d)$ kompakt. Wir setzen nun
-		\[ A \defby \setcomp{l \in \Bdcontfct{X}^\ast}{\norm{l}_{\Bdcontfct{X}^\ast} \leq 1, \; l(\indfct_{X}) = 1, \; \forall f \in \Bdcontfct{X} \text{ mit } f \geq 0 : l(f) \geq 0} \subseteq \Bdcontfct{X}^\ast \]
-		und
-		\[ \fctmap{\Phi}{\Probmeasures{X}}{A}{\mu}{\left[\fctmap{l_\mu}{\Bdcontfct{X}}{\R}{f}{\measureint{}{f}{\mu}}\right]} \text{.} \]
-		Der Rieszsche Darstellungssatz liefert nun die Bijektivität von $\Phi$ und aus den vorigen Überlegungen ergibt sich, dass $\Phi$ ein Folgen-Homöomorphismus zwischen $\Probmeasures{X}$ und $A$ ist. Nach dem Satz
-		von Banach-Alaoglu ist A nun als abgeschlossene Teilmenge von $\setcomp{l \in C_b(X)^\ast}{\norm{l}_{\Bdcontfct{X}^\ast} \leq 1}$ kompakt bezüglich der Schwach-$\ast$-Topologie und damit auch folgenkompakt.
-		Also ist auch $\Probmeasures{X}$ folgenkompakt.
-	\end{proof}
+		Handelt es sich bei $X$ nun um einen metrischen Raum, so ist $\Phi$ sogar injektiv und damit ein \tobechanged{Folgen-Homöomorphismus} auf sein Bild:
+		Satz~\ref{thm:measureequality} (ii) ermöglicht es uns, für $\mu, \nu \in \Finitemeasures{X}$ aus $l_\mu = l_\nu$ die Gleichheit 
+		$\mu = \nu$ zu schließen. 
+		
+		Unter etwas spezielleren Voraussetzungen können nun mittels dieser Identifikation Aussagen aus der Funktionalanalysis auch für $\Finitemeasures{X}$ fruchtbar gemacht werden, indem von topologischen Eigenschaften von
+		$\Bdcontfct{X}^\ast$ mit der Schwach-$\ast$-Konvergenz auf die entsprechenden Eigenschaften von $\Finitemeasures{X}$ mit der Topologie der schwachen Konvergenz geschlossen wird. Ein Beispiel hierfür werden wir noch im Beweis des \tobechanged{Satzes von Prokhorov} sehen.
+	\end{Bemerkung}
 	
 \end{document}
