@@ -2,34 +2,40 @@
 
 \begin{document}
 	
-	\section{Wahrscheinlichkeitsmaße auf metrischen Räumen}
+	\section{Maße auf metrischen Räumen}
 	
-	Im folgenden Kapitel möchten wir einige Eigenschaften von Borel-Wahrscheinlichkeitsmaßen auf metrischen Räumen
-	festhalten. Außerdem werden wir allgemeiner Wahrscheinlichkeitsmaße auf topologischen Räumen selbst 
+	Im folgenden Kapitel möchten wir einige Eigenschaften von endlichen Borel-Maßen auf metrischen Räumen
+	festhalten. Unter anderem werden wir hierzu allgemeiner endliche Borel-Maße auf topologischen Räumen 
 	mit einer Topologie bzw. einem Konvergenzbegriff versehen, dem der sogenannten \emph{schwachen Konvergenz}, 
-	welche die \emph{Verteilungskonvergenz} aus der Stochastik verallgemeinert. 
+	welche die \emph{Verteilungskonvergenz} aus der Stochastik auf andere Räume als $\R$ verallgemeinert. 
 	Erst die Einschränkung auf die Klasse der polnischen Räume wird uns einige nichttriviale Erkenntnisse über die 
 	Topologie dieses Raumes der Wahrscheinlichkeitsmaße ermöglichen.
 	
 	Zunächst müssen wir noch ein paar wenige Begriffe definieren.
-	Sei $X$ ein topologischer Raum mit offenen Mengen $\mathcal{O}$. Dann definieren wir die
+	Sei $X$ ein topologischer Raum mit der Topologie $\mathcal{O}$. Dann definieren wir die
 	\emph{Borel-$\sigma$-Algebra} 
 	$$\mathcal{B}(X) = \mathcal{B} \defby \sigma(\mathcal{O}) \text{.}$$
-	Maße auf $\mathcal{B}(X)$ nennen wir \emph{Borel-Maße} und wir führen außerdem die Schreibweise
-	$$\Probmeasures{X} \defby \setcomp{\fct{\mu}{\mathcal{B}}{[0,1]}}{\mu \; 
-		\text{ist Wahrscheinlichkeitsmaß}}$$
-	für die Menge aller \emph{Borel-Wahrscheinlichkeitsmaße} auf $X$ ein.
+	Maße auf $\mathcal{B}(X)$ nennen wir \emph{Borel-Maße} und wir führen außerdem die Schreibweisen
+	\begin{align*}
+		\Finitemeasures{X}  \; &\defby \; \setcomp{\fct{\mu}{\mathcal{B}(X)}{[0,1]}}{\mu \; 
+			\text{ist endliches Maß}} \\
+		\Probmeasures{X} \; &\defby \; \setcomp{\fct{\mu}{\mathcal{B}(X)}{[0,1]}}{\mu \; 
+			\text{ist Wahrscheinlichkeitsmaß}}
+	\end{align*}
+	für die Menge aller \emph{endlichen Borel-Maße} beziehungsweise \emph{Borel-Wahrscheinlichkeitsmaße} auf $X$ ein.
+	
+	\subsection{(Schwache) Regularität}
 	
 	\begin{Definition}[Schwache Regularität von Maßen]
 		\label{def:regularity}
 		Sei $X$ ein topologischer Raum und $\mu$ ein endliches Borel-Maß auf $X$. 
-		Dann nennen wir $B \in \mathcal{B}$ \emph{schwach von 
+		Dann nennen wir $B \in \mathcal{B}(X)$ \emph{schwach von 
 			innen bzw. von außen regulär}, falls
-		$$\mu(B) = \sup_{\substack{C \subseteq B \\ C^\mathsf{c} \in \mathcal{O}}} \mu(C) 
-		\quad \text{bzw.} \quad \mu(B) = \inf_{\substack{U \supseteq B \\ U \in \mathcal{O}}} 
+		$$\mu(B) = \sup_{\substack{C \subseteq B \\ C \; \text{abgeschlossen}}} \mu(C) 
+		\quad \text{bzw.} \quad \mu(B) = \inf_{\substack{U \supseteq B \\ U \; \text{offen}}} 
 		\mu(U)$$
-		gelten. Wir nennen $B \in \mathcal{B}$ \emph{schwach regulär}, wenn $B$ schwach von innen und 
-		von außen regulär ist. Sind alle $B \in \mathcal{B}$ schwach regulär, 
+		gelten. Wir nennen $B \in \mathcal{B}(X)$ \emph{schwach regulär}, wenn $B$ schwach von innen und 
+		von außen regulär ist. Sind alle $B \in \mathcal{B}(X)$ schwach regulär, 
 		so nennen wir $\mu$ ein \emph{schwach reguläres Maß}.
 	\end{Definition}
 
@@ -37,26 +43,26 @@
 	so erhalten wir analog den Begriff der \emph{Regularität}. (Schwache) Regularität ist eine 
 	Approximationseigenschaft von Maßen, die es uns etwa erlaubt, gewisse Aussagen 
 	zunächst für abgeschlossene bzw. kompakte und für offene Mengen zu zeigen, um diese 
-	anschließend auf ganz $\mathcal{B}$ auszuweiten.
+	anschließend auf ganz $\mathcal{B}(X)$ auszuweiten.
 	
 	Offenbar ist eine abgeschlossene (bzw. offene) Menge schwach regulär von innen (bzw. außen).
 	
-	Im Falle von Wahrscheinlichkeitsmaßen auf metrischen Räumen kann schwache Regularität 
+	Im Falle von endlichen Maßen auf metrischen Räumen kann schwache Regularität 
 	recht einfach gezeigt werden, wie wir im Folgenden sehen werden.
 	
 	\begin{Satz}
 		\label{thm:weakregularity}
-		Ist $(X, d)$ ein metrischer Raum, so ist jedes $\mu \in \Probmeasures{X}$ schwach regulär.
+		Ist $(X, d)$ ein metrischer Raum, so ist jedes endliche Borel-Maß $\mu$ auf $X$ schwach regulär.
 	\end{Satz}
 	
 	Für den Beweis des Satzes benötigen wir noch einen Hilfssatz, welcher 
-	uns ermöglichen wird, die schwache Regularität nur auf einem Erzeuger von $\mathcal{B}$ 
+	uns ermöglichen wird, die schwache Regularität nur auf einem Erzeuger von $\mathcal{B}(X)$ 
 	zu zeigen (für den wir dann die abgeschlossenen Mengen wählen).
 	
 	\begin{Hilfssatz}
 		\label{lem:sigmaalg}
 		In der Situation von Definition~\ref{def:regularity} ist
-		$$\mathcal{S} \defby \setcomp{B \in \mathcal{B}}{B \text{ schwach regulär bzgl. } \mu}$$
+		$$\mathcal{S} \defby \setcomp{B \in \mathcal{B}(X)}{B \text{ schwach regulär bzgl. } \mu}$$
 		eine $\sigma$-Algebra.
 	\end{Hilfssatz}
 	
@@ -116,16 +122,16 @@
 	wie oben bereits angedeutet wurde, Satz~\ref{thm:weakregularity} bewiesen werden.
 	
 	\begin{proof}[Beweis von Satz~\ref{thm:weakregularity}]
-		Es ist nun zu zeigen, dass für jedes $\mu \in \Probmeasures{X}$
+		Es ist nun zu zeigen, dass für jedes endliche Borel-Maß $\mu$ auf $X$
 		die Menge 
-		$$\mathcal{S} \defby \setcomp{B \in \mathcal{B}}{B \text{ schwach regulär bzgl. } \mu}$$
+		$$\mathcal{S} \defby \setcomp{B \in \mathcal{B}(X)}{B \text{ schwach regulär bzgl. } \mu}$$
 		bereits ganz $\mathcal{B}$ ist. 
 		Da $\mathcal{S}$ nach Hilfssatz~\ref{lem:sigmaalg} eine 
 		$\sigma$-Algebra ist und 
-		$\mathcal{B}$ von den abgeschlossenen Mengen erzeugt wird, genügt es zu zeigen, 
+		$\mathcal{B}(X)$ von den abgeschlossenen Mengen erzeugt wird, genügt es zu zeigen, 
 		dass diese in $\mathcal{S}$ enthalten sind. 
 		
-		Sei $C \in \mathcal{B}$. Dann ist $C$ sicherlich schwach regulär von innen. 
+		Sei $C \in \mathcal{B}(X)$. Dann ist $C$ sicherlich schwach regulär von innen. 
 		Nun verwenden wir die offenen Mengen $A_n, \; n \in \N$ aus 
 		Hilfssatz~\ref{lem:opensets}. 
 		Wegen $A_n \convdown C$ und $\mu(X) < \infty$ folgt mit der 
@@ -133,38 +139,14 @@
 		sodass $C$ auch schwach regulär von außen ist.
 	\end{proof}
 
-\tobechanged{Ab hier fehlen Kommentare.}
-	
-	\begin{Satz}
-		Sei $(X,d)$ ein metrischer Raum und seien $\mu, \nu \in \Probmeasures{X}$. 
-		Dann sind die folgenden Aussagen äquivalent:
-		\begin{equivalentthm}
-			\item $\mu = \nu$.
-			\item Für alle gleichmäßig stetigen Funktionen $\fct{f}{X}{\R}$ ist
-			$\measureint{}{f}{\mu} = \measureint{}{f}{\nu}$.
-			\item Für alle abgeschlossenen Mengen $C \in \mathcal{B}$ ist $\mu(C) = \nu(C)$.
-		\end{equivalentthm}
-	\end{Satz}
-	
-	\begin{proof}
-		Die Implikation (i) $\Rightarrow$ (ii) ist klar und (iii) 
-		$\Rightarrow$ (i) folgt aus Satz~\ref{thm:weakregularity}.
-		
-		(ii) $\Rightarrow$ (iii): Gelte (ii) und sei $C \subseteq X$ abgeschlossen. 
-		Dann gilt für die gleichmäßig stetigen Funktionen $f_n$ aus Hilfssatz~\ref{lem:opensets}
-		$$\measureint{}{f_n}{\mu} = \measureint{}{f_n}{\nu}\text{,} \quad n \in \N \text{.}$$
-		Wegen $| f_n | \leq 1$ und $f_n \convdown \indfct_C$ folgt mit dem Satz von Lebesgue 
-		$$\measureint{}{f_n}{\mu} \; \to \; \mu(C) \quad \text{und} \quad \measureint{}{f_n}{\nu} 
-		\; \to \; \nu(C)$$
-		und damit gilt (iii).
-	\end{proof}
+	\subsection{Schwache Konvergenz}
 	
 	$\Bdcontfct{X}$ bezeichne 
 	im Folgenden die Menge aller stetigen beschränkten Funktionen von $X$ nach $\R$.
 	
 	\begin{Definition}[Schwache Konvergenz von Maßen]
 		\label{def:weakconvergence}
-		Sei $(\mu_n)_n \in \Probmeasures{X}^\N$ eine Folge von Wahrscheinlichkeitsmaßen.
+		Sei $(\mu_n)_n \in \Finitemeasures{X}^\N$ und $\mu \in \Finitemeasures{X}$. 
 		Dann sagen wir, dass $(\mu_n)_n$ 
 		\emph{schwach} gegen $\mu \in \Probmeasures{X}$ \emph{konvergiert}, 
 		falls für alle $f \in \Bdcontfct{X}$
@@ -173,18 +155,35 @@
 		gilt. In diesem Fall schreiben wir
 		$$\mu_n \xrightarrow{w} \mu \text{.}$$
 	\end{Definition}
+
+	\begin{Definition}[Topologie der schwachen Konvergenz]
+		Für $f \in \Bdcontfct{X}$ sei
+		$$\fctmap{I_f}{\Finitemeasures{X}}{\R}{\mu}{\measureint{}{f}{\mu}} \text{.}$$
+		Bezeichnen wir nun mit $\mathcal{O}_w$ die kleinste Topologie auf $\Finitemeasures{X}$, bezüglich der alle
+		$I_f$ für $f \in \Bdcontfct{X}$ stetig sind, so entspricht Konvergenz bezüglich dieser Topologie exakt
+		der schwachen Konvergenz.
+	\end{Definition}
+
+	\begin{Bemerkung}
+		Möchte man ausschließlich Wahrscheinlichkeitsmaße betrachten, so definiert man die Topologie der schwachen Konvergenz
+		auf $\Probmeasures{X}$ völlig analog. Offenbar entspricht diese dann gerade der Teilraumtopologie von $\Probmeasures{X} \subseteq (\Finitemeasures{X}, \mathcal{O}_w)$.
+	\end{Bemerkung}
 	
-	Eine Charakterisierung der schwachen Konvergenz von Maßen liefert der folgende Satz:
+	Im Falle metrischer Räume liefert der folgende Satz eine umfangreiche Charakterisierung der schwachen Konvergenz.
 	
 	\begin{Satz}[Portmanteau]
 		\label{thm:portmanteau}
-		Sei $(X, d)$ ein metrischer Raum, $(\mu_n)_n \in \Probmeasures{X}^\N$ 
-		und $\mu \in \Probmeasures{X}$. Dann sind die folgenden Aussagen äquivalent:
+		Sei $(X, d)$ ein metrischer Raum, $(\mu_n)_n \in \Finitemeasures{X}^\N$ 
+		und $\mu \in \Finitemeasures{X}$. Dann sind die folgenden Aussagen äquivalent:
 		\begin{equivalentthm}
 			\item $\mu_n \xrightarrow{w} \mu$.
-			\item Für alle abgeschlossenen Mengen $C \subseteq X$ gilt 
+			\item Es ist 
+			$\lim_{n \to \infty} \mu_n(X) = \mu(X)$
+			und für alle abgeschlossenen Mengen $C \subseteq X$ gilt 
 			$$\limsup_{n \to \infty} \mu_n(C) \; \leq \; \mu(C) \text{.}$$
-			\item Für alle offenen Mengen $U \subseteq X$ gilt 
+			\item Es ist 
+			$\lim_{n \to \infty} \mu_n(X) = \mu(X)$
+			und für alle offenen Mengen $U \subseteq X$ gilt 
 			$$\liminf_{n \to \infty} \mu_n(U) \; \geq \; \mu(U) \text{.}$$
 			\item Für alle $B \in \mathcal{B}$ mit $\mu(\partial B) = 0$ 
 			ist $$\lim_{n \to \infty} \mu_n(A) \; = \; \mu(A) \text{.}$$
@@ -209,13 +208,17 @@
 		\quad m \to \infty \text{,}$$
 		woraus
 		$$\limsup_{n \to \infty} \mu_n(C) \; \leq \; \mu(C)$$
-		folgt.
+		folgt. Außerdem ist 
+		$$\mu_n(X) \; = \; \measureint{}{\indfct_{X}}{\mu_n} \; \to \; \measureint{}{\indfct_{X}}{\mu} \; = \; \mu(X) \text{,} \quad n \to \infty \text{.}$$
 		
 		(ii) $\Leftrightarrow$ (iii): Es gelte (ii). Sei $U$ offen, also 
 		$C \defby U^\mathsf{c}$ abgeschlossen. Dann erhalten wir
-		$$\mu(X) - \liminf_{n \to \infty} \mu_n(U) \; = \; 
-		\limsup_{n \to \infty} \mu_n(C) \; \leq \; 
-		\mu(C) \; = \; \mu(X) - \mu(U)$$
+		\begin{align*}
+			\liminf_{n \to \infty} \mu_n(U) \; &= \; \liminf_{n \to \infty} (\mu_n(X) - \mu_n(C)) \; = \;
+			\mu(X) - \limsup_{n \to \infty} \mu_n(C) \\
+			&\geq \; 
+			\mu(X) - \mu(C) \; = \; \mu(U)
+		\end{align*}
 		und damit (iii). Die andere Richtung zeigt man analog.
 		
 		(ii), (iii) $\Rightarrow$ (iv): Sei $A \in \mathcal{B}$ mit 
@@ -284,6 +287,70 @@
 			\quad m \to \infty \text{,}
 		\end{align*}
 		was (i) impliziert.
+	\end{proof}
+
+	In erster Linie stellt der nächste Satz etwas schwächere hinreichende Bedingungen für die Gleichheit zweier endlicher Maße 
+	auf metrischen Räumen bereit, was sich im weiteren Verlauf noch als nützlich erweisen wird.
+	
+	\begin{Satz}
+		\label{thm:measureequality}
+		Sei $(X,d)$ ein metrischer Raum und seien $\mu, \nu \in \Finitemeasures{X}$. 
+		Dann sind die folgenden Aussagen äquivalent:
+		\begin{equivalentthm}
+			\item $\mu = \nu$.
+			\item Für alle lipschitzstetigen Funktionen $f \in \Bdcontfct{X}$ ist
+			$\measureint{}{f}{\mu} = \measureint{}{f}{\nu}$.
+			\item Für alle abgeschlossenen Mengen $C \in \mathcal{B}$ ist $\mu(C) = \nu(C)$.
+		\end{equivalentthm}
+	\end{Satz}
+	
+	\begin{proof}
+		Die Implikation (i) $\Rightarrow$ (ii) ist klar und (iii) 
+		$\Rightarrow$ (i) folgt aus Satz~\ref{thm:weakregularity}.
+		
+		(ii) $\Rightarrow$ (iii): Gelte (ii) und sei $C \subseteq X$ abgeschlossen. 
+		Dann gilt für die lipschitzstetigen Funktionen $f_n \in \Bdcontfct{X}$ aus Hilfssatz~\ref{lem:opensets}
+		$$\measureint{}{f_n}{\mu} = \measureint{}{f_n}{\nu}\text{,} \quad n \in \N \text{.}$$
+		Wegen $| f_n | \leq 1$ und $f_n \convdown \indfct_C$ folgt mit dem Satz von Lebesgue 
+		$$\measureint{}{f_n}{\mu} \; \to \; \mu(C) \quad \text{und} \quad \measureint{}{f_n}{\nu} 
+		\; \to \; \nu(C)$$
+		und damit gilt (iii).
+	\end{proof}
+
+	\begin{Bemerkung}
+		Insbesondere folgt aus Satz~\ref{thm:measureequality} unmittelbar, dass für einen metrischen Raum $(X, d)$ der Raum aller endlichen Maße $\Finitemeasures{X}$, ausgestattet mit der
+		Topologie der schwachen Konvergenz, Hausdorffsch ist. Denn für $\mu \neq \nu \in \Finitemeasures{X}$ gibt es nach Satz~\ref{thm:measureequality} (ii) ein $f \in C_b(X)$
+		mit $\measureint{}{f}{\mu} \neq \measureint{}{f}{\nu}$. Nun lassen sich disjunkte Umgebungen von $\measureint{}{f}{\mu}$ und $\measureint{}{f}{\nu} \in \R$ finden, deren Urbilder bezüglich 
+		$I_f$ disjunkte Umgebungen von $\mu$ und $\nu$ in $\Finitemeasures{X}$ sind.
+	\end{Bemerkung}
+
+	\subsection{Beziehung zur Schwach-$\ast$-Konvergenz}
+
+	Ist $X$ ein topologischer Raum, so ist $(C_b(X), \norm{\cdot}_\infty)$ ein Banachraum. Wir betrachten nun die Abbildung
+	$$\fctmap{\Phi}{\Finitemeasures{X}}{C_b(X)^\ast}{\mu}{\left[\fctmap{l_\mu}{\Bdcontfct{X}}{\R}{f}{\measureint{}{f}{\mu}}\right]} \text{,}$$
+	die wegen $\abs{\measureint{}{f}{\mu}} \leq \mu(X) \norm{f}_\infty$ und $\mu(X) < \infty$ wohldefiniert ist und einem endlichen Maß
+	$\mu \in \Finitemeasures{X}$ ein zugehöriges lineares Funktional aus $C_b(X)^\ast$ zuordnet. Ist $\Finitemeasures{X}$ nun mit der
+	Topologie der schwachen Konvergenz ausgestattet und $\Bdcontfct{X}^\ast$ mit der Schwach-$\ast$-Topologie, so ist $\Phi$ 
+	offensichtlich \tobechanged{folgenstetig}, beziehungsweise ist schwache Konvergenz in $\Finitemeasures{X}$ sogar äquivalent zur Schwach-$\ast$-Konvergenz der Bilder unter $\Phi$.
+		
+	Handelt es sich bei $X$ nun um einen metrischen Raum, so ist $\Phi$ sogar injektiv:
+	Satz~\ref{thm:measureequality} (ii) ermöglicht es uns, für $\mu, \nu \in \Finitemeasures{X}$ aus $l_\mu = l_\nu$ die Gleichheit 
+	$\mu = \nu$ zu schließen.
+	
+	Der folgende Satz zeigt besonders instruktiv, wie sich diese Verbindung zwischen schwacher Konvergenz von Maßen und Schwach-$\ast$-Konvergenz ausnutzen lässt.
+	
+	\begin{Satz}
+		Sei $(X, d)$ ein metrischer Raum. Dann ist $\Probmeasures{X}$ 
+		genau dann kompakt bezüglich der Topologie der schwachen Konvergenz, 
+		wenn $(X, d)$ kompakt ist.
+	\end{Satz}
+	
+	\begin{proof}
+		Sei zunächst $(X, d)$ kompakt. Wir setzen nun
+		\[ A \defby \setcomp{l \in \Bdcontfct{X}^\ast}{\norm{l}_{\Bdcontfct{X}^\ast} \leq 1, \; l(\indfct_{X}) = 1, \; \forall f \in \Bdcontfct{X} \text{ mit } f \geq 0 : l(f) \geq 0} \subseteq \Bdcontfct{X}^\ast \]
+		und
+		\[ \fctmap{\Phi}{\Probmeasures{X}}{A}{\mu}{\left[\fctmap{l_\mu}{\Bdcontfct{X}}{\R}{f}{\measureint{}{f}{\mu}}\right]} \text{.} \]
+		Der Rieszsche Darstellungssatz liefert die Bijektivität von $\Phi$.
 	\end{proof}
 	
 \end{document}
