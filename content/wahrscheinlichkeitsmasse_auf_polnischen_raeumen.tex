@@ -79,14 +79,14 @@
 		Äquivalenz
 		\[ D(\mu_k, \mu) \to 0 \quad \iff \quad \forall m \in \N: \; 
 		\measureint{}{h_m}{\mu_k} \to \measureint{}{h_m}{\mu}\text{,} 
-		\quad k \to \infty \text{.} \label{eq:2.11} \tag{2.11} \]
-		An \eqref{eq:2.11} sehen wir direkt, dass aus der schwachen Konvergenz 
+		\quad k \to \infty \text{.} \label{eq:4.1} \tag{4.1} \]
+		An \eqref{eq:4.1} sehen wir direkt, dass aus der schwachen Konvergenz 
 		$\mu_k \xrightarrow{w} \mu$ die Konvergenz bezüglich $D$ folgt. Wir 
-		müssen also nur noch beweisen, dass die rechte Seite von \eqref{eq:2.11} 
+		müssen also nur noch beweisen, dass die rechte Seite von \eqref{eq:4.1} 
 		schwache Konvergenz impliziert. Hierfür werden wir zeigen, dass für jede 
 		abgeschlossene Menge $C \subseteq X$ die Funktionen $f_n, \; n \in \N$ aus 
 		Hilfssatz~\ref{lem:opensets} (wofür wir eine geeignete Metrik auf $X$ wählen) 
-		dieselbe Bedingung wie die $h_m$ auf der rechten Seite von \eqref{eq:2.11} 
+		dieselbe Bedingung wie die $h_m$ auf der rechten Seite von \eqref{eq:4.1} 
 		erfüllen. Genau wie im Beweis der Implikation $(1) \Rightarrow (2)$ aus dem 
 		Beweis des Portmanteau-Satzes (Satz~\ref{thm:portmanteau}) lässt sich dann 
 		die Bedingung $(2)$ aus dem Portmanteau-Satz folgern und damit schließlich 
@@ -101,7 +101,7 @@
 		mit $n \in \N$ und $C \subseteq X$ abgeschlossen (hierbei handelt es sich 
 		um die Funktionen aus Hilfssatz~\ref{lem:opensets}) die Konvergenz
 		\[ \measureint{}{f_n}{\mu_k} \; \to \; \measureint{}{f_n}{\mu} \text{,} 
-		\quad k \to \infty \label{eq:2.12} \tag{2.12}\]
+		\quad k \to \infty \label{eq:4.2} \tag{4.2}\]
 		gilt. Zunächst bemerken wir, dass es Funktionen $g_n \in \Bdcontfct{H}$ 
 		gibt mit $f_n = g_n \circ \varphi$. Mit der Notation aus 
 		Hilfssatz~\ref{lem:hilbertcubefunctionseparability} und Satz~\ref{thm:Lp} 
@@ -110,10 +110,10 @@
 		$f_n^{(l)} \defby \Phi(g_n^{(l)}) = g_n^{(l)} \circ \varphi \in \Phi(\mathcal{D})$, 
 		so gilt ebenfalls
 		\[ \norm{f_n^{(l)} - f_n}_\infty \; \to \; 0 \text{,} 
-		\quad l \to \infty \text{.} \label{eq:2.13} \tag{2.13} \]
+		\quad l \to \infty \text{.} \label{eq:4.3} \tag{4.3} \]
 		Per Annahme ist für alle $l \in \N$
 		\[ \measureint{}{f_n^{(l)}}{\mu_k} \; \to \; \measureint{}{f_n^{(l)}}{\mu} \text{,} 
-		\quad k \to \infty \text{.} \label{eq:2.14} \tag{2.14} \]
+		\quad k \to \infty \text{.} \label{eq:4.4} \tag{4.4} \]
 		Also können wir für alle $k, l \in \N$ wie folgt abschätzen:
 		\begin{align*}
 			\left| \measureint{}{f_n}{\mu} - \measureint{}{f_n}{\mu_k} \right| \; &\leq \; 
@@ -124,7 +124,7 @@
 			&\leq \; 2 \cdot \norm{f_n^{(l)} - f_n}_\infty + \left| \measureint{}{f_n^{(l)}}{\mu} - 
 			\measureint{}{f_n^{(l)}}{\mu_k} \right| \text{.}
 		\end{align*}
-		Dies impliziert aber wegen \eqref{eq:2.13} und \eqref{eq:2.14}
+		Dies impliziert aber wegen \eqref{eq:4.3} und \eqref{eq:4.4}
 		\begin{align*}
 			\limsup_{k \to \infty} \left| \measureint{}{f_n}{\mu} - 
 			\measureint{}{f_n}{\mu_k} \right|
@@ -134,15 +134,16 @@
 			&= \; 2 \cdot \norm{f_n^{(l)} - f_n}_\infty \; \to \; 0 \text{,} 
 			\quad l \to \infty \text{,}
 		\end{align*}
-		und damit auch \eqref{eq:2.12}, womit wir den Beweis abschließen.
+		und damit auch \eqref{eq:4.2}, womit wir den Beweis abschließen.
 	\end{proof}
 
 	\begin{Satz}
+		\label{thm:compactequivalence}
 		Sei $(X, d)$ ein metrischer Raum. Dann ist $X$ genau dann kompakt, wenn $\Probmeasures{X}$ bezüglich der Topologie der schwachen Konvergenz kompakt ist.
 	\end{Satz}
 
 	\begin{proof}
-		Sei zunächst $(X, d)$ kompakt. Wir möchten nun so ähnlich wie bei \eqref{2.20} verfahren.
+		Sei zunächst $(X, d)$ kompakt. Wir möchten nun so ähnlich wie bei \eqref{3.5} verfahren.
 		Hierfür setzen wir zunächst
 		\[ A \defby \setcomp{l \in C(X)^\ast}{\norm{l}_{C(X)^\ast} \leq 1, \; l(\indfct_{X}) = 1, \; \forall f \in C(X) \text{ mit } f \geq 0 : l(f) \geq 0} \subseteq C(X)^\ast \]
 		und
@@ -188,7 +189,7 @@
 		\; \defby \; \bigcap_{k \in \N} \left( \bigcup_{m=1}^{M_k} B_{1/k}(x_m) \right) 
 		\quad \text{und} \quad K_\varepsilon \defby \overline{S_\varepsilon} \text{.} \]
 		Offenbar ist $S_\varepsilon$ totalbeschränkt und damit ist $K_\varepsilon = \overline{S_\varepsilon}$ 
-		kompakt (dies folgt etwa aus \cite[Satz 2.3.8]{Simon.2015}, 
+		kompakt (dies wird etwa in \cite[Satz 2.3.8]{Simon.2015} bewiesen, 
 		hier geht die Vollständigkeit von $(X, d)$ ein).
 		Außerdem berechnen wir
 		\[ \mu(K_\varepsilon) 

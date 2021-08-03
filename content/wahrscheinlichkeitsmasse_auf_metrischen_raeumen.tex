@@ -172,7 +172,8 @@
 
 	\begin{Bemerkung}
 		Möchte man ausschließlich Wahrscheinlichkeitsmaße betrachten, so definiert man die Topologie der schwachen Konvergenz
-		auf $\Probmeasures{X}$ völlig analog. Offenbar entspricht diese dann gerade der Teilraumtopologie von $\Probmeasures{X} \subseteq (\Finitemeasures{X}, \mathcal{O}_w)$.
+		auf $\Probmeasures{X}$ völlig analog. Offenbar entspricht diese dann gerade der Teilraumtopologie von 
+		$\Probmeasures{X} \subseteq (\Finitemeasures{X}, \mathcal{O}_w)$.
 	\end{Bemerkung}
 	
 	Im Falle metrischer Räume liefert der folgende Satz eine umfangreiche Charakterisierung der schwachen Konvergenz.
@@ -215,7 +216,8 @@
 		woraus
 		$$\limsup_{n \to \infty} \mu_n(C) \; \leq \; \mu(C)$$
 		folgt. Außerdem ist 
-		$$\mu_n(X) \; = \; \measureint{}{\indfct_{X}}{\mu_n} \; \to \; \measureint{}{\indfct_{X}}{\mu} \; = \; \mu(X) \text{,} \quad n \to \infty \text{.}$$
+		$$\mu_n(X) \; = \; \measureint{}{\indfct_{X}}{\mu_n} \; \to \; \measureint{}{\indfct_{X}}{\mu} \; = \; \mu(X) \text{,} 
+		\quad n \to \infty \text{.}$$
 		
 		(ii) $\Leftrightarrow$ (iii): Es gelte (ii). Sei $U$ offen, also 
 		$C \defby U^\mathsf{c}$ abgeschlossen. Dann erhalten wir
@@ -252,7 +254,7 @@
 		Damit können wir für jedes $m \in \N$ Zahlen $c_j^{(m)} \notin S$ mit
 		\[a = c_0^{(m)} < \dots < c_{2m}^{(m)} = 
 		b \text{,} \qquad c_{j+1}^{(m)} - c_j^{(m)} \leq \frac{b-a}{m} 
-		\label{eq:2.1} \tag{2.1}\]
+		\label{eq:3.1} \tag{3.1}\]
 		finden. Wir setzen
 		$$A_j^{(m)} \defby \set{c_j^{(m)} < f \leq c_{j+1}^{(m)}}\text{,}
 		\qquad j \in \set{0,\dots,2m-1} \text{.}$$ 
@@ -266,23 +268,23 @@
 		\[\measureint{}{u_m}{\mu_n} \; = \; \sum_{j=0}^{2m-1} c_j^{(m)} \mu_n(A_j^{(m)}) 
 		\; \to \; \sum_{j=0}^{2m-1} c_j^{(m)} \mu(A_j^{(m)}) \; = \; 
 		\measureint{}{u_m}{\mu} \text{,} \quad n \to \infty \text{.} 
-		\label{eq:2.2} \tag{2.2}\]
-		Außerdem folgen aus \eqref{eq:2.1} die Ungleichungen
+		\label{eq:3.2} \tag{3.2}\]
+		Außerdem folgen aus \eqref{eq:3.1} die Ungleichungen
 		\[\left| \measureint{}{f}{\mu_n} - \measureint{}{u_m}{\mu_n} \right| \; \leq \; 
 		\frac{b-a}{m} \text{,} \qquad 
 		\left| \measureint{}{f}{\mu} - \measureint{}{u_m}{\mu} \right| \; \leq \; 
-		\frac{b-a}{m} \label{eq:2.3} \tag{2.3}\]
+		\frac{b-a}{m} \label{eq:3.3} \tag{3.3}\]
 		für $n \in \N$.
-		Mit \eqref{eq:2.3} gilt nun für alle $m, n \in \N$
+		Mit \eqref{eq:3.3} gilt nun für alle $m, n \in \N$
 		\begin{align*}
 			\left| \measureint{}{f}{\mu} - \measureint{}{f}{\mu_n} \right| \; &\leq \; 
 			\left| \measureint{}{f}{\mu} - \measureint{}{u_m}{\mu} \right| + 
 			\left| \measureint{}{u_m}{\mu} - \measureint{}{u_m}{\mu_n} \right| + 
 			\left| \measureint{}{u_m}{\mu_n} - \measureint{}{f}{\mu_n} \right| \\
 			&\leq \; 2 \cdot \frac{b-a}{m} + \left| \measureint{}{u_m}{\mu_n} - 
-			\measureint{}{f}{\mu_n} \right| \label{eq:2.4} \tag{2.4}\text{.}
+			\measureint{}{f}{\mu_n} \right| \label{eq:3.4} \tag{3.4}\text{.}
 		\end{align*}
-		\eqref{eq:2.2} und \eqref{eq:2.4} liefern also letztendlich für alle $m$
+		\eqref{eq:3.2} und \eqref{eq:3.4} liefern also letztendlich für alle $m$
 		\begin{align*}
 			\limsup_{n \to \infty} \left| \measureint{}{f}{\mu} - 
 			\measureint{}{f}{\mu_n} \right|
@@ -295,8 +297,9 @@
 		was (i) impliziert.
 	\end{proof}
 
-	In erster Linie stellt der nächste Satz etwas schwächere hinreichende Bedingungen für die Gleichheit zweier endlicher Maße 
-	auf metrischen Räumen bereit, was sich im weiteren Verlauf noch als nützlich erweisen wird.
+	In erster Linie stellt der nächste Satz etwas schwächere hinreichende Bedingungen für die Gleichheit 
+	zweier endlicher Maße auf metrischen Räumen bereit, was sich im weiteren Verlauf 
+	noch als nützlich erweisen wird.
 	
 	\begin{Satz}
 		\label{thm:measureequality}
@@ -324,25 +327,36 @@
 	\end{proof}
 
 	\begin{Bemerkung}
-		Insbesondere folgt aus Satz~\ref{thm:measureequality} unmittelbar, dass für einen metrischen Raum $(X, d)$ der Raum aller endlichen Maße $\Finitemeasures{X}$, ausgestattet mit der
-		Topologie der schwachen Konvergenz, Hausdorffsch ist. Denn für $\mu \neq \nu \in \Finitemeasures{X}$ gibt es nach Satz~\ref{thm:measureequality} (ii) ein $f \in C_b(X)$
-		mit $\measureint{}{f}{\mu} \neq \measureint{}{f}{\nu}$. Nun lassen sich disjunkte Umgebungen von $\measureint{}{f}{\mu}$ und $\measureint{}{f}{\nu} \in \R$ finden, deren Urbilder bezüglich 
-		$I_f$ disjunkte Umgebungen von $\mu$ und $\nu$ in $\Finitemeasures{X}$ sind.
+		Insbesondere folgt aus Satz~\ref{thm:measureequality} unmittelbar, dass für einen 
+		metrischen Raum $(X, d)$ der Raum aller endlichen Maße $\Finitemeasures{X}$, 
+		ausgestattet mit der Topologie der schwachen Konvergenz, Hausdorffsch ist. 
+		Denn für $\mu \neq \nu \in \Finitemeasures{X}$ gibt es nach Satz~\ref{thm:measureequality} (ii) 
+		ein $f \in C_b(X)$ mit $\measureint{}{f}{\mu} \neq \measureint{}{f}{\nu}$. 
+		Nun lassen sich disjunkte Umgebungen von $\measureint{}{f}{\mu}$ und $\measureint{}{f}{\nu} \in \R$ 
+		finden, deren Urbilder bezüglich $I_f$ disjunkte Umgebungen von $\mu$ und $\nu$ 
+		in $\Finitemeasures{X}$ sind.
 	\end{Bemerkung}
 
 	\begin{Bemerkung}[Schwach-$\ast$-Konvergenz]
-		Ist $X$ ein topologischer Raum, so ist $(C_b(X), \norm{\cdot}_\infty)$ ein Banachraum. Wir betrachten nun die Abbildung
-		\[\fctmap{\Phi}{\Finitemeasures{X}}{C_b(X)^\ast}{\mu}{\left[\fctmap{l_\mu}{\Bdcontfct{X}}{\R}{f}{\measureint{}{f}{\mu}}\right]} \text{,} \label{2.20} \tag{2.20}\]
-		die wegen $\abs{\measureint{}{f}{\mu}} \leq \mu(X) \norm{f}_\infty$ und $\mu(X) < \infty$ wohldefiniert ist und einem endlichen Maß
-		$\mu \in \Finitemeasures{X}$ ein zugehöriges lineares Funktional aus $C_b(X)^\ast$ zuordnet. Sind $\Finitemeasures{X}$ bzw. $\Bdcontfct{X}^\ast$ nun mit der
-		Topologie der schwachen Konvergenz bzw. mit der Schwach-$\ast$-Topologie ausgestattet, so ist schwache Konvergenz in $\Finitemeasures{X}$ äquivalent zur Schwach-$\ast$-Konvergenz der Bilder unter $\Phi$.
+		Ist $X$ ein topologischer Raum, so ist $(C_b(X), \norm{\cdot}_\infty)$ ein Banachraum. 
+		Wir betrachten nun die Abbildung
+		\[\fctmap{\Phi}{\Finitemeasures{X}}{C_b(X)^\ast}{\mu}
+			{\left[\fctmap{l_\mu}{\Bdcontfct{X}}{\R}{f}{\measureint{}{f}{\mu}}\right]} \text{,} \label{3.5} \tag{3.5}\]
+		die wegen $\abs{\measureint{}{f}{\mu}} \leq \mu(X) \norm{f}_\infty$ und $\mu(X) < \infty$ wohldefiniert ist 
+		und einem endlichen Maß $\mu \in \Finitemeasures{X}$ ein zugehöriges lineares Funktional aus $C_b(X)^\ast$ zuordnet. 
+		Sind $\Finitemeasures{X}$ bzw. $\Bdcontfct{X}^\ast$ nun mit der Topologie der schwachen Konvergenz bzw. mit der 
+		Schwach-$\ast$-Topologie ausgestattet, so ist schwache Konvergenz in $\Finitemeasures{X}$ äquivalent 
+		zur Schwach-$\ast$-Konvergenz der Bilder unter $\Phi$.
 		
-		Handelt es sich bei $X$ nun um einen metrischen Raum, so ist $\Phi$ sogar injektiv und damit ein \tobechanged{Folgen-Homöomorphismus} auf sein Bild:
-		Satz~\ref{thm:measureequality} (ii) ermöglicht es uns, für $\mu, \nu \in \Finitemeasures{X}$ aus $l_\mu = l_\nu$ die Gleichheit 
-		$\mu = \nu$ zu schließen. 
+		Handelt es sich bei $X$ nun um einen metrischen Raum, so ist $\Phi$ sogar injektiv und damit ein 
+		Folgen-Homöomorphismus auf sein Bild: Satz~\ref{thm:measureequality} (ii) ermöglicht es uns, 
+		für $\mu, \nu \in \Finitemeasures{X}$ aus $l_\mu = l_\nu$ die Gleichheit $\mu = \nu$ zu schließen. 
 		
-		Unter etwas spezielleren Voraussetzungen können nun mittels dieser Identifikation Aussagen aus der Funktionalanalysis auch für $\Finitemeasures{X}$ fruchtbar gemacht werden, indem von topologischen Eigenschaften von
-		$\Bdcontfct{X}^\ast$ mit der Schwach-$\ast$-Konvergenz auf die entsprechenden Eigenschaften von $\Finitemeasures{X}$ mit der Topologie der schwachen Konvergenz geschlossen wird. Ein Beispiel hierfür werden wir noch im Beweis des \tobechanged{Satzes von Prokhorov} sehen.
+		Unter etwas spezielleren Voraussetzungen können nun mittels dieser Identifikation Aussagen aus der 
+		Funktionalanalysis auch für $\Finitemeasures{X}$ fruchtbar gemacht werden, indem von topologischen Eigenschaften von
+		$\Bdcontfct{X}^\ast$ mit der Schwach-$\ast$-Konvergenz auf die entsprechenden Eigenschaften von 
+		$\Finitemeasures{X}$ mit der Topologie der schwachen Konvergenz geschlossen wird. 
+		Ein konkretes Beispiel hierfür werden wir noch im Beweis von Satz~\ref{thm:compactequivalence} sehen.
 	\end{Bemerkung}
 	
 \end{document}

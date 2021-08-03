@@ -86,10 +86,10 @@
 		Die Hinrichtung von (a) folgt aus der Stetigkeit der Projektionen 
 		$\pi_n, \; n \in \N$. Für die Rückrichtung bemerke man zunächst, dass Mengen der Form 
 		\[U = \prod_{n=1}^{\infty} U_n\text{,} \quad U_n \subseteq [0, 1] \text{ offen, }
-		\quad U_n = [0, 1] \text{ für fast alle } n \label{eq:2.5} \tag{2.5}\]
+		\quad U_n = [0, 1] \text{ für fast alle } n \label{eq:2.1} \tag{2.1}\]
 		eine Basis der Topologie von $H$ bilden. 
 		Konvergiert nun also $(x^{(k)})_k \in H^\N$ komponentenweise gegen $x \in H$, 
-		so enthält jede offene Umgebung von $x$ von der Form \eqref{eq:2.5} auch fast 
+		so enthält jede offene Umgebung von $x$ von der Form \eqref{eq:2.1} auch fast 
 		alle Folgenglieder $x^{(k)}, \; k \in \N$ und damit konvergiert 
 		auch $(x^{(k)})_k$ gegen $x$.
 		
@@ -97,7 +97,7 @@
 		Es genügt also zu zeigen, dass $\rho$ die Topologie von $H$ induziert. 
 		Für $x \in H$ und $r > 0$ ist 
 		$B_r(x) = \prod_{n=1}^{\infty} B_{2^n r}(x_n) \subseteq H$ 
-		offen. Ist nun $U = \prod_{n=1}^{\infty} U_n$ wie in \eqref{eq:2.5}, 
+		offen. Ist nun $U = \prod_{n=1}^{\infty} U_n$ wie in \eqref{eq:2.1}, 
 		so lässt sich leicht einsehen, dass es für jedes $x \in U$ ein $r > 0$ 
 		gibt mit $B_r(x) \subseteq U$, also ist $U$ offen bezüglich der von $\rho$ 
 		erzeugten Topologie und insgesamt wird $H$ von $\rho$ metrisiert.
@@ -108,7 +108,7 @@
 	ebenfalls kompakt ist.
 	Außerdem lässt sich unter Ausnutzung von Aussage (a) aus 
 	Hilfssatz~\ref{lem:hilbertcube} leicht zeigen, dass $(H, \rho)$ 
-	vollständig ist. Weil Mengen der Form \eqref{eq:2.5}, bei denen 
+	vollständig ist. Weil Mengen der Form \eqref{eq:2.1}, bei denen 
 	$U_n$ ausschließlich rationale Intervalle sind, eine abzählbare 
 	Basis der Topologie von $H$ bilden, ist $H$ sogar separabel und 
 	damit insgesamt ein kompakter polnischer Raum.
@@ -130,7 +130,7 @@
 		Sei $(X, d)$ ein separabler metrischer Raum und sei 
 		$D \defby \setcomp{x_n}{n \in \N} \subseteq X$ eine abzählbare 
 		dichte Teilmenge. Außerdem setzen wir
-		\[\fctmap{\varphi}{X}{H}{x}{\left(\min \left(1, d(x, x_n) \right) \right)_n} \text{.} \label{eq:2.6} \tag{2.6}\]
+		\[\fctmap{\varphi}{X}{H}{x}{\left(\min \left(1, d(x, x_n) \right) \right)_n} \text{.} \label{eq:2.2} \tag{2.2}\]
 		Dann gilt das Folgende:
 		\begin{enumeratethm}
 			\item $\varphi$ ein Homöomorphismus zwischen $X$ und $\varphi(X)$.
@@ -142,9 +142,9 @@
 	\begin{proof}
 		Wir zeigen zunächst, dass $\varphi$ injektiv ist. 
 		Dazu seien $y, z \in H$ mit $\varphi(y) = \varphi(z)$, also gilt
-		\[\min(1, d(y, x_n)) = \min(1, d(z, x_n)) \label{eq:2.7} \tag{2.7}\]
+		\[\min(1, d(y, x_n)) = \min(1, d(z, x_n)) \label{eq:2.3} \tag{2.3}\]
 		für alle $n \in \N$. Weil es eine Folge $(y_n)_n \in D^\N$ mit 
-		$y_n \to y$ gibt und diese wegen \eqref{eq:2.7} auch gegen $z$ 
+		$y_n \to y$ gibt und diese wegen \eqref{eq:2.3} auch gegen $z$ 
 		konvergiert, folgt die Gleichheit von $y$ und $z$.
 		
 		Die Stetigkeit von $\varphi$ folgt direkt, weil die 
@@ -152,10 +152,10 @@
 		Seien nun $(y_k)_k \in X^\N$ und $y \in X$ mit $\varphi(y_k) \to \varphi(y)$, 
 		also
 		\[\min(1, d(y_k, x_n)) \; \to \; \min(1, d(y, x_n)), 
-		\quad k \to \infty \label{2.8} \tag{2.8}\]
+		\quad k \to \infty \label{2.4} \tag{2.4}\]
 		für alle $n \in \N$. Wählt man nun $\varepsilon < 1$ beliebig, 
 		so existiert ein $n \in \N$ mit $d(y, x_n) \leq \varepsilon$. 
-		Wegen \eqref{2.8} ist dann auch
+		Wegen \eqref{2.4} ist dann auch
 		$d(y_k, x_n) \to d(y, x_k), \; k \to \infty$. Es gilt also die Ungleichung
 		$$\limsup_{k \to \infty} d(y_k, y) \; \leq \; 
 		\limsup_{k \to \infty} d(y_k, x_n) + d(y, x_n) \; \leq \; 2\varepsilon$$
@@ -167,30 +167,30 @@
 		$k, m \in \N$ relativ offen, also gibt es jeweils offene Mengen 
 		$V_{k, m} \subseteq H$ mit
 		\[\varphi(B_{1/k}(x_m)) \; = \; V_{k, m} 
-		\cap \varphi(X) \text{.} \label{eq:2.9} \tag{2.9}\]
+		\cap \varphi(X) \text{.} \label{eq:2.5} \tag{2.5}\]
 		Wir möchten jetzt zeigen, dass
 		\[\varphi(X) \; = \; \overline{\varphi(X)} \, \cap \, 
 		\bigcap_{k \in \N} \left( \bigcup_{m \in \N} V_{k, m} \right) 
-		\label{eq:2.10} \tag{2.10}\]
+		\label{eq:2.6} \tag{2.6}\]
 		gilt. 
 		Weil $\overline{\varphi(X)}$ nach Hilfssatz~\ref{lem:opensets} 
 		als abgeschlossene Menge eine $G_\delta$-Menge ist, 
-		folgt aus \eqref{eq:2.10} direkt die Aussage (b).
+		folgt aus \eqref{eq:2.6} direkt die Aussage (b).
 		
 		Für jedes $m \in \N$ ist sicherlich $\varphi(X) \subseteq 
 		\bigcup_{m \in \N} V_{k, m}$, weshalb \enquote{$\subseteq$} 
-		in \eqref{eq:2.10} unmittelbar folgt.
-		Wir nehmen nun an, dass $z$ in der rechten Seite von \eqref{eq:2.10} liegt. 
+		in \eqref{eq:2.6} unmittelbar folgt.
+		Wir nehmen nun an, dass $z$ in der rechten Seite von \eqref{eq:2.6} liegt. 
 		Dann gibt es für jedes $k \in \N$ ein $m_k \in \N$ mit $z \in V_{k, m_k}$. 
 		Ferner existiert wegen $z \in \overline{\varphi(X)}$ eine Folge $(y_k)_k \in X^\N$ 
 		mit $\varphi(y_k) \to z$, wobei wir zusätzlich
 		$\varphi(y_k) \in \bigcap_{j=1}^{k} V_{j, m_j}$
-		fordern. Weil damit nach \eqref{eq:2.9} auch für alle $k \in \N$
+		fordern. Weil damit nach \eqref{eq:2.5} auch für alle $k \in \N$
 		\[y_k \in \bigcap_{j=1}^{k} B_{1/k}(x_m)\]
 		gilt, ist $(y_k)_k$ eine Cauchyfolge. Aufgrund der Vollständigkeit von 
 		$(X, d)$ gibt es also ein $y \in X$ mit $y_k \to y$, was 
 		$z = \varphi(y) \in \varphi(X)$ und damit \enquote{$\supseteq$} 
-		in \eqref{eq:2.10} impliziert.
+		in \eqref{eq:2.6} impliziert.
 	\end{proof}
 
 	Für die Rückrichtung zeigen wir die (nur vermeintlich allgemeinere) Aussage, 
