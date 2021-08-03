@@ -138,12 +138,27 @@
 	\end{proof}
 
 	\begin{Satz}
-		Sei $(X, d)$ ein metrischer Raum. Dann ist $X$ genau dann kompakt, wenn $\Probmeasures{X}$ kompakt ist.
+		Sei $(X, d)$ ein metrischer Raum. Dann ist $X$ genau dann kompakt, wenn $\Probmeasures{X}$ bezüglich der Topologie der schwachen Konvergenz kompakt ist.
 	\end{Satz}
 
 	\begin{proof}
-		\tobechanged{Hier steht dann der Beweis.}
+		Sei zunächst $(X, d)$ kompakt. Wir möchten nun so ähnlich wie bei \eqref{2.20} verfahren.
+		Hierfür setzen wir zunächst
+		\[ A \defby \setcomp{l \in C(X)^\ast}{\norm{l}_{C(X)^\ast} \leq 1, \; l(\indfct_{X}) = 1, \; \forall f \in C(X) \text{ mit } f \geq 0 : l(f) \geq 0} \subseteq C(X)^\ast \]
+		und
+		\[ \fctmap{\Phi}{\Probmeasures{X}}{A}{\mu}{\left[\fctmap{l_\mu}{C(X)}{\R}{f}{\measureint{}{f}{\mu}}\right]} \text{.} \]
+		Der Darstellungssatz von Riesz-Markov liefert die Bijektivität von $\Phi$, also ist $\Phi$ ein Folgen-Homöomorphismus zwischen 
+		$\Probmeasures{X}$ mit der schwachen Konvergenz und $A \subseteq \Bdcontfct{X}^\ast$ mit der Schwach-$\ast$-Konvergenz. Nach dem Satz
+		von Banach-Alaoglu ist $A$ nun als abgeschlossene Teilmenge von $\setcomp{l \in C_b(X)^\ast}{\norm{l}_{\Bdcontfct{X}^\ast} \leq 1}$ kompakt bezüglich der Schwach-$\ast$-Topologie und damit auch folgenkompakt.
+		Also ist auch $\Probmeasures{X}$ folgenkompakt. Da $X$ insbesondere vollständig und damit polnisch ist, liefert Satz~\ref{thm:weakconvergencemetrizable} die Metrisierbarkeit von $\Probmeasures{X}$, womit
+		letztlich die Kompaktheit von $\Probmeasures{X}$ bezüglich der Topologie der schwachen Konvergenz folgt.
 	\end{proof}
+
+	\tobechanged{Beweise das!!!}
+
+	\begin{Satz}
+		Sei $X$ ein topologischer Raum. Dann ist $X$ genau dann polnisch, wenn $\Probmeasures{X}$ bezüglich der Topologie der schwachen Konvergenz polnisch ist.
+	\end{Satz}
 	
 	\subsection{Straffheit und der Satz von Prokhorov}
 	
