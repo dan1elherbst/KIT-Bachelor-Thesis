@@ -139,7 +139,8 @@
 
 	\begin{Satz}
 		\label{thm:compactequivalence}
-		Sei $(X, d)$ ein metrischer Raum. Dann ist $X$ genau dann kompakt, wenn $\Probmeasures{X}$ bezüglich der Topologie der schwachen Konvergenz kompakt ist.
+		Sei $(X, d)$ ein metrischer Raum. Dann ist $X$ genau dann kompakt, wenn $\Probmeasures{X}$ 
+		bezüglich der Topologie der schwachen Konvergenz kompakt ist.
 	\end{Satz}
 
 	\begin{proof}
@@ -148,17 +149,20 @@
 		\[ A \defby \setcomp{l \in C(X)^\ast}{\norm{l}_{C(X)^\ast} \leq 1, \; l(\indfct_{X}) = 1, \; \forall f \in C(X) \text{ mit } f \geq 0 : l(f) \geq 0} \subseteq C(X)^\ast \]
 		und
 		\[ \fctmap{\Phi}{\Probmeasures{X}}{A}{\mu}{\left[\fctmap{l_\mu}{C(X)}{\R}{f}{\measureint{}{f}{\mu}}\right]} \text{.} \]
-		Der Darstellungssatz von Riesz-Markov liefert die Bijektivität von $\Phi$, also ist $\Phi$ ein Folgen-Homöomorphismus zwischen 
-		$\Probmeasures{X}$ mit der schwachen Konvergenz und $A \subseteq \Bdcontfct{X}^\ast$ mit der Schwach-$\ast$-Konvergenz. Nach dem Satz
-		von Banach-Alaoglu ist $A$ nun als abgeschlossene Teilmenge von $\setcomp{l \in C_b(X)^\ast}{\norm{l}_{\Bdcontfct{X}^\ast} \leq 1}$ kompakt bezüglich der Schwach-$\ast$-Topologie und damit auch folgenkompakt.
-		Also ist auch $\Probmeasures{X}$ folgenkompakt. Da $X$ insbesondere vollständig und damit polnisch ist, liefert Satz~\ref{thm:weakconvergencemetrizable} die Metrisierbarkeit von $\Probmeasures{X}$, womit
+		Der Darstellungssatz von Riesz-Markov liefert die Bijektivität von $\Phi$, also ist $\Phi$ ein 
+		Folgen-Homöomorphismus zwischen $\Probmeasures{X}$ mit der schwachen Konvergenz und $A \subseteq \Bdcontfct{X}^\ast$ 
+		mit der Schwach-$\ast$-Konvergenz. Nach dem Satz von Banach-Alaoglu ist $A$ nun als abgeschlossene Teilmenge von 
+		$\setcomp{l \in C_b(X)^\ast}{\norm{l}_{\Bdcontfct{X}^\ast} \leq 1}$ kompakt bezüglich der Schwach-$\ast$-Topologie und damit auch folgenkompakt.
+		Also ist auch $\Probmeasures{X}$ folgenkompakt. Da $X$ insbesondere vollständig und damit polnisch ist, 
+		liefert Satz~\ref{thm:weakconvergencemetrizable} die Metrisierbarkeit von $\Probmeasures{X}$, womit
 		letztlich die Kompaktheit von $\Probmeasures{X}$ bezüglich der Topologie der schwachen Konvergenz folgt.
 	\end{proof}
 
-	\tobechanged{Beweise das bzw. überlege, ob man das noch machen sollte...}
+	\tobechanged{TODO: Beweisen bzw. überlegen, ob man das noch machen sollte...}
 
 	\begin{Satz}
-		Sei $X$ ein topologischer Raum. Dann ist $X$ genau dann polnisch, wenn $\Probmeasures{X}$ bezüglich der Topologie der schwachen Konvergenz polnisch ist.
+		Sei $X$ ein topologischer Raum. Dann ist $X$ genau dann polnisch, wenn $\Probmeasures{X}$ bezüglich der 
+		Topologie der schwachen Konvergenz polnisch ist.
 	\end{Satz}
 	
 	\subsection{Straffheit und der Satz von Prokhorov}
@@ -326,20 +330,30 @@
 		Insbesondere bedeutet das natürlich auch, dass wir für alle $M \in \N$ und $N \geq M$ 
 		\[ \mu_N(\bigcup_{m=1}^{M} B_\delta(x_m)) \; \leq \; 1 - \delta \]
 		abschätzen dürfen. Aufgrund der Kompaktheit von $\overline{A}$ gibt es eine Teilfolge $(\mu_{N_j})_j$ von $(\mu_N)_N$, 
-		die einen schwachen Grenzwert $\mu \in \Probmeasures{X}$ besitzt. Fixiere nun ein $M \in \N$. Dann ist $\bigcup_{m=1}^{M} B_\delta(x_m)$
+		die einen schwachen Grenzwert $\mu \in \Probmeasures{X}$ besitzt. Fixiere nun ein $M \in \N$. 
+		Dann ist $\bigcup_{m=1}^{M} B_\delta(x_m)$
 		offen und daher liefert das Portmanteau-Theorem (Satz~\ref{thm:portmanteau})
-		\[ \mu(\bigcup_{m=1}^{M} B_\delta(x_m)) \; \leq \; \liminf_{j \to \infty} \mu_{N_j}(\bigcup_{m=1}^{M} B_\delta(x_m)) \; \leq \; 1 - \delta \text{.} \label{4.10} \tag{4.10} \]
-		Wegen $\bigcup_{m=1}^{\infty} B_\delta(x_m) = X$ und Maßstetigkeit von unten liefert uns \eqref{4.10} unmittelbar 
+		\[ \mu(\bigcup_{m=1}^{M} B_\delta(x_m)) 
+			\; \leq \; \liminf_{j \to \infty} \mu_{N_j}(\bigcup_{m=1}^{M} B_\delta(x_m)) 
+			\; \leq \; 1 - \delta \text{.} \label{4.10} \tag{4.10} \]
+		Wegen $\bigcup_{m=1}^{\infty} B_\delta(x_m) = X$ und Maßstetigkeit von unten 
+		liefert uns \eqref{4.10} unmittelbar 
 		\[ \mu(X) \; \leq \; 1 - \delta \; < \; 1 \text{,} \]
-		was einen Widerspruch dazu darstellt, dass es sich bei $\mu$ um ein Wahrscheinlichkeitsmaß auf $X$ handelt. Also muss unsere Behauptung in \eqref{4.9} tatsächlich gelten.
+		was einen Widerspruch dazu darstellt, dass es sich bei $\mu$ um ein 
+		Wahrscheinlichkeitsmaß auf $X$ handelt. Also muss unsere Behauptung in \eqref{4.9} tatsächlich gelten.
 		
 		Sei nun ein $\varepsilon > 0$ gegeben. Dann setzen wir 
-		\[ S_\varepsilon \; \defby \; \bigcap_{k \in \N} \bigcup_{m=1}^{M_{\varepsilon / 2^k}} B_{\varepsilon / 2^k}(x_m) \text{.} \]
-		Offensichtlich ist $S_\varepsilon$ total beschränkt und damit auch $ K_\varepsilon \defby \overline{S_\varepsilon}$ kompakt (vgl. \cite[Satz 2.3.8]{Simon.2015}). Außerdem 
-		gilt für alle $\mu \in A$
+		\[ S_\varepsilon 
+			\; \defby \; \bigcap_{k \in \N} \bigcup_{m=1}^{M_{\varepsilon / 2^k}} 
+			B_{\varepsilon / 2^k}(x_m) \text{.} \]
+		Offensichtlich ist $S_\varepsilon$ total beschränkt und damit auch 
+		$ K_\varepsilon \defby \overline{S_\varepsilon}$ kompakt (vgl. \cite[Satz 2.3.8]{Simon.2015}). 
+		Außerdem gilt für alle $\mu \in A$
 		\begin{align*}
-			\mu(K_\varepsilon) \; &\geq \; \mu(S_\varepsilon) = \mu\left(\bigcap_{k \in \N} \bigcup_{m=1}^{M_{\varepsilon / 2^k}} B_{\varepsilon / 2^k}(x_m)\right)
-			                         \; = \; 1 - \mu\left(\bigcup_{k \in \N} \left(\bigcup_{m=1}^{M_{\varepsilon / 2^k}} B_{\varepsilon / 2^k}(x_m) \right)^{\!\! \mathsf{c}} \; \right) \\
+			\mu(K_\varepsilon) \; &\geq \; \mu(S_\varepsilon) \; = \; \mu\left(\bigcap_{k \in \N} \bigcup_{m=1}^{M_{\varepsilon / 2^k}} 
+										B_{\varepsilon / 2^k}(x_m)\right)
+			                         \; = \; 1 - \mu\left(\bigcup_{k \in \N} \left(\bigcup_{m=1}^{M_{\varepsilon / 2^k}} 
+			                         	B_{\varepsilon / 2^k}(x_m) \right)^{\!\! \mathsf{c}} \; \right) \\
 			                      &\geq   \; 1 - \sum_{k=1}^{\infty} \frac{\varepsilon}{2^k} \; = \; 1 - \varepsilon
 		\end{align*}
 		und damit ist $A$ straff.
