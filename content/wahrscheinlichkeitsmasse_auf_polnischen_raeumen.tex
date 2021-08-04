@@ -1,0 +1,362 @@
+\documentclass[../main/main.tex]{subfiles}
+
+\begin{document}
+	
+	\section{Eigenschaften von Maßen auf polnischen Räumen}
+	
+	\subsection{Metrisierbarkeit der schwachen Konvergenz}
+	
+	\begin{Satz}
+		\label{thm:Lp}
+		Sei $X$ ein polnischer Raum. Dann gibt es eine abzählbare Menge 
+		$\mathcal{D} \subseteq \Bdcontfct{X}$, die dicht liegt in jedem 
+		$L^p(X, \mu)$ mit $p \in [1, \infty)$, $\mu \in \Probmeasures{X}$.
+	\end{Satz}
+	
+	\begin{proof}
+		Wir beweisen zuerst, dass $C(H) = \Bdcontfct{H} \subseteq L^p(H, \mu)$ für beliebiges 
+		$p \in [1, \infty)$, $\mu \in \Probmeasures{H}$ dicht liegt. 
+		
+		Sei dazu $A \in \mathcal{B}$ eine Borel-messbare Teilmenge von $H$. 
+		Aufgrund der schwachen Regularität von $\mu$ (vgl. Satz~\ref{thm:weakregularity}) 
+		gibt es für $n \in \N$ abgeschlossene Mengen $C_n$ und offene Mengen 
+		$U_n$ mit $C_n \subseteq A \subseteq U_n$ und 
+		$\mu(U_n \setminus C_n) < \frac{1}{n}$. Setzen wir nun für alle $n$
+		\[\fctmap{f_n}{H}{[0, 1]}{x}{\frac{\rho(x, C_n)}{\rho(x, C_n) + 
+				\rho(x, U_n^\mathsf{c})}} \text{,} \quad f_n \in \Bdcontfct{H} \text{,}\]
+		so ist
+		\[ \norm{f_n - \indfct_A}_{L^p(H, \mu)}^p \; = \; 
+		\measureint{}{\abs{f_n - \indfct_A}^p}{\mu} \; \leq \; 
+		\mu(U_n \setminus C_n) \; < \; \frac{1}{n} \to 0 \text{,} 
+		\quad n \to \infty \text{.}\]
+		Insobesondere folgt direkt, dass sich auch jede einfache Funktion 
+		beliebig gut bezüglich $\norm{\cdot}_{L^p(H, \mu)}$ durch Funktionen aus $\Bdcontfct{H}$ 
+		approximieren lassen kann. Weil die einfachen Funktionen aber dicht 
+		in $L^p(H, \mu)$ liegen, muss auch $\Bdcontfct{H} \subseteq L^p(H, \mu)$ eine 
+		dichte Teilmenge sein.
+		
+		Aus Hilfssatz~\ref{lem:hilbertcubefunctionseparability} wissen wir 
+		bereits, dass es eine abzählbare Teilmenge $\mathcal{D}\subseteq \Bdcontfct{H}$ 
+		gibt, die $\norm{\cdot}_\infty$-dicht in $\Bdcontfct{H}$ liegt. Zudem gilt 
+		$\norm{f}_{L^p(H, \mu)} \leq \norm{f}_\infty$ für $f \in \Bdcontfct{H}$, also impliziert 
+		$\norm{\cdot}_\infty$-Konvergenz in $\Bdcontfct{H}$ auch $\norm{\cdot}_{L^p(H, \mu)}$-Konvergenz. 
+		Somit folgt insgesamt, dass auch $\mathcal{D} \subseteq L^p(H, \mu)$ dicht ist.
+		
+		Nun möchten wir die Aussage auf einen beliebigen polnischen Raum $X$ ausweiten, 
+		wofür wir $\fct{\varphi}{X}{H}$ aus \eqref{eq:2.6} nutzen.
+		Wir definieren hierzu das Bildmaß $\nu \defby \mu^\varphi \in \Probmeasures{H}$ 
+		auf der Borelschen $\sigma$-Algebra von $H$ und setzen
+		\[\fctmap{\Phi}{L^p(H, \nu)}{L^p(X, \mu)}{f}{f \circ \varphi} \text{.}\]
+		Für $f \in L^p(H, \nu)$ gilt dann
+		\[ \norm{f \circ \varphi}_{L^p(X, \mu)} 
+		\; = \; \measureint{}{\abs{f \circ \varphi}^p}{\mu} 
+		\; = \; \measureint{}{\abs{f}^p}{\mu^\varphi} 
+		\; = \; \measureint{}{\abs{f}^p}{\nu} 
+		\; = \; \norm{f}_{L^p(H, \nu)} \text{.} \]
+		Wegen $\nu(\varphi(X)) = 1$ ist $\Phi$ bijektiv und damit insgesamt eine Isometrie 
+		zwischen $L^p(H, \nu)$ und $L^p(X, \mu)$. Insbesondere ist also auch 
+		\[\Phi(\mathcal{D}) = \setcomp{f \circ \varphi}{f \in \mathcal{D}} \subseteq \Bdcontfct{X}\]
+		unabhängig von $p$ und $\mu$ eine abzählbare dichte Teilmenge von $L^p(X, \mu)$.
+	\end{proof}
+	
+	\begin{Satz}
+		\label{thm:weakconvergencemetrizable}
+		Sei $X$ ein polnischer Raum. Dann gibt es eine Metrik $D$ auf $\Probmeasures{X}$, 
+		sodass Konvergenz bezüglich $D$ gleichbedeutend mit schwacher Konvergenz 
+		(vgl. Definition~\ref{def:weakconvergence}) ist.
+	\end{Satz}
+	
+	\begin{proof}
+		Wir möchten direkt unsere Erkenntnisse aus dem Beweis des vorigen 
+		Satzes~\ref{thm:Lp} anwenden. Mit der Notation von dort sei zunächst 
+		\[\setcomp{h_m}{m \in \N} \defby \Phi(\mathcal{D}) \subseteq \Bdcontfct{X} \text{.}\] 
+		Wir behaupten, dass
+		\[D(\mu, \nu) \; \defby \; \sum_{m=1}^{\infty} \frac{\abs{\measureint{}{h_m}{\mu} - 
+				\measureint{}{h_m}{\nu}}}{2^m \cdot \norm{h_m}_\infty} \text{,} 
+		\qquad \mu, \nu \in \Probmeasures{X} \]
+		die schwache Konvergenz metrisiert. Offenbar gilt dann für eine Folge 
+		$(\mu_k)_k \in \Probmeasures{X}^\N$ und $\mu \in \Probmeasures{X}$ die 
+		Äquivalenz
+		\[ D(\mu_k, \mu) \to 0 \quad \iff \quad \forall m \in \N: \; 
+		\measureint{}{h_m}{\mu_k} \to \measureint{}{h_m}{\mu}\text{,} 
+		\quad k \to \infty \text{.} \label{eq:4.1} \tag{4.1} \]
+		An \eqref{eq:4.1} sehen wir direkt, dass aus der schwachen Konvergenz 
+		$\mu_k \xrightarrow{w} \mu$ die Konvergenz bezüglich $D$ folgt. Wir 
+		müssen also nur noch beweisen, dass die rechte Seite von \eqref{eq:4.1} 
+		schwache Konvergenz impliziert. Hierfür werden wir zeigen, dass für jede 
+		abgeschlossene Menge $C \subseteq X$ die Funktionen $f_n, \; n \in \N$ aus 
+		Hilfssatz~\ref{lem:opensets} (wofür wir eine geeignete Metrik auf $X$ wählen) 
+		dieselbe Bedingung wie die $h_m$ auf der rechten Seite von \eqref{eq:4.1} 
+		erfüllen. Genau wie im Beweis der Implikation $(1) \Rightarrow (2)$ aus dem 
+		Beweis des Portmanteau-Satzes (Satz~\ref{thm:portmanteau}) lässt sich dann 
+		die Bedingung $(2)$ aus dem Portmanteau-Satz folgern und damit schließlich 
+		die schwache Konvergenz $\mu_k \xrightarrow{w} \mu$.
+		
+		Für den verbleibenden Teil des Beweises definieren wir auf $X$ die Metrik
+		\[ \rho^\ast(x, y) \defby \rho(\varphi(x), \varphi(y)) \text{,} \]
+		wobei $\fct{\varphi}{X}{H}$ wieder die Abbildung aus \eqref{eq:2.6} sei. 
+		$\rho^\ast$ induziert die Topologie von $X$, vollständig ist $(X, \rho^\ast)$ 
+		aber im Allgemeinen natürlich nicht. Nun zeigen wir, dass für 
+		\[\fctmap{f_n}{X}{\R}{x}{\max \set{0, 1-n \rho^\ast(x, C)}}\] 
+		mit $n \in \N$ und $C \subseteq X$ abgeschlossen (hierbei handelt es sich 
+		um die Funktionen aus Hilfssatz~\ref{lem:opensets}) die Konvergenz
+		\[ \measureint{}{f_n}{\mu_k} \; \to \; \measureint{}{f_n}{\mu} \text{,} 
+		\quad k \to \infty \label{eq:4.2} \tag{4.2}\]
+		gilt. Zunächst bemerken wir, dass es Funktionen $g_n \in \Bdcontfct{H}$ 
+		gibt mit $f_n = g_n \circ \varphi$. Mit der Notation aus 
+		Hilfssatz~\ref{lem:hilbertcubefunctionseparability} und Satz~\ref{thm:Lp} 
+		existiert nun eine Folge $(g_n^{(l)})_l \in \mathcal{D}$ mit $g_n^{(l)} \to g_n$ 
+		bezüglich $\norm{\cdot}_\infty$. Setzen wir 
+		$f_n^{(l)} \defby \Phi(g_n^{(l)}) = g_n^{(l)} \circ \varphi \in \Phi(\mathcal{D})$, 
+		so gilt ebenfalls
+		\[ \norm{f_n^{(l)} - f_n}_\infty \; \to \; 0 \text{,} 
+		\quad l \to \infty \text{.} \label{eq:4.3} \tag{4.3} \]
+		Per Annahme ist für alle $l \in \N$
+		\[ \measureint{}{f_n^{(l)}}{\mu_k} \; \to \; \measureint{}{f_n^{(l)}}{\mu} \text{,} 
+		\quad k \to \infty \text{.} \label{eq:4.4} \tag{4.4} \]
+		Also können wir für alle $k, l \in \N$ wie folgt abschätzen:
+		\begin{align*}
+			\left| \measureint{}{f_n}{\mu} - \measureint{}{f_n}{\mu_k} \right| \; &\leq \; 
+			\left| \measureint{}{f_n}{\mu} - \measureint{}{f_n^{(l)}}{\mu} \right| + 
+			\left| \measureint{}{f_n^{(l)}}{\mu} - \measureint{}{f_n^{(l)}}{\mu_k} \right| \\
+			& \qquad + 
+			\left| \measureint{}{f_n^{(l)}}{\mu_k} - \measureint{}{f_n}{\mu_k} \right| \\
+			&\leq \; 2 \cdot \norm{f_n^{(l)} - f_n}_\infty + \left| \measureint{}{f_n^{(l)}}{\mu} - 
+			\measureint{}{f_n^{(l)}}{\mu_k} \right| \text{.}
+		\end{align*}
+		Dies impliziert aber wegen \eqref{eq:4.3} und \eqref{eq:4.4}
+		\begin{align*}
+			\limsup_{k \to \infty} \left| \measureint{}{f_n}{\mu} - 
+			\measureint{}{f_n}{\mu_k} \right|
+			\; &\leq \; 2 \cdot \norm{f_n^{(l)} - f_n}_\infty + 
+			\limsup_{k \to \infty} \left| \measureint{}{f_n^{(l)}}{\mu} - 
+			\measureint{}{f_n^{(l)}}{\mu_k} \right| \\
+			&= \; 2 \cdot \norm{f_n^{(l)} - f_n}_\infty \; \to \; 0 \text{,} 
+			\quad l \to \infty \text{,}
+		\end{align*}
+		und damit auch \eqref{eq:4.2}, womit wir den Beweis abschließen.
+	\end{proof}
+
+	\begin{Satz}
+		\label{thm:compactequivalence}
+		Sei $(X, d)$ ein metrischer Raum. Dann ist $X$ genau dann kompakt, wenn $\Probmeasures{X}$ 
+		bezüglich der Topologie der schwachen Konvergenz kompakt ist.
+	\end{Satz}
+
+	\begin{proof}
+		Sei zunächst $(X, d)$ kompakt. Wir möchten nun so ähnlich wie bei \eqref{3.5} verfahren.
+		Hierfür setzen wir zunächst
+		\[ A \defby \setcomp{l \in C(X)^\ast}{\norm{l}_{C(X)^\ast} \leq 1, \; l(\indfct_{X}) = 1, \; \forall f \in C(X) \text{ mit } f \geq 0 : l(f) \geq 0} \subseteq C(X)^\ast \]
+		und
+		\[ \fctmap{\Phi}{\Probmeasures{X}}{A}{\mu}{\left[\fctmap{l_\mu}{C(X)}{\R}{f}{\measureint{}{f}{\mu}}\right]} \text{.} \]
+		Der Darstellungssatz von Riesz-Markov liefert die Bijektivität von $\Phi$, also ist $\Phi$ ein 
+		Folgen-Homöomorphismus zwischen $\Probmeasures{X}$ mit der schwachen Konvergenz und $A \subseteq \Bdcontfct{X}^\ast$ 
+		mit der Schwach-$\ast$-Konvergenz. Nach dem Satz von Banach-Alaoglu ist $A$ nun als abgeschlossene Teilmenge von 
+		$\setcomp{l \in C_b(X)^\ast}{\norm{l}_{\Bdcontfct{X}^\ast} \leq 1}$ kompakt bezüglich der Schwach-$\ast$-Topologie und damit auch folgenkompakt.
+		Also ist auch $\Probmeasures{X}$ folgenkompakt. Da $X$ insbesondere vollständig und damit polnisch ist, 
+		liefert Satz~\ref{thm:weakconvergencemetrizable} die Metrisierbarkeit von $\Probmeasures{X}$, womit
+		letztlich die Kompaktheit von $\Probmeasures{X}$ bezüglich der Topologie der schwachen Konvergenz folgt.
+	\end{proof}
+
+	\tobechanged{TODO: Beweisen bzw. überlegen, ob man das noch machen sollte...}
+
+	\begin{Satz}
+		Sei $X$ ein topologischer Raum. Dann ist $X$ genau dann polnisch, wenn $\Probmeasures{X}$ bezüglich der 
+		Topologie der schwachen Konvergenz polnisch ist.
+	\end{Satz}
+	
+	\subsection{Straffheit und der Satz von Prokhorov}
+	
+	\begin{Definition}
+		Sei $X$ ein polnischer Raum und $\mu \in \Probmeasures{X}$. Dann nennen wir 
+		$\mu$ \emph{straff}, falls es für jedes $\varepsilon > 0$ eine kompakte Teilmenge
+		$K_\varepsilon \subseteq X$ gibt mit 
+		\[ \mu(K_\varepsilon) \geq 1  - \varepsilon \text{.} \]
+	\end{Definition}
+	
+	\begin{Satz}
+		\label{thm:tightness}
+		Sei $X$ ein polnischer Raum und $\mu \in \Probmeasures{X}$. Dann ist $\mu$ straff.
+	\end{Satz}
+	
+	\begin{proof}
+		Sei $d$ eine Metrik, bezüglich der $(X, d)$ vollständig ist und sei 
+		$\mathcal{D} \defby \setcomp{x_m}{m \in \N} \subseteq X$ eine abzählbare dichte Teilmenge. 
+		Für $k \in \N$ gilt also $\bigcup_{m \in \N} B_{1/k}(x_m) = X$ und Maßstetigkeit 
+		von unten impliziert 
+		$\lim_{M \to \infty} \bigcup_{m=1}^{M} B_{1/k}(x_m) = 1$.
+		
+		Sei nun $\varepsilon > 0$. Dann finden wir natürliche Zahlen $M_1 \leq M_2 \leq \dots$ mit
+		\[ \mu\left( \bigcup_{m=1}^{M_k} B_{1/k}(x_m) \right) \; \geq \; 1 - \frac{\varepsilon}{2^k} \]
+		für alle $k \in \N$. Wir setzen nun
+		\[ S_\varepsilon 
+		\; \defby \; \bigcap_{k \in \N} \left( \bigcup_{m=1}^{M_k} B_{1/k}(x_m) \right) 
+		\quad \text{und} \quad K_\varepsilon \defby \overline{S_\varepsilon} \text{.} \]
+		Offenbar ist $S_\varepsilon$ totalbeschränkt und damit ist $K_\varepsilon = \overline{S_\varepsilon}$ 
+		kompakt (dies wird etwa in \cite[Satz 2.3.8]{Simon.2015} bewiesen, 
+		hier geht die Vollständigkeit von $(X, d)$ ein).
+		Außerdem berechnen wir
+		\[ \mu(K_\varepsilon) 
+		\; \geq \; \mu(S_\varepsilon) 
+		\; \geq \; 1 - \sum_{k=1}^{\infty} \left( 1 - \mu\left( \bigcup_{m=1}^{M_k} B_{1/k}(x_m) \right) \right) 
+		\; \geq \; 1 - \sum_{k=1}^{\infty} \frac{\varepsilon}{2^k} \; = \; 1 - \varepsilon \text{.} \]
+		Weil $\varepsilon > 0$ beliebig gewählt war, ist $\mu$ also straff.
+	\end{proof}
+	
+	Ausgestattet mit des Konzepts der Straffheit können wir nun folgenden Satz beweisen:
+	
+	\begin{Korollar}
+		Ist $X$ ein polnischer Raum, so ist jedes $\mu \in \Probmeasures{X}$ regulär.
+	\end{Korollar}
+	
+	\begin{proof}
+		Sei $\mu \in \Probmeasures{X}$ und $B \in \mathcal{B}(X)$. 
+		Wegen \ref{thm:weakregularity} wissen wir bereits, dass 
+		\[\mu(B) = \sup_{\substack{C \subseteq B \\ C \text{ abgeschlossen}}} \mu(C) 
+		\quad \text{bzw.} \quad \mu(B) = \inf_{\substack{U \supseteq B \\ U \text{ offen}}} 
+		\mu(U)\]
+		gilt. Sei nun $\varepsilon > 0$. Dann gibt es eine abgeschlossene Teilmenge 
+		$C \subseteq B \subseteq X$ mit $\mu(B \setminus C) < \varepsilon$. 
+		Außerdem gibt es nach Satz~\ref{thm:tightness} eine kompakte Menge 
+		$K^\ast \subseteq X$ mit $\mu(K^\ast) \geq 1 - \varepsilon$. Setzen 
+		wir nun $K \defby K^\ast \cap C$, so ist $K$ ebenfalls kompakt und 
+		$K \subseteq B$ mit 
+		\[ \mu(B \setminus K) 
+		\; = \; \mu((B \setminus C) \cap (B \setminus K^\ast)) 
+		\; \leq \; \mu(B \setminus C) + \mu(K^{\ast \mathsf{c}}) 
+		\; \leq \; 2 \varepsilon \text{.} \]
+		Daher folgt 
+		\[\mu(B) 
+		= \sup_{\substack{K \subseteq B \\ K \text{ kompakt}}} \mu(K)\] 
+		und insgesamt $\mu$ ist regulär.
+	\end{proof}
+
+	\begin{Satz}[Prokhorov]
+		\label{thm:prokhorov}
+		Sei $X$ ein polnischer Raum und $A \subseteq \Probmeasures{X}$, wobei $\Probmeasures{X}$ mit der 
+		Topologie der schwachen Konvergenz versehen sei. Dann sind folgende Aussagen äquivalent:
+		\begin{equivalentthm}
+			\item $A$ ist straff.
+			\item $\overline{A} \subseteq \Probmeasures{X}$ ist kompakt.
+		\end{equivalentthm}
+	\end{Satz}
+
+	\begin{proof}
+		Sei zunächst $A \subseteq \Probmeasures{X}$ straff. Wir möchten nun beweisen, dass $\overline{A}$ 
+		kompakt ist, was wegen der Metrisierbarkeit von $\Probmeasures{X}$ äquivalent dazu ist,
+		dass alle Folgen $(\mu_n)_n \in A^\N$ eine schwach konvergente Teilfolge besitzen. 
+		
+		Aufgrund der Straffheit von $A$ gibt es für jedes $m \in \N$ ein Kompaktum $K^{(m)} \subseteq X$, 
+		das für alle $n \in \N$
+		\[ \mu_n(K^{(m)}) \geq 1 - \frac{1}{m+1} \label{4.5} \tag{4.5} \]
+		erfüllt. Ohne Einschränkung dürfen wir außerdem annehmen, dass 
+		\[ K^{(m)} \subseteq K^{(m+1)} \label{4.6} \tag{4.6} \] 
+		für alle $m \in \N$ gilt.
+		
+		Sei nun also $(\mu_n)_n \in A^\N$.
+		In Analogie zu Satz~\ref{thm:compactequivalence} lässt sich nun auch einsehen, dass 
+		\[ \Unitmeasures{K^{(m)}} \; = \; \setcomp{\fct{\mu}{\mathcal{B}(K^{(m)})}{[0,1]}}{\mu \; 
+			\text{ist endliches Maß und } \mu(K^{(m)}) \leq 1} \]
+		für alle $m \in \N$ kompakt bezüglich der Topologie der schwachen Konvergenz ist. Damit existiert ein Maß 
+		$\nu^{(1)} \in \Unitmeasures{K^{(1)}}$ und eine Teilfolge $(\mu_{n_j}^{(1)})_k$ von $(\mu_n)_n$ mit
+		\[ \restr{\mu_{n_j}^{(1)}}{K^{(1)}} \; \xrightarrow{w} \; \nu^{(1)} \text{.} \]
+		Auf dieselbe Art und Weise findet man nun für alle $m\geq 2$ sukzessive Maße 
+		$\nu^{(m)} \in \Unitmeasures{K^{(m)}}$ und Teilfolgen $(\mu_{n_j}^{(m)})_j$ von $(\mu_{n_j}^{(m-1)})_j$ mit
+		\[ \restr{\mu_{n_j}^{(m)}}{K^{(m)}} \; \xrightarrow{w} \; \nu^{(m)}, \quad j \to \infty \text{.} \]
+		Nun diagonalisieren wir und erhalten mit $\mu_{n_j} \; \defby \; \mu_{n_j}^{(j)}$ eine Teilfolge 
+		$(\mu_{n_j})_j$ von $(\mu_n)_n$, die
+		\[ \restr{\mu_{n_j}}{K^{(m)}} \; \xrightarrow{w} \; \nu^{(m)}, \quad j \to \infty \label{4.7} \tag{4.7} \]
+		für alle $m \in \N$ erfüllt.
+		
+		Außerdem können Maße $\nu^{(m)}, \; m \in \N$ via 
+		$\nu^{(m)}(B) \defby \nu^{(m)}(B \cap K^{(m)}), \; B \in \mathcal{B}(X)$ einfach auf $X$ fortsetzen. 
+		Mit dieser Konvention können wir nun beweisen, dass die Maße
+		$\nu^{(m)}, \; m \in \N$ in dem Sinne monoton wachsen, dass 
+		\[ \nu^{(m)}(B) \leq \nu^{(m+1)}(B) \label{4.8} \tag{4.8} \]
+		für alle $B \in \mathcal{B}(X)$ und $m \in \N$ gilt:
+		
+		Wegen schwacher Regularität (vgl. Satz~\ref{thm:weakregularity}) genügt es, die Ungleichung \eqref{4.8} 
+		für abgeschlossene Mengen zu zeigen. Sei also $m \in \N$ fixiert, $C \subseteq X$ abgeschlossen 
+		und seien $\fct{f_k}{X}{\R}, \; k \in \N$ die gleichmäßig stetigen, beschränkten Funktionen aus 
+		Hilfssatz~\ref{lem:opensets}. Unter Ausnutzung von \eqref{4.6} folgt nun 
+		\[ \measureint{K^{(m)}}{f_k}{\mu_{n_j}} \; \leq \; \measureint{K^{(m+1)}}{f_k}{\mu_{n_j}} \]
+		für alle $k, j \in \N$. Wegen 
+		\[ \measureint{K^{(m)}}{f_k}{\mu_{n_j}} \to \ \measureint{}{f_k}{\nu^{(m)}} \quad \text{und} 
+			\quad \measureint{K^{(m+1)}}{f_k}{\mu_{n_j}} \to \ \measureint{}{f_k}{\nu^{(m+1)}} \]
+		ist damit auch 
+		\[ \measureint{}{f_k}{\nu^{(m)}} \; \leq \; \measureint{}{f_k}{\nu^{(m+1)}} \]
+		für alle $k \in \N$, was wiederum aufgrund der Konvergenz $f_k \convdown \indfct_C$ Ungleichung 
+		\eqref{4.8} impliziert.
+		
+		Schlussendlich möchten wir nun nachweisen, dass durch
+		\[ \fctmap{\nu}{\mathcal{B}(X)}{[0, 1]}{B}{\sup_{m \in \N} \nu^{(m)}(B)} \]
+		ein Wahrscheinlichkeitsmaß auf $X$ definiert wird, gegen das $(\mu_{n_j})_j$ schwach konvergiert.
+		
+		Zunächst prüfen wir, dass $\nu$ ein Wahrscheinlichkeitsmaß ist. $\nu(\emptyset) = 0$ ist klar. 
+		Weil $\nu^{(m)}$ in $\Unitmeasures{K^{(m)}}$ liegt und wir \eqref{4.5} angenommen haben, gilt 
+		\[\nu^{(m)}(X) = \nu^{(m)}(K^{(m)}) \in [1 - \frac{1}{m+1}, 1]\] 
+		für alle $m \in \N$ und damit $\nu(X) = 1$. Für die $\sigma$-Additivität seien 
+		$B_k \in \mathcal{B}(X), \; k \in \N$ paarweise disjunkt. Dann gilt
+		\begin{align*}
+			\nu \left( \bigcupdot_{k \in \N} B_k \right) \; &= \; \sup_{m \in \N} \; \nu^{(m)} \left( \bigcupdot_{k \in \N} B_k \right) 
+																\; = \; \sup_{m \in \N} \; \sum_{k=1}^{\infty} \nu^{(m)}(B_k) \\
+			                                                &\stackrel{\eqref{4.8}}{=} \; \sum_{k=1}^{\infty} \; \sup_{m \in \N} \nu^{(m)}(B_k) 
+			                                                	\; = \; \sum_{k=1}^{\infty} \nu(B_k) \text{,}
+		\end{align*}
+		wobei in der vorletzten Gleichung der Satz von Beppo Levi verwendet wurde. 
+		Insgesamt haben wir also $\nu \in \Probmeasures{X}$ nachgewiesen.
+		
+		Jetzt bleibt lediglich zu zeigen dass $(\mu_{n_j})_j$ tatsächlich schwach gegen $\nu$ konvergiert. 
+		Hierfür möchten wir die Charakterisierung (ii) des Portmanteau-Theorems (Satz~\ref{thm:portmanteau}) verwenden.
+		Sei dazu $C \subseteq X$ abgeschlossen. Zunächst liefert ebendieser Satz für alle $m \in \N$ die 
+		Abschätzung $\limsup_{j \to \infty} \mu_{n_j}(C \cap K^{(m)}) \leq \nu^{(m)}(C)$ und wegen \eqref{4.5} ist 
+		zudem $\mu_{n_j}(C \cap K^{(m) \mathsf{c}}) \leq  \frac{1}{m+1}$ für alle $j, m \in \N$. Insgesamt folgt daraus 
+		\begin{align*}
+			\limsup_{j \to \infty} \mu_{n_j}(C) \; &=    \; \lim_{m \to \infty} \limsup_{j \to \infty} 
+														\left( \mu_{n_j}(C \cap K^{(m)}) + \mu_{n_j}(C \cap K^{(m) \mathsf{c}}) \right) \\
+			                                       &\leq \; \lim_{m \to \infty} \left( \nu^{(m)}(C) + \frac{1}{m+1} \right) 
+			                                       		\; = \; \nu(C) \text{,}
+		\end{align*}
+		was den Beweis der Hinrichtung von Satz~\ref{thm:prokhorov} abschließt.
+		
+		Für die Rückrichtung sei nun $\overline{A}$ kompakt. Außerdem sei $d$ eine Metrik, die $X$ vollständig metrisiert 
+		und $\mathcal{D} \defby \setcomp{x_n}{n \in \N} \subseteq X$ eine abzählbare dichte Teilmenge.
+		
+		Nun behaupten wir, dass für alle $\delta > 0$ ein solches $M_\delta \in \N$ existiert, dass
+		\[ \mu(\bigcup_{m=1}^{M_\delta} B_\delta(x_m)) \; > \; 1 - \delta \label{4.9} \tag{4.9} \]
+		für alle $\mu \in A$ gilt. Denn falls es kein derartiges $M_\delta$ gibt, so lässt sich ein $\delta > 0$ finden, für das
+		für alle $M \in \N$ ein $\mu_M \in A$ existiert mit
+		\[ \mu_M(\bigcup_{m=1}^{M} B_\delta(x_m)) \; \leq \; 1 - \delta \text{.} \]
+		Insbesondere bedeutet das natürlich auch, dass wir für alle $M \in \N$ und $N \geq M$ 
+		\[ \mu_N(\bigcup_{m=1}^{M} B_\delta(x_m)) \; \leq \; 1 - \delta \]
+		abschätzen dürfen. Aufgrund der Kompaktheit von $\overline{A}$ gibt es eine Teilfolge $(\mu_{N_j})_j$ von $(\mu_N)_N$, 
+		die einen schwachen Grenzwert $\mu \in \Probmeasures{X}$ besitzt. Fixiere nun ein $M \in \N$. 
+		Dann ist $\bigcup_{m=1}^{M} B_\delta(x_m)$
+		offen und daher liefert das Portmanteau-Theorem (Satz~\ref{thm:portmanteau})
+		\[ \mu(\bigcup_{m=1}^{M} B_\delta(x_m)) 
+			\; \leq \; \liminf_{j \to \infty} \mu_{N_j}(\bigcup_{m=1}^{M} B_\delta(x_m)) 
+			\; \leq \; 1 - \delta \text{.} \label{4.10} \tag{4.10} \]
+		Wegen $\bigcup_{m=1}^{\infty} B_\delta(x_m) = X$ und Maßstetigkeit von unten 
+		liefert uns \eqref{4.10} unmittelbar 
+		\[ \mu(X) \; \leq \; 1 - \delta \; < \; 1 \text{,} \]
+		was einen Widerspruch dazu darstellt, dass es sich bei $\mu$ um ein 
+		Wahrscheinlichkeitsmaß auf $X$ handelt. Also muss unsere Behauptung in \eqref{4.9} tatsächlich gelten.
+		
+		Sei nun ein $\varepsilon > 0$ gegeben. Dann setzen wir 
+		\[ S_\varepsilon 
+			\; \defby \; \bigcap_{k \in \N} \bigcup_{m=1}^{M_{\varepsilon / 2^k}} 
+			B_{\varepsilon / 2^k}(x_m) \text{.} \]
+		Offensichtlich ist $S_\varepsilon$ total beschränkt und damit auch 
+		$ K_\varepsilon \defby \overline{S_\varepsilon}$ kompakt (vgl. \cite[Satz 2.3.8]{Simon.2015}). 
+		Außerdem gilt für alle $\mu \in A$
+		\begin{align*}
+			\mu(K_\varepsilon) \; &\geq \; \mu(S_\varepsilon) \; = \; \mu\left(\bigcap_{k \in \N} \bigcup_{m=1}^{M_{\varepsilon / 2^k}} 
+										B_{\varepsilon / 2^k}(x_m)\right)
+			                         \; = \; 1 - \mu\left(\bigcup_{k \in \N} \left(\bigcup_{m=1}^{M_{\varepsilon / 2^k}} 
+			                         	B_{\varepsilon / 2^k}(x_m) \right)^{\!\! \mathsf{c}} \; \right) \\
+			                      &\geq   \; 1 - \sum_{k=1}^{\infty} \frac{\varepsilon}{2^k} \; = \; 1 - \varepsilon
+		\end{align*}
+		und damit ist $A$ straff.
+	\end{proof}
+	
+\end{document}
