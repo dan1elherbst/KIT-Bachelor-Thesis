@@ -4,7 +4,19 @@
 	
 	\section{Maße auf polnischen Räumen}
 	
+	Nachdem wir uns im vorigen Abschnitt zu einem topologischen Raum $X$ den Raum der endlichen Borel-Maße 
+	$\Finitemeasures{X}$ bzw. den Raum der Wahrscheinlichkeitsmaße $\Probmeasures{X}$ mit einer Topologie bzw.
+	einem Konvergenzbegriff versehen haben, sind nun die topologischen Eigenschaften ebendieser Räume zu 
+	untersuchen. Es wird sich herausstellen, dass sich bereits durch die verhältnismäßig schwache Einschränkung 
+	des Grundraumes $X$ auf die Klasse der polnischen Räume relativ weitreichende Schlüsse über die Topologie 
+	der schwachen Konvergenz von $\Finitemeasures{X}$ bzw. $\Probmeasures{X}$ ziehen lassen. So werden wir in 
+	Abschnitt~\ref{subsec:weakconvergencemetrizable} als zentrales Ergebnis die Metrisierbarkeit von 
+	$\Probmeasures{X}$ bezüglich der schwachen Konvergenz erhalten und in Abschnitt~\ref{subsec:prokhorov} im 
+	\emph{Satz von Prokhorov} (Satz~\ref{thm:prokhorov}) eine Charakterisierung von kompakten Teilmengen 
+	in $\Probmeasures{X}$ sehen.
+	
 	\subsection{Metrisierbarkeit der schwachen Konvergenz}
+	\label{subsec:weakconvergencemetrizable}
 	
 	\begin{Satz}
 		\label{thm:Lp}
@@ -61,8 +73,8 @@
 
 	\begin{Bemerkung}
 		Es sei angemerkt, dass wir hier nicht die Separabilität von $(\Bdcontfct{X}, \norm{\cdot}_\infty)$ 
-		für einen beliebigen polnischen Raum $X$ beweisen. Diese ist im Allgemeinen gar nicht erfüllt, was man etwa am Beispiel
-		$(l^\infty, \norm{\cdot}_\infty) = (\Bdcontfct{\N}, \norm{\cdot}_\infty)$ erkennen kann.
+		für einen beliebigen polnischen Raum $X$ beweisen. Diese ist im Allgemeinen gar nicht gegeben, wie das Beispiel
+		$(l^\infty, \norm{\cdot}_\infty) = (\Bdcontfct{\N}, \norm{\cdot}_\infty)$ zeigt.
 	\end{Bemerkung}
 	
 	\begin{Satz}
@@ -73,8 +85,8 @@
 	\end{Satz}
 	
 	\begin{proof}
-		Wir möchten direkt unsere Erkenntnisse aus dem Beweis des vorigen 
-		Satzes~\ref{thm:Lp} anwenden. Mit der Notation von dort sei zunächst 
+		Wir möchten direkt unsere Erkenntnisse aus dem vorigen 
+		Satz~\ref{thm:Lp} anwenden. Mit der Notation von dort sei zunächst 
 		\[\setcomp{h_m}{m \in \N} \defby \Phi(\mathcal{D}) \subseteq \Bdcontfct{X} \text{.}\] 
 		Wir behaupten, dass
 		\[D(\mu, \nu) \; \defby \; \sum_{m=1}^{\infty} \frac{\abs{\measureint{}{h_m}{\mu} - 
@@ -152,8 +164,8 @@
 	\begin{proof}
 		Sei zunächst $(X, d)$ kompakt. Wir möchten nun so ähnlich wie bei \eqref{3.5} verfahren.
 		Hierfür setzen wir zunächst
-		\[ A \defby \setcomp{l \in \Bdcontfct{X}^\ast}{\norm{l}_{\Bdcontfct{X}^\ast} \leq 1, \; l(\indfct_{X}) = 1, \; 
-			\forall f \in \Bdcontfct{X} \text{ mit } f \geq 0 : l(f) \geq 0} \subseteq \Bdcontfct{X}^\ast \]
+		\[ A \; \defby \; \setcomp{l \in \Bdcontfct{X}^\ast}{\norm{l}_{\Bdcontfct{X}^\ast} \leq 1, \; l(\indfct_{X}) = 1, \; 
+			\forall f \in \Bdcontfct{X} \text{ mit } f \geq 0 : l(f) \geq 0}\]
 		und
 		\[ \fctmap{\Phi}{\Probmeasures{X}}{A}{\mu}{\left[\fctmap{l_\mu}{\Bdcontfct{X}}{\R}{f}{\measureint{}{f}{\mu}}\right]} \text{.} \]
 		Der Darstellungssatz von Riesz-Markov liefert die Bijektivität von $\Phi$, also ist $\Phi$ ein 
@@ -173,6 +185,7 @@
 	\end{Satz}
 	
 	\subsection{Straffheit und der Satz von Prokhorov}
+	\label{subsec:prokhorov}
 	
 	\begin{Definition}
 		Sei $X$ ein polnischer Raum und $\mu \in \Probmeasures{X}$. Dann nennen wir 
@@ -188,7 +201,7 @@
 	
 	\begin{proof}
 		Sei $d$ eine Metrik, bezüglich der $(X, d)$ vollständig ist und sei 
-		$\mathcal{D} \defby \setcomp{x_m}{m \in \N} \subseteq X$ eine abzählbare dichte Teilmenge. 
+		$\mathcal{D} \defby \setcomp{x_m}{m \in \N}$ eine abzählbare dichte Teilmenge von $X$. 
 		Für $k \in \N$ gilt also $\bigcup_{m \in \N} B_{1/k}(x_m) = X$ und Maßstetigkeit 
 		von unten impliziert 
 		$\lim_{M \to \infty} \bigcup_{m=1}^{M} B_{1/k}(x_m) = 1$.
@@ -262,7 +275,7 @@
 		
 		Sei nun also $(\mu_n)_n \in A^\N$.
 		In Analogie zu Satz~\ref{thm:compactequivalence} lässt sich nun auch einsehen, dass 
-		\[ \Unitmeasures{K^{(m)}} \; = \; \setcomp{\fct{\mu}{\mathcal{B}(K^{(m)})}{[0,1]}}{\mu \; 
+		\[ \Unitmeasures{K^{(m)}} \; \defby \; \setcomp{\fct{\mu}{\mathcal{B}(K^{(m)})}{[0,1]}}{\mu \; 
 			\text{ist endliches Maß und } \mu(K^{(m)}) \leq 1} \]
 		für alle $m \in \N$ kompakt bezüglich der Topologie der schwachen Konvergenz ist. Damit existiert ein Maß 
 		$\nu^{(1)} \in \Unitmeasures{K^{(1)}}$ und eine Teilfolge $(\mu_{n_j}^{(1)})_k$ von $(\mu_n)_n$ mit
@@ -299,7 +312,7 @@
 		\[ \fctmap{\nu}{\mathcal{B}(X)}{[0, 1]}{B}{\sup_{m \in \N} \nu^{(m)}(B)} \]
 		ein Wahrscheinlichkeitsmaß auf $X$ definiert wird, gegen das $(\mu_{n_j})_j$ schwach konvergiert.
 		
-		Zunächst prüfen wir, dass $\nu$ ein Wahrscheinlichkeitsmaß ist. $\nu(\emptyset) = 0$ ist klar. 
+		Zunächst verifizieren wir, dass $\nu$ ein Wahrscheinlichkeitsmaß ist. $\nu(\emptyset) = 0$ ist klar. 
 		Weil $\nu^{(m)}$ in $\Unitmeasures{K^{(m)}}$ liegt und wir \eqref{4.5} angenommen haben, gilt 
 		\[\nu^{(m)}(X) = \nu^{(m)}(K^{(m)}) \in [1 - \frac{1}{m+1}, 1]\] 
 		für alle $m \in \N$ und damit $\nu(X) = 1$. Für die $\sigma$-Additivität seien 
@@ -356,13 +369,11 @@
 		und verfahren nun ähnlich wie im Beweis von Satz~\ref{thm:tightness}: Offensichtlich ist $S_\varepsilon$ total beschränkt und damit auch 
 		$ K_\varepsilon \defby \overline{S_\varepsilon}$ kompakt (vgl. \cite[Satz 2.3.8]{Simon.2015}). 
 		Außerdem gilt für alle $\mu \in A$
-		\begin{align*}
-			\mu(K_\varepsilon) \; &\geq \; \mu(S_\varepsilon) \; = \; \mu\left(\bigcap_{k \in \N} \bigcup_{m=1}^{M_{\varepsilon / 2^k}} 
+		\[
+			\mu(K_\varepsilon) \; \geq \; \mu(S_\varepsilon) \; = \; \mu\left(\bigcap_{k \in \N} \bigcup_{m=1}^{M_{\varepsilon / 2^k}} 
 										B_{\varepsilon / 2^k}(x_m)\right)
-			                         \; = \; 1 - \mu\left(\bigcup_{k \in \N} \left(\bigcup_{m=1}^{M_{\varepsilon / 2^k}} 
-			                         	B_{\varepsilon / 2^k}(x_m) \right)^{\!\! \mathsf{c}} \; \right) \\
-			                      &\geq   \; 1 - \sum_{k=1}^{\infty} \frac{\varepsilon}{2^k} \; = \; 1 - \varepsilon
-		\end{align*}
+			                      \; \geq \; 1 - \sum_{k=1}^{\infty} \frac{\varepsilon}{2^k} \; = \; 1 - \varepsilon
+		\]
 		und damit ist $A$ straff.
 	\end{proof}
 	
