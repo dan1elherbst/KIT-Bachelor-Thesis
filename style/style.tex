@@ -28,7 +28,8 @@
 \usepackage{dsfont} % indicator function
 \usepackage{mdframed} % framed theorems
 \usepackage{csquotes}
-
+\usepackage{titlesec} % new page after every section
+\newcommand{\sectionbreak}{\clearpage}
 
 
 
@@ -47,12 +48,16 @@
 % Umgebungen
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 	
-\newmdtheoremenv[backgroundcolor=black!3, innertopmargin=-2pt]{Definition}{Definition}[section]
-\newmdtheoremenv[backgroundcolor=black!3, innertopmargin=-2pt]{Satz}[Definition]{Satz}
-\newmdtheoremenv[backgroundcolor=black!3, innertopmargin=-2pt]{Hilfssatz}[Definition]{Hilfssatz}
-\newmdtheoremenv[backgroundcolor=black!3, innertopmargin=-2pt]{Korollar}[Definition]{Korollar}      
+% \newmdtheoremenv[backgroundcolor=black!3, innertopmargin=-2pt]{Definition}{Definition}[section]
+% \newmdtheoremenv[backgroundcolor=black!3, innertopmargin=-2pt]{Satz}[Definition]{Satz}
+% \newmdtheoremenv[backgroundcolor=black!3, innertopmargin=-2pt]{Hilfssatz}[Definition]{Hilfssatz}
+% \newmdtheoremenv[backgroundcolor=black!3, innertopmargin=-2pt]{Korollar}[Definition]{Korollar}      
 
 \newtheorem*{Bemerkung}{Bemerkung}
+\newtheorem{Definition}{Definition}[section]
+\newtheorem{Satz}[Definition]{Satz}
+\newtheorem{Hilfssatz}[Definition]{Hilfssatz}
+\newtheorem{Korollar}[Definition]{Korollar}
 
 \numberwithin{equation}{section} 
 

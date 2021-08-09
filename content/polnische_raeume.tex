@@ -128,7 +128,7 @@
 	\begin{Hilfssatz}
 		\label{lem:characterizationpolishspaces}
 		Sei $(X, d)$ ein separabler metrischer Raum und sei 
-		$D \defby \setcomp{x_n}{n \in \N} \subseteq X$ eine abzählbare 
+		$\mathcal{D} \defby \setcomp{x_n}{n \in \N} \subseteq X$ eine abzählbare 
 		dichte Teilmenge. Außerdem setzen wir
 		\[\fctmap{\varphi}{X}{H}{x}{\left(\min \left(1, d(x, x_n) \right) \right)_n} \text{.} \label{eq:2.2} \tag{2.2}\]
 		Dann gilt das Folgende:
@@ -143,7 +143,7 @@
 		Wir zeigen zunächst, dass $\varphi$ injektiv ist. 
 		Dazu seien $y, z \in H$ mit $\varphi(y) = \varphi(z)$, also gilt
 		\[\min(1, d(y, x_n)) = \min(1, d(z, x_n)) \label{eq:2.3} \tag{2.3}\]
-		für alle $n \in \N$. Weil es eine Folge $(y_n)_n \in D^\N$ mit 
+		für alle $n \in \N$. Weil es eine Folge $(y_n)_n \in \mathcal{D}^\N$ mit 
 		$y_n \to y$ gibt und diese wegen \eqref{eq:2.3} auch gegen $z$ 
 		konvergiert, folgt die Gleichheit von $y$ und $z$.
 		
@@ -203,7 +203,7 @@
 	\end{Hilfssatz}
 	
 	\begin{proof}
-		Sei $P \subseteq X$ eine $G_\delta$-Teilmenge und 
+		Sei $P \subseteq X$ eine $G_\delta$-Teilmenge und seien 
 		$U_n \subseteq X, \, n \in \N$ offene Mengen mit 
 		$P = \bigcap_{n \in \N} U_n$, wobei wir außerdem 
 		$C_n \defby U_n^{\mathsf{c}}$ schreiben. Ferner sei 
@@ -213,28 +213,28 @@
 		von $P$ zu beweisen.
 		
 		Für $x, y \in P$ definieren wir
-		\[d^\ast(x, y) \; \defby \; d(x, y) + \sum_{n=1}^{\infty} \min \left(
+		\[\tilde{d}(x, y) \; \defby \; d(x, y) + \sum_{n=1}^{\infty} \min \left(
 		\frac{1}{2^n}, \left| \frac{1}{d(x, C_n)} - \frac{1}{d(y, C_n)} \right|
 		\right) \text{.}\]
-		Offensichtlich ist $d^\ast$ eine Metrik auf $P$, 
+		Offensichtlich ist $\tilde{d}$ eine Metrik auf $P$, 
 		die dieselbe Topologie wie $d$ erzeugt. 
 		
-		Wir möchten nun zeigen, dass $(P, d^\ast)$ vollständig ist. 
-		Sei dazu $(x_k)_k \in P^\N$ eine Cauchyfolge. Wegen $d \leq d^\ast$ 
+		Wir möchten nun zeigen, dass $(P, \tilde{d})$ vollständig ist. 
+		Sei dazu $(x_k)_k \in P^\N$ eine Cauchyfolge. Wegen $d \leq \tilde{d}$ 
 		ist $(x_k)_k$ dann auch bezüglich $d$ eine Cauchyfolge und die 
 		Vollständigkeit von $(X, d)$ liefert die Existenz eines Grenzwertes 
 		$x \in X$. Angenommen $x \notin P$, so gibt es ein $m \in \N$ mit 
 		$x \in C_m$. Damit ist aber für alle $k \in \N$
-		$$\sup_{l \geq k} d^\ast(x_k, x_l) \; \geq \; \sup_{l \geq k} 
+		$$\sup_{l \geq k} \tilde{d}(x_k, x_l) \; \geq \; \sup_{l \geq k} 
 		\, \sum_{n=1}^{\infty} \min \left(
 		\frac{1}{2^n}, \left| \frac{1}{d(x_k, C_n)} -
 		\frac{1}{d(x_l, C_n)} \right|
 		\right) \; \geq \; \frac{1}{2^m} \; > \; 0 \text{,}$$
 		was der Tatsache widerspricht, dass $(x_k)_k$ eine Cauchyfolge 
-		bezüglich $d^\ast$ ist. Also muss $x \in P$ gelten. 
+		bezüglich $\tilde{d}$ ist. Also muss $x \in P$ gelten. 
 		Aus der Stetigkeit von $x \mapsto d(x, C_n)$ folgt mit dem 
 		Satz von Lebesgue unmittelbar die Konvergenz 
-		$d^\ast(x_k, x) \to 0$ für $k \to \infty$.
+		$\tilde{d}(x_k, x) \to 0$ für $k \to \infty$.
 	\end{proof}
 	
 	Da wir in Hilfssatz~\ref{lem:characterizationpolishspaces} bereits 
