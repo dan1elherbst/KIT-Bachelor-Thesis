@@ -88,7 +88,7 @@
 		die die Topologie der schwachen Konvergenz auf $\Probmeasures{X}$ metrisiert.
 	\end{Satz}
 
-	\tobechanged{Das würde ich gerne zeigen, in diesem Beweis wird allerdings nur gezeigt, 
+	\tobechanged{Das würde ich gerne beweisen, hier wird allerdings nur gezeigt, 
 		dass Konvergenz bzgl. $D$ der schwachen Konvergenz entspricht.}
 	
 	\begin{proof}
@@ -170,6 +170,8 @@
 		bezüglich der Topologie der schwachen Konvergenz kompakt ist.
 	\end{Satz}
 
+	\tobechanged{FEHLT: Rückrichtung}
+
 	\begin{proof}
 		Sei zunächst $(X, d)$ kompakt. Wir möchten nun so ähnlich wie bei \eqref{3.5} verfahren.
 		Hierfür setzen wir zunächst
@@ -178,17 +180,13 @@
 		und
 		\[ \fctmap{\Phi}{\Probmeasures{X}}{A}{\mu}{\left[\fctmap{l_\mu}{\Bdcontfct{X}}{\R}{f}{\measureint{}{f}{\mu}}\right]} \text{.} \]
 		Der Darstellungssatz von Riesz-Markov liefert die Bijektivität von $\Phi$, also ist $\Phi$ ein 
-		Folgen-Homöomorphismus zwischen $\Probmeasures{X}$ mit der schwachen Konvergenz und $A \subseteq \Bdcontfct{X}^\ast$ 
+		Homöomorphismus zwischen $\Probmeasures{X}$ mit der schwachen Konvergenz und $A \subseteq \Bdcontfct{X}^\ast$ 
 		mit der Schwach-$\ast$-Konvergenz. Nach dem Satz von Banach-Alaoglu ist $A$ nun als abgeschlossene Teilmenge von 
-		$\setcomp{l \in C_b(X)^\ast}{\norm{l}_{\Bdcontfct{X}^\ast} \leq 1}$ kompakt bezüglich der Schwach-$\ast$-Topologie und \tobechanged{damit auch folgenkompakt}.
-		Also ist auch $\Probmeasures{X}$ folgenkompakt. Da $X$ insbesondere vollständig und damit polnisch ist, 
-		liefert Satz~\ref{thm:weakconvergencemetrizable} die Metrisierbarkeit von $\Probmeasures{X}$, womit
-		letztlich die Kompaktheit von $\Probmeasures{X}$ bezüglich der Topologie der schwachen Konvergenz folgt.
+		$\setcomp{l \in C_b(X)^\ast}{\norm{l}_{\Bdcontfct{X}^\ast} \leq 1}$ kompakt bezüglich der Schwach-$\ast$-Topologie, 
+		was die Kompaktheit von $\Probmeasures{X}$ nach sich zieht.
 	\end{proof}
 
 	\tobechanged{TODO: Beweisen bzw. überlegen, ob man das noch machen sollte...}
-	
-	\tobechanged{FEHLT: Rückrichtung}
 
 	\begin{Satz}
 		Sei $X$ ein topologischer Raum. Dann ist $X$ genau dann polnisch, wenn $\Probmeasures{X}$ bezüglich der 
