@@ -18,6 +18,9 @@
 	\subsection{Metrisierbarkeit der schwachen Konvergenz}
 	\label{subsec:weakconvergencemetrizable}
 	
+	Das Ziel dieses Abschnittes ist es, für einen beliebigen polnischen Raum $X$ die Metrisierbarkeit von 
+	$\Probmeasures{X}$ zu zeigen. Im Beweis dieser Aussage werden wir den folgenden Satz verwenden.
+	
 	\begin{Satz}
 		\label{thm:Lp}
 		Sei $X$ ein polnischer Raum. Dann gibt es eine abzählbare Menge 
@@ -55,7 +58,7 @@
 		Somit folgt insgesamt, dass auch $\mathcal{D} \subseteq L^p(H, \mu)$ dicht ist.
 		
 		Nun möchten wir die Aussage auf einen beliebigen polnischen Raum $X$ ausweiten, 
-		wofür wir $\fct{\varphi}{X}{H}$ aus \eqref{eq:2.6} nutzen.
+		wofür wir $\fct{\varphi}{X}{H}$ aus Hilfssatz~\ref{lem:characterizationpolishspaces} nutzen.
 		Wir definieren hierzu das Bildmaß $\nu \defby \mu^\varphi \in \Probmeasures{H}$ 
 		auf der Borelschen $\sigma$-Algebra von $H$ und setzen
 		\[\fctmap{\Phi}{L^p(H, \nu)}{L^p(X, \mu)}{f}{f \circ \varphi} \text{.}\]
@@ -76,13 +79,17 @@
 		für einen beliebigen polnischen Raum $X$ beweisen. Diese ist im Allgemeinen gar nicht gegeben, wie das Beispiel
 		$(l^\infty, \norm{\cdot}_\infty) = (\Bdcontfct{\N}, \norm{\cdot}_\infty)$ zeigt.
 	\end{Bemerkung}
+
+	Ausgestattet mit Satz~\ref{thm:Lp} können wir nun zum zentralen Satz dieses Abschnitts übergehen.
 	
 	\begin{Satz}
 		\label{thm:weakconvergencemetrizable}
 		Sei $X$ ein polnischer Raum. Dann gibt es eine Metrik $D$ auf $\Probmeasures{X}$, 
-		sodass Konvergenz bezüglich $D$ gleichbedeutend mit schwacher Konvergenz 
-		(vgl. Definition~\ref{def:weakconvergence}) ist.
+		die die Topologie der schwachen Konvergenz auf $\Probmeasures{X}$ metrisiert.
 	\end{Satz}
+
+	\tobechanged{Das würde ich gerne zeigen, in diesem Beweis wird allerdings nur gezeigt, 
+		dass Konvergenz bzgl. $D$ der schwachen Konvergenz entspricht.}
 	
 	\begin{proof}
 		Wir möchten direkt unsere Erkenntnisse aus dem vorigen 
@@ -92,8 +99,10 @@
 		\[D(\mu, \nu) \; \defby \; \sum_{m=1}^{\infty} \frac{\abs{\measureint{}{h_m}{\mu} - 
 				\measureint{}{h_m}{\nu}}}{2^m \cdot \norm{h_m}_\infty} \text{,} 
 		\qquad \mu, \nu \in \Probmeasures{X} \]
-		die schwache Konvergenz metrisiert. Offenbar gilt dann für eine Folge 
-		$(\mu_k)_k \in \Probmeasures{X}^\N$ und $\mu \in \Probmeasures{X}$ die 
+		die Topologie der schwachen Konvergenz metrisiert. 
+		
+		Offenbar gilt für eine Folge 
+		$(\mu_k)_k \in \Probmeasures{X}^\N$ und $\mu \in \Probmeasures{X}$ zunächst die 
 		Äquivalenz
 		\[ D(\mu_k, \mu) \to 0 \quad \iff \quad \forall m \in \N: \; 
 		\measureint{}{h_m}{\mu_k} \to \measureint{}{h_m}{\mu}\text{,} 
@@ -105,16 +114,16 @@
 		abgeschlossene Menge $C \subseteq X$ die Funktionen $f_n, \; n \in \N$ aus 
 		Hilfssatz~\ref{lem:opensets} (wofür wir eine geeignete Metrik auf $X$ wählen) 
 		dieselbe Bedingung wie die $h_m$ auf der rechten Seite von \eqref{eq:4.1} 
-		erfüllen. Genau wie im Beweis der Implikation $(1) \Rightarrow (2)$ aus dem 
-		Beweis des Portmanteau-Satzes (Satz~\ref{thm:portmanteau}) lässt sich dann 
-		die Bedingung $(2)$ aus dem Portmanteau-Satz folgern und damit schließlich 
+		erfüllen. Genau wie im Beweis der Implikation (i) $\Rightarrow$ (ii) beim 
+		Portmanteau-Theorem (Satz~\ref{thm:portmanteau}) lässt sich dann 
+		die Bedingung (ii) aus dem Portmanteau-Theorem folgern und damit schließlich 
 		die schwache Konvergenz $\mu_k \xrightarrow{w} \mu$.
 		
 		Für den verbleibenden Teil des Beweises definieren wir auf $X$ die Metrik
 		\[ \tilde{\rho}(x, y) \defby \rho(\varphi(x), \varphi(y)) \text{,} \]
 		wobei $\fct{\varphi}{X}{H}$ wieder die Abbildung aus \eqref{eq:2.6} sei. 
-		$\tilde{\rho}$ induziert die Topologie von $X$, vollständig ist $(X, \tilde{\rho})$ 
-		aber im Allgemeinen natürlich nicht. Nun zeigen wir, dass für 
+		$\tilde{\rho}$ induziert die Topologie von $X$ (vollständig ist $(X, \tilde{\rho})$ 
+		aber im Allgemeinen natürlich nicht). Nun zeigen wir, dass für 
 		\[\fctmap{f_n}{X}{\R}{x}{\max \set{0, 1-n \tilde{\rho}(x, C)}}\] 
 		mit $n \in \N$ und $C \subseteq X$ abgeschlossen (hierbei handelt es sich 
 		um die Funktionen aus Hilfssatz~\ref{lem:opensets}) die Konvergenz
@@ -171,13 +180,15 @@
 		Der Darstellungssatz von Riesz-Markov liefert die Bijektivität von $\Phi$, also ist $\Phi$ ein 
 		Folgen-Homöomorphismus zwischen $\Probmeasures{X}$ mit der schwachen Konvergenz und $A \subseteq \Bdcontfct{X}^\ast$ 
 		mit der Schwach-$\ast$-Konvergenz. Nach dem Satz von Banach-Alaoglu ist $A$ nun als abgeschlossene Teilmenge von 
-		$\setcomp{l \in C_b(X)^\ast}{\norm{l}_{\Bdcontfct{X}^\ast} \leq 1}$ kompakt bezüglich der Schwach-$\ast$-Topologie und damit auch folgenkompakt.
+		$\setcomp{l \in C_b(X)^\ast}{\norm{l}_{\Bdcontfct{X}^\ast} \leq 1}$ kompakt bezüglich der Schwach-$\ast$-Topologie und \tobechanged{damit auch folgenkompakt}.
 		Also ist auch $\Probmeasures{X}$ folgenkompakt. Da $X$ insbesondere vollständig und damit polnisch ist, 
 		liefert Satz~\ref{thm:weakconvergencemetrizable} die Metrisierbarkeit von $\Probmeasures{X}$, womit
 		letztlich die Kompaktheit von $\Probmeasures{X}$ bezüglich der Topologie der schwachen Konvergenz folgt.
 	\end{proof}
 
 	\tobechanged{TODO: Beweisen bzw. überlegen, ob man das noch machen sollte...}
+	
+	\tobechanged{FEHLT: Rückrichtung}
 
 	\begin{Satz}
 		Sei $X$ ein topologischer Raum. Dann ist $X$ genau dann polnisch, wenn $\Probmeasures{X}$ bezüglich der 
