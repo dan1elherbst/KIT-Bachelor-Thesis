@@ -1,0 +1,285 @@
+\documentclass[../main/main.tex]{subfiles}
+
+\begin{document}
+	
+	\section{Schwache Konvergenz von Maßen}
+	
+	In diesem Kapitel werden wir endliche Borel-Maße auf topologischen Räumen selbst
+	mit einer Topologie bzw. einem Konvergenzbegriff versehen, dem der sogenannten \emph{schwachen Konvergenz}, 
+	welche die aus der Stochastik bekannte \emph{Verteilungskonvergenz} auf allgemeinere Räume als $\R$ verallgemeinert. 
+	Erst die Einschränkung auf die Klasse der polnischen Räume als Grundraum wird uns einige nichttriviale Erkenntnisse 
+	über die Topologie dieses Raumes der Wahrscheinlichkeitsmaße ermöglichen.
+	
+	Ist $X$ ein topologischer Raum, so möchten wir im Folgenden die Menge aller stetigen beschränkten Funktionen von $X$ 
+	nach $\R$ mit $\Bdcontfct{X}$ bezeichnen.
+	
+	\subsection{Netze}
+	
+	In allgemeinen topologischen Räumen beschreiben Folgen und deren Konvergenz die Eigenschaften eines Raumes nur unzureichend:
+	Beispielsweise ist Folgenstetigkeit nicht notwendigerweise äquivalent zu Stetigkeit und zwei unterschiedliche Topologien auf einer 
+	gegebenen Menge können generell dieselben konvergenten Folgen haben. Um solche Probleme im Folgenden zu umgehen, führen wir das
+	Konzept des Netzes aus der mengentheoretischen Topologie ein. Netze verallgemeinern Folgen und können in vielerlei Hinsicht die 
+	Eigenschaften eines topologischen Raumes besser erfassen.
+	
+	\begin{Definition}[Gerichtete Menge]
+		Sei $I$ eine Menge. Eine Relation $\preceq$ auf $I$ mit
+		\begin{enumeratethm}
+			\item $\forall \iota \in I: \; \iota \preceq \iota$
+			\item $\forall \iota, \kappa, \lambda \in I: \; \iota \preceq \kappa$ und $\kappa \preceq \lambda$ impliziert $\iota \preceq \lambda$
+			\item $\forall \iota, \kappa \in I: \; \exists \lambda \in I: \; \iota \preceq \lambda$ und $\kappa \preceq \lambda$
+		\end{enumeratethm}
+		heißt \emph{gerichtet}. In diesem Fall nennen wir das Paar $(I, \preceq)$ auch eine \emph{gerichtete Menge}.
+	\end{Definition}
+	
+	\begin{Definition}[Netz]
+		Sei $X$ eine Menge und $(I, \preceq)$ eine gerichtete Menge. Ein \emph{Netz} in $X$ ist dann eine Abbildung $\fct{x}{I}{X}$. In diesem
+		Fall schreiben wir auch $x = (x_\iota)_{\iota \in I}$.
+	\end{Definition}
+
+	\begin{Definition}[Konvergenz von Netzen]
+		Sei $X$ ein topologischer Raum und sei $x = (x_\iota)_{\iota \in I}$ ein Netz in $X$. Wir sagen, dass $x$ gegen $z \in X$ konvergiert, falls
+		es für jede Umgebung $U$ von $z$ ein derartiges $\iota_0 \in I$ gibt, dass $x_\iota \in U$ für alle $\iota_0 \preceq \iota \in I$ erfüllt ist.
+		In diesem Fall schreiben wir auch $\lim_{\iota \in I} x_\iota = z$ oder $x_\iota \to z$.
+	\end{Definition}
+
+	\begin{Bemerkung}
+		Offenbar sind Folgen einfach Netze, bei denen $(I, \preceq) \defby (\N, \leq)$ gewählt wird. Der Konvergenzbegriff von Netzen stimmt
+		dann auch mit dem von uns bekannten Konvergenzbegriff in topologischen Räumen überein.
+	\end{Bemerkung}
+
+	Wie bereits angekündigt lassen sich topologische Räume im Allgemeinen viel besser über Netze charakterisieren als lediglich über Folgen. Der nächste Satz
+	konkretisiert dies.
+	
+	\begin{Satz}
+		\label{thm:netconvergence}
+		Seien $X$ und $Y$ topologische Räume. Dann gelten die folgenden Aussagen:
+		\begin{enumeratethm}
+			\item Eine Teilmenge $C \subseteq X$ ist genau dann abgeschlossen, wenn der Grenzwert $z \in X$ eines jeden konvergenten Netzes 
+			$x = (x_\iota)_{\iota \in I}$ in $X$ bereits in $A$ liegt.
+			\item Eine Funktion $\fct{f}{X}{Y}$ ist genau dann stetig, wenn für jedes konvergente Netz $x = (x_\iota)_{\iota \in I}$ in $X$ 
+			\[ \lim_{\iota \in I} f(x_\iota) \; = \; f(\lim_{\iota \in I} x_\iota) \]
+			erfüllt ist.
+			\item Zwei Topologien auf $X$ sind genau dann gleich, wenn alle Netze in $X$ bezüglich beiden Topologien dasselbe Konvergenzverhalten aufweisen.
+		\end{enumeratethm}
+	\end{Satz}
+
+	\begin{proof}
+		Ohne Beweis.
+	\end{proof}
+
+	\begin{Bemerkung}
+		Es sei an dieser Stelle angemerkt, dass im Allgemeinen keine der drei Aussagen gelten, wenn man \enquote{Netz} durch \enquote{Folge} ersetzt.
+	\end{Bemerkung}
+
+	\subsection{Definition der schwachen Topologie}
+	
+	\begin{Definition}[Schwache Topologie]
+		\label{def:weaktopology}
+		Sei $X$ ein topologischer Raum. Dann ist die \emph{schwache Topologie} auf $\Finitemeasures{X}$ definiert als die 
+		Initialtopologie bezüglich der Abbildungen
+		\[ \fctmap{I_f}{\Finitemeasures{X}}{\R}{\mu}{\measureint{}{f}{\mu}}, \quad f \in \Bdcontfct{X} \text{.} \]
+	\end{Definition}
+
+	Falls nicht explizit angegeben, sei $\Finitemeasures{X}$ im Folgenden immer mit der schwachen Topologie versehen.
+
+	\begin{Definition}[Schwache Konvergenz von Maßen]
+		In der Situation von Definition~\ref{def:weaktopology} heißt ein Netz $(\mu_\iota)_{\iota \in I}$ von Maßen in $\Finitemeasures{X}$ genau dann 
+		\emph{schwach konvergent} gegen ein Maß $\mu \in \Finitemeasures{X}$, wenn $\lim_{\iota \in I} \mu_\iota = \mu$ bezüglich der schwachen Topologie gilt.
+		In diesem Fall schreiben wir auch
+		\[ \mu_\iota \xrightarrow{w} \mu \text{.} \]
+	\end{Definition}
+
+	\begin{Hilfssatz}
+		\label{lem:generalweakconvergence}
+		Sei $X$ ein topologischer Raum. Ein Netz $(\mu_\iota)_{\iota \in I}$ in $\Finitemeasures{X}$ konvergiert genau dann schwach gegen $\mu \in \Finitemeasures{X}$, wenn
+		\[ \lim_{\iota \in I} \measureint{}{f}{\mu_\iota} \; = \; \measureint{}{f}{\mu} \]
+		für alle $f \in \Bdcontfct{X}$ gilt.
+	\end{Hilfssatz}
+
+	\begin{proof}
+		Dies ist eine grundlegende Eigenschaft der Initialtopologie.
+	\end{proof}
+
+	\begin{Bemerkung}
+		Häufig werden wir nur Teilräume von $\Finitemeasures{X}$ wie etwa $\Probmeasures{X}$ betrachten. Mit der schwachen Topologie auf solchen Teilräumen bezeichnen wir 
+		dann einfach die Teilraumtopologie. Damit behält Hilfssatz~\ref{lem:generalweakconvergence} offenbar auch seine Gültigkeit, wenn man $\Finitemeasures{X}$ durch den 
+		entsprechenden Teilraum ersetzt.
+	\end{Bemerkung}
+
+	\subsection{Beziehung zur Schwach-*-Konvergenz}
+	
+	Angesichts des Namens der \emph{schwachen Konvergenz} stellt sich unmittelbar die Frage, ob diese in irgendeiner Beziehung zur schwachen Konvergenz in Banachräumen aus der 
+	Funktionalanalysis steht. Tatsächlich lässt sich dies zumindest bedingt bejahen, wie wir im Folgenden sehen werden. 
+	
+	Sei dazu zunächst $X$ ein topologischer Raum. Dann ist $(\Bdcontfct{X}, \norm{\cdot}_\infty)$ ein Banachraum und wir betrachten nun die Abbildung
+	\[\fctmap{\Phi}{\Finitemeasures{X}}{C_b(X)^\ast}{\mu}
+	{\left[\fctmap{l_\mu}{\Bdcontfct{X}}{\R}{f}{\measureint{}{f}{\mu}}\right]} \text{,} \label{5.1} \tag{5.1}\]
+	die wegen $\abs{\measureint{}{f}{\mu}} \leq \mu(X) \norm{f}_\infty$ und $\mu(X) < \infty$ wohldefiniert ist 
+	und einem endlichen Maß $\mu \in \Finitemeasures{X}$ ein zugehöriges lineares Funktional aus $C_b(X)^\ast$ zuordnet. 
+	Ist $\Bdcontfct{X}^\ast$ mit der 
+	Schwach-$\ast$-Topologie ausgestattet, so entspricht schwache Konvergenz in $\Finitemeasures{X}$ trivialerweise der 
+	Schwach-$\ast$-Konvergenz der jeweiligen Bilder unter $\Phi$.
+	
+	Ist $X$ etwa metrisierbar, so können wir sogar noch eine stärkere Aussage formulieren:
+	
+	\begin{Hilfssatz}
+		Sei $X$ ein metrisierbarer topologischer Raum. Dann ist die Abbildung $\Phi$ aus \eqref{5.1} ein Homöomorphismus auf sein Bild.
+	\end{Hilfssatz}
+
+	\begin{proof}
+		$\Phi$ ist injektiv, denn für $\mu, \nu \in \Finitemeasures{X}$ folgt aus $l_\mu = l_\nu$ wegen Satz~\ref{thm:measureequality} die Gleichheit $\mu = \nu$. 
+		Da schwache Konvergenz in $\Finitemeasures{X}$ exakt der Schwach-$\ast$-Konvergenz der jeweiligen Bilder unter $\Phi$ entspricht, liefert Satz~\ref{thm:netconvergence}
+		die Behauptung.
+	\end{proof}
+
+	Unter diesen Voraussetzungen lässt sich $\Finitemeasures{X}$ also in $\Bdcontfct{X}$ einbetten. Mittels dieser Identifikation können nun Aussagen aus der 
+	Funktionalanalysis auch für $\Finitemeasures{X}$ fruchtbar gemacht werden, indem von topologischen Eigenschaften von
+	$\Bdcontfct{X}^\ast$ mit der Schwach-$\ast$-Konvergenz auf die entsprechenden Eigenschaften von 
+	$\Finitemeasures{X}$ geschlossen wird. 
+	Ein konkretes Beispiel hierfür können wir bereits an dieser Stelle vorführen:
+	
+	\begin{Satz}
+		Sei $X$ ein metrisierbarer topologischer Raum. Dann ist $X$ genau dann kompakt, wenn $\Probmeasures{X}$ kompakt ist.
+	\end{Satz}
+	
+	\begin{proof}
+		Sei zunächst $X$ kompakt. Wähle eine Metrik $d$, die $X$ metrisiert.
+		Zunächst setzen wir
+		\[ A \; \defby \; \setcomp{l \in \Bdcontfct{X}^\ast}{\norm{l}_{\Bdcontfct{X}^\ast} \leq 1, \; l(\indfct_{X}) = 1, \; 
+			\forall f \in \Bdcontfct{X} \text{ mit } f \geq 0 : l(f) \geq 0}\]
+		und analog zu \eqref{5.1}
+		\[ \fctmap{\Phi}{\Probmeasures{X}}{A}{\mu}{\left[\fctmap{l_\mu}{\Bdcontfct{X}}{\R}{f}{\measureint{}{f}{\mu}}\right]} \text{.} \]
+		Der Darstellungssatz von Riesz-Markov liefert die Bijektivität von $\Phi$, also ist $\Phi$ ein 
+		Homöomorphismus zwischen $\Probmeasures{X}$ und $A \subseteq \Bdcontfct{X}^\ast$ 
+		mit der Schwach-$\ast$-Topologie. Mit dem Satz von Banach-Alaoglu folgt nun, dass $A$ als abgeschlossene Teilmenge der kompakten Menge 
+		$\setcomp{l \in C_b(X)^\ast}{\norm{l}_{\Bdcontfct{X}^\ast} \leq 1}$ selbst kompakt bezüglich der Schwach-$\ast$-Topologie ist, 
+		was schließlich die Kompaktheit von $\Probmeasures{X}$ nach sich zieht.
+	\end{proof}
+
+	\tobechanged{FEHLT: Rückrichtung}
+	
+	\subsection{Charakterisierungen schwacher Konvergenz}
+	
+	Im Falle metrisierbarer topologischer Räume liefert der folgende Satz eine umfassende Charakterisierung der schwachen Konvergenz.
+	
+	\begin{Satz}[Portmanteau]
+		Sei $X$ ein metrisierbarer topologischer Raum, $(\mu_\iota)_{\iota \in I}$ ein Netz in $\Finitemeasures{X}$
+		und $\mu \in \Finitemeasures{X}$. Dann sind die folgenden Aussagen äquivalent:
+		\begin{equivalentthm}
+			\item $\mu_\iota \xrightarrow{w} \mu$.
+			\item Es ist 
+			$\lim_{\iota \in I} \mu_\iota(X) = \mu(X)$
+			und für alle abgeschlossenen Mengen $C \subseteq X$ gilt 
+			$$\limsup_{\iota \in I} \mu_\iota(C) \; \leq \; \mu(C) \text{.}$$
+			\item Es ist 
+			$\lim_{\iota \in I} \mu_\iota(X) = \mu(X)$
+			und für alle offenen Mengen $U \subseteq X$ gilt 
+			$$\liminf_{\iota \in I} \mu_\iota(U) \; \geq \; \mu(U) \text{.}$$
+			\item Für alle $B \in \mathcal{B}$ mit $\mu(\partial B) = 0$ 
+			ist $$\lim_{\iota \in I} \mu_\iota(A) \; = \; \mu(A) \text{.}$$
+		\end{equivalentthm}
+	\end{Satz}
+
+	\tobechanged{TODO: Limsup definieren und Beweis anpassen}
+	
+	\begin{proof}
+		(i) $\Rightarrow$ (ii): Sei $C \subseteq X$ abgeschlossen und seien 
+		$f_m, \; m \in \N$ die Funktionen aus Hilfssatz~\ref{lem:opensets}. 
+		Diese sind stetig und beschränkt.
+		Dann gilt für alle $m \in \N$
+		$$\mu_n(C) \; = \; \measureint{}{\indfct_C}{\mu_n} \; \leq \; 
+		\measureint{}{f_m}{\mu_n} \; \to \;
+		\measureint{}{f_m}{\mu} \text{,} \quad n \to \infty \text{,}$$
+		also 
+		$$\limsup_{n \to \infty} \mu_n(C) \; \leq \; 
+		\measureint{}{f_m}{\mu} \text{.}$$
+		Wegen $f_m \convdown \indfct_C$ und $| f_m | \leq 1$ 
+		liefert der Satz von Lebesgue die Konvergenz
+		$$\measureint{}{f_m}{\mu} \; \to \;
+		\measureint{}{\indfct_C}{\mu} \; = \; \mu(C) \text{,} 
+		\quad m \to \infty \text{,}$$
+		woraus
+		$$\limsup_{n \to \infty} \mu_n(C) \; \leq \; \mu(C)$$
+		folgt. Außerdem ist 
+		$$\mu_n(X) \; = \; \measureint{}{\indfct_{X}}{\mu_n} \; \to \; \measureint{}{\indfct_{X}}{\mu} \; = \; \mu(X) \text{,} 
+		\quad n \to \infty \text{.}$$
+		
+		(ii) $\Leftrightarrow$ (iii): Es gelte (ii). Sei $U$ offen, also 
+		$C \defby U^\mathsf{c}$ abgeschlossen. Dann erhalten wir
+		\begin{align*}
+			\liminf_{n \to \infty} \mu_n(U) \; &= \; \liminf_{n \to \infty} (\mu_n(X) - \mu_n(C)) \; = \;
+			\mu(X) - \limsup_{n \to \infty} \mu_n(C) \\
+			&\geq \; 
+			\mu(X) - \mu(C) \; = \; \mu(U)
+		\end{align*}
+		und damit (iii). Die andere Richtung zeigt man analog.
+		
+		(ii), (iii) $\Rightarrow$ (iv): Sei $A \in \mathcal{B}$ mit 
+		$\mu(\partial A) = 0$. Wegen
+		$A^\mathsf{o} \subseteq A \subseteq \overline{A}$ und 
+		$\partial A = \overline{A} \setminus A^\mathsf{o}$ gilt $\mu(A^\mathsf{o}) = 
+		\mu(A) = \mu(\overline{A}) \text{.}$
+		Ferner liefern die Annahmen
+		$$\limsup_{n \to \infty} \mu_n(\overline{A}) \; \leq \; 
+		\mu(\overline{A}) \quad \text{und} \quad 
+		\liminf_{n \to \infty} \mu_n(A^\mathsf{o}) \; \geq \; 
+		\mu(A^\mathsf{o}) \text{.}$$
+		Daraus folgt
+		$$\limsup_{n \to \infty} \mu_n(A) \; \leq \; 
+		\mu(A) \; \leq \; \liminf_{n \to \infty} \mu_n(A) \text{,}$$
+		also insgesamt
+		$$\lim_{n \to \infty} \mu_n(A) \; = \; \mu(A) \text{.}$$
+		
+		(iv) $\Rightarrow$ (i): Sei $f \in \Bdcontfct{X}$ und $a < b \in \R$ 
+		mit $a < f < b$. Die Menge
+		$$S \defby \setcomp{c \in (a, b)}{\mu(\set{f = c}) > 0} \text{,}$$
+		ist abzählbar, da 
+		$S_n \defby \setcomp{c \in (a, b)}{\mu(\set{f = c}) > \frac{1}{n}}$ 
+		für jedes $n \in \N$ endlich ist und $S = \bigcup_{n \in \N} S_n$ gilt.
+		Damit können wir für jedes $m \in \N$ Zahlen $c_j^{(m)} \notin S$ mit
+		\[a = c_0^{(m)} < \dots < c_{2m}^{(m)} = 
+		b \text{,} \qquad c_{j+1}^{(m)} - c_j^{(m)} \leq \frac{b-a}{m} 
+		\label{eq:3.1} \tag{3.1}\]
+		finden. Wir setzen
+		$$A_j^{(m)} \defby \set{c_j^{(m)} < f \leq c_{j+1}^{(m)}}\text{,}
+		\qquad j \in \set{0,\dots,2m-1} \text{.}$$ 
+		Die Stetigkeit von $f$ impliziert 
+		$\partial A_j^{(m)} \subseteq \set{f = c_j^{(m)}} \cup \set{f = c_{j+1}^{(m)}}$, 
+		woraus sich 
+		$$\mu(\partial A_j^{(m)}) = 0 \text{,} \qquad j \in \set{0,\dots,2m-1}$$
+		ergibt. Für $m \in \N$ schreiben wir
+		$$u_m \defby \sum_{j=0}^{2m-1} c_j^{(m)} \indfct_{A_j^{(m)}}$$
+		und Aussage (iv) führt dann auf
+		\[\measureint{}{u_m}{\mu_n} \; = \; \sum_{j=0}^{2m-1} c_j^{(m)} \mu_n(A_j^{(m)}) 
+		\; \to \; \sum_{j=0}^{2m-1} c_j^{(m)} \mu(A_j^{(m)}) \; = \; 
+		\measureint{}{u_m}{\mu} \text{,} \quad n \to \infty \text{.} 
+		\label{eq:3.2} \tag{3.2}\]
+		Außerdem folgen aus \eqref{eq:3.1} die Ungleichungen
+		\[\left| \measureint{}{f}{\mu_n} - \measureint{}{u_m}{\mu_n} \right| \; \leq \; 
+		\frac{b-a}{m} \text{,} \qquad 
+		\left| \measureint{}{f}{\mu} - \measureint{}{u_m}{\mu} \right| \; \leq \; 
+		\frac{b-a}{m} \label{eq:3.3} \tag{3.3}\]
+		für $n \in \N$.
+		Mit \eqref{eq:3.3} gilt nun für alle $m, n \in \N$
+		\begin{align*}
+			\left| \measureint{}{f}{\mu} - \measureint{}{f}{\mu_n} \right| \; &\leq \; 
+			\left| \measureint{}{f}{\mu} - \measureint{}{u_m}{\mu} \right| + 
+			\left| \measureint{}{u_m}{\mu} - \measureint{}{u_m}{\mu_n} \right| \\ & \qquad + 
+			\left| \measureint{}{u_m}{\mu_n} - \measureint{}{f}{\mu_n} \right| \\
+			&\leq \; 2 \cdot \frac{b-a}{m} + \left| \measureint{}{u_m}{\mu_n} - 
+			\measureint{}{f}{\mu_n} \right| \label{eq:3.4} \tag{3.4}\text{.}
+		\end{align*}
+		\eqref{eq:3.2} und \eqref{eq:3.4} liefern also letztendlich für alle $m$
+		\begin{align*}
+			\limsup_{n \to \infty} \left| \measureint{}{f}{\mu} - 
+			\measureint{}{f}{\mu_n} \right|
+			\; &\leq \; 2 \cdot \frac{b-a}{m} + 
+			\limsup_{n \to \infty} \left| \measureint{}{u_m}{\mu_n} - 
+			\measureint{}{f}{\mu_n} \right| \\
+			&= \; 2 \cdot \frac{b-a}{m} \; \to \; 0 \text{,} 
+			\quad m \to \infty \text{,}
+		\end{align*}
+		was (i) impliziert.
+	\end{proof}
+	
+\end{document}
