@@ -1,0 +1,109 @@
+\documentclass[../main/main.tex]{subfiles}
+
+\begin{document}
+	
+	\section{Eigenschaften der schwachen Topologie}
+	
+	\begin{Satz}
+		Sei $X$ ein kompakter metrisierbarer topologischer Raum. Dann ist auch $\Probmeasures{X}$ kompakt.
+	\end{Satz}
+	
+	\begin{proof}
+		Sei zunächst $X$ kompakt. Wähle eine Metrik $d$, die $X$ metrisiert.
+		Wir setzen
+		\[ A \; \defby \; \setcomp{l \in \Bdcontfct{X}^\ast}{\norm{l}_{\Bdcontfct{X}^\ast} \leq 1, \; l(\indfct_{X}) = 1, \; 
+			\forall f \in \Bdcontfct{X} \text{ mit } f \geq 0 : l(f) \geq 0}\]
+		und analog zu \eqref{5.1}
+		\[ \fctmap{\Phi}{\Probmeasures{X}}{A}{\mu}{\left[\fctmap{l_\mu}{\Bdcontfct{X}}{\R}{f}{\measureint{}{f}{\mu}}\right]} \text{.} \]
+		Der Darstellungssatz von Riesz-Markov liefert die Bijektivität von $\Phi$, also ist $\Phi$ ein 
+		Homöomorphismus zwischen $\Probmeasures{X}$ und $A \subseteq \Bdcontfct{X}^\ast$ 
+		mit der Schwach-$\ast$-Topologie. Mit dem Satz von Banach-Alaoglu folgt nun, dass $A$ als abgeschlossene Teilmenge der kompakten Menge 
+		$\setcomp{l \in C_b(X)^\ast}{\norm{l}_{\Bdcontfct{X}^\ast} \leq 1}$ selbst kompakt bezüglich der Schwach-$\ast$-Topologie ist, 
+		was schließlich die Kompaktheit von $\Probmeasures{X}$ nach sich zieht.
+	\end{proof}
+	
+	\begin{Satz}
+		\label{thm:finitemeasuresmetrizableseparable}
+		Sei $X$ ein separabler und metrisierbarer topologischer Raum. Dann ist auch $\Finitemeasures{X}$ separabel und metrisierbar.
+	\end{Satz}
+	
+	\begin{Hilfssatz}
+		\label{lem:bdcontfctbanach}
+		Sei $X$ ein topologischer Raum. Dann ist $(\Bdcontfct{X}, \norm{\cdot}_\infty)$ ein Banachraum. Ist $X$ kompakt, so ist $\Bdcontfct{X}$ separabel.
+	\end{Hilfssatz}
+	
+	\begin{Hilfssatz}
+		\label{lem:bduniffctbanach}
+		Sei $(X, d)$ ein totalbeschränkter metrischer Raum. Dann ist $\Bduniffct{X}$ ein separabler Banachraum.
+	\end{Hilfssatz}
+	
+	\begin{proof}
+		Zunächst ist $\Bduniffct{X}$ offensichtlich ein Banachraum.
+		Sei nun $\tilde{X}$ die Vervollständigung von $X$. Diese ist kompakt und damit ist $\Bdcontfct{\tilde{X}}$ nach Hilfssatz~\ref{lem:bdcontfctbanach} ein separabler Banachraum.
+		Jedes $f \in \Bduniffct{X}$ besitzt eine eindeutige Fortsetzung $\tilde{f} \in \Bdcontfct{\tilde{X}}$ mit $\norm{f}_\infty = \norm{\tilde{f}}_\infty$. Damit wird über die Zuordnung
+		$f \mapsto \tilde{f}$ eine isometrische Einbettung von $\Bduniffct{X}$ nach $\Bdcontfct{\tilde{X}}$ definiert, was die Separabilität von $\Bduniffct{X}$ impliziert.
+	\end{proof}
+	
+	\begin{Hilfssatz}
+		Sei $R \defby \R^\N$ ausgestattet mit der Produkttopologie von $\R$, also mit der Initialtopologie der Projektionen $\fctmap{\pi_k}{R}{\R}{x = (x_n)_n}{x_k}, \; k \in \N$. Dann ist $R$ 
+		separabel und metrisierbar.
+	\end{Hilfssatz}
+	
+	\begin{proof}
+		\tobechanged{Ist klar.}
+	\end{proof}
+	
+	\begin{proof}[Beweis von Satz~\ref{thm:finitemeasuresmetrizableseparable}]
+		Wir fixieren auf $X$ eine Metrik $d$, die $X$ metrisiert. Nach Hilfsssatz~\ref{lem:characterizationpolishspaces} existiert dann ein Homöomorphismus $\fct{\varphi}{X}{H}$ von
+		$X$ auf eine Teilmenge $\varphi(X)$ des Hilbertwürfels $H$. Wir wählen nun die Metrik $\rho$ aus Hilfssatz~\ref{lem:hilbertcube} auf $H$. Aufgrund der Kompaktheit von $H$ ist
+		$(H, \rho)$ totalbeschränkt und damit auch jede Teilmenge von $H$. Also können wir über $\rho$ eine Metrik $\tilde{d}$ auf $X$ einführen, sodass $X$ von $\tilde{d}$ 
+		metrisiert wird und $(X, \tilde{d})$ totalbeschränkt ist. Im Folgenden sei auf $X$ diese Metrik fixiert. Hilfssatz~\ref{lem:bduniffctbanach} liefert uns nun, dass 
+		$(\Bduniffct{X}, \norm{\cdot}_\infty)$ ein separabler Banachraum ist. Sei nun $\mathcal{D} \defby \setcomp{f_n}{n \in \N} \subseteq \Bduniffct{X}$ eine abzählbare dichte Teilmenge, 
+		die wir so wählen, dass $f_1 = \indfct_X$ ist.
+		
+		Wir setzen nun
+		\[ \fctmap{T}{\Finitemeasures{X}}{R}{\mu}{\left( \measureint{}{f_n}{\mu} \right)_{\! n}} \! \]
+		und möchten nachweisen, dass $T$ ein Homöomorphismus auf sein Bild ist.
+		
+		Wir zeigen zunächst die Injektivität. Seien dazu also $\mu, \nu \in \Finitemeasures{X}$ mit $T(\mu) = T(\nu)$. 
+		Sei außerdem $g \in \Bduniffct{X}$. Dann gibt es eine Folge $(g_n)_n \in \mathcal{D}^\N$ mit $\norm{g - g_n}_\infty \to 0, \; n \to \infty$, was auch 
+		\[ \measureint{}{g_n}{\mu} \to \measureint{}{g}{\mu} \quad \text{und} \quad \measureint{}{g_n}{\nu} \to \measureint{}{g}{\nu}, \quad n \to \infty \]
+		impliziert. Da aber $\measureint{}{g_n}{\mu} = \measureint{}{g_n}{\nu}$ für alle $n \in \N$ gilt, folgt auch $\measureint{}{g}{\mu} = \measureint{}{g}{\nu}$.
+		Satz~\ref{thm:measureequality} liefert nun die Gleichheit $\mu = \nu$.
+		
+		Um nun den Beweis abzuschließen, genügt es wegen Satz~\ref{thm:netconvergence} zu beweisen, dass für jedes Netz $(\mu_\iota)_{\iota \in I}$ in $\Finitemeasures{X}$ und $\mu \in \Finitemeasures{X}$ die
+		Äquivalenz
+		\[ \mu_\iota \xrightarrow{w} \mu \quad \iff \quad T(\mu_\iota) \to T(\mu), \quad \iota \to \infty  \]
+		gilt.
+		
+		Gelte $\mu_\iota \xrightarrow{w} \mu$, was nach Satz~\ref{thm:portmanteau} äquivalent dazu ist, dass $\lim_{\iota \to \infty} \measureint{}{f}{\mu_\iota} = \measureint{}{f}{\mu}$ für alle 
+		$f \in \Bduniffct{X}$ ist. Offenbar impliziert dies die Konvergenz $T(\mu_\iota) \to T(\mu), \; \iota \to \infty$.
+		
+		Sei nun umgekehrt $T(\mu_\iota) \to T(\mu), \; \iota \to \infty$, was gleichbedeutend damit ist, dass 
+		\[ \lim_{\iota \to \infty} \measureint{}{f_n}{\mu_\iota} = \measureint{}{f_n}{\mu} \label{4.1} \tag{4.1} \] 
+		für alle $n \in \N$ gilt.
+		Wegen $f_1 = \indfct_X$ gilt auch
+		\[ \mu_\iota(X) \; = \; \measureint{}{\indfct_X}{\mu_\iota} \; \to \; \measureint{}{\indfct_X}{\mu} \; = \; \mu(X), \quad \iota \to \infty \]
+		und damit können wir eine Konstante $C < \infty$ und ein $\iota_0 \in I$ finden, sodass $\mu_\iota(X) \leq C$ für alle $\iota_0 \preceq \iota$ ist.
+		Sei $g \in \Bduniffct{X}$ fest aber beliebig. Dann gibt es eine Folge $(g_n)_n \in \mathcal{D}^\N$ mit $\norm{g - g_n}_\infty \to 0, \; n \to \infty$ und für jedes $n \in \N$, $\iota_0 \preceq \iota$ folgt
+		\begin{align*}
+			\left| \measureint{}{f}{\mu_\iota} - \measureint{}{f}{\mu} \right| \; &\leq \; 
+			\left| \measureint{}{f}{\mu_\iota} - \measureint{}{f_n}{\mu_\iota} \right| + 
+			\left| \measureint{}{f_n}{\mu_\iota} - \measureint{}{f_n}{\mu} \right| \\
+			& \qquad + 
+			\left| \measureint{}{f_n}{\mu} - \measureint{}{f}{\mu} \right| \\
+			&\leq \; 2 C \norm{f - f_n}_\infty + \left| \measureint{}{f_n}{\mu_\iota} - 
+			\measureint{}{f_n}{\mu} \right| \text{,}
+		\end{align*}
+		woraus schließlich mit \eqref{4.1}
+		\[ \limsup_{\iota \to \infty} \left| \measureint{}{f}{\mu_\iota} - \measureint{}{f}{\mu} \right| \; \leq \; 2 C \norm{f - f_n}_\infty \; \to \; 0, \quad n \to \infty \]
+		folgt. Damit gilt 
+		\[ \measureint{}{f}{\mu_\iota} \; \to \; \measureint{}{f}{\mu}, \quad \iota \to \infty \]
+		für alle $f \in \Bduniffct{X}$, was nach Satz~\ref{thm:portmanteau} die schwache Konvergenz $\mu_\iota \xrightarrow{w} \mu, \; \iota \to \infty$ impliziert.
+	\end{proof}
+	
+	\begin{Satz}
+		Sei $X$ ein polnischer Raum. Dann ist auch $\Finitemeasures{X}$ polnisch.
+	\end{Satz}
+	
+\end{document}

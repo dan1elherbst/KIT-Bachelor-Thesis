@@ -1,0 +1,537 @@
+\documentclass[../main/main.tex]{subfiles}
+
+\begin{document}
+	
+	\section{Grundlagen}
+	
+	\subsection{Topologische Grundlagen}
+	
+	\subsubsection*{Netze}
+	
+	In allgemeinen topologischen Räumen beschreiben Folgen und deren Konvergenz die Eigenschaften eines Raumes nur unzureichend:
+	Beispielsweise ist Folgenstetigkeit nicht notwendigerweise äquivalent zu Stetigkeit und zwei unterschiedliche Topologien auf einer 
+	gegebenen Menge können generell dieselben konvergenten Folgen haben. Um solche Probleme im Folgenden zu umgehen, führen wir das
+	Konzept des Netzes aus der mengentheoretischen Topologie ein. Netze verallgemeinern Folgen und können in vielerlei Hinsicht die 
+	Eigenschaften eines topologischen Raumes besser erfassen.
+	
+	\begin{Definition}[Gerichtete Menge]
+		\label{def:directedset}
+		Sei $I$ eine Menge. Eine Relation $\preceq$ auf $I$ mit
+		\begin{enumeratethm}
+			\item $\forall \iota \in I: \; \iota \preceq \iota$
+			\item $\forall \iota, \kappa, \lambda \in I: \; \iota \preceq \kappa$ und $\kappa \preceq \lambda$ impliziert $\iota \preceq \lambda$
+			\item $\forall \iota, \kappa \in I: \; \exists \lambda \in I: \; \iota \preceq \lambda$ und $\kappa \preceq \lambda$
+		\end{enumeratethm}
+		heißt \emph{gerichtet}. In diesem Fall nennen wir das Paar $(I, \preceq)$ auch eine \emph{gerichtete Menge}.
+	\end{Definition}
+	
+	\begin{Definition}[Netz]
+		Sei $X$ eine Menge und $(I, \preceq)$ eine gerichtete Menge. Ein \emph{Netz} in $X$ ist dann eine Abbildung $\fct{x}{I}{X}$. In diesem
+		Fall schreiben wir auch $x = (x_\iota)_{\iota \in I}$.
+	\end{Definition}
+	
+	\begin{Definition}[Konvergenz von Netzen]
+		Sei $X$ ein topologischer Raum und sei $x = (x_\iota)_{\iota \in I}$ ein Netz in $X$. Wir sagen, dass $x$ gegen $z \in X$ konvergiert, falls
+		es für jede Umgebung $U$ von $z$ ein derartiges $\iota_0 \in I$ gibt, dass $x_\iota \in U$ für alle $\iota_0 \preceq \iota \in I$ erfüllt ist.
+		In diesem Fall schreiben wir auch $\lim_{\iota \to \infty} x_\iota = z$ oder $x_\iota \to z, \; \iota \to \infty$.
+	\end{Definition}
+	
+	\begin{Bemerkung}
+		Offenbar sind Folgen einfach Netze, bei denen $(I, \preceq) \defby (\N, \leq)$ gewählt wird. Der Konvergenzbegriff von Netzen stimmt
+		dann auch mit dem von uns bekannten Konvergenzbegriff in topologischen Räumen überein.
+	\end{Bemerkung}
+	
+	Wie bereits angekündigt lassen sich topologische Räume im Allgemeinen viel besser über Netze charakterisieren als lediglich über Folgen. Der nächste Satz
+	konkretisiert dies.
+	
+	\begin{Satz}
+		\label{thm:netconvergence}
+		Seien $X$ und $Y$ topologische Räume. Dann gelten die folgenden Aussagen:
+		\begin{enumeratethm}
+			\item Eine Teilmenge $C \subseteq X$ ist genau dann abgeschlossen, wenn der Grenzwert $z \in X$ eines jeden konvergenten Netzes 
+			$x = (x_\iota)_{\iota \in I}$ in $X$ bereits in $A$ liegt.
+			\item Eine Funktion $\fct{f}{X}{Y}$ ist genau dann stetig, wenn für jedes konvergente Netz $x = (x_\iota)_{\iota \in I}$ in $X$ 
+			\[ \lim_{\iota \to \infty} f(x_\iota) \; = \; f(\lim_{\iota \to \infty} x_\iota) \]
+			erfüllt ist.
+			\item Zwei Topologien auf $X$ sind genau dann identisch, wenn alle Netze in $X$ bezüglich beiden Topologien dasselbe Konvergenzverhalten aufweisen.
+		\end{enumeratethm}
+	\end{Satz}
+	
+	\begin{proof}
+		Ohne Beweis.
+	\end{proof}
+	
+	\begin{Bemerkung}
+		Es sei an dieser Stelle angemerkt, dass im Allgemeinen keine der drei Aussagen gelten, wenn man \enquote{Netz} durch \enquote{Folge} ersetzt.
+	\end{Bemerkung}
+	
+	Für reelle Netze können wir in Analogie zu Folgen auch den Limes Superior bzw. Inferior von Netzen definieren:
+	
+	\begin{Definition}[Limes Superior und Inferior von Netzen]
+		Sei $x = (x_\iota)_{\iota \in I}$ ein Netz in $\R$. Dann definieren wir 
+		\[ \limsup_{\iota \to \infty} x_\iota \; \defby \; \inf_{\iota \to \infty} \sup_{\iota \preceq \kappa} x_\kappa \quad \text{bzw.} \quad 
+		\liminf_{\iota \to \infty} x_\iota \; \defby \; \sup_{\iota \to \infty} \inf_{\iota \preceq \kappa} x_\kappa \]
+		und nennen diese den \emph{Limes Superior} bzw. \emph{Limes Inferior} von $x$.
+	\end{Definition}
+	
+	\begin{Bemerkung}
+		Offenbar ist auch diese Definition mit den bekannten Begriffen für reelle Folgen kompatibel. Die meisten grundlegenden Eigenschaften der Konvergenz und des 
+		Limes Superior bzw. Inferior von reellen Folgen lassen sich auch auf reelle Netze übertragen. 
+		Insbesondere gelten die üblichen Rechenregeln für die Grenzwerte von Summen und Produkten reeller Folgen auch für Netze.
+		
+		Außerdem gelten etwa für Netze $x = (x_\iota)_{\iota \in I}$ und
+		$y = (y_\iota)_{\iota \in I}$ die Ungleichungen
+		\begin{align*}
+			\limsup_{\iota \to \infty} \, (x_\iota + y_\iota) \; &\leq \; \limsup_{\iota \to \infty} x_\iota + \limsup_{\iota \to \infty} y_\iota \quad \text{und}\\
+			\liminf_{\iota \to \infty} \, (x_\iota + y_\iota) \; &\geq \; \liminf_{\iota \to \infty} x_\iota + \liminf_{\iota \to \infty} y_\iota \text{.}
+		\end{align*}
+		mit Gleichheit, falls eines der beiden Netze konvergiert.
+		Für ein konvergentes Netz $x = (x_\iota)_{\iota \in I}$ in $\R$ ist offenbar auch
+		\[ \lim_{\iota \to \infty} x_\iota \; = \; \limsup_{\iota \to \infty} x_\iota \; = \; \liminf_{\iota \to \infty} x_\iota \text{.} \]
+	\end{Bemerkung}
+	
+	\subsubsection*{Initialtopologie}
+	
+	\begin{Definition}[Initialtopologie]
+		\label{def:initialtopology}
+		Sei $X$ eine Menge, $A$ eine beliebige Indexmenge und für jedes $\alpha \in A$ sei $Y_\alpha$ ein topologischer Raum sowie $\fct{f_\alpha}{X}{Y_i}$ eine Abbildung.
+		Die Initialtopologie auf $X$ bezüglich der Abbildungen $f_\alpha, \; \alpha \in A$ ist dann die kleinste Topologie auf $X$, bezüglich der alle Abbildungen 
+		$f_\alpha, \; \alpha \in A$ stetig sind.
+	\end{Definition}
+
+	\begin{Bemerkung}
+		Sei $A$ eine beliebige Indexmenge und sei für jedes $\alpha \in A$ ein topologischer Raum $X_\alpha$ gegeben. Die Produkttopologie der $X_\alpha, \; \alpha \in A$
+		auf dem kartesischen Produkt $X \defby \prod_{\alpha \in A} X_\alpha$ ist dann offensichtlich die Initialtopologie der Projektionen 
+		$\fctmap{\pi_\beta}{X}{X_\beta}{x = (x_\alpha)_{\alpha \in A}}{x_\beta}, \; \beta \in A$.
+	\end{Bemerkung}
+	
+	\begin{Hilfssatz}[Konvergenz bezüglich der Initialtopologie]
+		\label{lem: convergenceinitialtopology}
+		In der Situation von Definition~\ref{def:initialtopology} konvergiert ein Netz $x = (x_\iota)_{\iota \in I}$ in $X$ genau dann gegen ein $z \in X$, wenn für alle $\alpha \in A$
+		die Konvergenz $f_\alpha(x_\iota) \to f_\alpha(z), \; \iota \to \infty$ gilt.
+	\end{Hilfssatz}
+
+	\begin{proof}
+		Wegen Satz~\ref{thm:netconvergence} (b) folgt die Hinrichtung direkt aus der Stetigkeit der Funktionen $f_\alpha, \; \alpha \in A$.
+		
+		Für die Rückrichtung möchten wir zeigen, dass für alle Umgebungen $V$ von $z$ ein derartiges $\iota_0 \in I$ existiert, dass $x_\iota \in V$ für $\iota_0 \preceq \iota$ gilt.
+		Man bemerke zunächst, dass die Menge alle Urbilder von offenen Mengen in $Y_\alpha$ unter $f_\alpha$ für alle $\alpha \in A$ eine Subbasis der Topologie von $X$ ist.
+		Daher genügt es, Mengen der Form
+		\[ \tilde{V} \; \defby \; \bigcap_{i=1}^{n} f_{\alpha_i}^{-1}(U_i) \; \subseteq \; X \]
+		zu betrachten, wobei $\alpha_1, \dots, \alpha_n \in A$ sind und $U_i$ offene Umgebungen von $f_{\alpha_i}(z)$, $i \in \set{1, \dots, n}$.
+		Sei nun ein solches $\tilde{V}$ gegeben. Dann können wir für $i \in \set{1, \dots, n}$ jeweils ein $\iota_0^{(i)} \in I$ finden, sodass $x_\iota \in \tilde{V}$ für 
+		$\iota_0^{(i)} \preceq \iota$ gilt. Sukzessive Anwendung von Eigenschaft (c) in Definition~\ref{def:directedset} liefert ein $\iota_0 \in I$ mit 
+		$x_\iota \in \tilde{V}$ für $\iota_0 \preceq \iota$, was schließlich die Konvergenz $x_iota \to z, \; \iota \to \infty$ bedeutet.
+	\end{proof}
+	
+	\subsection{Polnische Räume}
+	
+	In diesem Kapitel beschäftigen wir uns zunächst mit den grundlegenden Eigenschaften von polnischen Räumen. 
+	An erster Stelle möchten wir daher eine Definition dieser Klasse von topologischen Räumen liefern.
+	
+	\begin{Definition}[Polnischer Raum]
+		Ein \emph{polnischer Raum} ist ein separabler und vollständig metrisierbarer topologischer Raum.
+	\end{Definition}
+	
+	Es sei hier anzumerken, dass dies tatsächlich eine rein topologische Eigenschaft ist: Wir fordern für einen polnischen Raum $X$ nur die Existenz einer Metrik,
+	die die Topologie von $X$ erzeugt und bezüglich der $X$ vollständig ist, möchten uns aber die Flexibilität
+	bewahren, diese Metrik nicht zu fixieren und bei Bedarf zwischen verschiedenen solchen Metriken
+	zu wechseln. Es kann durchaus Metriken geben, die $X$ zwar metrisieren, jedoch nicht vollständig.
+	Beispielsweise ist $\R$ ausgestattet mit der Standardtopologie offensichtlich ein polnischer Raum,
+	denn $\R$ ist separabel und die euklidische Metrik metrisiert $\R$ vollständig. 
+	Allerdings ist $(0, 1)$ als Teilraum von $\R$ mit der euklidischen Metrik zwar separabel, aber nicht vollständig.
+	Da $(0, 1)$ homöomorph zu $\R$ ist, ist $(0, 1)$ aber dennoch ein polnischer Raum.
+	
+	Der folgende Hilfssatz~\ref{lem:opensets} behandelt die recht elementare Tatsache, dass sich in metrischen Räumen 
+	abgeschlossene Mengen von außen \enquote{beliebig gut} durch offene Mengen approximieren lassen. 
+	Diese Erkenntnis werden wir im weiteren Verlauf der Arbeit noch häufiger benötigen.
+	
+	\begin{Hilfssatz}
+		\label{lem:opensets}
+		Sei $(X, d)$ ein metrischer Raum und $C \subseteq X$ eine abgeschlossene 
+		Teilmenge. Ferner definieren wir für $n \in \N$
+		$$ A_n \defby \setcomp{y \in X}{d(y, C) < \frac{1}{n}} \quad \text{und} \quad 
+		\fctmap{f_n}{X}{\R}{x}{\max \set{0, 1-n d(x, C)}} \text{,}$$
+		wobei wir $d(y, C) \defby \inf_{x \in C} d(y, x)$ setzen.
+		Dann gilt:
+		\begin{enumeratethm}
+			\item $A_n$ ist offen für alle $n \in \N$.
+			\item $C = \bigcap_{n \in \N} A_n$, insbesondere ist $C$ also eine $G_\delta$-Menge.
+			\item Für alle $n$ ist $\restr{f_n}{A_n^\mathsf{c}} = 0$ und $f_n$ ist lipschitzstetig.
+			\item $f_n \convdown \indfct_C$.
+		\end{enumeratethm}
+	\end{Hilfssatz}
+	
+	\begin{proof}
+		Aussage (a) folgt aus der Stetigkeit von $y \mapsto d(y, C)$.
+		
+		Weiter ist $C \subseteq A_n$ für alle $n \in \N$ und damit 
+		$C \subseteq \bigcap_{n \in \N} A_n$. 
+		Umgekehrt gibt es für ein beliebiges $y \in \bigcap_{n \in \N} A_n$
+		eine Folge $(x_n)_n \in C^\N$ mit $x_n \rightarrow y$. 
+		Wegen der Abgeschlossenheit von $C$ liegt $y$ damit in $C$, sodass (b) gezeigt ist.
+		
+		Aussage (c) ist klar ($f_n$ ist als Komposition 
+		lipschitzstetiger Funktionen selbst lipschitzstetig).
+		
+		Schließlich fällt $f_n$ und für $x \in C$ gilt $f_n(x) = 1$. 
+		Für $x \in C^\mathsf{c}$ ist $d(x, C) > 0$ und damit
+		$$f_n(x) = \max \set{0, 1-n d(x, C)} 
+		\to 0 \text{,} \quad n \to \infty \text{,}$$
+		womit die Behauptung folgt.
+	\end{proof}
+	
+	Mit dem \emph{Hilbertwürfel} möchten wir uns zunächst einen speziellen polnischen Raum ansehen, 
+	der sich später in gewisser Weise als universell für alle polnischen Räume erweisen wird.
+	
+	\begin{Definition}[Hilbertwürfel]
+		Der \emph{Hilbertwürfel} ist der topologische Raum $H = [0, 1]^\N$ 
+		ausgestattet mit der Produkttopologie, also der Initialtopologie bezüglich 
+		aller Projektionen $\fctmap{\pi_n}{H}{[0, 1]}{x}{x_n}, \; n \in \N$.
+	\end{Definition}
+	
+	\begin{Hilfssatz}
+		\label{lem:hilbertcube}
+		Für den Hilbertwürfel $H$ gelten folgende Aussagen:
+		\begin{enumeratethm}
+			\item Eine Folge $(x^{(k)})_k \in H^\N$ konvergiert genau dann gegen 
+			ein $x \in H$, wenn alle Komponenten konvergieren, also, wenn
+			$\lim_{n \to \infty} x_n^{(k)} = x_n$ für alle $n \in \N$ gilt.
+			\item Setzen wir für $x, y \in H$
+			$$\rho(x, y) \defby \max_{n \in \N} \frac{|x_n - y_n|}{2^n} \text{,}$$
+			so definiert $\rho$ eine Metrik, die $H$ metrisiert.
+		\end{enumeratethm}
+	\end{Hilfssatz}
+	
+	\begin{proof}
+		Aussage (a) folgt direkt aus Hilfssatz~\ref{lem: convergenceinitialtopology}.
+		
+		Für den Beweis von (b) bemerke man zunächst, dass Mengen der Form 
+		\[U = \prod_{n=1}^{\infty} U_n\text{,} \quad U_n \subseteq [0, 1] \text{ offen, }
+		\quad U_n = [0, 1] \text{ für fast alle } n \label{eq:2.1} \tag{2.1}\]
+		eine Basis der Topologie von $H$ bilden.
+		
+		Offenbar wird durch $\rho$ aus (b) eine Metrik auf $H$ definiert. 
+		Es genügt also zu zeigen, dass $\rho$ die Topologie von $H$ induziert. 
+		Für $x \in H$ und $r > 0$ ist 
+		$B_r(x) = \prod_{n=1}^{\infty} B_{2^n r}(x_n) \subseteq H$ 
+		offen. Ist nun $U = \prod_{n=1}^{\infty} U_n$ wie in \eqref{eq:2.1}, 
+		so lässt sich leicht einsehen, dass es für jedes $x \in U$ ein $r > 0$ 
+		gibt mit $B_r(x) \subseteq U$, also ist $U$ offen bezüglich der von $\rho$ 
+		erzeugten Topologie und insgesamt wird $H$ von $\rho$ metrisiert.
+	\end{proof}
+	
+	Der aus der Topologie bekannte \emph{Satz von Tychonoff} liefert 
+	unmittelbar, dass $H$ als Produkt kompakter topologischer Räume 
+	ebenfalls kompakt ist.
+	Außerdem lässt sich unter Ausnutzung von Aussage (a) aus 
+	Hilfssatz~\ref{lem:hilbertcube} leicht zeigen, dass $(H, \rho)$ 
+	vollständig ist. Außerdem ist $H$ als Produkt separabler metrischer Räume selbst separabel und 
+	damit insgesamt ein kompakter polnischer Raum.
+	
+	$H$ erfüllt nun die folgende Universalitätseigenschaft.
+	
+	\begin{Satz}[Universalitätseigenschaft des Hilbertwürfels]
+		\label{thm:characterizationpolishspaces}
+		Ein topologischer Raum $X$ ist genau dann separabel und metrisierbar, wenn $X$ homöomorph zu einer Teilmenge von $H$ ist.
+		
+		Ferner ist $X$ genau dann polnisch, wenn $X$ homöomorph zu einer $G_\delta$-Teilmenge von $H$ ist.
+	\end{Satz}
+	
+	Wir werden den Beweis von Satz~\ref{thm:characterizationpolishspaces} simultan für metrisierbare und separable bzw. polnische Räume führen, aber 
+	in seine beiden Teilrichtungen aufspalten und jeweils in Hilfssätze auslagern, beginnend mit der Hinrichtung.
+	
+	\begin{Hilfssatz}
+		\label{lem:characterizationpolishspaces}
+		Sei $(X, d)$ ein separabler metrischer Raum und sei 
+		$\mathcal{D} \defby \setcomp{x_n}{n \in \N} \subseteq X$ eine abzählbare 
+		dichte Teilmenge. Außerdem setzen wir
+		\[\fctmap{\varphi}{X}{H}{x}{\left(\min \left(1, d(x, x_n) \right) \right)_n} \text{.} \label{eq:2.2} \tag{2.2}\]
+		Dann gilt das Folgende:
+		\begin{enumeratethm}
+			\item $\varphi$ ein Homöomorphismus zwischen $X$ und $\varphi(X)$.
+			\item Ist $(X, d)$ vollständig, so ist $\varphi(X) \subseteq H$ 
+			eine $G_\delta$-Teilmenge.
+		\end{enumeratethm}
+	\end{Hilfssatz}
+	
+	\begin{proof}
+		Wir zeigen zunächst, dass $\varphi$ injektiv ist. 
+		Dazu seien $y, z \in H$ mit $\varphi(y) = \varphi(z)$, also gilt
+		\[\min(1, d(y, x_n)) = \min(1, d(z, x_n)) \label{eq:2.3} \tag{2.3}\]
+		für alle $n \in \N$. Weil es eine Folge $(y_n)_n \in \mathcal{D}^\N$ mit 
+		$y_n \to y$ gibt und diese wegen \eqref{eq:2.3} auch gegen $z$ 
+		konvergiert, folgt die Gleichheit von $y$ und $z$.
+		
+		Die Stetigkeit von $\varphi$ folgt direkt, weil die 
+		Komponentenfunktionen $x \mapsto \min(1, d(x, x_n))$ jeweils stetig sind. 
+		Seien nun $(y_k)_k \in X^\N$ und $y \in X$ mit $\varphi(y_k) \to \varphi(y)$, 
+		also
+		\[\min(1, d(y_k, x_n)) \; \to \; \min(1, d(y, x_n)), 
+		\quad k \to \infty \label{2.4} \tag{2.4}\]
+		für alle $n \in \N$. Wählt man nun $\varepsilon < 1$ beliebig, 
+		so existiert ein $n \in \N$ mit $d(y, x_n) \leq \varepsilon$. 
+		Wegen \eqref{2.4} ist dann auch
+		$d(y_k, x_n) \to d(y, x_k), \; k \to \infty$. Es gilt also die Ungleichung
+		$$\limsup_{k \to \infty} d(y_k, y) \; \leq \; 
+		\limsup_{k \to \infty} d(y_k, x_n) + d(y, x_n) \; \leq \; 2\varepsilon$$
+		und mit $\varepsilon \to 0$ folgt die Stetigkeit von $\varphi^{-1}$, 
+		womit Aussage (a) gezeigt ist.
+		
+		Nun beweisen wir noch Aussage (b). Da $\varphi$ ein Homöomorphismus auf sein 
+		Bild ist, ist $\varphi(B_{1/k}(x_m)) \subseteq \varphi(X)$ für alle 
+		$k, m \in \N$ relativ offen, also gibt es jeweils offene Mengen 
+		$V_{k, m} \subseteq H$ mit
+		\[\varphi(B_{1/k}(x_m)) \; = \; V_{k, m} 
+		\cap \varphi(X) \text{.} \label{eq:2.5} \tag{2.5}\]
+		Wir möchten jetzt zeigen, dass
+		\[\varphi(X) \; = \; \overline{\varphi(X)} \, \cap \, 
+		\bigcap_{k \in \N} \left( \bigcup_{m \in \N} V_{k, m} \right) 
+		\label{eq:2.6} \tag{2.6}\]
+		gilt. 
+		Weil $\overline{\varphi(X)}$ nach Hilfssatz~\ref{lem:opensets} 
+		als abgeschlossene Menge eine $G_\delta$-Menge ist, 
+		folgt aus \eqref{eq:2.6} direkt die Aussage (b).
+		
+		Für jedes $m \in \N$ ist sicherlich $\varphi(X) \subseteq 
+		\bigcup_{m \in \N} V_{k, m}$, weshalb \enquote{$\subseteq$} 
+		in \eqref{eq:2.6} unmittelbar folgt.
+		Wir nehmen nun an, dass $z$ in der rechten Seite von \eqref{eq:2.6} liegt. 
+		Dann gibt es für jedes $k \in \N$ ein $m_k \in \N$ mit $z \in V_{k, m_k}$. 
+		Ferner existiert wegen $z \in \overline{\varphi(X)}$ eine Folge $(y_k)_k \in X^\N$ 
+		mit $\varphi(y_k) \to z$, wobei wir zusätzlich
+		$\varphi(y_k) \in \bigcap_{j=1}^{k} V_{j, m_j}$
+		fordern. Weil damit nach \eqref{eq:2.5} auch für alle $k \in \N$
+		\[y_k \in \bigcap_{j=1}^{k} B_{1/k}(x_m)\]
+		gilt, ist $(y_k)_k$ eine Cauchyfolge. Aufgrund der Vollständigkeit von 
+		$(X, d)$ gibt es also ein $y \in X$ mit $y_k \to y$, was 
+		$z = \varphi(y) \in \varphi(X)$ und damit \enquote{$\supseteq$} 
+		in \eqref{eq:2.6} impliziert.
+	\end{proof}
+	
+	Für die Rückrichtung zeigen wir die (nur vermeintlich allgemeinere) Aussage, 
+	dass $G_\delta$-Teilmengen polnischer Räume wieder polnisch sind.
+	
+	\begin{Hilfssatz}
+		\label{lem:characterizationpolishspaces2}
+		Sei $X$ ein polnischer Raum. Dann ist jede $G_\delta$-Teilmenge 
+		von $X$ (ausgestattet mit der Teilraumtopologie) ebenfalls polnisch.
+	\end{Hilfssatz}
+	
+	\begin{proof}
+		Sei $P \subseteq X$ eine $G_\delta$-Teilmenge und seien 
+		$U_n \subseteq X, \, n \in \N$ offene Mengen mit 
+		$P = \bigcap_{n \in \N} U_n$, wobei wir außerdem 
+		$C_n \defby U_n^{\mathsf{c}}$ schreiben. Ferner sei 
+		$d$ eine Metrik, die $X$ vollständig metrisiert. 
+		Da $P$ als Teilmenge eines separablen metrischen Raumes 
+		selbst separabel ist, genügt es, die vollständige Metrisierbarkeit 
+		von $P$ zu beweisen.
+		
+		Für $x, y \in P$ definieren wir
+		\[\tilde{d}(x, y) \; \defby \; d(x, y) + \sum_{n=1}^{\infty} \min \left(
+		\frac{1}{2^n}, \left| \frac{1}{d(x, C_n)} - \frac{1}{d(y, C_n)} \right|
+		\right) \text{.}\]
+		Offensichtlich ist $\tilde{d}$ eine Metrik auf $P$, 
+		die dieselbe Topologie wie $d$ erzeugt. 
+		
+		Wir möchten nun zeigen, dass $(P, \tilde{d})$ vollständig ist. 
+		Sei dazu $(x_k)_k \in P^\N$ eine Cauchyfolge. Wegen $d \leq \tilde{d}$ 
+		ist $(x_k)_k$ dann auch bezüglich $d$ eine Cauchyfolge und die 
+		Vollständigkeit von $(X, d)$ liefert die Existenz eines Grenzwertes 
+		$x \in X$. Angenommen $x \notin P$, so gibt es ein $m \in \N$ mit 
+		$x \in C_m$. Damit ist aber für alle $k \in \N$
+		$$\sup_{l \geq k} \tilde{d}(x_k, x_l) \; \geq \; \sup_{l \geq k} 
+		\, \sum_{n=1}^{\infty} \min \left(
+		\frac{1}{2^n}, \left| \frac{1}{d(x_k, C_n)} -
+		\frac{1}{d(x_l, C_n)} \right|
+		\right) \; \geq \; \frac{1}{2^m} \; > \; 0 \text{,}$$
+		was der Tatsache widerspricht, dass $(x_k)_k$ eine Cauchyfolge 
+		bezüglich $\tilde{d}$ ist. Also muss $x \in P$ gelten. 
+		Aus der Stetigkeit von $x \mapsto d(x, C_n)$ folgt mit dem 
+		Satz von Lebesgue unmittelbar die Konvergenz 
+		$\tilde{d}(x_k, x) \to 0$ für $k \to \infty$.
+	\end{proof}
+	
+	Da wir in Hilfssatz~\ref{lem:characterizationpolishspaces} (a) bereits 
+	gesehen haben, dass jeder metrisierbare  Raum homöomporph zu einer 
+	Teilmenge vom Hilbertwürfel $H$ ist und jede Teilmenge von $H$ separabel ist,
+	folgt die erste Aussage von Satz~\ref{thm:characterizationpolishspaces}. 
+	
+	Außerdem haben wir zusätzlich in Hilfssatz~\ref{lem:characterizationpolishspaces} 
+	gesehen, dass jeder polnische Raum sogar homöomporph zu einer 
+	$G_\delta$-Teilmenge von $H$ ist und  
+	Lemma~\ref{lem:characterizationpolishspaces2} stellt sicher, 
+	dass jede $G_\delta$-Teilmenge von $H$ tatsächlich polnisch ist. 
+	Insgesamt haben wir also Satz~\ref{thm:characterizationpolishspaces}
+	bewiesen.
+	
+	\subsection{Borel-Maße auf topologischen Räumen}
+	
+	Wir müssen zunächst noch ein paar wenige Begriffe definieren.
+	Sei $X$ ein topologischer Raum mit Topologie $\mathcal{O}$. Dann definieren wir die
+	\emph{Borel-$\sigma$-Algebra} 
+	$$\mathcal{B}(X) = \mathcal{B} \defby \sigma(\mathcal{O}) \text{.}$$
+	Maße auf $\mathcal{B}(X)$ nennen wir \emph{Borel-Maße} und wir führen außerdem die Schreibweisen
+	\begin{align*}
+		\Finitemeasures{X}  \; &\defby \; \setcomp{\fct{\mu}{\mathcal{B}(X)}{[0,\infty)}}{\mu \; 
+			\text{ist endliches Maß}} \\
+		\Probmeasures{X} \; &\defby \; \setcomp{\fct{\mu}{\mathcal{B}(X)}{[0,1]}}{\mu \; 
+			\text{ist Wahrscheinlichkeitsmaß}}
+	\end{align*}
+	für die Menge aller \emph{endlichen Borel-Maße} beziehungsweise \emph{Borel-Wahrscheinlichkeitsmaße} auf $X$ ein.
+	
+	Ferner bezeichnen wir mit $\Bdcontfct{X}$ die Menge aller stetigen und beschränkten Funktionen von $X$ nach $\R$. 
+	Ist $X$ ein metrischer Raum, so schreiben wir $\Bduniffct{X}$ für die Menge aller gleichmäßig stetigen und beschränkten Funktionen
+	von $X$ nach $\R$. Offensichtlich ist dann $\Bduniffct{X} \subseteq \Bdcontfct{X}$, allerdings hängt $\Bduniffct{X}$ im Gegensatz 
+	zu $\Bdcontfct{X}$ von der Metrik selbst und nicht ausschließlich von der Topologie ab.
+	
+	
+	(Schwache) Regularität ist eine 
+	Approximationseigenschaft von Maßen, die es uns etwa erlaubt, gewisse Aussagen 
+	zunächst für abgeschlossene bzw. kompakte und für offene Mengen zu zeigen, um diese 
+	anschließend auf ganz $\mathcal{B}(X)$ auszuweiten. 
+	
+	\begin{Definition}[Schwache Regularität von Maßen]
+		\label{def:regularity}
+		Sei $X$ ein topologischer Raum und $\mu$ ein endliches Borel-Maß auf $X$. 
+		Dann nennen wir $B \in \mathcal{B}(X)$ \emph{schwach von 
+			innen bzw. von außen regulär}, falls
+		$$\mu(B) = \sup_{\substack{C \subseteq B \\ C \; \text{abgeschlossen}}} \mu(C) 
+		\quad \text{bzw.} \quad \mu(B) = \inf_{\substack{U \supseteq B \\ U \; \text{offen}}} 
+		\mu(U)$$
+		gelten. Wir nennen $B \in \mathcal{B}(X)$ \emph{schwach regulär}, wenn $B$ schwach von innen und 
+		von außen regulär ist. Sind alle $B \in \mathcal{B}(X)$ schwach regulär, 
+		so nennen wir $\mu$ ein \emph{schwach reguläres Maß}.
+	\end{Definition}
+	
+	\begin{Bemerkung}
+		Ersetzen wir in der obigen Definition \enquote{abgeschlossen} durch \enquote{kompakt}, 
+		so erhalten wir analog den Begriff der \emph{Regularität}. 
+		
+		Offenbar ist eine abgeschlossene (bzw. offene) Menge schwach regulär von innen (bzw. außen).
+	\end{Bemerkung}
+	
+	Im Falle von endlichen Maßen auf metrischen Räumen kann schwache Regularität 
+	recht leicht gezeigt werden, wie wir im Folgenden sehen werden.
+	
+	\begin{Satz}
+		\label{thm:weakregularity}
+		Ist $(X, d)$ ein metrischer Raum, so ist jedes endliche Borel-Maß $\mu$ auf $X$ schwach regulär.
+	\end{Satz}
+	
+	Für den Beweis des Satzes benötigen wir noch einen Hilfssatz, welcher 
+	uns ermöglichen wird, die schwache Regularität nur auf einem Erzeuger von $\mathcal{B}(X)$ 
+	zu zeigen (für den wir dann die abgeschlossenen Mengen wählen).
+	
+	\begin{Hilfssatz}
+		\label{lem:sigmaalg}
+		In der Situation von Definition~\ref{def:regularity} ist
+		$$\mathcal{S} \defby \setcomp{B \in \mathcal{B}(X)}{B \text{ schwach regulär bzgl. } \mu}$$
+		eine $\sigma$-Algebra.
+	\end{Hilfssatz}
+	
+	\begin{proof}
+		Offensichtlich liegen $\emptyset$ und $X$ in $\mathcal{S}$. Sei 
+		$B \in \mathcal{S}$ und damit schwach regulär 
+		von innen und von außen. Wegen $\mu(X) < \infty$ gilt dann
+		$$\mu(B^\mathsf{c}) 
+		\, = \, \mu(X) - \mu(B) 
+		\, = \, \mu(X) - \sup_{\substack{C \subseteq B \\ C^\mathsf{c} \in \mathcal{O}}} \mu(C) 
+		\, = \, \inf_{\substack{C \subseteq B \\ C^\mathsf{c} \in \mathcal{O}}} (\mu(X) - \mu(C))
+		\, = \, \inf_{\substack{U \supseteq B^\mathsf{c} \\ U \in \mathcal{O}}} \mu(U)$$
+		sowie analog
+		$$\mu(B^\mathsf{c}) 
+		\, = \, \mu(X) - \mu(B) 
+		\, = \, \mu(X) - \inf_{\substack{U \supseteq B \\ U \in \mathcal{O}}} \mu(C)
+		\, = \, \sup_{\substack{U \supseteq B \\ U \in \mathcal{O}}} (\mu(X) - \mu(U))
+		\, = \, \sup_{\substack{C \subseteq B^\mathsf{c} \\ C^\mathsf{c} \in 
+				\mathcal{O}}} \mu(U) \text{.}$$
+		Also ist auch $B^\mathsf{c}$ schwach regulär. 
+		
+		Es bleibt nun zu zeigen, dass für $(B_n)_n \in \mathcal{S}^\N$ auch $B \defby 
+		\bigcup_{n \in \N} B_n$ schwach regulär ist. 
+		Hierfür beweisen wir zunächst die schwache Regularität von innen. 
+		Sei dazu $\varepsilon > 0$. Für $n \in \N$ gibt es jeweils abgeschlossene Mengen 
+		$C_n \subseteq B_n$ mit $\mu(B_n) - \mu(C_n) < \frac{\varepsilon}{3^n}$.
+		Wir wählen nun $N$ so groß, dass $\mu\left( B \setminus \bigcup_{n=1}^N B_n \right) 
+		< \frac{\varepsilon}{2}$ ist (was wegen $\mu(B) < \infty$ immer geht). 
+		Für die abgeschlossene Menge $C := \bigcup_{n=1}^N C_k$ gilt dann die Ungleichung 
+		\begin{align*}
+			\mu(B) - \mu(C) = \mu(B\setminus C) \; &=
+			\; \mu\left( \left( B \setminus \bigcup_{n=1}^N B_n \right) \; \cup \; 
+			\left( \bigcup_{n=1}^N B_n  \setminus C \right) \right) \\
+			&\leq \; \mu \left( B \setminus \bigcup_{n=1}^N B_n \right) + 
+			\sum_{n=1}^{N} \mu(B_n \setminus C_n) \\
+			&<    \; \frac{\varepsilon}{2} + 
+			\sum_{n=1}^{\infty} \frac{\varepsilon}{3^n} \; = \; \varepsilon \text{,}
+		\end{align*}
+		also ist $B$ schwach regulär von innen.
+		
+		Ferner existieren für alle $n$ offene Mengen $U_n \supseteq B_n$ 
+		mit $\mu(U_n) - \mu(B_n) < \frac{\varepsilon}{2^n}$. Wir setzen 
+		$U := \bigcup_{n \in \N} U_n$ und berechnen  
+		$$\mu(U) - \mu(B) \; \leq \; \sum_{n=1}^\infty \mu(U_n \setminus B) \; \leq \; 
+		\sum_{n=1}^\infty \mu(U_n \setminus B_n) \; < \; \varepsilon \text{.}$$
+		Weil $U$ offen ist, folgt insgesamt die schwache Regularität von $\mu$.
+	\end{proof}
+	
+	\begin{Bemerkung}
+		Sofern $X$ kompakt ist, bleibt der obige Hilfssatz~\ref{lem:sigmaalg} 
+		gültig, wenn man \enquote{schwach regulär} durch \enquote{regulär} 
+		ersetzt. Der hier vorgestellte Beweis ist eine Anpassung von 
+		\cite[Lemma 4.5.5]{Simon.2015}, wo die Aussage für kompakte $X$ bewiesen wird.
+	\end{Bemerkung}
+	
+	Ausgestattet mit den Hilfssätzen \ref{lem:opensets} und \ref{lem:sigmaalg} kann nun, 
+	wie oben bereits angedeutet wurde, Satz~\ref{thm:weakregularity} bewiesen werden.
+	
+	\begin{proof}[Beweis von Satz~\ref{thm:weakregularity}]
+		Es ist nun zu zeigen, dass für jedes endliche Borel-Maß $\mu$ auf $X$
+		die Menge 
+		$$\mathcal{S} \defby \setcomp{B \in \mathcal{B}(X)}{B \text{ schwach regulär bzgl. } \mu}$$
+		bereits ganz $\mathcal{B}$ ist. 
+		Da $\mathcal{S}$ nach Hilfssatz~\ref{lem:sigmaalg} eine 
+		$\sigma$-Algebra ist und 
+		$\mathcal{B}(X)$ von den abgeschlossenen Mengen erzeugt wird, genügt es zu zeigen, 
+		dass diese in $\mathcal{S}$ enthalten sind. 
+		
+		Sei $C \in \mathcal{B}(X)$. Dann ist $C$ sicherlich schwach regulär von innen. 
+		Nun verwenden wir die offenen Mengen $A_n, \; n \in \N$ aus 
+		Hilfssatz~\ref{lem:opensets}. 
+		Wegen $A_n \convdown C$ und $\mu(X) < \infty$ folgt mit der 
+		Maßstetigkeit von oben die Konvergenz $\mu(A_n) \convdown \mu(C)$,
+		sodass $C$ auch schwach regulär von außen ist.
+	\end{proof}
+	
+	Wir möchten kurz eine direkte Folgerung aus Satz~\ref{thm:weakregularity} vorstellen, die etwas 
+	schwächere hinreichende Bedingungen für die Gleichheit 
+	zweier endlicher Maße auf metrischen Räumen bereitstellt. Im weiteren Verlauf 
+	wird sich dies noch als nützlich erweisen.
+	
+	\begin{Satz}
+		\label{thm:measureequality}
+		Sei $(X,d)$ ein metrischer Raum und seien $\mu, \nu \in \Finitemeasures{X}$. 
+		Dann sind die folgenden Aussagen äquivalent:
+		\begin{equivalentthm}
+			\item $\mu = \nu$.
+			\item Für alle $f \in \Bduniffct{X}$ ist
+			$\measureint{}{f}{\mu} = \measureint{}{f}{\nu}$.
+			\item Für alle abgeschlossenen Mengen $C \in \mathcal{B}$ ist $\mu(C) = \nu(C)$.
+		\end{equivalentthm}
+	\end{Satz}
+	
+	\begin{proof}
+		Die Implikation (i) $\Rightarrow$ (ii) ist klar und (iii) 
+		$\Rightarrow$ (i) folgt aus Satz~\ref{thm:weakregularity}.
+		
+		(ii) $\Rightarrow$ (iii): Gelte (ii) und sei $C \subseteq X$ abgeschlossen. 
+		Dann gilt für die gleichmäßig stetigen Funktionen $f_n \in \Bdcontfct{X}$ aus Hilfssatz~\ref{lem:opensets}
+		$$\measureint{}{f_n}{\mu} = \measureint{}{f_n}{\nu}\text{,} \quad n \in \N \text{.}$$
+		Wegen $| f_n | \leq 1$ und $f_n \convdown \indfct_C$ folgt mit dem Satz von Lebesgue 
+		$$\measureint{}{f_n}{\mu} \; \to \; \mu(C) \quad \text{und} \quad \measureint{}{f_n}{\nu} 
+		\; \to \; \nu(C)$$
+		und damit gilt (iii).
+	\end{proof}
+	
+\end{document}

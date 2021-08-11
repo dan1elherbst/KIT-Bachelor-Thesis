@@ -245,43 +245,4 @@
 	haben wir nun also insgesamt Satz~\ref{thm:characterizationpolishspaces}
 	bewiesen.
 	
-	\tobechanged{TODO: Überlegen, ob man das beweisen oder nur zitieren soll und ggf. anpassen.}
-	
-	\begin{Hilfssatz}
-		\label{lem:hilbertcubefunctionseparability}
-		$(C(H), \norm{\cdot}_\infty)$ ist separabel.
-	\end{Hilfssatz}
-	
-	\begin{proof}
-		Wir definieren zunächst 
-		\[\mathcal{D} \; \defby \; \mathrm{span}_\R 
-		\setcomp{\fctmap{f}{H}{\R}{x
-			}{\prod_{j=1}^{n} f_j(x_j)}}{n \in \N, \; f_1,
-			\dots,f_n \in C([0, 1])} \text{.}\]
-		Weil $\mathcal{D}$ eine punktetrennende reelle 
-		Unteralgebra von $C(H)$ ist, für die keine 
-		Auswertungsfunktion $\mathcal{D} \ni f \mapsto f(x), 
-		\; x \in H$ konstant $0$ ist, lässt sich mit dem 
-		Satz von Stone-Weierstraß folgern, dass $\mathcal{D} \subseteq C(H)$ 
-		dicht bezüglich $\norm{\cdot}_\infty$ ist.
-		Außerdem ist $(C([0, 1]), \norm{\cdot}_\infty)$ separabel, 
-		also gibt es eine abzählbare, dichte Teilmenge 
-		$\mathcal{P} \subseteq C([0, 1])$. Schließlich setzen wir
-		\[\mathcal{D}^\ast \; \defby \; \mathrm{span}_\Q 
-		\setcomp{\fctmap{f}{H}{\R}{x}{\prod_{j=1}^{n} f_j(x_j)}}
-		{n \in \N, \; f_1,\dots,f_n \in \mathcal{P}} \text{.}\]
-		Dann ist $\mathcal{D}^\ast$ abzählbar und wegen 
-		$ \mathcal{D} \subseteq \overline{\mathcal{D}^\ast} 
-		\subseteq C(H)$ gilt die Gleichheit $\overline{\mathcal{D}^\ast} = C(H)$. 
-		Demnach ist $(C(H), \norm{\cdot}_\infty)$ also separabel.
-	\end{proof}
-	
-	\begin{Bemerkung}
-		Analog kann man den obigen Beweis allgemeiner für stetige Funktionen 
-		auf einem abzählbaren Produkt kompakter Hausdorffräume, deren 
-		stetige Funktionen jeweils separabel bezüglich $\norm{\cdot}_\infty$ 
-		sind, führen. Das Vorgehen wird in \cite[Lemma 4.12.1 und 
-		Proposition 4.12.2]{Simon.2015} skizziert.
-	\end{Bemerkung}
-	
 \end{document}
