@@ -180,6 +180,80 @@
 		\to 0 \text{,} \quad n \to \infty \text{,}$$
 		womit die Behauptung folgt.
 	\end{proof}
+
+	\begin{Satz}
+		Sei $X$ ein polnischer Raum. Dann ist $A \subseteq X$ genau dann selbst ein polnischer Raum bezüglich der Teilraumtopologie, 
+		wenn $A \subseteq X$ eine $G_\delta$-Teilmenge ist.
+	\end{Satz}
+
+	\begin{proof}
+		Für die Hinrichtung sei $A \subseteq X$ eine $G_\delta$-Teilmenge und seien 
+		$U_n \subseteq X, \, n \in \N$ offene Mengen mit 
+		$A = \bigcap_{n \in \N} U_n$, wobei wir außerdem 
+		$C_n \defby U_n^{\mathsf{c}}$ schreiben. Ferner sei 
+		$d$ eine Metrik, die $X$ vollständig metrisiert. 
+		Da $A$ als Teilmenge eines separablen metrischen Raumes 
+		selbst separabel ist, genügt es, die vollständige Metrisierbarkeit 
+		von $A$ zu beweisen.
+		
+		Für $x, y \in A$ definieren wir
+		\[\tilde{d}(x, y) \; \defby \; d(x, y) + \sum_{n=1}^{\infty} \min \left(
+		\frac{1}{2^n}, \left| \frac{1}{d(x, C_n)} - \frac{1}{d(y, C_n)} \right|
+		\right) \text{.}\]
+		Offensichtlich ist $\tilde{d}$ eine Metrik auf $A$, 
+		die dieselbe Topologie wie $d$ erzeugt. 
+		
+		Wir möchten nun zeigen, dass $(A, \tilde{d})$ vollständig ist. 
+		Sei dazu $(x_k)_k \in A^\N$ eine Cauchyfolge. Wegen $d \leq \tilde{d}$ 
+		ist $(x_k)_k$ dann auch bezüglich $d$ eine Cauchyfolge und die 
+		Vollständigkeit von $(X, d)$ liefert die Existenz eines Grenzwertes 
+		$x \in X$. Angenommen $x \notin A$, so gibt es ein $m \in \N$ mit 
+		$x \in C_m$. Damit ist aber für alle $k \in \N$
+		$$\sup_{l \geq k} \tilde{d}(x_k, x_l) \; \geq \; \sup_{l \geq k} 
+		\, \sum_{n=1}^{\infty} \min \left(
+		\frac{1}{2^n}, \left| \frac{1}{d(x_k, C_n)} -
+		\frac{1}{d(x_l, C_n)} \right|
+		\right) \; \geq \; \frac{1}{2^m} \; > \; 0 \text{,}$$
+		was der Tatsache widerspricht, dass $(x_k)_k$ eine Cauchyfolge 
+		bezüglich $\tilde{d}$ ist. Also muss $x \in A$ gelten. 
+		Aus der Stetigkeit von $x \mapsto d(x, C_n)$ folgt mit dem 
+		Satz von Lebesgue unmittelbar die Konvergenz 
+		$\tilde{d}(x_k, x) \to 0$ für $k \to \infty$,
+		also ist $(A, \tilde{d})$ vollständig und $A$ damit selbst ein
+		polnischer Raum.
+		
+		Nun beweisen wir noch die Rückrichtung. Sei dazu $A \subseteq X$ eine derartige Teilmenge, dass
+		$A$ bezüglich der Teilraumtopologie selbst polnisch ist. $\tilde{d}$ metrisiere im Folgenden 
+		$A$ vollständig.
+		Sicherlich ist $B_{1/k}(x_m) \subseteq A$ für alle 
+		$k, m \in \N$ relativ offen, also gibt es jeweils offene Mengen 
+		$V_{k, m} \subseteq X$ mit
+		\[ B_{1/k}(x_m) \; = \; V_{k, m} 
+		\cap A \text{.} \label{eq:2.5} \tag{2.5}\]
+		Wir möchten jetzt zeigen, dass
+		\[ A \; = \; \overline{A} \, \cap \, 
+		\bigcap_{k \in \N} \left( \bigcup_{m \in \N} V_{k, m} \right) 
+		\label{eq:2.6} \tag{2.6}\]
+		gilt. 
+		Weil $\overline{A}$ nach Hilfssatz~\ref{lem:opensets} 
+		als abgeschlossene Menge eine $G_\delta$-Menge ist, 
+		folgt aus \eqref{eq:2.6} direkt die Aussage (b).
+		
+		Für jedes $m \in \N$ ist sicherlich $A \subseteq 
+		\bigcup_{m \in \N} V_{k, m}$, weshalb \enquote{$\subseteq$} 
+		in \eqref{eq:2.6} unmittelbar folgt.
+		Wir nehmen nun an, dass $z$ in der rechten Seite von \eqref{eq:2.6} liegt. 
+		Dann gibt es für jedes $k \in \N$ ein $m_k \in \N$ mit $z \in V_{k, m_k}$. 
+		Ferner existiert wegen $z \in \overline{A}$ eine Folge $(y_k)_k \in A^\N$ 
+		mit $y_k \to z$, wobei wir zusätzlich
+		$\varphi(y_k) \in \bigcap_{j=1}^{k} V_{j, m_j}$
+		fordern. Weil damit nach \eqref{eq:2.5} auch für alle $k \in \N$
+		\[y_k \in \bigcap_{j=1}^{k} B_{1/k}(x_m)\]
+		gilt, ist $(y_k)_k$ eine Cauchyfolge bezüglich $\tilde{d}$. Aufgrund der Vollständigkeit von 
+		$(A, \tilde{d})$ gibt es also ein $y \in X$ mit $y_k \to y$, was 
+		$z = y \in A$ und damit \enquote{$\supseteq$} 
+		in \eqref{eq:2.6} impliziert.
+	\end{proof}
 	
 	Mit dem \emph{Hilbertwürfel} möchten wir uns zunächst einen speziellen polnischen Raum ansehen, 
 	der sich später in gewisser Weise als universell für alle polnischen Räume erweisen wird.
@@ -238,8 +312,8 @@
 		Ferner ist $X$ genau dann polnisch, wenn $X$ homöomorph zu einer $G_\delta$-Teilmenge von $H$ ist.
 	\end{Satz}
 	
-	Wir werden den Beweis von Satz~\ref{thm:characterizationpolishspaces} simultan für metrisierbare und separable bzw. polnische Räume führen, aber 
-	in seine beiden Teilrichtungen aufspalten und jeweils in Hilfssätze auslagern, beginnend mit der Hinrichtung.
+	Wir werden den Beweis von Satz~\ref{thm:characterizationpolishspaces} simultan für metrisierbare und 
+	separable bzw. polnische Räume führen, benötigen hierfür aber zunächst noch einen Hilfssatz.
 	
 	\begin{Hilfssatz}
 		\label{lem:characterizationpolishspaces}
@@ -247,12 +321,7 @@
 		$\mathcal{D} \defby \setcomp{x_n}{n \in \N} \subseteq X$ eine abzählbare 
 		dichte Teilmenge. Außerdem setzen wir
 		\[\fctmap{\varphi}{X}{H}{x}{\left(\min \left(1, d(x, x_n) \right) \right)_n} \text{.} \label{eq:2.2} \tag{2.2}\]
-		Dann gilt das Folgende:
-		\begin{enumeratethm}
-			\item $\varphi$ ein Homöomorphismus zwischen $X$ und $\varphi(X)$.
-			\item Ist $(X, d)$ vollständig, so ist $\varphi(X) \subseteq H$ 
-			eine $G_\delta$-Teilmenge.
-		\end{enumeratethm}
+		Dann ist $\varphi$ ein Homöomorphismus zwischen $X$ und $\varphi(X)$.
 	\end{Hilfssatz}
 	
 	\begin{proof}
@@ -276,95 +345,21 @@
 		$$\limsup_{k \to \infty} d(y_k, y) \; \leq \; 
 		\limsup_{k \to \infty} d(y_k, x_n) + d(y, x_n) \; \leq \; 2\varepsilon$$
 		und mit $\varepsilon \to 0$ folgt die Stetigkeit von $\varphi^{-1}$, 
-		womit Aussage (a) gezeigt ist.
-		
-		Nun beweisen wir noch Aussage (b). Da $\varphi$ ein Homöomorphismus auf sein 
-		Bild ist, ist $\varphi(B_{1/k}(x_m)) \subseteq \varphi(X)$ für alle 
-		$k, m \in \N$ relativ offen, also gibt es jeweils offene Mengen 
-		$V_{k, m} \subseteq H$ mit
-		\[\varphi(B_{1/k}(x_m)) \; = \; V_{k, m} 
-		\cap \varphi(X) \text{.} \label{eq:2.5} \tag{2.5}\]
-		Wir möchten jetzt zeigen, dass
-		\[\varphi(X) \; = \; \overline{\varphi(X)} \, \cap \, 
-		\bigcap_{k \in \N} \left( \bigcup_{m \in \N} V_{k, m} \right) 
-		\label{eq:2.6} \tag{2.6}\]
-		gilt. 
-		Weil $\overline{\varphi(X)}$ nach Hilfssatz~\ref{lem:opensets} 
-		als abgeschlossene Menge eine $G_\delta$-Menge ist, 
-		folgt aus \eqref{eq:2.6} direkt die Aussage (b).
-		
-		Für jedes $m \in \N$ ist sicherlich $\varphi(X) \subseteq 
-		\bigcup_{m \in \N} V_{k, m}$, weshalb \enquote{$\subseteq$} 
-		in \eqref{eq:2.6} unmittelbar folgt.
-		Wir nehmen nun an, dass $z$ in der rechten Seite von \eqref{eq:2.6} liegt. 
-		Dann gibt es für jedes $k \in \N$ ein $m_k \in \N$ mit $z \in V_{k, m_k}$. 
-		Ferner existiert wegen $z \in \overline{\varphi(X)}$ eine Folge $(y_k)_k \in X^\N$ 
-		mit $\varphi(y_k) \to z$, wobei wir zusätzlich
-		$\varphi(y_k) \in \bigcap_{j=1}^{k} V_{j, m_j}$
-		fordern. Weil damit nach \eqref{eq:2.5} auch für alle $k \in \N$
-		\[y_k \in \bigcap_{j=1}^{k} B_{1/k}(x_m)\]
-		gilt, ist $(y_k)_k$ eine Cauchyfolge. Aufgrund der Vollständigkeit von 
-		$(X, d)$ gibt es also ein $y \in X$ mit $y_k \to y$, was 
-		$z = \varphi(y) \in \varphi(X)$ und damit \enquote{$\supseteq$} 
-		in \eqref{eq:2.6} impliziert.
+		womit wir nachgewiesen haben, dass $\varphi$ ein Homöomorphismus auf sein Bild ist. 
 	\end{proof}
-	
-	Für die Rückrichtung zeigen wir die (nur vermeintlich allgemeinere) Aussage, 
-	dass $G_\delta$-Teilmengen polnischer Räume wieder polnisch sind.
-	
-	\begin{Hilfssatz}
-		\label{lem:characterizationpolishspaces2}
-		Sei $X$ ein polnischer Raum. Dann ist jede $G_\delta$-Teilmenge 
-		von $X$ (ausgestattet mit der Teilraumtopologie) ebenfalls polnisch.
-	\end{Hilfssatz}
-	
-	\begin{proof}
-		Sei $P \subseteq X$ eine $G_\delta$-Teilmenge und seien 
-		$U_n \subseteq X, \, n \in \N$ offene Mengen mit 
-		$P = \bigcap_{n \in \N} U_n$, wobei wir außerdem 
-		$C_n \defby U_n^{\mathsf{c}}$ schreiben. Ferner sei 
-		$d$ eine Metrik, die $X$ vollständig metrisiert. 
-		Da $P$ als Teilmenge eines separablen metrischen Raumes 
-		selbst separabel ist, genügt es, die vollständige Metrisierbarkeit 
-		von $P$ zu beweisen.
+
+	\begin{proof}[Beweis von Satz~\ref{thm:characterizationpolishspaces}]
+		Da wir in Hilfssatz~\ref{lem:characterizationpolishspaces} (a) bereits 
+		gesehen haben, dass jeder separable metrisierbare Raum homöomporph zu einer 
+		Teilmenge vom Hilbertwürfel $H$ ist und jede Teilmenge von $H$ separabel und metrisierbar ist,
+		folgt direkt die erste Aussage von Satz~\ref{thm:characterizationpolishspaces}. 
 		
-		Für $x, y \in P$ definieren wir
-		\[\tilde{d}(x, y) \; \defby \; d(x, y) + \sum_{n=1}^{\infty} \min \left(
-		\frac{1}{2^n}, \left| \frac{1}{d(x, C_n)} - \frac{1}{d(y, C_n)} \right|
-		\right) \text{.}\]
-		Offensichtlich ist $\tilde{d}$ eine Metrik auf $P$, 
-		die dieselbe Topologie wie $d$ erzeugt. 
-		
-		Wir möchten nun zeigen, dass $(P, \tilde{d})$ vollständig ist. 
-		Sei dazu $(x_k)_k \in P^\N$ eine Cauchyfolge. Wegen $d \leq \tilde{d}$ 
-		ist $(x_k)_k$ dann auch bezüglich $d$ eine Cauchyfolge und die 
-		Vollständigkeit von $(X, d)$ liefert die Existenz eines Grenzwertes 
-		$x \in X$. Angenommen $x \notin P$, so gibt es ein $m \in \N$ mit 
-		$x \in C_m$. Damit ist aber für alle $k \in \N$
-		$$\sup_{l \geq k} \tilde{d}(x_k, x_l) \; \geq \; \sup_{l \geq k} 
-		\, \sum_{n=1}^{\infty} \min \left(
-		\frac{1}{2^n}, \left| \frac{1}{d(x_k, C_n)} -
-		\frac{1}{d(x_l, C_n)} \right|
-		\right) \; \geq \; \frac{1}{2^m} \; > \; 0 \text{,}$$
-		was der Tatsache widerspricht, dass $(x_k)_k$ eine Cauchyfolge 
-		bezüglich $\tilde{d}$ ist. Also muss $x \in P$ gelten. 
-		Aus der Stetigkeit von $x \mapsto d(x, C_n)$ folgt mit dem 
-		Satz von Lebesgue unmittelbar die Konvergenz 
-		$\tilde{d}(x_k, x) \to 0$ für $k \to \infty$.
+		Sei $X$ nun ein polnischer Raum und fixiere eine Metrik $d$, die $X$ vollständig metrisiert. 
+		Nach Hilfssatz~\ref{lem:characterizationpolishspaces} ist $X$ nun via $\fct{\varphi}{X}{H}$ aus \eqref{eq:2.2}
+		homöomorph zu einer Teilmenge von $H$ und da $H$ selbst polnisch ist, muss $\varphi(X) \subseteq H$ nach 
+		Satz~\ref{thm:characterizationpolishspaces} eine $G_\delta$-Teilmenge sein.
+		Ferner folgt aus demselben Satz, dass jede $G_\delta$-Teilmenge von $H$ polnisch ist.
 	\end{proof}
-	
-	Da wir in Hilfssatz~\ref{lem:characterizationpolishspaces} (a) bereits 
-	gesehen haben, dass jeder metrisierbare  Raum homöomporph zu einer 
-	Teilmenge vom Hilbertwürfel $H$ ist und jede Teilmenge von $H$ separabel ist,
-	folgt die erste Aussage von Satz~\ref{thm:characterizationpolishspaces}. 
-	
-	Außerdem haben wir zusätzlich in Hilfssatz~\ref{lem:characterizationpolishspaces} 
-	gesehen, dass jeder polnische Raum sogar homöomporph zu einer 
-	$G_\delta$-Teilmenge von $H$ ist und  
-	Lemma~\ref{lem:characterizationpolishspaces2} stellt sicher, 
-	dass jede $G_\delta$-Teilmenge von $H$ tatsächlich polnisch ist. 
-	Insgesamt haben wir also Satz~\ref{thm:characterizationpolishspaces}
-	bewiesen.
 	
 	\subsection{Borel-Maße auf topologischen Räumen}
 	
