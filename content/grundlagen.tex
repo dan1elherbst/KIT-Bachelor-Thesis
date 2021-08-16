@@ -14,6 +14,8 @@
 	Konzept des Netzes aus der mengentheoretischen Topologie ein. Netze verallgemeinern Folgen und können in vielerlei Hinsicht die 
 	Eigenschaften eines topologischen Raumes besser erfassen.
 	
+	Überwiegend orientiert sich dieser Abschnitt an \cite[Kapitel 2.6]{Simon.2015}.
+	
 	\begin{Definition}[Gerichtete Menge]
 		\label{def:directedset}
 		Sei $I$ eine Menge. Eine Relation $\preceq$ auf $I$ mit
@@ -58,14 +60,16 @@
 	\end{Satz}
 	
 	\begin{proof}
-		Ohne Beweis.
+		Siehe \cite[Satz 2.6.3]{Simon.2015}.
 	\end{proof}
 	
 	\begin{Bemerkung}
-		Es sei an dieser Stelle angemerkt, dass im Allgemeinen keine der drei Aussagen gelten, wenn man \enquote{Netz} durch \enquote{Folge} ersetzt.
+		Es sei an dieser Stelle angemerkt, dass im Allgemeinen keine der drei Aussagen gelten, wenn man \enquote{Netz} durch \enquote{Folge} ersetzt 
+		(vgl. \cite[Beispiel 2.6.1]{Simon.2015}).
 	\end{Bemerkung}
 	
-	Für reelle Netze können wir in Analogie zu Folgen auch den Limes Superior bzw. Inferior von Netzen definieren:
+	Für reelle Netze können wir in Analogie zu Folgen auch den Limes Superior bzw. Inferior von Netzen definieren. Hierfür orientieren wir uns an
+	\cite[Kapitel 2.1 und Aufgabe 2.55]{Megginson.1998} und \cite[Kapitel 2.4]{Aliprantis.2006}.
 	
 	\begin{Definition}[Limes Superior und Inferior von Netzen]
 		Sei $x = (x_\iota)_{\iota \in I}$ ein Netz in $\R$. Dann definieren wir 
@@ -83,14 +87,22 @@
 		$y = (y_\iota)_{\iota \in I}$ die Ungleichungen
 		\begin{align*}
 			\limsup_{\iota \to \infty} \, (x_\iota + y_\iota) \; &\leq \; \limsup_{\iota \to \infty} x_\iota + \limsup_{\iota \to \infty} y_\iota \quad \text{und}\\
-			\liminf_{\iota \to \infty} \, (x_\iota + y_\iota) \; &\geq \; \liminf_{\iota \to \infty} x_\iota + \liminf_{\iota \to \infty} y_\iota \text{.}
+			\liminf_{\iota \to \infty} \, (x_\iota + y_\iota) \; &\geq \; \liminf_{\iota \to \infty} x_\iota + \liminf_{\iota \to \infty} y_\iota \text{,}
 		\end{align*}
-		mit Gleichheit, falls eines der beiden Netze konvergiert.
-		Für ein konvergentes Netz $x = (x_\iota)_{\iota \in I}$ in $\R$ ist ebenfalls
+		sofern die Summen jeweils definiert sind.
+		mit Gleichheit, falls eines der beiden Netze konvergiert (vgl. \cite[Aufgabe 2.55 (e)]{Megginson.1998}).
+		Nach \cite[Aufgabe 2.55 (i)]{Megginson.1998} ist für ein konvergentes Netz $x = (x_\iota)_{\iota \in I}$ in $\R$ ebenfalls
 		\[ \lim_{\iota \to \infty} x_\iota \; = \; \limsup_{\iota \to \infty} x_\iota \; = \; \liminf_{\iota \to \infty} x_\iota \text{.} \]
 	\end{Bemerkung}
 	
 	\subsubsection*{Initialtopologie}
+	
+	\tobechanged{ZITIEREN?}
+	
+	Wir möchten nun noch ein weiteres Konzept aus der Topologie, die sogenannte \emph{Initialtopologie} einführen.
+	Auch wenn es sich hier um einen sehr elementaren Begriff handelt, wird dieser uns an späterer Stelle 
+	in Kombination mit Hilfssatz~\ref{lem: convergenceinitialtopology} häufig ermöglichen, 
+	gewisse Topologien und deren Konvergenzverhalten in knapper Form auszudrücken.
 	
 	\begin{Definition}[Initialtopologie]
 		\label{def:initialtopology}
@@ -99,7 +111,7 @@
 		$f_\alpha, \; \alpha \in A$ stetig sind.
 	\end{Definition}
 
-	\begin{Bemerkung}
+	\begin{Bemerkung}[Produkttopologie]
 		Sei $A$ eine beliebige Indexmenge und sei für jedes $\alpha \in A$ ein topologischer Raum $X_\alpha$ gegeben. Die Produkttopologie der $X_\alpha, \; \alpha \in A$
 		auf dem kartesischen Produkt $X \defby \prod_{\alpha \in A} X_\alpha$ ist dann offensichtlich die Initialtopologie der Projektionen 
 		$\fctmap{\pi_\beta}{X}{X_\beta}{x = (x_\alpha)_{\alpha \in A}}{x_\beta}, \; \beta \in A$.
@@ -126,8 +138,11 @@
 	
 	\subsection{Polnische Räume}
 	
-	In diesem Kapitel beschäftigen wir uns zunächst mit den grundlegenden Eigenschaften von polnischen Räumen. 
-	An erster Stelle möchten wir daher eine Definition dieser Klasse von topologischen Räumen liefern.
+	In diesem Abschnitt beschäftigen wir uns mit den grundlegenden Eigenschaften von polnischen Räumen, 
+	einer Klasse von speziellen topologischen Räumen. 
+	Wir orientieren uns hierbei an den relevanten Teilen aus \cite[Kapitel 4.14]{Simon.2015}.
+	
+	An erster Stelle möchten wir eine Definition eines polnischen Raumes liefern.
 	
 	\begin{Definition}[Polnischer Raum]
 		Ein \emph{polnischer Raum} ist ein separabler und vollständig metrisierbarer topologischer Raum.
@@ -185,13 +200,16 @@
 	
 	Der folgende Satz beantwortet uns zunächst, welche Teilmengen eines polnischen Raumes selbst wieder polnisch sind:
 
-	\begin{Satz}
+	\begin{Satz}[Alexandroff]
 		\label{thm:gdeltasubsetsofpolishspaces}
 		Sei $X$ ein polnischer Raum. Dann ist $A \subseteq X$ genau dann selbst ein polnischer Raum bezüglich der Teilraumtopologie, 
 		wenn $A \subseteq X$ eine $G_\delta$-Teilmenge ist.
 	\end{Satz}
 
 	\begin{proof}
+		Der Beweis der Hinrichtung folgt \cite[Satz 7]{JordanBell.2014}, während der Beweis der Rückrichtung eine Anpassung des Beweises
+		von Satz 4.14.6 aus \cite[Kapitel 4.14]{Simon.2015} ist.
+		
 		Für die Hinrichtung sei $A \subseteq X$ eine $G_\delta$-Teilmenge und seien 
 		$U_n \subseteq X, \, n \in \N$ offene Mengen mit 
 		$A = \bigcap_{n \in \N} U_n$, wobei wir außerdem 
@@ -375,6 +393,8 @@
 	Arbeit darstellen, möchten wir zunächst einige Begriffe definieren, Schreibweisen festlegen, und - zumindest im Falle von metrischen Räumen - eine im Folgenden sehr 
 	hilfreiche Eigenschaft dieser Maße, die \emph{(Schwache) Regularität} vorstellen.
 	
+	Wieder möchten wir uns an den relevanten Teilen von \cite[Kapitel 4.14]{Simon.2015} orientieren.
+	
 	\begin{Definition}[Borel-$\sigma$-Algebra]
 		\label{def:borelsigmaalg}
 		Sei $X$ ein topologischer Raum mit Topologie $\mathcal{O}$. Dann definieren wir die
@@ -452,6 +472,10 @@
 	\end{Hilfssatz}
 	
 	\begin{proof}
+		Wir stellen eine Anpassung des Beweises von 
+		\cite[Lemma 4.5.5]{Simon.2015} vor, wo die entsprehende Aussage mit \enquote{Regularität} 
+		anstelle \enquote{schwacher Regularität} für kompakte $X$ bewiesen wird.
+		
 		Offensichtlich liegen $\emptyset$ und $X$ in $\mathcal{S}$. Sei 
 		$B \in \mathcal{S}$ und damit schwach regulär 
 		von innen und von außen. Wegen $\mu(X) < \infty$ gilt dann
@@ -499,8 +523,7 @@
 	\begin{Bemerkung}
 		Sofern $X$ kompakt ist, bleibt der obige Hilfssatz~\ref{lem:sigmaalg} 
 		gültig, wenn man \enquote{schwach regulär} durch \enquote{regulär} 
-		ersetzt. Der hier vorgestellte Beweis ist eine Anpassung von 
-		\cite[Lemma 4.5.5]{Simon.2015}, wo die Aussage für kompakte $X$ bewiesen wird.
+		ersetzt. 
 	\end{Bemerkung}
 	
 	Ausgestattet mit den Hilfssätzen \ref{lem:opensets} und \ref{lem:sigmaalg} kann nun, 
