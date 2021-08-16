@@ -10,10 +10,12 @@
 	Erst die Einschränkung auf die Klasse der polnischen Räume als Grundraum wird uns einige nichttriviale Erkenntnisse 
 	über die Topologie dieses Raumes der Wahrscheinlichkeitsmaße ermöglichen.
 	
-	Ist $X$ ein topologischer Raum, so möchten wir im Folgenden die Menge aller stetigen beschränkten Funktionen von $X$ 
-	nach $\R$ mit $\Bdcontfct{X}$ bezeichnen.
+	Die grundlegenden Definitionen und Bemerkungen in den Abschnitten \ref{subsec:Definition} und \ref{subsec:BeziehungSchwachStern} folgen 
+	\cite[Abschnitte 1-3]{Varadarajan.1958}, während wir uns bei Satz~\ref{thm:portmanteau} in Abschnitt \ref{subsec:CharakterisierungenSchwacherKonvergenz}
+	an \cite[Satz 4.14.4]{Simon.2015} orientieren.
 
-	\subsection{Definition}
+	\subsection{Definitionen}
+	\label{subsec:Definition}
 	
 	\begin{Definition}[Schwache Topologie]
 		\label{def:weaktopology}
@@ -49,6 +51,7 @@
 	\end{Bemerkung}
 
 	\subsection{Beziehung zur Schwach-*-Konvergenz}
+	\label{subsec:BeziehungSchwachStern}
 	
 	Angesichts des Namens der \emph{schwachen Konvergenz} stellt sich unmittelbar die Frage, ob diese in irgendeiner Beziehung zur schwachen Konvergenz in Banachräumen aus der 
 	Funktionalanalysis steht. Tatsächlich lässt sich dies zumindest bedingt bejahen, wie wir im Folgenden sehen werden. 
@@ -74,12 +77,15 @@
 		die Behauptung.
 	\end{proof}
 
-	Unter obigen Voraussetzungen lässt sich $\Finitemeasures{X}$ also in $\Bdcontfct{X}$ einbetten. Mittels dieser Identifikation können nun Aussagen aus der 
+	Unter obigen Voraussetzungen lässt sich $\Finitemeasures{X}$ also in $\Bdcontfct{X}^\ast$ einbetten. Mittels dieser Identifikation können nun Aussagen aus der 
 	Funktionalanalysis auch für $\Finitemeasures{X}$ fruchtbar gemacht werden, indem von topologischen Eigenschaften von
 	$\Bdcontfct{X}^\ast$ mit der Schwach-$\ast$-Konvergenz auf die entsprechenden Eigenschaften von 
 	$\Finitemeasures{X}$ geschlossen wird. 
 	
+	Eine konkrete Anwendung hiervon werden wir schon zu Beginn des nächsten Abschnitts im Beweis von Satz~\ref{thm:compactimpliescompactmeasures} sehen.
+	
 	\subsection{Charakterisierungen schwacher Konvergenz}
+	\label{subsec:CharakterisierungenSchwacherKonvergenz}
 	
 	Im Falle metrisierbarer topologischer Räume liefert der folgende Satz eine umfassende Charakterisierung der schwachen Konvergenz.
 	
@@ -104,7 +110,9 @@
 	\end{Satz}
 	
 	\begin{proof}
-		(i) $\Rightarrow$ (ii): Folgt direkt aus Hilfssatz~\ref{lem:generalweakconvergence}. 
+		Wir präsentieren hier eine Verallgemeinerung des Beweises von Satz 4.14.4 in \cite[Kapitel 4.14]{Simon.2015} mit endlichen Maßen 
+		anstelle Wahrscheinlichkeitsmaßen und Netzen. Die Implikation \enquote{(i) $\Rightarrow$ (ii)} folgt 
+		direkt aus Hilfssatz~\ref{lem:generalweakconvergence}. 
 		
 		(ii) $\Rightarrow$ (iii): Sei $C \subseteq X$ abgeschlossen und seien 
 		$f_m, \; m \in \N$ die Funktionen aus Hilfssatz~\ref{lem:opensets}. 
