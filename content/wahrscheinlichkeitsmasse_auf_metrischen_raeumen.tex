@@ -4,10 +4,7 @@
 	
 	\section{Maße auf metrischen Räumen}
 	
-	Im folgenden Kapitel möchten wir einige Eigenschaften von endlichen Maßen auf topologischen bzw. metrischen Räumen
-	festhalten und diese selbst mit einem Konvergenzbegriff sowie einer zugehörigen Topologie versehen.
-	
-	Hierzu müssen wir zunächst noch ein paar wenige Begriffe definieren.
+	Wir müssen zunächst noch ein paar wenige Begriffe definieren.
 	Sei $X$ ein topologischer Raum mit Topologie $\mathcal{O}$. Dann definieren wir die
 	\emph{Borel-$\sigma$-Algebra} 
 	$$\mathcal{B}(X) = \mathcal{B} \defby \sigma(\mathcal{O}) \text{.}$$
@@ -20,7 +17,11 @@
 	\end{align*}
 	für die Menge aller \emph{endlichen Borel-Maße} beziehungsweise \emph{Borel-Wahrscheinlichkeitsmaße} auf $X$ ein.
 	
-	\subsection{(Schwache) Regularität}
+	Ferner bezeichnen wir mit $\Bdcontfct{X}$ die Menge aller stetigen und beschränkten Funktionen von $X$ nach $\R$. 
+	Ist $X$ ein metrischer Raum, so schreiben wir $\Bduniffct{X}$ für die Menge aller gleichmäßig stetigen und beschränkten Funktionen
+	von $X$ nach $\R$. Offensichtlich ist dann $\Bduniffct{X} \subseteq \Bdcontfct{X}$, allerdings hängt $\Bduniffct{X}$ im Gegensatz 
+	zu $\Bdcontfct{X}$ von der Metrik selbst und nicht ausschließlich von der Topologie ab.
+	
 	
 	(Schwache) Regularität ist eine 
 	Approximationseigenschaft von Maßen, die es uns etwa erlaubt, gewisse Aussagen 
@@ -139,167 +140,10 @@
 		sodass $C$ auch schwach regulär von außen ist.
 	\end{proof}
 
-	\subsection{Schwache Konvergenz}
-	
-	Wie zuvor angekündigt werden wir nun endliche Borel-Maße auf topologischen Räumen selbst
-	mit einer Topologie bzw. einem Konvergenzbegriff versehen, dem der sogenannten \emph{schwachen Konvergenz}, 
-	welche die aus der Stochastik bekannte \emph{Verteilungskonvergenz} auf andere Räume als $\R$ verallgemeinert. 
-	Erst die Einschränkung auf die Klasse der polnischen Räume als Grundraum wird uns einige nichttriviale Erkenntnisse 
-	über die Topologie dieses Raumes der Wahrscheinlichkeitsmaße ermöglichen.
-	
-	$\Bdcontfct{X}$ bezeichne 
-	im Folgenden die Menge aller stetigen beschränkten Funktionen von $X$ nach $\R$.
-	
-	\begin{Definition}[Schwache Konvergenz von Maßen]
-		\label{def:weakconvergence}
-		Sei $(\mu_n)_n \in \Finitemeasures{X}^\N$ und $\mu \in \Finitemeasures{X}$. 
-		Dann sagen wir, dass $(\mu_n)_n$ 
-		\emph{schwach} gegen $\mu \in \Probmeasures{X}$ \emph{konvergiert}, 
-		falls für alle $f \in \Bdcontfct{X}$
-		$$\measureint{}{f}{\mu_n} \to \measureint{}{f}{\mu}\text{,} 
-		\quad n \to \infty $$
-		gilt. In diesem Fall schreiben wir
-		$$\mu_n \xrightarrow{w} \mu \text{.}$$
-	\end{Definition}
-
-	\begin{Definition}[Topologie der schwachen Konvergenz]
-		Für $f \in \Bdcontfct{X}$ sei
-		$$\fctmap{I_f}{\Finitemeasures{X}}{\R}{\mu}{\measureint{}{f}{\mu}} \text{.}$$
-		Bezeichnen wir nun mit $\mathcal{O}_w$ die kleinste Topologie auf $\Finitemeasures{X}$, bezüglich der alle
-		$I_f$ für $f \in \Bdcontfct{X}$ stetig sind, so entspricht Konvergenz bezüglich dieser Topologie exakt
-		der schwachen Konvergenz.
-	\end{Definition}
-
-	\begin{Bemerkung}
-		Möchte man ausschließlich Wahrscheinlichkeitsmaße betrachten, so definiert man die Topologie der schwachen Konvergenz
-		auf $\Probmeasures{X}$ völlig analog. Offenbar entspricht diese dann gerade der Teilraumtopologie von 
-		$\Probmeasures{X} \subseteq (\Finitemeasures{X}, \mathcal{O}_w)$.
-	\end{Bemerkung}
-	
-	Im Falle metrischer Räume liefert der folgende Satz eine umfangreiche Charakterisierung der schwachen Konvergenz.
-	
-	\begin{Satz}[Portmanteau]
-		\label{thm:portmanteau}
-		Sei $(X, d)$ ein metrischer Raum, $(\mu_n)_n \in \Finitemeasures{X}^\N$ 
-		und $\mu \in \Finitemeasures{X}$. Dann sind die folgenden Aussagen äquivalent:
-		\begin{equivalentthm}
-			\item $\mu_n \xrightarrow{w} \mu$.
-			\item Es ist 
-			$\lim_{n \to \infty} \mu_n(X) = \mu(X)$
-			und für alle abgeschlossenen Mengen $C \subseteq X$ gilt 
-			$$\limsup_{n \to \infty} \mu_n(C) \; \leq \; \mu(C) \text{.}$$
-			\item Es ist 
-			$\lim_{n \to \infty} \mu_n(X) = \mu(X)$
-			und für alle offenen Mengen $U \subseteq X$ gilt 
-			$$\liminf_{n \to \infty} \mu_n(U) \; \geq \; \mu(U) \text{.}$$
-			\item Für alle $B \in \mathcal{B}$ mit $\mu(\partial B) = 0$ 
-			ist $$\lim_{n \to \infty} \mu_n(A) \; = \; \mu(A) \text{.}$$
-		\end{equivalentthm}
-	\end{Satz}
-	
-	\begin{proof}
-		(i) $\Rightarrow$ (ii): Sei $C \subseteq X$ abgeschlossen und seien 
-		$f_m, \; m \in \N$ die Funktionen aus Hilfssatz~\ref{lem:opensets}. 
-		Diese sind stetig und beschränkt.
-		Dann gilt für alle $m \in \N$
-		$$\mu_n(C) \; = \; \measureint{}{\indfct_C}{\mu_n} \; \leq \; 
-		\measureint{}{f_m}{\mu_n} \; \to \;
-		\measureint{}{f_m}{\mu} \text{,} \quad n \to \infty \text{,}$$
-		also 
-		$$\limsup_{n \to \infty} \mu_n(C) \; \leq \; 
-		\measureint{}{f_m}{\mu} \text{.}$$
-		Wegen $f_m \convdown \indfct_C$ und $| f_m | \leq 1$ 
-		liefert der Satz von Lebesgue die Konvergenz
-		$$\measureint{}{f_m}{\mu} \; \to \;
-		\measureint{}{\indfct_C}{\mu} \; = \; \mu(C) \text{,} 
-		\quad m \to \infty \text{,}$$
-		woraus
-		$$\limsup_{n \to \infty} \mu_n(C) \; \leq \; \mu(C)$$
-		folgt. Außerdem ist 
-		$$\mu_n(X) \; = \; \measureint{}{\indfct_{X}}{\mu_n} \; \to \; \measureint{}{\indfct_{X}}{\mu} \; = \; \mu(X) \text{,} 
-		\quad n \to \infty \text{.}$$
-		
-		(ii) $\Leftrightarrow$ (iii): Es gelte (ii). Sei $U$ offen, also 
-		$C \defby U^\mathsf{c}$ abgeschlossen. Dann erhalten wir
-		\begin{align*}
-			\liminf_{n \to \infty} \mu_n(U) \; &= \; \liminf_{n \to \infty} (\mu_n(X) - \mu_n(C)) \; = \;
-			\mu(X) - \limsup_{n \to \infty} \mu_n(C) \\
-			&\geq \; 
-			\mu(X) - \mu(C) \; = \; \mu(U)
-		\end{align*}
-		und damit (iii). Die andere Richtung zeigt man analog.
-		
-		(ii), (iii) $\Rightarrow$ (iv): Sei $A \in \mathcal{B}$ mit 
-		$\mu(\partial A) = 0$. Wegen
-		$A^\mathsf{o} \subseteq A \subseteq \overline{A}$ und 
-		$\partial A = \overline{A} \setminus A^\mathsf{o}$ gilt $\mu(A^\mathsf{o}) = 
-		\mu(A) = \mu(\overline{A}) \text{.}$
-		Ferner liefern die Annahmen
-		$$\limsup_{n \to \infty} \mu_n(\overline{A}) \; \leq \; 
-		\mu(\overline{A}) \quad \text{und} \quad 
-		\liminf_{n \to \infty} \mu_n(A^\mathsf{o}) \; \geq \; 
-		\mu(A^\mathsf{o}) \text{.}$$
-		Daraus folgt
-		$$\limsup_{n \to \infty} \mu_n(A) \; \leq \; 
-		\mu(A) \; \leq \; \liminf_{n \to \infty} \mu_n(A) \text{,}$$
-		also insgesamt
-		$$\lim_{n \to \infty} \mu_n(A) \; = \; \mu(A) \text{.}$$
-		
-		(iv) $\Rightarrow$ (i): Sei $f \in \Bdcontfct{X}$ und $a < b \in \R$ 
-		mit $a < f < b$. Die Menge
-		$$S \defby \setcomp{c \in (a, b)}{\mu(\set{f = c}) > 0} \text{,}$$
-		ist abzählbar, da 
-		$S_n \defby \setcomp{c \in (a, b)}{\mu(\set{f = c}) > \frac{1}{n}}$ 
-		für jedes $n \in \N$ endlich ist und $S = \bigcup_{n \in \N} S_n$ gilt.
-		Damit können wir für jedes $m \in \N$ Zahlen $c_j^{(m)} \notin S$ mit
-		\[a = c_0^{(m)} < \dots < c_{2m}^{(m)} = 
-		b \text{,} \qquad c_{j+1}^{(m)} - c_j^{(m)} \leq \frac{b-a}{m} 
-		\label{eq:3.1} \tag{3.1}\]
-		finden. Wir setzen
-		$$A_j^{(m)} \defby \set{c_j^{(m)} < f \leq c_{j+1}^{(m)}}\text{,}
-		\qquad j \in \set{0,\dots,2m-1} \text{.}$$ 
-		Die Stetigkeit von $f$ impliziert 
-		$\partial A_j^{(m)} \subseteq \set{f = c_j^{(m)}} \cup \set{f = c_{j+1}^{(m)}}$, 
-		woraus sich 
-		$$\mu(\partial A_j^{(m)}) = 0 \text{,} \qquad j \in \set{0,\dots,2m-1}$$
-		ergibt. Für $m \in \N$ schreiben wir
-		$$u_m \defby \sum_{j=0}^{2m-1} c_j^{(m)} \indfct_{A_j^{(m)}}$$
-		und Aussage (iv) führt dann auf
-		\[\measureint{}{u_m}{\mu_n} \; = \; \sum_{j=0}^{2m-1} c_j^{(m)} \mu_n(A_j^{(m)}) 
-		\; \to \; \sum_{j=0}^{2m-1} c_j^{(m)} \mu(A_j^{(m)}) \; = \; 
-		\measureint{}{u_m}{\mu} \text{,} \quad n \to \infty \text{.} 
-		\label{eq:3.2} \tag{3.2}\]
-		Außerdem folgen aus \eqref{eq:3.1} die Ungleichungen
-		\[\left| \measureint{}{f}{\mu_n} - \measureint{}{u_m}{\mu_n} \right| \; \leq \; 
-		\frac{b-a}{m} \text{,} \qquad 
-		\left| \measureint{}{f}{\mu} - \measureint{}{u_m}{\mu} \right| \; \leq \; 
-		\frac{b-a}{m} \label{eq:3.3} \tag{3.3}\]
-		für $n \in \N$.
-		Mit \eqref{eq:3.3} gilt nun für alle $m, n \in \N$
-		\begin{align*}
-			\left| \measureint{}{f}{\mu} - \measureint{}{f}{\mu_n} \right| \; &\leq \; 
-			\left| \measureint{}{f}{\mu} - \measureint{}{u_m}{\mu} \right| + 
-			\left| \measureint{}{u_m}{\mu} - \measureint{}{u_m}{\mu_n} \right| \\ & \qquad + 
-			\left| \measureint{}{u_m}{\mu_n} - \measureint{}{f}{\mu_n} \right| \\
-			&\leq \; 2 \cdot \frac{b-a}{m} + \left| \measureint{}{u_m}{\mu_n} - 
-			\measureint{}{f}{\mu_n} \right| \label{eq:3.4} \tag{3.4}\text{.}
-		\end{align*}
-		\eqref{eq:3.2} und \eqref{eq:3.4} liefern also letztendlich für alle $m$
-		\begin{align*}
-			\limsup_{n \to \infty} \left| \measureint{}{f}{\mu} - 
-			\measureint{}{f}{\mu_n} \right|
-			\; &\leq \; 2 \cdot \frac{b-a}{m} + 
-			\limsup_{n \to \infty} \left| \measureint{}{u_m}{\mu_n} - 
-			\measureint{}{f}{\mu_n} \right| \\
-			&= \; 2 \cdot \frac{b-a}{m} \; \to \; 0 \text{,} 
-			\quad m \to \infty \text{,}
-		\end{align*}
-		was (i) impliziert.
-	\end{proof}
-
-	In erster Linie stellt der nächste Satz etwas schwächere hinreichende Bedingungen für die Gleichheit 
-	zweier endlicher Maße auf metrischen Räumen bereit, was sich im weiteren Verlauf 
-	noch als nützlich erweisen wird.
+	Wir möchten kurz eine direkte Folgerung aus Satz~\ref{thm:weakregularity} vorstellen, die etwas 
+	schwächere hinreichende Bedingungen für die Gleichheit 
+	zweier endlicher Maße auf metrischen Räumen bereitstellt. Im weiteren Verlauf 
+	wird sich dies noch als nützlich erweisen.
 	
 	\begin{Satz}
 		\label{thm:measureequality}
@@ -307,7 +151,7 @@
 		Dann sind die folgenden Aussagen äquivalent:
 		\begin{equivalentthm}
 			\item $\mu = \nu$.
-			\item Für alle lipschitzstetigen Funktionen $f \in \Bdcontfct{X}$ ist
+			\item Für alle gleichmäßig stetigen Funktionen $f \in \Bdcontfct{X}$ ist
 			$\measureint{}{f}{\mu} = \measureint{}{f}{\nu}$.
 			\item Für alle abgeschlossenen Mengen $C \in \mathcal{B}$ ist $\mu(C) = \nu(C)$.
 		\end{equivalentthm}
@@ -318,46 +162,12 @@
 		$\Rightarrow$ (i) folgt aus Satz~\ref{thm:weakregularity}.
 		
 		(ii) $\Rightarrow$ (iii): Gelte (ii) und sei $C \subseteq X$ abgeschlossen. 
-		Dann gilt für die lipschitzstetigen Funktionen $f_n \in \Bdcontfct{X}$ aus Hilfssatz~\ref{lem:opensets}
+		Dann gilt für die gleichmäßig stetigen Funktionen $f_n \in \Bdcontfct{X}$ aus Hilfssatz~\ref{lem:opensets}
 		$$\measureint{}{f_n}{\mu} = \measureint{}{f_n}{\nu}\text{,} \quad n \in \N \text{.}$$
 		Wegen $| f_n | \leq 1$ und $f_n \convdown \indfct_C$ folgt mit dem Satz von Lebesgue 
 		$$\measureint{}{f_n}{\mu} \; \to \; \mu(C) \quad \text{und} \quad \measureint{}{f_n}{\nu} 
 		\; \to \; \nu(C)$$
 		und damit gilt (iii).
 	\end{proof}
-
-	\begin{Bemerkung}
-		Insbesondere folgt aus Satz~\ref{thm:measureequality} unmittelbar, dass für einen 
-		metrischen Raum $(X, d)$ der Raum aller endlichen Maße $\Finitemeasures{X}$, 
-		ausgestattet mit der Topologie der schwachen Konvergenz, Hausdorffsch ist. 
-		Denn für $\mu \neq \nu \in \Finitemeasures{X}$ gibt es nach Satz~\ref{thm:measureequality} (ii) 
-		ein $f \in C_b(X)$ mit $\measureint{}{f}{\mu} \neq \measureint{}{f}{\nu}$. 
-		Nun lassen sich disjunkte Umgebungen von $\measureint{}{f}{\mu}$ und $\measureint{}{f}{\nu} \in \R$ 
-		finden, deren Urbilder bezüglich $I_f$ disjunkte Umgebungen von $\mu$ und $\nu$ 
-		in $\Finitemeasures{X}$ sind.
-	\end{Bemerkung}
-
-	\begin{Bemerkung}[Beziehung zur Schwach-$\ast$-Konvergenz]
-		Ist $X$ ein topologischer Raum, so ist $(C_b(X), \norm{\cdot}_\infty)$ ein Banachraum. 
-		Wir betrachten nun die Abbildung
-		\[\fctmap{\Phi}{\Finitemeasures{X}}{C_b(X)^\ast}{\mu}
-			{\left[\fctmap{l_\mu}{\Bdcontfct{X}}{\R}{f}{\measureint{}{f}{\mu}}\right]} \text{,} \label{3.5} \tag{3.5}\]
-		die wegen $\abs{\measureint{}{f}{\mu}} \leq \mu(X) \norm{f}_\infty$ und $\mu(X) < \infty$ wohldefiniert ist 
-		und einem endlichen Maß $\mu \in \Finitemeasures{X}$ ein zugehöriges lineares Funktional aus $C_b(X)^\ast$ zuordnet. 
-		Sind $\Finitemeasures{X}$ bzw. $\Bdcontfct{X}^\ast$ mit der Topologie der schwachen Konvergenz bzw. mit der 
-		Schwach-$\ast$-Topologie ausgestattet, so ist schwache Konvergenz in $\Finitemeasures{X}$ äquivalent 
-		zur Schwach-$\ast$-Konvergenz der Bilder unter $\Phi$.
-		
-		Handelt es sich bei $X$ nun um einen metrischen Raum, so ist $\Phi$ injektiv: 
-		Satz~\ref{thm:measureequality} (ii) ermöglicht es uns nämlich, 
-		für $\mu, \nu \in \Finitemeasures{X}$ aus $l_\mu = l_\nu$ die Gleichheit $\mu = \nu$ zu schließen. 
-		Daraus folgt insbesondere, dass $\Phi$ in diesem Fall sogar ein Homöomorphismus auf sein Bild ist.
-		
-		Unter etwas spezielleren Voraussetzungen können mittels dieser Identifikation Aussagen aus der 
-		Funktionalanalysis auch für $\Finitemeasures{X}$ fruchtbar gemacht werden, indem von topologischen Eigenschaften von
-		$\Bdcontfct{X}^\ast$ mit der Schwach-$\ast$-Konvergenz auf die entsprechenden Eigenschaften von 
-		$\Finitemeasures{X}$ mit der Topologie der schwachen Konvergenz geschlossen wird. 
-		Ein konkretes Beispiel hierfür werden wir noch im Beweis von Satz~\ref{thm:compactequivalence} sehen.
-	\end{Bemerkung}
 	
 \end{document}

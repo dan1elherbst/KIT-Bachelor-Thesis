@@ -3,7 +3,6 @@
 \begin{document}
 	
 	\section{Straffheit und der Satz von Prokhorov}
-	\label{subsec:prokhorov}
 	
 	\begin{Definition}
 		Sei $X$ ein polnischer Raum und $\mu \in \Probmeasures{X}$. Dann nennen wir 
@@ -43,9 +42,10 @@
 	
 	Ausgestattet mit des Konzepts der Straffheit können wir nun folgenden Satz beweisen:
 	
-	\begin{Korollar}
+	\begin{Folgerung}
+		\label{kor:polishregular}
 		Ist $X$ ein polnischer Raum, so ist jedes $\mu \in \Probmeasures{X}$ regulär.
-	\end{Korollar}
+	\end{Folgerung}
 	
 	\begin{proof}
 		Sei $\mu \in \Probmeasures{X}$ und $B \in \mathcal{B}(X)$. 
@@ -68,7 +68,7 @@
 		= \sup_{\substack{K \subseteq B \\ K \text{ kompakt}}} \mu(K)\] 
 		und insgesamt $\mu$ ist regulär.
 	\end{proof}
-
+	
 	\begin{Satz}[Prokhorov]
 		\label{thm:prokhorov}
 		Sei $X$ ein polnischer Raum und $A \subseteq \Probmeasures{X}$, wobei $\Probmeasures{X}$ mit der 
@@ -78,7 +78,7 @@
 			\item $\overline{A} \subseteq \Probmeasures{X}$ ist kompakt.
 		\end{equivalentthm}
 	\end{Satz}
-
+	
 	\begin{proof}
 		Sei zunächst $A \subseteq \Probmeasures{X}$ straff. Wir möchten nun beweisen, dass $\overline{A}$ 
 		kompakt ist, was wegen der Metrisierbarkeit von $\Probmeasures{X}$ äquivalent dazu ist,
@@ -86,9 +86,9 @@
 		
 		Aufgrund der Straffheit von $A$ gibt es für jedes $m \in \N$ ein Kompaktum $K^{(m)} \subseteq X$, 
 		das für alle $n \in \N$
-		\[ \mu_n(K^{(m)}) \geq 1 - \frac{1}{m+1} \label{4.5} \tag{4.5} \]
+		\[ \mu_n(K^{(m)}) \geq 1 - \frac{1}{m+1} \label{5.1} \tag{5.1} \]
 		erfüllt. Ohne Einschränkung dürfen wir außerdem annehmen, dass 
-		\[ K^{(m)} \subseteq K^{(m+1)} \label{4.6} \tag{4.6} \] 
+		\[ K^{(m)} \subseteq K^{(m+1)} \label{5.2} \tag{5.2} \] 
 		für alle $m \in \N$ gilt.
 		
 		Sei nun also $(\mu_n)_n \in A^\N$.
@@ -103,57 +103,57 @@
 		\[ \restr{\mu_{n_j}^{(m)}}{K^{(m)}} \; \xrightarrow{w} \; \nu^{(m)}, \quad j \to \infty \text{.} \]
 		Nun diagonalisieren wir und erhalten mit $\mu_{n_j} \; \defby \; \mu_{n_j}^{(j)}$ eine Teilfolge 
 		$(\mu_{n_j})_j$ von $(\mu_n)_n$, die
-		\[ \restr{\mu_{n_j}}{K^{(m)}} \; \xrightarrow{w} \; \nu^{(m)}, \quad j \to \infty \label{4.7} \tag{4.7} \]
+		\[ \restr{\mu_{n_j}}{K^{(m)}} \; \xrightarrow{w} \; \nu^{(m)}, \quad j \to \infty \]
 		für alle $m \in \N$ erfüllt.
 		
 		Außerdem können Maße $\nu^{(m)}, \; m \in \N$ via 
 		$\nu^{(m)}(B) \defby \nu^{(m)}(B \cap K^{(m)}), \; B \in \mathcal{B}(X)$ einfach auf $X$ fortgesetzt werden. 
 		Mit dieser Konvention können wir nun beweisen, dass die Maße
 		$\nu^{(m)}, \; m \in \N$ in dem Sinne monoton wachsen, dass 
-		\[ \nu^{(m)}(B) \leq \nu^{(m+1)}(B) \label{4.8} \tag{4.8} \]
+		\[ \nu^{(m)}(B) \leq \nu^{(m+1)}(B) \label{5.3} \tag{5.3} \]
 		für alle $B \in \mathcal{B}(X)$ und $m \in \N$ gilt:
 		
-		Wegen schwacher Regularität (vgl. Satz~\ref{thm:weakregularity}) genügt es, die Ungleichung \eqref{4.8} 
+		Wegen schwacher Regularität (vgl. Satz~\ref{thm:weakregularity}) genügt es, die Ungleichung \eqref{5.3} 
 		für abgeschlossene Mengen zu zeigen. Sei also $m \in \N$ fixiert, $C \subseteq X$ abgeschlossen 
 		und seien $\fct{f_k}{X}{\R}, \; k \in \N$ die gleichmäßig stetigen, beschränkten Funktionen aus 
-		Hilfssatz~\ref{lem:opensets}. Unter Ausnutzung von \eqref{4.6} folgt nun 
+		Hilfssatz~\ref{lem:opensets}. Unter Ausnutzung von \eqref{5.2} folgt nun 
 		\[ \measureint{K^{(m)}}{f_k}{\mu_{n_j}} \; \leq \; \measureint{K^{(m+1)}}{f_k}{\mu_{n_j}} \]
 		für alle $k, j \in \N$. Wegen 
 		\[ \measureint{K^{(m)}}{f_k}{\mu_{n_j}} \to \ \measureint{}{f_k}{\nu^{(m)}} \quad \text{und} 
-			\quad \measureint{K^{(m+1)}}{f_k}{\mu_{n_j}} \to \ \measureint{}{f_k}{\nu^{(m+1)}}, \quad j \to \infty \]
+		\quad \measureint{K^{(m+1)}}{f_k}{\mu_{n_j}} \to \ \measureint{}{f_k}{\nu^{(m+1)}}, \quad j \to \infty \]
 		ist damit auch 
 		\[ \measureint{}{f_k}{\nu^{(m)}} \; \leq \; \measureint{}{f_k}{\nu^{(m+1)}} \]
 		für alle $k \in \N$, was wiederum aufgrund der Konvergenz $f_k \convdown \indfct_C$ und dem Satz von Lebesgue Ungleichung 
-		\eqref{4.8} impliziert.
+		\eqref{5.3} impliziert.
 		
 		Schlussendlich möchten wir nun nachweisen, dass durch
 		\[ \fctmap{\nu}{\mathcal{B}(X)}{[0, 1]}{B}{\sup_{m \in \N} \nu^{(m)}(B)} \]
 		ein Wahrscheinlichkeitsmaß auf $X$ definiert wird, gegen das $(\mu_{n_j})_j$ schwach konvergiert.
 		
 		Zunächst verifizieren wir, dass $\nu$ ein Wahrscheinlichkeitsmaß ist. $\nu(\emptyset) = 0$ ist klar. 
-		Weil $\nu^{(m)}$ in $\Unitmeasures{K^{(m)}}$ liegt und wir \eqref{4.5} angenommen haben, gilt 
+		Weil $\nu^{(m)}$ in $\Unitmeasures{K^{(m)}}$ liegt und wir \eqref{5.1} angenommen haben, gilt 
 		\[\nu^{(m)}(X) = \nu^{(m)}(K^{(m)}) \in [1 - \frac{1}{m+1}, 1]\] 
 		für alle $m \in \N$ und damit $\nu(X) = 1$. Für die $\sigma$-Additivität seien 
 		$B_k \in \mathcal{B}(X), \; k \in \N$ paarweise disjunkt. Dann gilt
 		\begin{align*}
 			\nu \left( \bigcupdot_{k \in \N} B_k \right) \; &= \; \sup_{m \in \N} \; \nu^{(m)} \left( \bigcupdot_{k \in \N} B_k \right) 
-																\; = \; \sup_{m \in \N} \; \sum_{k=1}^{\infty} \nu^{(m)}(B_k) \\
-			                                                &\stackrel{\eqref{4.8}}{=} \; \sum_{k=1}^{\infty} \; \sup_{m \in \N} \nu^{(m)}(B_k) 
-			                                                	\; = \; \sum_{k=1}^{\infty} \nu(B_k) \text{,}
+			\; = \; \sup_{m \in \N} \; \sum_{k=1}^{\infty} \nu^{(m)}(B_k) \\
+			&\stackrel{\eqref{5.3}}{=} \; \sum_{k=1}^{\infty} \; \sup_{m \in \N} \nu^{(m)}(B_k) 
+			\; = \; \sum_{k=1}^{\infty} \nu(B_k) \text{,}
 		\end{align*}
 		wobei in der vorletzten Gleichung der Satz von Beppo Levi verwendet wurde. 
 		Insgesamt haben wir also $\nu \in \Probmeasures{X}$ nachgewiesen.
 		
 		Jetzt bleibt lediglich zu zeigen dass $(\mu_{n_j})_j$ tatsächlich schwach gegen $\nu$ konvergiert. 
-		Hierfür möchten wir die Charakterisierung (ii) des Portmanteau-Theorems (Satz~\ref{thm:portmanteau}) verwenden.
+		Hierfür möchten wir die Charakterisierung (iii) des Portmanteau-Theorems (Satz~\ref{thm:portmanteau}) verwenden.
 		Sei dazu $C \subseteq X$ abgeschlossen. Zunächst liefert ebendieser Satz für alle $m \in \N$ die 
-		Abschätzung $\limsup_{j \to \infty} \mu_{n_j}(C \cap K^{(m)}) \leq \nu^{(m)}(C)$ und wegen \eqref{4.5} ist 
+		Abschätzung $\limsup_{j \to \infty} \mu_{n_j}(C \cap K^{(m)}) \leq \nu^{(m)}(C)$ und wegen \eqref{5.1} ist 
 		zudem $\mu_{n_j}(C \cap K^{(m) \mathsf{c}}) \leq  \frac{1}{m+1}$ für alle $j, m \in \N$. Insgesamt folgt daraus 
 		\begin{align*}
 			\limsup_{j \to \infty} \mu_{n_j}(C) \; &=    \; \lim_{m \to \infty} \limsup_{j \to \infty} 
-														\left( \mu_{n_j}(C \cap K^{(m)}) + \mu_{n_j}(C \cap K^{(m) \mathsf{c}}) \right) \\
-			                                       &\leq \; \lim_{m \to \infty} \left( \nu^{(m)}(C) + \frac{1}{m+1} \right) 
-			                                       		\; = \; \nu(C) \text{,}
+			\left( \mu_{n_j}(C \cap K^{(m)}) + \mu_{n_j}(C \cap K^{(m) \mathsf{c}}) \right) \\
+			&\leq \; \lim_{m \to \infty} \left( \nu^{(m)}(C) + \frac{1}{m+1} \right) 
+			\; = \; \nu(C) \text{,}
 		\end{align*}
 		was den Beweis der Hinrichtung von Satz~\ref{thm:prokhorov} abschließt.
 		
@@ -161,7 +161,7 @@
 		und $\mathcal{D} \defby \setcomp{x_n}{n \in \N} \subseteq X$ eine abzählbare dichte Teilmenge.
 		
 		Nun behaupten wir, dass für alle $\delta > 0$ ein solches $M_\delta \in \N$ existiert, dass
-		\[ \mu(\bigcup_{m=1}^{M_\delta} B_\delta(x_m)) \; > \; 1 - \delta \label{4.9} \tag{4.9} \]
+		\[ \mu(\bigcup_{m=1}^{M_\delta} B_\delta(x_m)) \; > \; 1 - \delta \label{5.4} \tag{5.4} \]
 		für alle $\mu \in A$ gilt. Denn falls es kein derartiges $M_\delta$ gibt, so lässt sich ein $\delta > 0$ finden, für das
 		für alle $M \in \N$ ein $\mu_M \in A$ existiert mit
 		\[ \mu_M(\bigcup_{m=1}^{M} B_\delta(x_m)) \; \leq \; 1 - \delta \text{.} \]
@@ -170,27 +170,27 @@
 		abschätzen dürfen. Aufgrund der Kompaktheit von $\overline{A}$ gibt es eine Teilfolge $(\mu_{N_j})_j$ von $(\mu_N)_N$, 
 		die einen schwachen Grenzwert $\mu \in \Probmeasures{X}$ besitzt. Fixiere nun ein $M \in \N$. 
 		Dann ist $\bigcup_{m=1}^{M} B_\delta(x_m)$
-		offen und daher liefert das Portmanteau-Theorem (Satz~\ref{thm:portmanteau} (iii))
+		offen und daher liefert das Portmanteau-Theorem (Satz~\ref{thm:portmanteau} (iv))
 		\[ \mu(\bigcup_{m=1}^{M} B_\delta(x_m)) 
-			\; \leq \; \liminf_{j \to \infty} \mu_{N_j}(\bigcup_{m=1}^{M} B_\delta(x_m)) 
-			\; \leq \; 1 - \delta \text{.} \label{4.10} \tag{4.10} \]
+		\; \leq \; \liminf_{j \to \infty} \mu_{N_j}(\bigcup_{m=1}^{M} B_\delta(x_m)) 
+		\; \leq \; 1 - \delta \text{.} \label{5.5} \tag{5.5} \]
 		Wegen $\bigcup_{m=1}^{\infty} B_\delta(x_m) = X$ und Maßstetigkeit von unten 
-		liefert uns \eqref{4.10} unmittelbar 
+		liefert uns \eqref{5.5} unmittelbar 
 		\[ \mu(X) \; \leq \; 1 - \delta \; < \; 1 \text{,} \]
 		was einen Widerspruch dazu darstellt, dass es sich bei $\mu$ um ein 
-		Wahrscheinlichkeitsmaß auf $X$ handelt. Also muss unsere Behauptung in \eqref{4.9} tatsächlich gelten.
+		Wahrscheinlichkeitsmaß auf $X$ handelt. Also muss unsere Behauptung in \eqref{5.4} tatsächlich gelten.
 		
 		Sei nun ein $\varepsilon > 0$ gegeben. Wir setzen 
 		\[ S_\varepsilon 
-			\; \defby \; \bigcap_{k \in \N} \bigcup_{m=1}^{M_{\varepsilon / 2^k}} 
-			B_{\varepsilon / 2^k}(x_m) \]
+		\; \defby \; \bigcap_{k \in \N} \bigcup_{m=1}^{M_{\varepsilon / 2^k}} 
+		B_{\varepsilon / 2^k}(x_m) \]
 		und verfahren nun ähnlich wie im Beweis von Satz~\ref{thm:tightness}: Offensichtlich ist $S_\varepsilon$ total beschränkt und damit auch 
 		$ K_\varepsilon \defby \overline{S_\varepsilon}$ kompakt (vgl. \cite[Satz 2.3.8]{Simon.2015}). 
 		Außerdem gilt für alle $\mu \in A$
 		\[
-			\mu(K_\varepsilon) \; \geq \; \mu(S_\varepsilon) \; = \; \mu\left(\bigcap_{k \in \N} \bigcup_{m=1}^{M_{\varepsilon / 2^k}} 
-										B_{\varepsilon / 2^k}(x_m)\right)
-			                      \; \geq \; 1 - \sum_{k=1}^{\infty} \frac{\varepsilon}{2^k} \; = \; 1 - \varepsilon
+		\mu(K_\varepsilon) \; \geq \; \mu(S_\varepsilon) \; = \; \mu\left(\bigcap_{k \in \N} \bigcup_{m=1}^{M_{\varepsilon / 2^k}} 
+		B_{\varepsilon / 2^k}(x_m)\right)
+		\; \geq \; 1 - \sum_{k=1}^{\infty} \frac{\varepsilon}{2^k} \; = \; 1 - \varepsilon
 		\]
 		und damit ist $A$ straff.
 	\end{proof}
