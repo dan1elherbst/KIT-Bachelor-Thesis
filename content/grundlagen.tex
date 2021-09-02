@@ -8,7 +8,7 @@
 	
 	\subsubsection*{Netze}
 	
-	In allgemeinen topologischen Räumen beschreiben Folgen und deren Konvergenz die Eigenschaften eines Raumes nur unzureichend:
+	Im Allgemeinen beschreiben Folgen und deren Konvergenz die Eigenschaften eines topologischen Raumes nur unzureichend:
 	Beispielsweise ist Folgenstetigkeit nicht notwendigerweise äquivalent zu Stetigkeit und zwei unterschiedliche Topologien auf einer 
 	gegebenen Menge können generell dieselben konvergenten Folgen haben. Um solche Probleme im Folgenden zu umgehen, führen wir das
 	Konzept des Netzes aus der mengentheoretischen Topologie ein. Netze verallgemeinern Folgen und können in vielerlei Hinsicht die 
@@ -51,7 +51,7 @@
 		Seien $X$ und $Y$ topologische Räume. Dann gelten die folgenden Aussagen:
 		\begin{enumeratethm}
 			\item Eine Teilmenge $C \subseteq X$ ist genau dann abgeschlossen, wenn der Grenzwert $z \in X$ eines jeden konvergenten Netzes 
-			$x = (x_\iota)_{\iota \in I}$ in $X$ bereits in $A$ liegt.
+			$x = (x_\iota)_{\iota \in I}$ in $X$ bereits in $C$ liegt.
 			\item Eine Funktion $\fct{f}{X}{Y}$ ist genau dann stetig, wenn für jedes konvergente Netz $x = (x_\iota)_{\iota \in I}$ in $X$ 
 			\[ \lim_{\iota \to \infty} f(x_\iota) \; = \; f(\lim_{\iota \to \infty} x_\iota) \]
 			erfüllt ist.
@@ -113,7 +113,7 @@
 
 	\begin{Bemerkung}[Produkttopologie]
 		Sei $A$ eine beliebige Indexmenge und sei für jedes $\alpha \in A$ ein topologischer Raum $X_\alpha$ gegeben. Die Produkttopologie der $X_\alpha, \; \alpha \in A$
-		auf dem kartesischen Produkt $X \defby \prod_{\alpha \in A} X_\alpha$ ist dann offensichtlich die Initialtopologie der Projektionen 
+		auf dem kartesischen Produkt $X \defby \prod_{\alpha \in A} X_\alpha$ ist dann offensichtlich die Initialtopologie der kanonischen Projektionen 
 		$\fctmap{\pi_\beta}{X}{X_\beta}{x = (x_\alpha)_{\alpha \in A}}{x_\beta}, \; \beta \in A$.
 	\end{Bemerkung}
 	
@@ -142,7 +142,7 @@
 	einer Klasse von speziellen topologischen Räumen. 
 	Wir orientieren uns hierbei an den relevanten Teilen aus \cite[Kapitel 4.14]{Simon.2015}.
 	
-	An erster Stelle möchten wir eine Definition eines polnischen Raumes liefern.
+	An erster Stelle möchten wir die Definition eines polnischen Raumes liefern.
 	
 	\begin{Definition}[Polnischer Raum]
 		Ein \emph{polnischer Raum} ist ein separabler und vollständig metrisierbarer topologischer Raum.
@@ -158,7 +158,7 @@
 	Da $(0, 1)$ homöomorph zu $\R$ ist, ist $(0, 1)$ aber dennoch ein polnischer Raum.
 	
 	Der folgende Hilfssatz~\ref{lem:opensets} behandelt die recht elementare Tatsache, dass sich in metrischen Räumen 
-	abgeschlossene Mengen von außen \enquote{beliebig gut} durch offene Mengen approximieren lassen. 
+	abgeschlossene Mengen von außen gewissermaßen \enquote{beliebig gut} durch offene Mengen approximieren lassen. 
 	Diese Erkenntnis werden wir im weiteren Verlauf der Arbeit noch häufiger benötigen.
 	
 	\begin{Hilfssatz}
@@ -278,7 +278,7 @@
 		in \eqref{eq:2.2} impliziert.
 	\end{proof}
 	
-	Mit dem \emph{Hilbertwürfel} möchten wir uns zunächst einen speziellen polnischen Raum ansehen, 
+	Mit dem \emph{Hilbertwürfel} möchten wir uns nun einen speziellen polnischen Raum ansehen, 
 	der sich später in gewisser Weise als universell für alle polnischen Räume erweisen wird.
 	
 	\begin{Definition}[Hilbertwürfel]
@@ -299,7 +299,7 @@
 			\item Setzen wir für $x, y \in H$
 			$$\rho(x, y) \defby \max_{n \in \N} \frac{|x_n - y_n|}{2^n} \text{,}$$
 			so definiert $\rho$ eine Metrik, die $H$ metrisiert.
-			\item $H$ ist ein kompakter polnischer Raum.
+			\item $H$ ist kompakt.
 		\end{enumeratethm}
 	\end{Hilfssatz}
 	
@@ -320,14 +320,14 @@
 		gibt mit $B_r(x) \subseteq U$, also ist $U$ offen bezüglich der von $\rho$ 
 		erzeugten Topologie und insgesamt wird $H$ von $\rho$ metrisiert.
 		
-		Nun möchten wir noch Aussage (c) beweisen. Der aus der Topologie bekannte \emph{Satz von Tychonoff} liefert 
+		Der aus der Topologie bekannten \emph{Satz von Tychonoff} liefert 
 		unmittelbar, dass $H$ als Produkt kompakter topologischer Räume 
 		ebenfalls kompakt ist.
-		Unter Ausnutzung von Aussage (a) aus 
-		Hilfssatz~\ref{lem:hilbertcube} lässt sich leicht zeigen, dass $(H, \rho)$ 
-		vollständig ist. Außerdem ist $H$ als Produkt separabler metrischer Räume selbst separabel und 
-		damit insgesamt ein kompakter polnischer Raum.
 	\end{proof}
+
+	\begin{Bemerkung}
+		Insbesondere handelt es sich bei $H$ um einen polnischen Raum, denn alle kompakten metrisierbaren Räume sind polnisch.
+	\end{Bemerkung}
 	
 	$H$ erfüllt nun die folgende Universalitätseigenschaft.
 	

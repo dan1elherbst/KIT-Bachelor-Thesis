@@ -11,7 +11,7 @@
 	über die Topologie dieses Raumes der Wahrscheinlichkeitsmaße ermöglichen.
 	
 	Die grundlegenden Definitionen und Bemerkungen in den Abschnitten \ref{subsec:Definition} und \ref{subsec:BeziehungSchwachStern} folgen 
-	\cite[Abschnitte 1-3]{Varadarajan.1958}, während wir uns bei Satz~\ref{thm:portmanteau} in Abschnitt \ref{subsec:CharakterisierungenSchwacherKonvergenz}
+	\cite[Abschnitte 1-3]{Varadarajan.1958}, während wir uns beim Beweis von Satz~\ref{thm:portmanteau} in Abschnitt \ref{subsec:CharakterisierungenSchwacherKonvergenz}
 	an \cite[Satz 4.14.4]{Simon.2015} orientieren.
 
 	\subsection{Definitionen}
@@ -54,7 +54,7 @@
 	\label{subsec:BeziehungSchwachStern}
 	
 	Angesichts des Namens der \emph{schwachen Konvergenz} stellt sich unmittelbar die Frage, ob diese in irgendeiner Beziehung zur schwachen Konvergenz in Banachräumen aus der 
-	Funktionalanalysis steht. Tatsächlich lässt sich dies zumindest bedingt bejahen, wie wir im Folgenden sehen werden. 
+	Funktionalanalysis steht. Tatsächlich handelt es sich eher um eine Art von Schwach-$\ast$-Konvergenz, wie wir im Folgenden sehen werden. 
 	
 	Sei dazu zunächst $X$ ein topologischer Raum. Dann ist $(\Bdcontfct{X}, \norm{\cdot}_\infty)$ ein Banachraum und wir betrachten nun die Abbildung
 	\[\fctmap{\Phi}{\Finitemeasures{X}}{C_b(X)^\ast}{\mu}
@@ -111,7 +111,7 @@
 	
 	\begin{proof}
 		Wir präsentieren hier eine Verallgemeinerung des Beweises von Satz 4.14.4 in \cite[Kapitel 4.14]{Simon.2015} mit endlichen Maßen 
-		anstelle Wahrscheinlichkeitsmaßen und Netzen. Die Implikation \enquote{(i) $\Rightarrow$ (ii)} folgt 
+		anstelle von Wahrscheinlichkeitsmaßen und Netzen anstelle von Folgen. Die Implikation \enquote{(i) $\Rightarrow$ (ii)} folgt 
 		direkt aus Hilfssatz~\ref{lem:generalweakconvergence}. 
 		
 		(ii) $\Rightarrow$ (iii): Sei $C \subseteq X$ abgeschlossen und seien 
@@ -212,5 +212,13 @@
 		\end{align*}
 		was wegen Hilfssatz~\ref{lem:generalweakconvergence} die schwache Konvergenz $\mu_\iota \xrightarrow{w} \mu$ impliziert.
 	\end{proof}
+
+		\begin{Bemerkung}[Verteilungskonvergenz]
+		Betrachte den Fall $X := \R$. Sei nun $(\mathbb{P}_n)_n \in \Probmeasures{\R}^\N$,  $\mathbb{P} \in \Probmeasures{\R}$ und seien $\fctmap{F_n}{\R}{[0, 1]}{x}{\mathbb{P}_n((-\infty, x])}$, $\fctmap{F}{\R}{[0, 1]}{x}{\mathbb{P}((-\infty, x])}$ die zugehörigen Verteilungsfunktionen. In der Stochastik spricht man davon, dass $(\mathbb{P}_n)_n$ in Verteilung gegen $\mathbb{P}$ konvergiert, falls 
+		\[ \lim_{n \to \infty} F_n(x) \; = \; F(x) \]
+		für alle $x \in \R$ gilt, in denen $F$ stetig ist \cite[Definition 6.1]{Henze.2016}. 
+		
+		Tatsächlich ist die Verteilungskonvergenz von $(\mathbb{P}_n)_n$ gegen $\mathbb{P}$ gerade äquivalent zur schwachen Konvergenz $\mathbb{P}_n \xrightarrow{w} \mathbb{P}$. Dies lässt sich analog zur Äquivalenz (i) $\Leftrightarrow$ (v) in Satz~\ref{thm:portmanteau} beweisen, wobei für den Beweis der Rückrichtung passende Intervalle als $A_j^{(m)}$ verwendet werden.
+	\end{Bemerkung}
 	
 \end{document}
