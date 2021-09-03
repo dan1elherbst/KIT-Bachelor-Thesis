@@ -4,6 +4,16 @@
 	
 	\section{Eigenschaften der schwachen Topologie}
 	
+	Nachdem wir im vorigen Abschnitt die schwache Topologie definiert haben, möchten wir uns nun einige Eigenschaften dieser ansehen, wenn man weitere Bedingungen an den Grundraum $X$ stellt. Unsere zentralen Erkenntnisse werden die folgenden Aussagen sein:
+	\begin{itemize}
+		\item Ist $X$ kompakt und metrisierbar, so ist $\Probmeasures{X}$ kompakt.
+		\item Ist $X$ separabel und metrisierbar, so ist auch $\Finitemeasures{X}$ separabel und metrisierbar.
+		\item Ist $X$ polnisch, so ist auch $\Finitemeasures{X}$ polnisch.
+	\end{itemize}
+	Abgesehen von Satz~\ref{thm:compactimpliescompactmeasures} orientieren wir uns in diesem Abschnitt an \cite{Varadarajan.1958}.
+	
+	Wir beginnen mit der ersten Aussage, dessen Beweis die Charakterisierung der schwachen Topologie als Schwach-$\ast$-Topologie aus Abschnitt~\ref{subsec:BeziehungSchwachStern} verwendet.
+	
 	\begin{Satz}
 		\label{thm:compactimpliescompactmeasures}
 		Sei $X$ ein kompakter metrisierbarer topologischer Raum. Dann ist auch $\Probmeasures{X}$ kompakt.
@@ -29,6 +39,8 @@
 		\label{thm:finitemeasuresmetrizableseparable}
 		Sei $X$ ein separabler und metrisierbarer topologischer Raum. Dann ist auch $\Finitemeasures{X}$ separabel und metrisierbar.
 	\end{Satz}
+
+	Für den Beweis benötigen wir zunächst noch einige wenige Hilfssätze, die wir im Folgenden vorstellen möchten.
 	
 	\begin{Hilfssatz}
 		\label{lem:bdcontfctbanach}
@@ -52,6 +64,7 @@
 	\end{proof}
 	
 	\begin{Hilfssatz}
+		\label{lem:R}
 		Sei $R \defby \R^\N$ ausgestattet mit der Produkttopologie von $\R$, also mit der Initialtopologie der Projektionen $\fctmap{\pi_k}{R}{\R}{x = (x_n)_n}{x_k}, \; k \in \N$. Dann ist $R$ 
 		separabel und metrisierbar.
 	\end{Hilfssatz}
@@ -59,6 +72,8 @@
 	\begin{proof}
 		$R \cong (0, 1)^\N$ ist homöomorph zu einer Teilmenge des Hilbertwürfels $H$, worauf mit Satz~\ref{thm:characterizationpolishspaces} unmittelbar die Behauptung folgt.
 	\end{proof}
+
+	Ausgestattet mit den obigen Hilfssätzen können wir nun zum Beweis von Satz~\ref{thm:finitemeasuresmetrizableseparable} übergehen. Im Wesentlichen werden wir eine Einbettung von $\Finitemeasures{X}$ nach $R$ konstruieren, die uns unmittelbar die Behauptung liefert.
 	
 	\begin{proof}[Beweis von Satz~\ref{thm:finitemeasuresmetrizableseparable}]
 		Wir fixieren auf $X$ eine Metrik $d$, die $X$ metrisiert. Nach Hilfsssatz~\ref{lem:characterizationpolishspaces} existiert dann ein Homöomorphismus $\fct{\varphi}{X}{H}$ von
@@ -70,7 +85,7 @@
 		
 		Wir setzen nun
 		\[ \fctmap{T}{\Finitemeasures{X}}{R}{\mu}{\left( \measureint{}{f_n}{\mu} \right)_{\! n}} \label{4.1} \tag{4.1} \]
-		und möchten nachweisen, dass $T$ ein Homöomorphismus auf sein Bild ist.
+		und möchten nachweisen, dass $T$ ein Homöomorphismus auf sein Bild ist. Da $R$ nach Hilfssatz~\ref{lem:R} separabel und metrisierbar ist, übertragen sich diese Eigenschaften dann auch auf $\Finitemeasures{X}$.
 		
 		Wir zeigen zunächst die Injektivität. Seien dazu also $\mu, \nu \in \Finitemeasures{X}$ mit $T(\mu) = T(\nu)$. 
 		Sei außerdem $g \in \Bduniffct{X}$. Dann gibt es eine Folge $(g_n)_n \in \mathcal{D}^\N$ mit $\norm{g - g_n}_\infty \to 0, \; n \to \infty$, was auch 
@@ -109,6 +124,8 @@
 		für alle $f \in \Bduniffct{X}$, was nach Satz~\ref{thm:portmanteau} die schwache Konvergenz $\mu_\iota \xrightarrow{w} \mu, \; \iota \to \infty$ impliziert.
 	\end{proof}
 
+	Wir werden uns nun noch der dritten Aussage vom Beginn dieses Abschnittes widmen. Diese zeigen wir zunächst für den wichtigen Spezialfall, dass der Grundraum $X$ kompakt ist und weiten sie anschließend auf die Klasse aller polnischen Räume aus.
+
 	\begin{Hilfssatz}
 		\label{lem:compactimpliespolishmeasures}
 		Sei $X$ ein kompakter metrisierbarer topologischer Raum. Dann ist $\Finitemeasures{X}$ polnisch.
@@ -142,6 +159,7 @@
 	\end{proof}
 	
 	\begin{Satz}
+		\label{thm:finitemeasurespolish}
 		Sei $X$ ein polnischer Raum. Dann ist auch $\Finitemeasures{X}$ polnisch.
 	\end{Satz}
 
@@ -170,5 +188,9 @@
 		\[ \mu(U_k^{\mathsf{c}}) \; \geq \; \limsup_{\iota \to \infty} \mu_\iota(U_k^{\mathsf{c}}) \; \geq \; \frac{1}{r} \text{,} \]
 		was $\mu \in C_{k, r}$ impliziert. Daher ist $C_{k, r}$ für alle $k, r \in \N$ abgeschlossen und der Beweis vollständig.
 	\end{proof}
+
+	\begin{Bemerkung}
+		Da $\Probmeasures{X} \subseteq \Finitemeasures{X}$ eine abgeschlossene Teilmenge ist, gelten die Aussagen von Satz~\ref{thm:finitemeasuresmetrizableseparable} und Satz~\ref{thm:finitemeasurespolish} auch für $\Probmeasures{X}$.
+	\end{Bemerkung}
 	
 \end{document}

@@ -4,16 +4,23 @@
 	
 	\section{Straffheit und der Satz von Prokhorov}
 	
+	Das zentrale Resultat dieses Abschnitts stellt der \emph{Satz von Prokhorov} (Satz~\ref{thm:prokhorov}) dar, der für einen polnischen Raum $X$ eine einfache Charakterisierung der Kompaktheit von Teilmengen von $\Probmeasures{X}$ bereitstellt. Hierfür werden wir zunächst das Konzept der \emph{Straffheit} einführen.
+	
 	\begin{Definition}
-		Sei $X$ ein polnischer Raum und $\mu \in \Probmeasures{X}$. Dann nennen wir 
-		$\mu$ \emph{straff}, falls es für jedes $\varepsilon > 0$ eine kompakte Teilmenge
+		Sei $X$ ein polnischer Raum und $\mu \in \Finitemeasures{X}$. Dann nennen wir 
+		eine Teilmenge $A \subseteq \Finitemeasures{X}$ \emph{straff}, falls es für jedes $\varepsilon > 0$ eine kompakte Teilmenge
 		$K_\varepsilon \subseteq X$ gibt mit 
-		\[ \mu(K_\varepsilon) \geq 1  - \varepsilon \text{.} \]
+		\[ \mu(K_\varepsilon) \geq \mu(X)  - \varepsilon \]
+		für alle $\mu \in A$.
+		
+		Ferner heißt ein Maß $\mu \in \Finitemeasures{X}$ \emph{straff}, falls $\set{\mu}$ straff ist.
 	\end{Definition}
+
+	Im folgenden Satz werden wir sehen, dass wir es tatsächlich sehr häufig mit straffen Maßen zu tun haben.
 	
 	\begin{Satz}
 		\label{thm:tightness}
-		Sei $X$ ein polnischer Raum und $\mu \in \Probmeasures{X}$. Dann ist $\mu$ straff.
+		Sei $X$ ein polnischer Raum und $\mu \in \Finitemeasures{X}$. Dann ist $\mu$ straff.
 	\end{Satz}
 	
 	\begin{proof}
@@ -21,10 +28,10 @@
 		$\mathcal{D} \defby \setcomp{x_m}{m \in \N}$ eine abzählbare dichte Teilmenge von $X$. 
 		Für $k \in \N$ gilt also $\bigcup_{m \in \N} B_{1/k}(x_m) = X$ und Maßstetigkeit 
 		von unten impliziert 
-		$\lim_{M \to \infty} \bigcup_{m=1}^{M} B_{1/k}(x_m) = 1$.
+		$\lim_{M \to \infty} \bigcup_{m=1}^{M} B_{1/k}(x_m) = \mu(X)$.
 		
 		Sei nun $\varepsilon > 0$. Dann finden wir natürliche Zahlen $M_1 \leq M_2 \leq \dots$ mit
-		\[ \mu\left( \bigcup_{m=1}^{M_k} B_{1/k}(x_m) \right) \; \geq \; 1 - \frac{\varepsilon}{2^k} \]
+		\[ \mu\left( \bigcup_{m=1}^{M_k} B_{1/k}(x_m) \right) \; \geq \; \mu(X) - \frac{\varepsilon}{2^k} \]
 		für alle $k \in \N$. Wir setzen nun
 		\[ S_\varepsilon 
 		\; \defby \; \bigcap_{k \in \N} \left( \bigcup_{m=1}^{M_k} B_{1/k}(x_m) \right) 
@@ -33,18 +40,19 @@
 		kompakt (dies wird etwa in \cite[Satz 2.3.8]{Simon.2015} bewiesen, 
 		hier geht die Vollständigkeit von $(X, d)$ ein).
 		Außerdem berechnen wir
-		\[ \mu(K_\varepsilon) 
-		\; \geq \; \mu(S_\varepsilon) 
-		\; \geq \; 1 - \sum_{k=1}^{\infty} \left( 1 - \mu\left( \bigcup_{m=1}^{M_k} B_{1/k}(x_m) \right) \right) 
-		\; \geq \; 1 - \sum_{k=1}^{\infty} \frac{\varepsilon}{2^k} \; = \; 1 - \varepsilon \text{.} \]
+		\begin{align*}
+			\mu(K_\varepsilon) \; &\geq \; \mu(S_\varepsilon) 
+			\; \geq \; \mu(X) - \sum_{k=1}^{\infty} \left( \mu(X) - \mu\left( \bigcup_{m=1}^{M_k} B_{1/k}(x_m) \right) \right) \\
+			\; &\geq \; \mu(X) - \sum_{k=1}^{\infty} \frac{\varepsilon}{2^k} \; = \; \mu(X) - \varepsilon \text{.}
+		\end{align*} 
 		Weil $\varepsilon > 0$ beliebig gewählt war, ist $\mu$ also straff.
 	\end{proof}
 	
-	Ausgestattet mit des Konzepts der Straffheit können wir nun folgenden Satz beweisen:
+	Ohne große Mühe liefert uns der vorige Satz die Aussage, dass endliche Borel-Maße auf polnischen Räumen regulär sind:
 	
 	\begin{Folgerung}
 		\label{kor:polishregular}
-		Ist $X$ ein polnischer Raum, so ist jedes $\mu \in \Probmeasures{X}$ regulär.
+		Ist $X$ ein polnischer Raum, so ist jedes $\mu \in \Finitemeasures{X}$ regulär.
 	\end{Folgerung}
 	
 	\begin{proof}
@@ -68,6 +76,8 @@
 		= \sup_{\substack{K \subseteq B \\ K \text{ kompakt}}} \mu(K)\] 
 		und insgesamt $\mu$ ist regulär.
 	\end{proof}
+
+	Wir möchten nun zum zentralen Satz dieses Abschnitts gehen, der uns eine interessante Charakterisierung der Kompaktheit von Teilmengen von $\Probmeasures{X}$ liefert, sofern wir $X$ als polnisch voraussetzen.
 	
 	\begin{Satz}[Prokhorov]
 		\label{thm:prokhorov}
@@ -78,6 +88,10 @@
 			\item $\overline{A} \subseteq \Probmeasures{X}$ ist kompakt.
 		\end{equivalentthm}
 	\end{Satz}
+
+	\begin{Bemerkung}
+		Es sei an dieser Stelle angemerkt, dass die Aussage des Satzes von Prokhorov die von Satz~\ref{thm:compactimpliescompactmeasures} beinhaltet. Denn ist $X$ kompakt und metrisierbar (und damit insbesondere polnisch), so ist $\Probmeasures{X}$ trivialerweise straff und damit nach dem Satz von Prokhorov auch kompakt.
+	\end{Bemerkung}
 	
 	\begin{proof}
 		Sei zunächst $A \subseteq \Probmeasures{X}$ straff. Wir möchten nun beweisen, dass $\overline{A}$ 
@@ -92,7 +106,7 @@
 		für alle $m \in \N$ gilt.
 		
 		Sei nun also $(\mu_n)_n \in A^\N$.
-		In Analogie zu Satz~\ref{thm:compactequivalence} lässt sich nun auch einsehen, dass 
+		In Analogie zu Satz~\ref{thm:compactimpliescompactmeasures} lässt sich nun auch einsehen, dass 
 		\[ \Unitmeasures{K^{(m)}} \; \defby \; \setcomp{\fct{\mu}{\mathcal{B}(K^{(m)})}{[0,1]}}{\mu \; 
 			\text{ist endliches Maß und } \mu(K^{(m)}) \leq 1} \]
 		für alle $m \in \N$ kompakt bezüglich der Topologie der schwachen Konvergenz ist. Damit existiert ein Maß 
