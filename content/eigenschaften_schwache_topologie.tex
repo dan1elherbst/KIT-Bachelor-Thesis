@@ -5,13 +5,15 @@
 	\section{Eigenschaften der schwachen Topologie}
 	
 	Nachdem wir im vorigen Abschnitt die schwache Topologie definiert haben, möchten wir uns nun einige Eigenschaften dieser ansehen, wenn man weitere Bedingungen an den Grundraum $X$ stellt. 
-	Als Grundbedingung möchten wir in diesem Kapitel die Metrisierbarkeit von $X$ fordern.
+	Als Grundbedingung möchten wir in diesem Kapitel immer die Metrisierbarkeit von $X$ fordern.
 	Unter dieser Voraussetzung werden die folgenden Aussagen unsere zentralen Erkenntnisse sein:
+	\vspace*{0.5em}
 	\begin{itemize}
 		\item $\Finitemeasures{X}$ ist genau dann metrisierbar und separabel, wenn $X$ separabel ist.
 		\item $\Finitemeasures{X}$ ist genau dann polnisch, wenn $X$ polnisch ist.
 		\item $\Probmeasures{X}$ ist genau dann metrisierbar und kompakt, wenn $X$ kompakt ist.
 	\end{itemize}
+	\vspace*{0.5em}
 	Abgesehen von Satz~\ref{thm:compactimpliescompactmeasures}, bei dem wir im Wesentlichen \cite{vanGaans.200203} folgen, orientieren wir uns in diesem Abschnitt an \cite{Varadarajan.1958}.
 	
 	\begin{Satz}
@@ -41,7 +43,7 @@
 		Nun möchten wir Aussage (b) zeigen. Sei $(x_n)_n \in X^\N$ und sei $\mu \in \Finitemeasures{X}$ mit $\delta_{x_n} \xrightarrow{w} \mu$, $n \to \infty$. Zunächst gilt sicherlich $\mu \in \Probmeasures{X}$.
 		Außerdem muss $(x_n)_n$ eine konvergente Teilfolge besitzen. Ansonsten ist nämlich $D \defby \setcomp{x_n}{n \in \N} \subseteq X$ eine unendliche und abgeschlossene Teilmenge. Das Portmanteau-Theorem (Satz~\ref{thm:portmanteau}) liefert also für jede unendliche Teilmenge $\tilde{D} \subseteq D$ die Abschätzung
 		\[ 1 \; = \; \limsup_{n \to \infty} \delta_{x_n}(\tilde{D}) \; \leq \; \mu(\tilde{D}) \; \leq \; 1 \text{,} \]
-		die einen Widerspruch darstellt. Also existiert eine Teilfolge $(x_{n_k})_k$ und $x \in X$ mit $x_{n_k} \to x, \; x \to \infty$. Damit ist aber auch $\delta_{x_{n_k}} \xrightarrow{w} \delta_x$, weshalb nach
+		was einen Widerspruch darstellt. Also existiert eine Teilfolge $(x_{n_k})_k$ und $x \in X$ mit $x_{n_k} \to x, \; x \to \infty$. Damit ist aber auch $\delta_{x_{n_k}} \xrightarrow{w} \delta_x$, weshalb nach
 		Satz~\ref{thm:measureequality} die Gleichheit $\mu = \delta_x \in \Delta$ folgt.
 	\end{proof}
 	
@@ -68,10 +70,12 @@
 	\end{Hilfssatz}
 	
 	\begin{proof}
-		Zunächst ist $\Bduniffct{X}$ offensichtlich ein Banachraum.
-		Sei nun $\tilde{X}$ die Vervollständigung von $X$. Diese ist kompakt und damit ist $\Bdcontfct{\tilde{X}}$ nach Hilfssatz~\ref{lem:bdcontfctbanach} ein separabler Banachraum.
+		Sei zunächst $\tilde{X}$ die Vervollständigung von $X$. Diese ist kompakt und damit ist $\Bdcontfct{\tilde{X}}$ nach Hilfssatz~\ref{lem:bdcontfctbanach} ein separabler Banachraum.
 		Jedes $f \in \Bduniffct{X}$ besitzt eine eindeutige Fortsetzung $\tilde{f} \in \Bdcontfct{\tilde{X}}$ mit $\norm{f}_\infty = \norm{\tilde{f}}_\infty$. Damit wird über die Zuordnung
-		$f \mapsto \tilde{f}$ eine isometrische Einbettung von $\Bduniffct{X}$ nach $\Bdcontfct{\tilde{X}}$ definiert, was die Separabilität von $\Bduniffct{X}$ impliziert.
+		\[ \fctmap{E}{\Bduniffct{X}}{\Bdcontfct{\tilde{X}}}{f}{\tilde{f}} \]
+		eine isometrische Einbettung von $\Bduniffct{X}$ nach $\Bdcontfct{\tilde{X}}$ definiert. 
+		Wegen $\Bdcontfct{\tilde{X}} = \Bduniffct{\tilde{X}}$ (vgl. \cite[Satz 2.3.10]{Simon.2015}) ist $\restr{g}{X} \in \Bduniffct{X}$ für alle $g \in \Bdcontfct{\tilde{X}}$ und damit
+		auch $g = E(\restr{g}{X})$. Also ist $E$ surjektiv und damit eine Isometrie zwischen $\Bduniffct{X}$ und $\Bdcontfct{\tilde{X}}$. Hilfssatz~\ref{lem:bdcontfctbanach} liefert nun die Behauptung.
 	\end{proof}
 	
 	\begin{Hilfssatz}
@@ -122,19 +126,19 @@
 		und damit können wir eine Konstante $C < \infty$ und ein $\iota_0 \in I$ finden, sodass $\mu_\iota(X) \leq C$ für alle $\iota_0 \preceq \iota$ ist.
 		Sei $g \in \Bduniffct{X}$ fest aber beliebig. Dann gibt es eine Folge $(g_n)_n \in \mathcal{D}^\N$ mit $\norm{g - g_n}_\infty \to 0, \; n \to \infty$ und für jedes $n \in \N$, $\iota_0 \preceq \iota$ folgt
 		\begin{align*}
-			\left| \measureint{}{f}{\mu_\iota} - \measureint{}{f}{\mu} \right| \; &\leq \; 
-			\left| \measureint{}{f}{\mu_\iota} - \measureint{}{f_n}{\mu_\iota} \right| + 
-			\left| \measureint{}{f_n}{\mu_\iota} - \measureint{}{f_n}{\mu} \right| \\
+			\left| \measureint{}{g}{\mu_\iota} - \measureint{}{g}{\mu} \right| \; &\leq \; 
+			\left| \measureint{}{g}{\mu_\iota} - \measureint{}{g_n}{\mu_\iota} \right| + 
+			\left| \measureint{}{g_n}{\mu_\iota} - \measureint{}{g_n}{\mu} \right| \\
 			& \qquad + 
-			\left| \measureint{}{f_n}{\mu} - \measureint{}{f}{\mu} \right| \\
-			&\leq \; 2 C \norm{f - f_n}_\infty + \left| \measureint{}{f_n}{\mu_\iota} - 
-			\measureint{}{f_n}{\mu} \right| \text{,}
+			\left| \measureint{}{g_n}{\mu} - \measureint{}{g}{\mu} \right| \\
+			&\leq \; 2 C \norm{g - g_n}_\infty + \left| \measureint{}{g_n}{\mu_\iota} - 
+			\measureint{}{g_n}{\mu} \right| \text{,}
 		\end{align*}
 		woraus schließlich mit \eqref{4.2}
-		\[ \limsup_{\iota \to \infty} \left| \measureint{}{f}{\mu_\iota} - \measureint{}{f}{\mu} \right| \; \leq \; 2 C \norm{f - f_n}_\infty \; \to \; 0, \quad n \to \infty \]
+		\[ \limsup_{\iota \to \infty} \left| \measureint{}{g}{\mu_\iota} - \measureint{}{g}{\mu} \right| \; \leq \; 2 C \norm{g - g_n}_\infty \; \to \; 0, \quad n \to \infty \]
 		folgt. Damit gilt 
-		\[ \measureint{}{f}{\mu_\iota} \; \to \; \measureint{}{f}{\mu}, \quad \iota \to \infty \]
-		für alle $f \in \Bduniffct{X}$, was nach Satz~\ref{thm:portmanteau} die schwache Konvergenz $\mu_\iota \xrightarrow{w} \mu, \; \iota \to \infty$ impliziert.
+		\[ \measureint{}{g}{\mu_\iota} \; \to \; \measureint{}{g}{\mu}, \quad \iota \to \infty \]
+		für alle $g \in \Bduniffct{X}$, was nach Satz~\ref{thm:portmanteau} die schwache Konvergenz $\mu_\iota \xrightarrow{w} \mu, \; \iota \to \infty$ impliziert.
 		
 		Die Rückrichtung folgt direkt aus Satz~\ref{thm:embeddingdiracmeasures}, da die Separabilität von $\Finitemeasures{X}$ direkt auch die Separabilität von $X \cong \Delta \subseteq \Finitemeasures{X}$ nach sich zieht.
 	\end{proof}
@@ -169,12 +173,12 @@
 		$r_n = \lim_{\iota \to \infty} \measureint{}{f_n}{\mu_\iota}$ für alle $n \in \N$ und analog zum Beweis von Satz~\ref{thm:finitemeasuresmetrizableseparable} 
 		können wir wieder eine Konstante $C < \infty$ und ein $\iota_0 \in I$ finden, sodass $\mu_\iota(X) \leq C$ für alle $\iota_0 \preceq \iota$ ist.
 		
-		Wir setzen nun $A \defby \mathrm{span}_\R \, \mathcal{D}$, was ein dichter Untervektorraum von $\Bduniffct{X}$ ist. Auf $A$ definieren wir nun
+		Wir setzen nun $A \defby \mathrm{span}_\R \, \mathcal{D}$, was ein dichter Untervektorraum von $\Bdcontfct{X}$ ist. Auf $A$ definieren wir nun
 		\[ \fctmap{l}{A}{\R}{f}{\lim_{\iota \to \infty} \measureint{}{f}{\mu_\iota}} \text{.} \]
-		Offenbar ist $l$ wohndefiniert und linear. Da $l(f) \leq C \norm{f}_\infty$ für alle $f \in \Bduniffct{X}$ gilt, folgt $l \in A^\ast$. Nach dem Satz von \tobechanged{Hahn-Banach}
-		existiert nun eine (eindeutige) Fortsetzung von $l$ auf ganz $\Bduniffct{X}$, die wir ab jetzt $l$ nennen. Es ist $l \in \Bduniffct{X}^\ast$ 
-		mit $\norm{l}_{\Bduniffct{X}^\ast} = \norm{l}_{A^\ast}$. Offenbar gilt $l(f) \geq 0$ für alle $f \in \Bdcontfct{X}$ mit $f \geq 0$ und damit gibt es 
-		nach dem Darstellungssatz von \tobechanged{Riesz-Markov} ein Maß $\mu \in \Finitemeasures{X}$ mit 
+		Offenbar ist $l$ wohndefiniert und linear. Da $l(f) \leq C \norm{f}_\infty$ für alle $f \in \Bdcontfct{X}$ gilt, folgt $l \in A^\ast$. Nach dem Satz von Hahn-Banach (vgl. \cite[Folgerung 5.5.2]{Simon.2015})
+		existiert nun eine (eindeutige) Fortsetzung von $l$ auf ganz $\Bdcontfct{X}$, die wir ab jetzt $l$ nennen. Es ist $l \in \Bdcontfct{X}^\ast$ 
+		mit $\norm{l}_{\Bdcontfct{X}^\ast} = \norm{l}_{A^\ast}$. Offenbar gilt $l(f) \geq 0$ für alle $f \in \Bdcontfct{X}$ mit $f \geq 0$ und damit gibt es 
+		nach dem Darstellungssatz von Riesz-Markov (vgl. \cite[Satz 4.8.8]{Simon.2015}) ein Maß $\mu \in \Finitemeasures{X}$ mit 
 		\[ l(f) \; = \; \measureint{}{f}{\mu}, \quad f \in \Bduniffct{X} \text{.} \]
 		Also folgt
 		\[ \lim_{\iota \to \infty} \measureint{}{f_n}{\mu_\iota} \; = \; r_n \; = \; l(f_n) \; = \measureint{}{f_n}{\mu} \text{.} \]
@@ -233,9 +237,9 @@
 			\forall f \in \Bdcontfct{X} \text{ mit } f \geq 0 : l(f) \geq 0}\]
 		und analog zu \eqref{5.1}
 		\[ \fctmap{\Phi}{\Probmeasures{X}}{A}{\mu}{\left[\fctmap{l_\mu}{\Bdcontfct{X}}{\R}{f}{\measureint{}{f}{\mu}}\right]} \text{.} \]
-		Der Darstellungssatz von \tobechanged{Riesz-Markov} liefert die Bijektivität von $\Phi$, also ist $\Phi$ ein 
+		Der Darstellungssatz von Riesz-Markov (vgl. \cite[Satz 4.8.8]{Simon.2015}) liefert die Bijektivität von $\Phi$, also ist $\Phi$ ein 
 		Homöomorphismus zwischen $\Probmeasures{X}$ und $A \subseteq \Bdcontfct{X}^\ast$ 
-		mit der Schwach-$\ast$-Topologie. Mit dem Satz von Banach-Alaoglu folgt nun, dass $A$ als abgeschlossene Teilmenge der kompakten Menge 
+		mit der Schwach-$\ast$-Topologie. Mit dem Satz von Banach-Alaoglu (vgl. \cite[Satz 5.8.1]{Simon.2015}) folgt nun, dass $A$ als abgeschlossene Teilmenge der kompakten Menge 
 		$\setcomp{l \in C_b(X)^\ast}{\norm{l}_{\Bdcontfct{X}^\ast} \leq 1}$ selbst kompakt bezüglich der Schwach-$\ast$-Topologie ist, 
 		was schließlich die Kompaktheit von $\Probmeasures{X}$ nach sich zieht.
 		
