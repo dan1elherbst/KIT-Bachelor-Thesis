@@ -5,13 +5,13 @@
 	\section{Schwache Topologie und schwache Konvergenz}
 	
 	In diesem Kapitel werden wir endliche Borel-Maße auf topologischen Räumen selbst
-	mit einer Topologie bzw. einem Konvergenzbegriff versehen, dem der sogenannten \emph{schwachen Konvergenz}, 
-	welche die aus der Stochastik bekannte \emph{Verteilungskonvergenz} auf allgemeinere Räume als $\R$ verallgemeinert. 
-	Erst die Einschränkung auf die Klasse der polnischen Räume als Grundraum wird uns einige nichttriviale Erkenntnisse 
+	mit einer Topologie bzw. einem Konvergenzbegriff versehen, dem der sogenannten \emph{schwachen Konvergenz}. Diese
+	verallgemeinert die aus der Stochastik bekannte \emph{Verteilungskonvergenz} auf allgemeinere Räume als $\R$. 
+	Erst die Einschränkung auf speziellere Klassen topologischer Räume als Grundraum (wie etwa polnische Räume) wird uns einige nichttriviale Erkenntnisse 
 	über die Topologie dieses Raumes der Wahrscheinlichkeitsmaße ermöglichen.
 	
 	Die grundlegenden Definitionen und Bemerkungen in den Abschnitten \ref{subsec:Definition} und \ref{subsec:BeziehungSchwachStern} folgen 
-	\cite[Abschnitte 1-3]{Varadarajan.1958}, während wir uns beim Beweis von Satz~\ref{thm:portmanteau} in Abschnitt \ref{subsec:CharakterisierungenSchwacherKonvergenz}
+	\cite[Abschnitte 1-3]{Varadarajan.1958}, während wir uns beim Beweis von Satz~\ref{thm:portmanteau} in Abschnitt~\ref{subsec:CharakterisierungenSchwacherKonvergenz}
 	an \cite[Satz 4.14.4]{Simon.2015} orientieren.
 
 	\subsection{Definitionen}
@@ -53,14 +53,14 @@
 	\subsection{Beziehung zur Schwach-*-Konvergenz}
 	\label{subsec:BeziehungSchwachStern}
 	
-	Angesichts des Namens der \emph{schwachen Konvergenz} stellt sich unmittelbar die Frage, ob diese in irgendeiner Beziehung zur schwachen Konvergenz in Banachräumen aus der 
+	Angesichts des Namens der \emph{schwachen Konvergenz} bzw. \emph{schwachen Topologie} stellt sich unmittelbar die Frage, ob diese in irgendeiner Beziehung zur schwachen Konvergenz bzw. schwachen Topologie in Banachräumen aus der 
 	Funktionalanalysis steht. Tatsächlich handelt es sich eher um eine Art von Schwach-$\ast$-Konvergenz, wie wir im Folgenden sehen werden. 
 	
-	Sei dazu zunächst $X$ ein topologischer Raum. Dann ist $(\Bdcontfct{X}, \norm{\cdot}_\infty)$ ein Banachraum und wir betrachten nun die Abbildung
+	Sei dazu zunächst $X$ ein topologischer Raum. Dann ist $(\Bdcontfct{X}, \norm{\cdot}_\infty)$ ein normierter Vektorraum und wir betrachten nun die Abbildung
 	\[\fctmap{\Phi}{\Finitemeasures{X}}{C_b(X)^\ast}{\mu}
 	{\left[\fctmap{l_\mu}{\Bdcontfct{X}}{\R}{f}{\measureint{}{f}{\mu}}\right]} \text{,} \label{3.1} \tag{3.1}\]
 	die wegen $\abs{\measureint{}{f}{\mu}} \leq \mu(X) \norm{f}_\infty$ und $\mu(X) < \infty$ wohldefiniert ist 
-	und einem endlichen Maß $\mu \in \Finitemeasures{X}$ ein zugehöriges lineares Funktional aus $C_b(X)^\ast$ zuordnet. 
+	und einem endlichen Maß $\mu \in \Finitemeasures{X}$ ein zugehöriges lineares Funktional aus dem Dualraum $\Bdcontfct{X}^\ast$ von $\Bdcontfct{X}$ zuordnet. 
 	Ist $\Bdcontfct{X}^\ast$ mit der 
 	Schwach-$\ast$-Topologie ausgestattet, so entspricht schwache Konvergenz in $\Finitemeasures{X}$ trivialerweise der 
 	Schwach-$\ast$-Konvergenz der jeweiligen Bilder unter $\Phi$.
@@ -80,9 +80,7 @@
 	Unter obigen Voraussetzungen lässt sich $\Finitemeasures{X}$ also in $\Bdcontfct{X}^\ast$ einbetten. Mittels dieser Identifikation können nun Aussagen aus der 
 	Funktionalanalysis auch für $\Finitemeasures{X}$ fruchtbar gemacht werden, indem von topologischen Eigenschaften von
 	$\Bdcontfct{X}^\ast$ mit der Schwach-$\ast$-Konvergenz auf die entsprechenden Eigenschaften von 
-	$\Finitemeasures{X}$ geschlossen wird. 
-	
-	Eine konkrete Anwendung hiervon werden wir im nächsten Abschnitts beim Beweis von Satz~\ref{thm:compactimpliescompactmeasures} sehen.
+	$\Finitemeasures{X}$ geschlossen wird. Konkrete Anwendungen hiervon werden wir bereits in Abschnitt~\ref{sec:eigenschaften-der-schwachen-topologie} sehen.
 	
 	\subsection{Charakterisierungen schwacher Konvergenz}
 	\label{subsec:CharakterisierungenSchwacherKonvergenz}
@@ -218,7 +216,7 @@
 		\[ \lim_{n \to \infty} F_n(x) \; = \; F(x) \]
 		für alle $x \in \R$ gilt, in denen $F$ stetig ist \cite[Definition 6.1]{Henze.2016}. 
 		
-		Tatsächlich ist die Verteilungskonvergenz von $(\mathbb{P}_n)_n$ gegen $\mathbb{P}$ gerade äquivalent zur schwachen Konvergenz $\mathbb{P}_n \xrightarrow{w} \mathbb{P}$. Dies lässt sich analog zur Äquivalenz (i) $\Leftrightarrow$ (v) in Satz~\ref{thm:portmanteau} beweisen, wobei für den Beweis der Rückrichtung passende Intervalle als $A_j^{(m)}$ verwendet werden.
+		Tatsächlich ist die Verteilungskonvergenz von $(\mathbb{P}_n)_n$ gegen $\mathbb{P}$ gerade äquivalent zur schwachen Konvergenz $\mathbb{P}_n \xrightarrow{w} \mathbb{P}$. Dies lässt sich analog zur Äquivalenz (i) $\Leftrightarrow$ (v) in Satz~\ref{thm:portmanteau} beweisen, wobei für den Beweis der Rückrichtung passende Intervalle als $A_j^{(m)}$ verwendet werden müssen.
 	\end{Bemerkung}
 	
 \end{document}
