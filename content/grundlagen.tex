@@ -40,7 +40,7 @@
 	
 	\begin{Bemerkung}
 		Offenbar sind Folgen einfach Netze, bei denen $(I, \preceq) \defby (\N, \leq)$ gewählt wird. Der Konvergenzbegriff von Netzen stimmt
-		dann auch mit dem von uns bekannten Konvergenzbegriff in topologischen Räumen überein.
+		dann auch mit dem von uns bekannten Konvergenzbegriff von Folgen in topologischen Räumen überein.
 	\end{Bemerkung}
 	
 	Wie bereits angekündigt lassen sich topologische Räume im Allgemeinen viel besser über Netze charakterisieren als lediglich über Folgen. Der nächste Satz
@@ -64,8 +64,8 @@
 	\end{proof}
 	
 	\begin{Bemerkung}
-		Es sei an dieser Stelle angemerkt, dass im Allgemeinen keine der drei Aussagen gelten, wenn man \enquote{Netz} durch \enquote{Folge} ersetzt 
-		(vgl. \cite[Beispiel 2.6.1]{Simon.2015}).
+		Auch wenn man in spezielleren Fällen (wie etwa bei metrisierbarem $X$) problemlos mit Folgen arbeiten kann, sei an dieser Stelle angemerkt, dass im Allgemeinen 
+		keine der drei Aussagen gelten, wenn man \enquote{Netz} durch \enquote{Folge} ersetzt (vgl. \cite[Beispiel 2.6.1]{Simon.2015}).
 	\end{Bemerkung}
 	
 	Für reelle Netze können wir in Analogie zu Folgen auch den Limes Superior bzw. Inferior von Netzen definieren. Hierfür orientieren wir uns an
@@ -83,7 +83,7 @@
 		Limes Superior bzw. Inferior von reellen Folgen lassen sich auch auf reelle Netze übertragen, 
 		wie etwa die üblichen Rechenregeln für die Grenzwerte von Summen und Produkten reeller Folgen.
 		
-		Außerdem gelten etwa für Netze $x = (x_\iota)_{\iota \in I}$ und
+		Außerdem gelten etwa für reelle Netze $x = (x_\iota)_{\iota \in I}$ und
 		$y = (y_\iota)_{\iota \in I}$ die Ungleichungen
 		\begin{align*}
 			\limsup_{\iota \to \infty} \, (x_\iota + y_\iota) \; &\leq \; \limsup_{\iota \to \infty} x_\iota + \limsup_{\iota \to \infty} y_\iota \quad \text{und}\\
@@ -106,7 +106,7 @@
 	
 	\begin{Definition}[Initialtopologie]
 		\label{def:initialtopology}
-		Sei $X$ eine Menge, $A$ eine beliebige Indexmenge und für jedes $\alpha \in A$ sei $Y_\alpha$ ein topologischer Raum sowie $\fct{f_\alpha}{X}{Y_i}$ eine Abbildung.
+		Sei $X$ eine Menge, $A$ eine beliebige Indexmenge und für jedes $\alpha \in A$ sei $Y_\alpha$ ein topologischer Raum sowie $\fct{f_\alpha}{X}{Y_\alpha}$ eine Abbildung.
 		Die Initialtopologie auf $X$ bezüglich der Abbildungen $f_\alpha, \; \alpha \in A$ ist dann die kleinste Topologie auf $X$, bezüglich der alle Abbildungen 
 		$f_\alpha, \; \alpha \in A$ stetig sind.
 	\end{Definition}
@@ -220,9 +220,9 @@
 		von $A$ zu beweisen.
 		
 		Für $x, y \in A$ definieren wir
-		\[\tilde{d}(x, y) \; \defby \; d(x, y) + \sum_{n=1}^{\infty} \min \left(
+		\[\tilde{d}(x, y) \; \defby \; d(x, y) + \sum_{n=1}^{\infty} \min \left\{
 		\frac{1}{2^n}, \left| \frac{1}{d(x, C_n)} - \frac{1}{d(y, C_n)} \right|
-		\right) \text{.}\]
+		\right\} \text{.}\]
 		Offensichtlich ist $\tilde{d}$ eine Metrik auf $A$, 
 		die dieselbe Topologie wie $d$ erzeugt. 
 		
@@ -233,10 +233,10 @@
 		$x \in X$. Angenommen $x \notin A$, so gibt es ein $m \in \N$ mit 
 		$x \in C_m$. Damit ist aber für alle $k \in \N$
 		$$\sup_{l \geq k} \tilde{d}(x_k, x_l) \; \geq \; \sup_{l \geq k} 
-		\, \sum_{n=1}^{\infty} \min \left(
+		\, \sum_{n=1}^{\infty} \min \left\{
 		\frac{1}{2^n}, \left| \frac{1}{d(x_k, C_n)} -
 		\frac{1}{d(x_l, C_n)} \right|
-		\right) \; \geq \; \frac{1}{2^m} \; > \; 0 \text{,}$$
+		\right\} \; \geq \; \frac{1}{2^m} \; > \; 0 \text{,}$$
 		was der Tatsache widerspricht, dass $(x_k)_k$ eine Cauchyfolge 
 		bezüglich $\tilde{d}$ ist. Also muss $x \in A$ gelten. 
 		Aus der Stetigkeit von $x \mapsto d(x, C_n)$ folgt mit dem 
@@ -295,7 +295,7 @@
 		\begin{enumeratethm}
 			\item Eine Folge $(x^{(k)})_k \in H^\N$ konvergiert genau dann gegen 
 			ein $x \in H$, wenn alle Komponenten konvergieren, also, wenn
-			$\lim_{n \to \infty} x_n^{(k)} = x_n$ für alle $n \in \N$ gilt.
+			$\lim_{n \to \infty} x_n^{(k)} = x_n$ für alle $n \in \N$ ist.
 			\item Setzen wir für $x, y \in H$
 			$$\rho(x, y) \defby \max_{n \in \N} \frac{|x_n - y_n|}{2^n} \text{,}$$
 			so definiert $\rho$ eine Metrik, die $H$ metrisiert.
@@ -321,11 +321,12 @@
 		erzeugten Topologie und insgesamt wird $H$ von $\rho$ metrisiert.
 		
 		Der aus der Topologie bekannte \emph{Satz von Tychonoff} (vgl. \cite[Satz 2.7.1]{Simon.2015}) liefert 
-		unmittelbar, dass $H$ kompakt ist.
+		unmittelbar die Kompaktheit von $H$.
 	\end{proof}
 
 	\begin{Bemerkung}
-		Insbesondere handelt es sich bei $H$ um einen polnischen Raum, denn alle kompakten metrisierbaren Räume sind polnisch.
+		Insbesondere handelt es sich bei $H$ um einen polnischen Raum, denn alle kompakten metrischen Räume sind insbesondere 
+		separabel und vollständig und damit auch polnisch.
 	\end{Bemerkung}
 	
 	$H$ erfüllt nun die folgende Universalitätseigenschaft.
@@ -351,22 +352,22 @@
 	
 	\begin{proof}
 		Wir zeigen zunächst, dass $\varphi$ injektiv ist. 
-		Dazu seien $y, z \in H$ mit $\varphi(y) = \varphi(z)$, also gilt
-		\[\min(1, d(y, x_n)) = \min(1, d(z, x_n)) \label{eq:2.5} \tag{2.5}\]
+		Seien dazu $y, z \in H$ mit $\varphi(y) = \varphi(z)$, also gilt
+		\[\min\set{1, d(y, x_n)} = \min \set{1, d(z, x_n)} \label{eq:2.5} \tag{2.5}\]
 		für alle $n \in \N$. Weil es eine Folge $(y_n)_n \in \mathcal{D}^\N$ mit 
 		$y_n \to y$ gibt und diese wegen \eqref{eq:2.5} auch gegen $z$ 
 		konvergiert, folgt die Gleichheit von $y$ und $z$.
 		
 		Die Stetigkeit von $\varphi$ folgt direkt, weil die 
-		Komponentenfunktionen $x \mapsto \min(1, d(x, x_n))$ jeweils stetig sind. 
+		Komponentenfunktionen $x \mapsto \min\set{1, d(x, x_n)}$ jeweils stetig sind. 
 		Seien nun $(y_k)_k \in X^\N$ und $y \in X$ mit $\varphi(y_k) \to \varphi(y)$, 
 		also
-		\[\min(1, d(y_k, x_n)) \; \to \; \min(1, d(y, x_n)), 
+		\[\min\set{1, d(y_k, x_n)} \; \to \; \min\set{1, d(y, x_n)}, 
 		\quad k \to \infty \label{eq:2.6} \tag{2.6}\]
 		für alle $n \in \N$. Wählt man nun $\varepsilon < 1$ beliebig, 
 		so existiert ein $n \in \N$ mit $d(y, x_n) \leq \varepsilon$. 
 		Wegen \eqref{eq:2.6} ist dann auch
-		$d(y_k, x_n) \to d(y, x_k), \; k \to \infty$. Es gilt also die Ungleichung
+		$d(y_k, x_n) \to d(y, x_n), \; k \to \infty$. Es gilt also die Ungleichung
 		$$\limsup_{k \to \infty} d(y_k, y) \; \leq \; 
 		\limsup_{k \to \infty} d(y_k, x_n) + d(y, x_n) \; \leq \; 2\varepsilon$$
 		und mit $\varepsilon \to 0$ folgt die Stetigkeit von $\varphi^{-1}$, 
@@ -376,33 +377,34 @@
 	\begin{proof}[Beweis von Satz~\ref{thm:characterizationpolishspaces}]
 		Da wir in Hilfssatz~\ref{lem:characterizationpolishspaces} bereits 
 		gesehen haben, dass jeder separable metrisierbare Raum homöomorph zu einer 
-		Teilmenge vom Hilbertwürfel $H$ ist und jede Teilmenge von $H$ separabel und metrisierbar ist,
-		folgt direkt die erste Aussage von Satz~\ref{thm:characterizationpolishspaces}. 
+		Teilmenge des Hilbertwürfels $H$ ist und jede Teilmenge von $H$ separabel und metrisierbar ist,
+		folgt der erste Teil von Satz~\ref{thm:characterizationpolishspaces}. 
 		
 		Sei $X$ nun ein polnischer Raum und fixiere eine Metrik $d$, die $X$ vollständig metrisiert. 
-		Nach Hilfssatz~\ref{lem:characterizationpolishspaces} ist $X$ nun via $\fct{\varphi}{X}{H}$ aus \eqref{eq:2.6}
+		Nach Hilfssatz~\ref{lem:characterizationpolishspaces} ist $X$ via $\fct{\varphi}{X}{H}$ aus \eqref{eq:2.6}
 		homöomorph zu einer Teilmenge von $H$ und da $H$ selbst polnisch ist, muss $\varphi(X) \subseteq H$ nach 
-		Satz~\ref{thm:characterizationpolishspaces} eine $G_\delta$-Teilmenge sein.
+		Satz~\ref{thm:gdeltasubsetsofpolishspaces} eine $G_\delta$-Teilmenge sein.
 		Ferner folgt aus demselben Satz, dass jede $G_\delta$-Teilmenge von $H$ polnisch ist.
 	\end{proof}
 	
 	\subsection{Borel-Maße auf topologischen Räumen}
 	
-	Nun wenden wir uns (endlichen) Borel-Maßen auf topologischen bzw. metrischen Räumen zu. Da diese den primären Betrachtungsgegenstand dieser
+	Nun wenden wir uns (endlichen) Borel-Maßen auf topologischen bzw. metrischen Räumen zu. Da diese den primären Betrachtungsgegenstand der
 	Arbeit darstellen, möchten wir zunächst einige Begriffe definieren, Schreibweisen festlegen, und - zumindest im Falle von metrischen Räumen - eine im Folgenden sehr 
 	hilfreiche Eigenschaft dieser Maße, die \emph{(Schwache) Regularität} vorstellen.
 	
-	Wieder möchten wir uns an den relevanten Teilen von \cite[Kapitel 4.14]{Simon.2015} orientieren.
+	Wieder werden wir uns an den relevanten Teilen von \cite[Kapitel 4.14]{Simon.2015} orientieren.
 	
 	\begin{Definition}[Borel-$\sigma$-Algebra]
 		\label{def:borelsigmaalg}
 		Sei $X$ ein topologischer Raum mit Topologie $\mathcal{O}$. Dann definieren wir die
 		\emph{Borel-$\sigma$-Algebra} 
-		$$\mathcal{B}(X) = \mathcal{B} \defby \sigma(\mathcal{O}) \text{.}$$
+		$$\mathcal{B}(X) = \mathcal{B} \defby \sigma(\mathcal{O})$$
+		als die kleinste $\sigma$-Algebra auf $X$, die $\mathcal{O}$ umfasst.
 	\end{Definition}
 
 	\begin{Definition}[Borel-Maße]
-		In der Situation von Definition~\ref{def:borelsigmaalg} nennen wir Maße auf $\mathcal{B}(X)$ \emph{Borel-Maße} und wir führen außerdem die Schreibweisen
+		In der Situation von Definition~\ref{def:borelsigmaalg} nennen wir Maße auf $\mathcal{B}(X)$ \emph{Borel-Maße}. Wir führen außerdem die Schreibweisen
 		\begin{align*}
 			\Finitemeasures{X}  \; &\defby \; \setcomp{\fct{\mu}{\mathcal{B}(X)}{[0,\infty)}}{\mu \; 
 				\text{ist endliches Maß}} \\
@@ -422,12 +424,12 @@
 	\end{Definition}
 	
 	\begin{Bemerkung}
-		Sei $X$ ein metrischer Raum. Offensichtlich ist dann $\Bduniffct{X} \subseteq \Bdcontfct{X}$, allerdings hängt $\Bduniffct{X}$ im Gegensatz 
+		Sei $X$ ein metrischer Raum. Sicherlich ist dann $\Bduniffct{X} \subseteq \Bdcontfct{X}$, allerdings hängt $\Bduniffct{X}$ im Gegensatz 
 		zu $\Bdcontfct{X}$ von der Metrik selbst und nicht ausschließlich von der Topologie ab.
 	\end{Bemerkung}
 	
-	Wie angekündigt werden wir uns im Folgenden mit der (schwachen) Regularität von endlichen Borel-Maßen auseinandersetzen. 
-	Hierbei handelt es sich um eine Approximationseigenschaft von Maßen, die es uns etwa erlaubt, gewisse Aussagen 
+	Wie angekündigt werden wir uns im Folgenden mit der \emph{(schwachen) Regularität} von endlichen Borel-Maßen auseinandersetzen. 
+	Hierbei handelt es sich um eine Approximationseigenschaft, die es uns etwa erlaubt, gewisse Aussagen 
 	zunächst für abgeschlossene bzw. kompakte und für offene Mengen zu zeigen, um diese 
 	anschließend auf ganz $\mathcal{B}(X)$ auszuweiten. 
 	
@@ -472,7 +474,7 @@
 	
 	\begin{proof}
 		Wir stellen eine Anpassung des Beweises von 
-		\cite[Lemma 4.5.5]{Simon.2015} vor, wo die entsprehende Aussage mit \enquote{regulär} 
+		\cite[Lemma 4.5.5]{Simon.2015} vor, wo die entsprechende Aussage mit \enquote{regulär} 
 		anstelle \enquote{schwach regulär} für kompakte $X$ bewiesen wird.
 		
 		Offensichtlich liegen $\emptyset$ und $X$ in $\mathcal{S}$. Sei 
@@ -526,7 +528,7 @@
 		Es ist nun zu zeigen, dass für jedes endliche Borel-Maß $\mu$ auf $X$
 		die Menge 
 		$$\mathcal{S} \defby \setcomp{B \in \mathcal{B}(X)}{B \text{ schwach regulär bzgl. } \mu}$$
-		bereits ganz $\mathcal{B}$ ist. 
+		bereits ganz $\mathcal{B}(X)$ ist. 
 		Da $\mathcal{S}$ nach Hilfssatz~\ref{lem:sigmaalg} eine 
 		$\sigma$-Algebra ist und 
 		$\mathcal{B}(X)$ von den abgeschlossenen Mengen erzeugt wird, genügt es zu zeigen, 
@@ -541,7 +543,7 @@
 	\end{proof}
 
 	\begin{Bemerkung}
-		Handelt es sich in der Situation von Satz~\ref{thm:weakregularity} bei $X$um einen polnischen Raum, 
+		Handelt es sich in der Situation von Satz~\ref{thm:weakregularity} bei $X$ um einen polnischen Raum, 
 		so werden wir zu einem späteren Zeitpunkt (in Folgerung~\ref{kor:polishregular}) noch sehen, dass hier tatsächlich sogar Regularität gilt.
 	\end{Bemerkung}
 	
@@ -558,7 +560,7 @@
 			\item $\mu = \nu$.
 			\item Für alle $f \in \Bduniffct{X}$ ist
 			$\measureint{}{f}{\mu} = \measureint{}{f}{\nu}$.
-			\item Für alle abgeschlossenen Mengen $C \in \mathcal{B}$ ist $\mu(C) = \nu(C)$.
+			\item Für alle abgeschlossenen Mengen $C \subseteq X$ ist $\mu(C) = \nu(C)$.
 		\end{equivalentthm}
 	\end{Satz}
 	
@@ -567,7 +569,7 @@
 		$\Rightarrow$ (i) folgt aus Satz~\ref{thm:weakregularity}.
 		
 		(ii) $\Rightarrow$ (iii): Gelte (ii) und sei $C \subseteq X$ abgeschlossen. 
-		Dann gilt für die gleichmäßig stetigen Funktionen $f_n \in \Bdcontfct{X}$ aus Hilfssatz~\ref{lem:opensets}
+		Dann gilt für die Funktionen $f_n \in \Bduniffct{X}$ aus Hilfssatz~\ref{lem:opensets}
 		$$\measureint{}{f_n}{\mu} = \measureint{}{f_n}{\nu}\text{,} \quad n \in \N \text{.}$$
 		Wegen $| f_n | \leq 1$ und $f_n \convdown \indfct_C$ folgt mit dem Satz von Lebesgue 
 		$$\measureint{}{f_n}{\mu} \; \to \; \mu(C) \quad \text{und} \quad \measureint{}{f_n}{\nu} 
