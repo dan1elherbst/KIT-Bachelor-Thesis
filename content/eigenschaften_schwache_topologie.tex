@@ -4,40 +4,50 @@
 	
 	\section{Eigenschaften der schwachen Topologie}
 	
-	Nachdem wir im vorigen Abschnitt die schwache Topologie definiert haben, möchten wir uns nun einige Eigenschaften dieser ansehen, wenn man weitere Bedingungen an den Grundraum $X$ stellt. Unsere zentralen Erkenntnisse werden die folgenden Aussagen sein:
+	Nachdem wir im vorigen Abschnitt die schwache Topologie definiert haben, möchten wir uns nun einige Eigenschaften dieser ansehen, wenn man weitere Bedingungen an den Grundraum $X$ stellt. 
+	Als Grundbedingung möchten wir in diesem Kapitel die Metrisierbarkeit von $X$ fordern.
+	Unter dieser Voraussetzung werden die folgenden Aussagen unsere zentralen Erkenntnisse sein:
 	\begin{itemize}
-		\item Ist $X$ kompakt und metrisierbar, so ist $\Probmeasures{X}$ kompakt.
-		\item Ist $X$ separabel und metrisierbar, so ist auch $\Finitemeasures{X}$ separabel und metrisierbar.
-		\item Ist $X$ polnisch, so ist auch $\Finitemeasures{X}$ polnisch.
+		\item $\Finitemeasures{X}$ ist genau dann metrisierbar und separabel, wenn $X$ separabel ist.
+		\item $\Finitemeasures{X}$ ist genau dann polnisch, wenn $X$ polnisch ist.
+		\item $\Probmeasures{X}$ ist genau dann metrisierbar und kompakt, wenn $X$ kompakt ist.
 	\end{itemize}
 	Abgesehen von Satz~\ref{thm:compactimpliescompactmeasures} orientieren wir uns in diesem Abschnitt an \cite{Varadarajan.1958}.
 	
-	Wir beginnen mit der ersten Aussage, dessen Beweis die Charakterisierung der schwachen Topologie als Schwach-$\ast$-Topologie aus Abschnitt~\ref{subsec:BeziehungSchwachStern} verwendet.
-	
 	\begin{Satz}
-		\label{thm:compactimpliescompactmeasures}
-		Sei $X$ ein kompakter metrisierbarer topologischer Raum. Dann ist auch $\Probmeasures{X}$ kompakt.
+		\label{thm:embeddingdiracmeasures}
+		Sei $X$ ein metrisierbarer topologischer Raum. Für $x \in X$ schreiben wir $\delta_x \in \Probmeasures{X}$ für das Dirac-Maß im Punkt $x$ und definieren
+		\[ \fctmap{\delta}{X}{\Finitemeasures{X}}{x}{\delta_x} \text{.} \]
+		Außerdem setzen wir $\Delta \defby \delta(X) = \setcomp{\delta_x}{x \in X}$. Dann gelten die folgenden Aussagen:
+		\begin{enumeratethm}
+			\item $\delta$ ist ein Homöomorphismus zwischen $X$ und $\Delta$.
+			\item $\Delta \subseteq \Finitemeasures{X}$ ist sequentiell abgeschlossen.
+		\end{enumeratethm}
 	\end{Satz}
-	
+
 	\begin{proof}
-		Im Wesentlichen stellen wir den Beweis von Proposition 5.3 in \cite{vanGaans.200203} vor.
+		Wir beweisen zunächst Aussage (a). Weil $X$ metrisierbar ist und die einelementigen Mengen $\set{x}, \; x \in X$ daher in $\mathcal{B}(X)$ enthalten sind, ist $\delta$ sicherlich injektiv.
+		Wegen Satz~\ref{thm:netconvergence} (b)) genügt es nachzuweisen, dass für jedes Netz $(x_\iota)_\iota$ in $X$ sowie $z \in X$ die Äquivalenz
+		\[ x_\iota \to z \quad \iff \quad \delta_{x_\iota} \xrightarrow{w} \delta_z, \quad \iota \to \infty \]
+		gilt. 
 		
-		Sei zunächst $X$ kompakt. Wähle eine Metrik $d$, die $X$ metrisiert.
-		Wir setzen
-		\[ A \; \defby \; \setcomp{l \in \Bdcontfct{X}^\ast}{\norm{l}_{\Bdcontfct{X}^\ast} \leq 1, \; l(\indfct_{X}) = 1, \; 
-			\forall f \in \Bdcontfct{X} \text{ mit } f \geq 0 : l(f) \geq 0}\]
-		und analog zu \eqref{5.1}
-		\[ \fctmap{\Phi}{\Probmeasures{X}}{A}{\mu}{\left[\fctmap{l_\mu}{\Bdcontfct{X}}{\R}{f}{\measureint{}{f}{\mu}}\right]} \text{.} \]
-		Der Darstellungssatz von Riesz-Markov liefert die Bijektivität von $\Phi$, also ist $\Phi$ ein 
-		Homöomorphismus zwischen $\Probmeasures{X}$ und $A \subseteq \Bdcontfct{X}^\ast$ 
-		mit der Schwach-$\ast$-Topologie. Mit dem Satz von Banach-Alaoglu folgt nun, dass $A$ als abgeschlossene Teilmenge der kompakten Menge 
-		$\setcomp{l \in C_b(X)^\ast}{\norm{l}_{\Bdcontfct{X}^\ast} \leq 1}$ selbst kompakt bezüglich der Schwach-$\ast$-Topologie ist, 
-		was schließlich die Kompaktheit von $\Probmeasures{X}$ nach sich zieht.
+		Gelte für ein Netz $(x_\iota)_\iota$ in $X$ und $z \in X$ die Konvergenz $x_\iota \to z$ und sei $f \in \Bdcontfct{X}$. Dann ist
+		\[ \measureint{}{f}{\delta_{x_\iota}} \; = \; f(x_\iota) \; \to \; f(z) = \measureint{}{f}{\delta_{z}}, \quad \iota \to \infty \text{,} \]
+		also konvergiert $\delta_{x_\iota}$ schwach gegen $\delta_z$. Gelte umgekehrt $\delta_{x_\iota} \xrightarrow{w} \delta_z$. Wähle eine Metrik $d$, die $X$ metrisiert und
+		setze $f \defby \min \set{1, d(\cdot, z)} \in \Bdcontfct{X}$. Dann ist 
+		\[ \min \set{1, d(x_\iota, z)} \; = \; \measureint{}{f}{\delta_{x_\iota}} \; \to \; \measureint{}{f}{\delta_{z}} = 0 \text{,} \]
+		was $x_\iota \to z$ nach sich zieht.
+		
+		Nun möchten wir Aussage (b) zeigen. Sei $(x_n)_n \in X^\N$ und sei $\mu \in \Finitemeasures{X}$ mit $\delta_{x_n} \xrightarrow{w} \mu$, $n \to \infty$. Zunächst gilt sicherlich $\mu \in \Probmeasures{X}$.
+		Wir zeigen, dass $(x_n)_n$ eine konvergente Teilfolge besitzen muss. Ansonsten ist nämlich $D \defby \setcomp{x_n}{n \in \N} \subseteq X$ eine unendliche und abgeschlossene Teilmenge. Das Portmanteau-Theorem (Satz~\ref{thm:portmanteau}) liefert also für jede unendliche Teilmenge $\tilde{D} \subseteq D$ die Abschätzung
+		\[ 1 \; = \; \limsup_{n \to \infty} \delta_{x_n}(\tilde{D}) \; \leq \; \mu(\tilde{D}) \; \leq \; 1 \text{,} \]
+		die einen Widerspruch darstellt. Also existiert eine Teilfolge $(x_{n_k})_k$ und $x \in X$ mit $x_{n_k} \to x, \; x \to \infty$. Damit ist aber auch $\delta_{x_n} \xrightarrow{w} \delta_x$, weshalb nach
+		Satz~\ref{thm:measureequality} die Gleichheit $\mu = \delta_x \in \Delta$ folgt.
 	\end{proof}
 	
 	\begin{Satz}
 		\label{thm:finitemeasuresmetrizableseparable}
-		Sei $X$ ein separabler und metrisierbarer topologischer Raum. Dann ist auch $\Finitemeasures{X}$ separabel und metrisierbar.
+		Sei $X$ ein metrisierbarer topologischer Raum. Dann ist $\Finitemeasures{X}$ ist genau dann metrisierbar und separabel, wenn $X$ separabel ist.
 	\end{Satz}
 
 	Für den Beweis benötigen wir zunächst noch einige wenige Hilfssätze, die wir im Folgenden vorstellen möchten.
@@ -76,7 +86,7 @@
 	Ausgestattet mit den obigen Hilfssätzen können wir nun zum Beweis von Satz~\ref{thm:finitemeasuresmetrizableseparable} übergehen. Im Wesentlichen werden wir eine Einbettung von $\Finitemeasures{X}$ nach $R$ konstruieren, die uns unmittelbar die Behauptung liefert.
 	
 	\begin{proof}[Beweis von Satz~\ref{thm:finitemeasuresmetrizableseparable}]
-		Wir fixieren auf $X$ eine Metrik $d$, die $X$ metrisiert. Nach Hilfsssatz~\ref{lem:characterizationpolishspaces} existiert dann ein Homöomorphismus $\fct{\varphi}{X}{H}$ von
+		Für die Hinrichtung fixieren wir auf $X$ eine Metrik $d$, die $X$ metrisiert. Nach Hilfsssatz~\ref{lem:characterizationpolishspaces} existiert dann ein Homöomorphismus $\fct{\varphi}{X}{H}$ von
 		$X$ auf eine Teilmenge $\varphi(X)$ des Hilbertwürfels $H$. Wir wählen nun die Metrik $\rho$ aus Hilfssatz~\ref{lem:hilbertcube} auf $H$. Aufgrund der Kompaktheit von $H$ ist
 		$(H, \rho)$ totalbeschränkt und damit auch jede Teilmenge von $H$. Also können wir über $\rho$ eine Metrik $\tilde{d}$ auf $X$ einführen, sodass $X$ von $\tilde{d}$ 
 		metrisiert wird und $(X, \tilde{d})$ totalbeschränkt ist. Im Folgenden sei auf $X$ diese Metrik fixiert. Hilfssatz~\ref{lem:bduniffctbanach} liefert uns nun, dass 
@@ -122,9 +132,18 @@
 		folgt. Damit gilt 
 		\[ \measureint{}{f}{\mu_\iota} \; \to \; \measureint{}{f}{\mu}, \quad \iota \to \infty \]
 		für alle $f \in \Bduniffct{X}$, was nach Satz~\ref{thm:portmanteau} die schwache Konvergenz $\mu_\iota \xrightarrow{w} \mu, \; \iota \to \infty$ impliziert.
+		
+		Die Rückrichtung folgt direkt aus Satz~\ref{thm:embeddingdiracmeasures}, da die Separabilität von $\Finitemeasures{X}$ direkt auch die Separabilität von $X \cong \Delta \subseteq \Finitemeasures{X}$ nach sich zieht.
 	\end{proof}
 
-	Wir werden uns nun noch der dritten Aussage vom Beginn dieses Abschnittes widmen. Diese zeigen wir zunächst für den wichtigen Spezialfall, dass der Grundraum $X$ kompakt ist und weiten sie anschließend auf die Klasse aller polnischen Räume aus.
+	Wir werden uns nun der zweiten Aussage vom Beginn dieses Abschnittes widmen. 
+	
+	\begin{Satz}
+		\label{thm:finitemeasurespolish}
+		Sei $X$ ein metrisierbarer topologischer Raum. Dann ist $\Finitemeasures{X}$ genau dann polnisch, wenn $X$ polnisch ist.
+	\end{Satz}
+	
+	Für die Hinrichtung zeigen wir in einem Hilfssatz zunächst den wichtigen Spezialfall, dass der Grundraum $X$ kompakt ist und weiten dies anschließend auf die Klasse aller polnischen Räume aus.
 
 	\begin{Hilfssatz}
 		\label{lem:compactimpliespolishmeasures}
@@ -157,14 +176,10 @@
 		für alle $n \in \N$. In völliger Analogie zum Beweis von Satz~\ref{thm:finitemeasuresmetrizableseparable} folgt nun die schwache Konvergenz $\mu_\iota \xrightarrow{w} \mu, \; \iota \to \infty$,
 		die wiederum $T(\mu_\iota) \to T(\mu)$ impliziert. Demnach ist $r = T(\mu) \in T(\Finitemeasures{X})$ und insgesamt haben wir gezeigt, dass $T(\Finitemeasures{X}) \subseteq R$ abgeschlossen ist.
 	\end{proof}
-	
-	\begin{Satz}
-		\label{thm:finitemeasurespolish}
-		Sei $X$ ein polnischer Raum. Dann ist auch $\Finitemeasures{X}$ polnisch.
-	\end{Satz}
 
-	\begin{proof}
-		Analog zum Beweis von Satz~\ref{thm:finitemeasuresmetrizableseparable} fixieren wir auf $X$ eine Metrik $\tilde{d}$, bezüglich der $X$ totalbeschränkt ist und
+	\begin{proof}[Beweis von Satz~\ref{thm:finitemeasurespolish}]
+		Wir widmen uns zunächst der Hinrichtung des Beweises. Analog zum Beweis von Satz~\ref{thm:finitemeasuresmetrizableseparable} fixieren wir auf 
+		$X$ eine Metrik $\tilde{d}$, bezüglich der $X$ totalbeschränkt ist und
 		bezeichnen die Vervollständigung von $X$ bezüglich dieser Metrik mit $\tilde{d}$. $\tilde{X}$ ist als kompakter metrischer Raum polnisch, weshalb $X \subseteq \tilde{X}$
 		nach Satz~\ref{thm:gdeltasubsetsofpolishspaces} eine $G_\delta$-Teilmenge ist. Indem wir ein Maß $\mu \in \Finitemeasures{X}$ mittels 
 		$\mu(B) \defby \mu(B \cap X), \; B \in \mathcal{B}(\tilde{X})$ auf $\tilde{X}$ fortsetzen, können wir $\Finitemeasures{X}$ als Teilmenge von $\Finitemeasures{\tilde{X}}$
@@ -187,10 +202,40 @@
 		Dann ist $\mu_\iota(U_k^{\mathsf{c}}) \geq \frac{1}{r}$ für alle $\iota \in I$ und damit nach dem Portmanteau-Theorem (Satz~\ref{thm:portmanteau} (iii))
 		\[ \mu(U_k^{\mathsf{c}}) \; \geq \; \limsup_{\iota \to \infty} \mu_\iota(U_k^{\mathsf{c}}) \; \geq \; \frac{1}{r} \text{,} \]
 		was $\mu \in C_{k, r}$ impliziert. Daher ist $C_{k, r}$ für alle $k, r \in \N$ abgeschlossen und der Beweis vollständig.
+		
+		Die Rückrichtung folgt wieder unmittelbar aus Satz~\ref{thm:embeddingdiracmeasures}: Ist $\Finitemeasures{X}$ polnisch, 
+		so ist betrachten wir $X \cong \Delta \subseteq \Finitemeasures{X}$. Weil $\Delta$ wegen der Metrisierbarkeit von $\Finitemeasures{X}$ nun auch abgeschlossen und damit nach 
+		Satz~\ref{lem:opensets} eine $G_\delta$-Teilmenge von $\Finitemeasures{X}$ ist, liefert Satz~\ref{thm:gdeltasubsetsofpolishspaces} die Behauptung.
 	\end{proof}
 
 	\begin{Bemerkung}
-		Da $\Probmeasures{X} \subseteq \Finitemeasures{X}$ eine abgeschlossene Teilmenge ist, gelten die Aussagen von Satz~\ref{thm:finitemeasuresmetrizableseparable} und Satz~\ref{thm:finitemeasurespolish} auch für $\Probmeasures{X}$.
+		Satz~\ref{thm:finitemeasuresmetrizableseparable} und Satz~\ref{thm:finitemeasurespolish} gelten auch, wenn man $\Finitemeasures{X}$ durch $\Probmeasures{X}$ ersetzt 
+		(für Satz~\ref{thm:finitemeasurespolish} folgt dies aus der Abgeschlossenheit von $\Probmeasures{X} \subseteq \Finitemeasures{X}$ und Hilfssatz~\ref{lem:opensets}).
 	\end{Bemerkung}
+
+	\begin{Satz}
+		\label{thm:compactimpliescompactmeasures}
+		Sei $X$ ein metrisierbarer topologischer Raum. Dann ist $\Probmeasures{X}$ genau dann metrisierbar und kompakt, wenn $X$ kompakt ist.
+	\end{Satz}
+	
+	\begin{proof}
+		Im Wesentlichen stellen wir den Beweis von Proposition 5.3 in \cite{vanGaans.200203} vor.
+		
+		Für die Hinrichtung sei $X$ zunächst kompakt. Dann ist $X$ insbesondere separabel und damit ist $\Probmeasures{X}$ 
+		nach Satz~\ref{thm:finitemeasuresmetrizableseparable} metrisierbar.
+		Außerdem setzen wir
+		\[ A \; \defby \; \setcomp{l \in \Bdcontfct{X}^\ast}{\norm{l}_{\Bdcontfct{X}^\ast} \leq 1, \; l(\indfct_{X}) = 1, \; 
+			\forall f \in \Bdcontfct{X} \text{ mit } f \geq 0 : l(f) \geq 0}\]
+		und analog zu \eqref{5.1}
+		\[ \fctmap{\Phi}{\Probmeasures{X}}{A}{\mu}{\left[\fctmap{l_\mu}{\Bdcontfct{X}}{\R}{f}{\measureint{}{f}{\mu}}\right]} \text{.} \]
+		Der Darstellungssatz von Riesz-Markov liefert die Bijektivität von $\Phi$, also ist $\Phi$ ein 
+		Homöomorphismus zwischen $\Probmeasures{X}$ und $A \subseteq \Bdcontfct{X}^\ast$ 
+		mit der Schwach-$\ast$-Topologie. Mit dem Satz von Banach-Alaoglu folgt nun, dass $A$ als abgeschlossene Teilmenge der kompakten Menge 
+		$\setcomp{l \in C_b(X)^\ast}{\norm{l}_{\Bdcontfct{X}^\ast} \leq 1}$ selbst kompakt bezüglich der Schwach-$\ast$-Topologie ist, 
+		was schließlich die Kompaktheit von $\Probmeasures{X}$ nach sich zieht.
+		
+		Die Rückrichtung ist wieder eine direkte Konsequenz aus Satz~\ref{thm:embeddingdiracmeasures}: Ist $\Probmeasures{X}$ metrisierbar und kompakt, so ist 
+		$X \cong \Delta$ als abgeschlossene Teilmenge von $\Probmeasures{X}$ kompakt.
+	\end{proof}
 	
 \end{document}
