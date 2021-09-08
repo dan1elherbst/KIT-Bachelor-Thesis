@@ -12,7 +12,7 @@
 		\item $\Finitemeasures{X}$ ist genau dann polnisch, wenn $X$ polnisch ist.
 		\item $\Probmeasures{X}$ ist genau dann metrisierbar und kompakt, wenn $X$ kompakt ist.
 	\end{itemize}
-	Abgesehen von Satz~\ref{thm:compactimpliescompactmeasures} orientieren wir uns in diesem Abschnitt an \cite{Varadarajan.1958}.
+	Abgesehen von Satz~\ref{thm:compactimpliescompactmeasures}, bei dem wir im Wesentlichen \cite{vanGaans.200203} folgen, orientieren wir uns in diesem Abschnitt an \cite{Varadarajan.1958}.
 	
 	\begin{Satz}
 		\label{thm:embeddingdiracmeasures}
@@ -27,11 +27,11 @@
 
 	\begin{proof}
 		Wir beweisen zunächst Aussage (a). Weil $X$ metrisierbar ist und die einelementigen Mengen $\set{x}, \; x \in X$ daher in $\mathcal{B}(X)$ enthalten sind, ist $\delta$ sicherlich injektiv.
-		Wegen Satz~\ref{thm:netconvergence} (b)) genügt es nachzuweisen, dass für jedes Netz $(x_\iota)_\iota$ in $X$ sowie $z \in X$ die Äquivalenz
+		Wegen Satz~\ref{thm:netconvergence} (b) genügt es nachzuweisen, dass für jedes Netz $(x_\iota)_\iota$ in $X$ sowie $z \in X$ die Äquivalenz
 		\[ x_\iota \to z \quad \iff \quad \delta_{x_\iota} \xrightarrow{w} \delta_z, \quad \iota \to \infty \]
 		gilt. 
 		
-		Gelte für ein Netz $(x_\iota)_\iota$ in $X$ und $z \in X$ die Konvergenz $x_\iota \to z$ und sei $f \in \Bdcontfct{X}$. Dann ist
+		Sei  $(x_\iota)_\iota$ ein Netz in $X$, das gegen $z \in X$ konvergiert und sei $f \in \Bdcontfct{X}$. Dann ist
 		\[ \measureint{}{f}{\delta_{x_\iota}} \; = \; f(x_\iota) \; \to \; f(z) = \measureint{}{f}{\delta_{z}}, \quad \iota \to \infty \text{,} \]
 		also konvergiert $\delta_{x_\iota}$ schwach gegen $\delta_z$. Gelte umgekehrt $\delta_{x_\iota} \xrightarrow{w} \delta_z$. Wähle eine Metrik $d$, die $X$ metrisiert und
 		setze $f \defby \min \set{1, d(\cdot, z)} \in \Bdcontfct{X}$. Dann ist 
@@ -39,9 +39,9 @@
 		was $x_\iota \to z$ nach sich zieht.
 		
 		Nun möchten wir Aussage (b) zeigen. Sei $(x_n)_n \in X^\N$ und sei $\mu \in \Finitemeasures{X}$ mit $\delta_{x_n} \xrightarrow{w} \mu$, $n \to \infty$. Zunächst gilt sicherlich $\mu \in \Probmeasures{X}$.
-		Wir zeigen, dass $(x_n)_n$ eine konvergente Teilfolge besitzen muss. Ansonsten ist nämlich $D \defby \setcomp{x_n}{n \in \N} \subseteq X$ eine unendliche und abgeschlossene Teilmenge. Das Portmanteau-Theorem (Satz~\ref{thm:portmanteau}) liefert also für jede unendliche Teilmenge $\tilde{D} \subseteq D$ die Abschätzung
+		Außerdem muss $(x_n)_n$ eine konvergente Teilfolge besitzen. Ansonsten ist nämlich $D \defby \setcomp{x_n}{n \in \N} \subseteq X$ eine unendliche und abgeschlossene Teilmenge. Das Portmanteau-Theorem (Satz~\ref{thm:portmanteau}) liefert also für jede unendliche Teilmenge $\tilde{D} \subseteq D$ die Abschätzung
 		\[ 1 \; = \; \limsup_{n \to \infty} \delta_{x_n}(\tilde{D}) \; \leq \; \mu(\tilde{D}) \; \leq \; 1 \text{,} \]
-		die einen Widerspruch darstellt. Also existiert eine Teilfolge $(x_{n_k})_k$ und $x \in X$ mit $x_{n_k} \to x, \; x \to \infty$. Damit ist aber auch $\delta_{x_n} \xrightarrow{w} \delta_x$, weshalb nach
+		die einen Widerspruch darstellt. Also existiert eine Teilfolge $(x_{n_k})_k$ und $x \in X$ mit $x_{n_k} \to x, \; x \to \infty$. Damit ist aber auch $\delta_{x_{n_k}} \xrightarrow{w} \delta_x$, weshalb nach
 		Satz~\ref{thm:measureequality} die Gleichheit $\mu = \delta_x \in \Delta$ folgt.
 	\end{proof}
 	
@@ -54,11 +54,12 @@
 	
 	\begin{Hilfssatz}
 		\label{lem:bdcontfctbanach}
-		Sei $X$ ein topologischer Raum. Dann ist $(\Bdcontfct{X}, \norm{\cdot}_\infty)$ ein Banachraum. Ist $X$ kompakt, so ist $\Bdcontfct{X}$ separabel.
+		Sei $X$ ein metrisierbarer topologischer Raum. Dann ist $(\Bdcontfct{X}, \norm{\cdot}_\infty)$ ein Banachraum. Ist $X$ kompakt, so ist $\Bdcontfct{X}$ separabel.
 	\end{Hilfssatz}
 
 	\begin{proof}
-		\tobechanged{Ohne Beweis.}
+		Sicherlich ist $(\Bdcontfct{X}, \norm{\cdot}_\infty)$ ein normierter Vektorraum. Siehe \cite[Satz 2.1.6]{Simon.2015} für die Vollständigkeit und
+		\cite[Satz 2.3.7]{Simon.2015} für die Separabilität bei kompaktem $X$.
 	\end{proof}
 	
 	\begin{Hilfssatz}
@@ -76,17 +77,19 @@
 	\begin{Hilfssatz}
 		\label{lem:R}
 		Sei $R \defby \R^\N$ ausgestattet mit der Produkttopologie von $\R$, also mit der Initialtopologie der Projektionen $\fctmap{\pi_k}{R}{\R}{x = (x_n)_n}{x_k}, \; k \in \N$. Dann ist $R$ 
-		separabel und metrisierbar.
+		polnisch.
 	\end{Hilfssatz}
 	
 	\begin{proof}
-		$R \cong (0, 1)^\N$ ist homöomorph zu einer Teilmenge des Hilbertwürfels $H$, worauf mit Satz~\ref{thm:characterizationpolishspaces} unmittelbar die Behauptung folgt.
+		\[R \; \cong \; (0, 1)^\N \; = \; \bigcap_{n \in \N}  \left( (0, 1)^n \times \prod_{n+1}^{\infty} [0,1] \right) \]
+		ist homöomorph zu einer $G_\delta$-Teilmenge des Hilbertwürfels, worauf mit Satz~\ref{thm:characterizationpolishspaces} unmittelbar die Behauptung folgt.
 	\end{proof}
 
 	Ausgestattet mit den obigen Hilfssätzen können wir nun zum Beweis von Satz~\ref{thm:finitemeasuresmetrizableseparable} übergehen. Im Wesentlichen werden wir eine Einbettung von $\Finitemeasures{X}$ nach $R$ konstruieren, die uns unmittelbar die Behauptung liefert.
 	
 	\begin{proof}[Beweis von Satz~\ref{thm:finitemeasuresmetrizableseparable}]
-		Für die Hinrichtung fixieren wir auf $X$ eine Metrik $d$, die $X$ metrisiert. Nach Hilfsssatz~\ref{lem:characterizationpolishspaces} existiert dann ein Homöomorphismus $\fct{\varphi}{X}{H}$ von
+		Für die Hinrichtung fixieren wir auf $X$ eine Metrik $d$, die $X$ metrisiert. 
+		Nach Hilfsssatz~\ref{lem:characterizationpolishspaces} existiert dann ein Homöomorphismus $\fct{\varphi}{X}{H}$ von
 		$X$ auf eine Teilmenge $\varphi(X)$ des Hilbertwürfels $H$. Wir wählen nun die Metrik $\rho$ aus Hilfssatz~\ref{lem:hilbertcube} auf $H$. Aufgrund der Kompaktheit von $H$ ist
 		$(H, \rho)$ totalbeschränkt und damit auch jede Teilmenge von $H$. Also können wir über $\rho$ eine Metrik $\tilde{d}$ auf $X$ einführen, sodass $X$ von $\tilde{d}$ 
 		metrisiert wird und $(X, \tilde{d})$ totalbeschränkt ist. Im Folgenden sei auf $X$ diese Metrik fixiert. Hilfssatz~\ref{lem:bduniffctbanach} liefert uns nun, dass 
@@ -153,23 +156,25 @@
 	\begin{proof}
 		Wir wählen zunächst eine Metrik $d$, die $X$ vollständig metrisiert. Da $X$ insbesondere separabel ist, können wir zunächst genau wie 
 		im Beweis von Satz~\ref{thm:finitemeasuresmetrizableseparable} verfahren
-		(abgesehen davon, dass wir anstelle von $\tilde{d}$ direkt mit $d$ arbeiten). Für eine abzählbare dichte Teilmenge 
-		$\mathcal{D} \defby \setcomp{f_n}{n \in \N} \subseteq \Bduniffct{X}$ mit $f_1 = \indfct_X$ erhalten wir also wieder die Abbildung
+		(abgesehen davon, dass wir anstelle von $\tilde{d}$ direkt mit $d$ arbeiten). Es sei außerdem angemerkt, dass nach \cite[Satz 2.3.10]{Simon.2015} aus der Kompaktheit von $X$ die Gleichheit $\Bdcontfct{X} = \Bduniffct{X}$ folgt. Für eine abzählbare dichte Teilmenge 
+		$\mathcal{D} \defby \setcomp{f_n}{n \in \N} \subseteq \Bdcontfct{X}$ mit $f_1 = \indfct_X$ erhalten wir also wieder die Abbildung
 		\[ \fctmap{T}{\Finitemeasures{X}}{R}{\mu}{\left( \measureint{}{f_n}{\mu} \right)_{\! n}} \text{,} \]
 		die ein Homöomorphismus auf ihr Bild ist. 
 		
-		Nun möchten wir nachweisen, dass $T(\Finitemeasures{X}) \subseteq R$ abgeschlossen ist. Hierfür verwenden wir die Charakterisierung von Abgeschlossenheit 
-		durch Netze aus aus Satz~\ref{thm:netconvergence} (a). Ist $(\mu_\iota)_{\iota \in I}$ ein Netz in $\Finitemeasures{X}$ mit $T(\mu_\iota) \to r, \; \iota \to \infty$
+		Nun möchten wir nachweisen, dass $T(\Finitemeasures{X}) \subseteq R$ abgeschlossen ist, was uns sofort die Behauptung liefert, denn $R$ ist nach Hilfssatz~\ref{lem:R} selbst polnisch.
+		
+		Wir verwenden die Charakterisierung von Abgeschlossenheit 
+		durch Netze aus Satz~\ref{thm:netconvergence} (a). Ist $(\mu_\iota)_{\iota \in I}$ ein Netz in $\Finitemeasures{X}$ mit $T(\mu_\iota) \to r, \; \iota \to \infty$
 		für ein $r = (r_n)_n \in R$, so müssen wir zeigen, dass $r$ in $T(\Finitemeasures{X})$ enthalten ist. Sicherlich gilt
 		$r_n = \lim_{\iota \to \infty} \measureint{}{f_n}{\mu_\iota}$ für alle $n \in \N$ und analog zum Beweis von Satz~\ref{thm:finitemeasuresmetrizableseparable} 
 		können wir wieder eine Konstante $C < \infty$ und ein $\iota_0 \in I$ finden, sodass $\mu_\iota(X) \leq C$ für alle $\iota_0 \preceq \iota$ ist.
 		
 		Wir setzen nun $A \defby \mathrm{span}_\R \, \mathcal{D}$, was ein dichter Untervektorraum von $\Bduniffct{X}$ ist. Auf $A$ definieren wir nun
 		\[ \fctmap{l}{A}{\R}{f}{\lim_{\iota \to \infty} \measureint{}{f}{\mu_\iota}} \text{.} \]
-		Offenbar ist $l$ wohndefiniert und linear. Da $l(f) \leq C \norm{f}_\infty$ für alle $f \in \Bduniffct{X}$ gilt, folgt $l \in A^\ast$. Nach dem Satz von Hahn-Banach
+		Offenbar ist $l$ wohndefiniert und linear. Da $l(f) \leq C \norm{f}_\infty$ für alle $f \in \Bduniffct{X}$ gilt, folgt $l \in A^\ast$. Nach dem Satz von \tobechanged{Hahn-Banach}
 		existiert nun eine (eindeutige) Fortsetzung von $l$ auf ganz $\Bduniffct{X}$, die wir ab jetzt $l$ nennen. Es ist $l \in \Bduniffct{X}^\ast$ 
 		mit $\norm{l}_{\Bduniffct{X}^\ast} = \norm{l}_{A^\ast}$. Offenbar gilt $l(f) \geq 0$ für alle $f \in \Bdcontfct{X}$ mit $f \geq 0$ und damit gibt es 
-		nach dem Darstellungssatz von Riesz-Markov ein Maß $\mu \in \Finitemeasures{X}$ mit 
+		nach dem Darstellungssatz von \tobechanged{Riesz-Markov} ein Maß $\mu \in \Finitemeasures{X}$ mit 
 		\[ l(f) \; = \; \measureint{}{f}{\mu}, \quad f \in \Bduniffct{X} \text{.} \]
 		Also folgt
 		\[ \lim_{\iota \to \infty} \measureint{}{f_n}{\mu_\iota} \; = \; r_n \; = \; l(f_n) \; = \measureint{}{f_n}{\mu} \text{.} \]
@@ -210,7 +215,7 @@
 
 	\begin{Bemerkung}
 		Satz~\ref{thm:finitemeasuresmetrizableseparable} und Satz~\ref{thm:finitemeasurespolish} gelten auch, wenn man $\Finitemeasures{X}$ durch $\Probmeasures{X}$ ersetzt 
-		(für Satz~\ref{thm:finitemeasurespolish} folgt die Hinrichtung dann etwa aus der Abgeschlossenheit von $\Probmeasures{X} \subseteq \Finitemeasures{X}$ unter Verwendung von Hilfssatz~\ref{lem:opensets}).
+		(für Satz~\ref{thm:finitemeasurespolish} folgt die Hinrichtung dann etwa aus der Abgeschlossenheit von $\Probmeasures{X} \subseteq \Finitemeasures{X}$).
 	\end{Bemerkung}
 
 	\begin{Satz}
@@ -228,7 +233,7 @@
 			\forall f \in \Bdcontfct{X} \text{ mit } f \geq 0 : l(f) \geq 0}\]
 		und analog zu \eqref{5.1}
 		\[ \fctmap{\Phi}{\Probmeasures{X}}{A}{\mu}{\left[\fctmap{l_\mu}{\Bdcontfct{X}}{\R}{f}{\measureint{}{f}{\mu}}\right]} \text{.} \]
-		Der Darstellungssatz von Riesz-Markov liefert die Bijektivität von $\Phi$, also ist $\Phi$ ein 
+		Der Darstellungssatz von \tobechanged{Riesz-Markov} liefert die Bijektivität von $\Phi$, also ist $\Phi$ ein 
 		Homöomorphismus zwischen $\Probmeasures{X}$ und $A \subseteq \Bdcontfct{X}^\ast$ 
 		mit der Schwach-$\ast$-Topologie. Mit dem Satz von Banach-Alaoglu folgt nun, dass $A$ als abgeschlossene Teilmenge der kompakten Menge 
 		$\setcomp{l \in C_b(X)^\ast}{\norm{l}_{\Bdcontfct{X}^\ast} \leq 1}$ selbst kompakt bezüglich der Schwach-$\ast$-Topologie ist, 
