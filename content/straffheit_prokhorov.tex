@@ -6,6 +6,8 @@
 	
 	Das zentrale Resultat dieses Abschnitts stellt der \emph{Satz von Prokhorov} (Satz~\ref{thm:prokhorov}) dar, der für einen polnischen Raum $X$ eine einfache Charakterisierung der Kompaktheit von Teilmengen von $\Probmeasures{X}$ bereitstellt. Hierfür werden wir zunächst das Konzept der \emph{Straffheit} einführen.
 	
+	Wir orientieren uns im folgenden Abschnitt an \cite[Kapitel 4.14]{Simon.2015}.
+	
 	\begin{Definition}
 		Sei $X$ ein polnischer Raum und $\mu \in \Finitemeasures{X}$. Dann nennen wir 
 		eine Teilmenge $A \subseteq \Finitemeasures{X}$ \emph{straff}, falls es für jedes $\varepsilon > 0$ eine kompakte Teilmenge
@@ -24,11 +26,11 @@
 	\end{Satz}
 	
 	\begin{proof}
-		Sei $d$ eine Metrik, bezüglich der $(X, d)$ vollständig ist und sei 
+		Sei $d$ eine Metrik, die $X$ vollständig metrisiert und sei 
 		$\mathcal{D} \defby \setcomp{x_m}{m \in \N}$ eine abzählbare dichte Teilmenge von $X$. 
 		Für $k \in \N$ gilt also $\bigcup_{m \in \N} B_{1/k}(x_m) = X$ und Maßstetigkeit 
 		von unten impliziert 
-		$\lim_{M \to \infty} \bigcup_{m=1}^{M} B_{1/k}(x_m) = \mu(X)$.
+		$\lim_{M \to \infty} \mu(\bigcup_{m=1}^{M} B_{1/k}(x_m)) = \mu(X)$.
 		
 		Sei nun $\varepsilon > 0$. Dann finden wir natürliche Zahlen $M_1 \leq M_2 \leq \dots$ mit
 		\[ \mu\left( \bigcup_{m=1}^{M_k} B_{1/k}(x_m) \right) \; \geq \; \mu(X) - \frac{\varepsilon}{2^k} \]
@@ -48,7 +50,7 @@
 		Weil $\varepsilon > 0$ beliebig gewählt war, ist $\mu$ also straff.
 	\end{proof}
 	
-	Ohne große Mühe liefert uns der vorige Satz die Aussage, dass endliche Borel-Maße auf polnischen Räumen regulär sind:
+	Ohne große Mühen liefert uns der vorige Satz nun, dass endliche Borel-Maße auf polnischen Räumen regulär sind.
 	
 	\begin{Folgerung}
 		\label{kor:polishregular}
@@ -56,8 +58,8 @@
 	\end{Folgerung}
 	
 	\begin{proof}
-		Sei $\mu \in \Probmeasures{X}$ und $B \in \mathcal{B}(X)$. 
-		Wegen \ref{thm:weakregularity} wissen wir bereits, dass 
+		Sei $\mu \in \Finitemeasures{X}$ und $B \in \mathcal{B}(X)$. 
+		Wegen Satz~\ref{thm:weakregularity} wissen wir bereits, dass 
 		\[\mu(B) = \sup_{\substack{C \subseteq B \\ C \text{ abgeschlossen}}} \mu(C) 
 		\quad \text{bzw.} \quad \mu(B) = \inf_{\substack{U \supseteq B \\ U \text{ offen}}} 
 		\mu(U)\]
@@ -81,21 +83,16 @@
 	
 	\begin{Satz}[Prokhorov]
 		\label{thm:prokhorov}
-		Sei $X$ ein polnischer Raum und $A \subseteq \Probmeasures{X}$, wobei $\Probmeasures{X}$ mit der 
-		Topologie der schwachen Konvergenz versehen sei. Dann sind folgende Aussagen äquivalent:
+		Sei $X$ ein polnischer Raum und $A \subseteq \Probmeasures{X}$. Dann sind folgende Aussagen äquivalent:
 		\begin{equivalentthm}
 			\item $A$ ist straff.
 			\item $\overline{A} \subseteq \Probmeasures{X}$ ist kompakt.
 		\end{equivalentthm}
 	\end{Satz}
-
-	\begin{Bemerkung}
-		Es sei an dieser Stelle angemerkt, dass die Aussage des Satzes von Prokhorov die von Satz~\ref{thm:compactimpliescompactmeasures} beinhaltet. Denn ist $X$ kompakt und metrisierbar (und damit insbesondere polnisch), so ist $\Probmeasures{X}$ trivialerweise straff und damit nach dem Satz von Prokhorov auch kompakt.
-	\end{Bemerkung}
 	
 	\begin{proof}
 		Sei zunächst $A \subseteq \Probmeasures{X}$ straff. Wir möchten nun beweisen, dass $\overline{A}$ 
-		kompakt ist, was wegen der Metrisierbarkeit von $\Probmeasures{X}$ äquivalent dazu ist,
+		kompakt ist, was wegen der Metrisierbarkeit von $\Probmeasures{X}$ (siehe Satz~\ref{thm:finitemeasuresmetrizableseparable} bzw. Satz~\ref{thm:finitemeasurespolish}) äquivalent dazu ist,
 		dass jede Folge $(\mu_n)_n \in A^\N$ eine schwach konvergente Teilfolge besitzt. 
 		
 		Aufgrund der Straffheit von $A$ gibt es für jedes $m \in \N$ ein Kompaktum $K^{(m)} \subseteq X$, 
@@ -106,31 +103,32 @@
 		für alle $m \in \N$ gilt.
 		
 		Sei nun also $(\mu_n)_n \in A^\N$.
-		In Analogie zu Satz~\ref{thm:compactimpliescompactmeasures} lässt sich nun auch einsehen, dass 
+		In Analogie zu Satz~\ref{thm:compactimpliescompactmeasures} lässt sich einsehen, dass 
 		\[ \Unitmeasures{K^{(m)}} \; \defby \; \setcomp{\fct{\mu}{\mathcal{B}(K^{(m)})}{[0,1]}}{\mu \; 
 			\text{ist endliches Maß und } \mu(K^{(m)}) \leq 1} \]
-		für alle $m \in \N$ kompakt bezüglich der Topologie der schwachen Konvergenz ist. Damit existiert ein Maß 
-		$\nu^{(1)} \in \Unitmeasures{K^{(1)}}$ und eine Teilfolge $(\mu_{n_j}^{(1)})_k$ von $(\mu_n)_n$ mit
+		für alle $m \in \N$ kompakt bezüglich der schwachen Topologie ist. Damit existiert ein Maß 
+		$\nu^{(1)} \in \Unitmeasures{K^{(1)}}$ und eine Teilfolge $(\mu_{n_j}^{(1)})_j$ von $(\mu_n)_n$ mit
 		\[ \restr{\mu_{n_j}^{(1)}}{K^{(1)}} \; \xrightarrow{w} \; \nu^{(1)} \text{.} \]
-		Auf dieselbe Art und Weise findet man nun für alle $m\geq 2$ sukzessive Maße 
+		Auf dieselbe Art und Weise lassen für alle $m\geq 2$ sukzessive Maße 
 		$\nu^{(m)} \in \Unitmeasures{K^{(m)}}$ und Teilfolgen $(\mu_{n_j}^{(m)})_j$ von $(\mu_{n_j}^{(m-1)})_j$ mit
-		\[ \restr{\mu_{n_j}^{(m)}}{K^{(m)}} \; \xrightarrow{w} \; \nu^{(m)}, \quad j \to \infty \text{.} \]
+		\[ \restr{\mu_{n_j}^{(m)}}{K^{(m)}} \; \xrightarrow{w} \; \nu^{(m)}, \quad j \to \infty \]
+		finden.
 		Nun diagonalisieren wir und erhalten mit $\mu_{n_j} \; \defby \; \mu_{n_j}^{(j)}$ eine Teilfolge 
 		$(\mu_{n_j})_j$ von $(\mu_n)_n$, die
 		\[ \restr{\mu_{n_j}}{K^{(m)}} \; \xrightarrow{w} \; \nu^{(m)}, \quad j \to \infty \]
 		für alle $m \in \N$ erfüllt.
 		
-		Außerdem können Maße $\nu^{(m)}, \; m \in \N$ via 
+		Außerdem können die Maße $\nu^{(m)}, \; m \in \N$ via 
 		$\nu^{(m)}(B) \defby \nu^{(m)}(B \cap K^{(m)}), \; B \in \mathcal{B}(X)$ einfach auf $X$ fortgesetzt werden. 
 		Mit dieser Konvention können wir nun beweisen, dass die Maße
 		$\nu^{(m)}, \; m \in \N$ in dem Sinne monoton wachsen, dass 
 		\[ \nu^{(m)}(B) \leq \nu^{(m+1)}(B) \label{5.3} \tag{5.3} \]
-		für alle $B \in \mathcal{B}(X)$ und $m \in \N$ gilt:
+		für alle $B \in \mathcal{B}(X)$ und $m \in \N$ gilt.
 		
 		Wegen schwacher Regularität (vgl. Satz~\ref{thm:weakregularity}) genügt es, die Ungleichung \eqref{5.3} 
 		für abgeschlossene Mengen zu zeigen. Sei also $m \in \N$ fixiert, $C \subseteq X$ abgeschlossen 
 		und seien $\fct{f_k}{X}{\R}, \; k \in \N$ die gleichmäßig stetigen, beschränkten Funktionen aus 
-		Hilfssatz~\ref{lem:opensets}. Unter Ausnutzung von \eqref{5.2} folgt nun 
+		Hilfssatz~\ref{lem:opensets} (wobei irgendeine Metrik auf $X$, die $X$ metrisiert, fixiert sei). Unter Ausnutzung von \eqref{5.2} folgt nun 
 		\[ \measureint{K^{(m)}}{f_k}{\mu_{n_j}} \; \leq \; \measureint{K^{(m+1)}}{f_k}{\mu_{n_j}} \]
 		für alle $k, j \in \N$. Wegen 
 		\[ \measureint{K^{(m)}}{f_k}{\mu_{n_j}} \to \ \measureint{}{f_k}{\nu^{(m)}} \quad \text{und} 
@@ -158,8 +156,8 @@
 		wobei in der vorletzten Gleichung der Satz von Beppo Levi verwendet wurde. 
 		Insgesamt haben wir also $\nu \in \Probmeasures{X}$ nachgewiesen.
 		
-		Jetzt bleibt lediglich zu zeigen dass $(\mu_{n_j})_j$ tatsächlich schwach gegen $\nu$ konvergiert. 
-		Hierfür möchten wir die Charakterisierung (iii) des Portmanteau-Theorems (Satz~\ref{thm:portmanteau}) verwenden.
+		Jetzt bleibt lediglich zu zeigen, dass $(\mu_{n_j})_j$ tatsächlich schwach gegen $\nu$ konvergiert. 
+		Hierfür möchten wir die Charakterisierung (iv) des Portmanteau-Theorems (Satz~\ref{thm:portmanteau}) verwenden.
 		Sei dazu $C \subseteq X$ abgeschlossen. Zunächst liefert ebendieser Satz für alle $m \in \N$ die 
 		Abschätzung $\limsup_{j \to \infty} \mu_{n_j}(C \cap K^{(m)}) \leq \nu^{(m)}(C)$ und wegen \eqref{5.1} ist 
 		zudem $\mu_{n_j}(C \cap K^{(m) \mathsf{c}}) \leq  \frac{1}{m+1}$ für alle $j, m \in \N$. Insgesamt folgt daraus 
@@ -174,7 +172,7 @@
 		Für die Rückrichtung sei nun $\overline{A}$ kompakt. Außerdem sei $d$ eine Metrik, die $X$ vollständig metrisiert 
 		und $\mathcal{D} \defby \setcomp{x_n}{n \in \N} \subseteq X$ eine abzählbare dichte Teilmenge.
 		
-		Nun behaupten wir, dass für alle $\delta > 0$ ein solches $M_\delta \in \N$ existiert, dass
+		Wir behaupten, dass für alle $\delta > 0$ ein solches $M_\delta \in \N$ existiert, dass
 		\[ \mu(\bigcup_{m=1}^{M_\delta} B_\delta(x_m)) \; > \; 1 - \delta \label{5.4} \tag{5.4} \]
 		für alle $\mu \in A$ gilt. Denn falls es kein derartiges $M_\delta$ gibt, so lässt sich ein $\delta > 0$ finden, für das
 		für alle $M \in \N$ ein $\mu_M \in A$ existiert mit
@@ -184,12 +182,12 @@
 		abschätzen dürfen. Aufgrund der Kompaktheit von $\overline{A}$ gibt es eine Teilfolge $(\mu_{N_j})_j$ von $(\mu_N)_N$, 
 		die einen schwachen Grenzwert $\mu \in \Probmeasures{X}$ besitzt. Fixiere nun ein $M \in \N$. 
 		Dann ist $\bigcup_{m=1}^{M} B_\delta(x_m)$
-		offen und daher liefert das Portmanteau-Theorem (Satz~\ref{thm:portmanteau} (iv))
+		offen und daher liefert Charakterisierung (v) des Portmanteau-Theorems (Satz~\ref{thm:portmanteau})
 		\[ \mu(\bigcup_{m=1}^{M} B_\delta(x_m)) 
 		\; \leq \; \liminf_{j \to \infty} \mu_{N_j}(\bigcup_{m=1}^{M} B_\delta(x_m)) 
 		\; \leq \; 1 - \delta \text{.} \label{5.5} \tag{5.5} \]
 		Wegen $\bigcup_{m=1}^{\infty} B_\delta(x_m) = X$ und Maßstetigkeit von unten 
-		liefert uns \eqref{5.5} unmittelbar 
+		folgt aus \eqref{5.5} unmittelbar 
 		\[ \mu(X) \; \leq \; 1 - \delta \; < \; 1 \text{,} \]
 		was einen Widerspruch dazu darstellt, dass es sich bei $\mu$ um ein 
 		Wahrscheinlichkeitsmaß auf $X$ handelt. Also muss unsere Behauptung in \eqref{5.4} tatsächlich gelten.

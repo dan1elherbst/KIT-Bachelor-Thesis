@@ -17,6 +17,8 @@
 	\vspace*{0.5em}
 	Abgesehen von Satz~\ref{thm:compactimpliescompactmeasures}, bei dem wir im Wesentlichen \cite{vanGaans.200203} folgen, orientieren wir uns in diesem Abschnitt an \cite{Varadarajan.1958}.
 	
+	Im Folgenden Satz stellen wir zunächst eine Möglichkeit vor, $X$ in $\Finitemeasures{X}$ einzubetten.
+	
 	\begin{Satz}
 		\label{thm:embeddingdiracmeasures}
 		Sei $X$ ein metrisierbarer topologischer Raum. Für $x \in X$ schreiben wir $\delta_x \in \Probmeasures{X}$ für das Dirac-Maß im Punkt $x$ und definieren
@@ -47,6 +49,8 @@
 		was einen Widerspruch darstellt. Also existiert eine Teilfolge $(x_{n_k})_k$ und $x \in X$ mit $x_{n_k} \to x, \; k \to \infty$. Damit ist aber auch $\delta_{x_{n_k}} \xrightarrow{w} \delta_x$, weshalb mit
 		Satz~\ref{thm:measureequality} die Gleichheit $\mu = \delta_x \in \Delta$ folgt.
 	\end{proof}
+
+	Nun wenden wir uns den angekündigten zentralen Aussagen dieses Abschnittes zu. 
 	
 	\begin{Satz}
 		\label{thm:finitemeasuresmetrizableseparable}
@@ -71,7 +75,7 @@
 	\end{Hilfssatz}
 	
 	\begin{proof}
-		Sei zunächst $\tilde{X}$ die Vervollständigung von $X$. Diese ist kompakt und damit ist $\Bdcontfct{\tilde{X}}$ nach Hilfssatz~\ref{lem:bdcontfctbanach} ein separabler Banachraum.
+		Sei $\tilde{X}$ die Vervollständigung von $X$. Diese ist kompakt und damit ist $\Bdcontfct{\tilde{X}}$ nach Hilfssatz~\ref{lem:bdcontfctbanach} ein separabler Banachraum.
 		Jedes $f \in \Bduniffct{X}$ besitzt eine eindeutige Fortsetzung $\tilde{f} \in \Bdcontfct{\tilde{X}}$ mit $\norm{f}_\infty = \norm{\tilde{f}}_\infty$. Damit wird über die Zuordnung
 		\[ \fctmap{E}{\Bduniffct{X}}{\Bdcontfct{\tilde{X}}}{f}{\tilde{f}} \]
 		eine isometrische Einbettung von $\Bduniffct{X}$ nach $\Bdcontfct{\tilde{X}}$ definiert. 
@@ -248,5 +252,11 @@
 		Die Rückrichtung ist wieder eine direkte Konsequenz aus Satz~\ref{thm:embeddingdiracmeasures}: Ist $\Probmeasures{X}$ metrisierbar und kompakt, so muss 
 		$X \cong \Delta$ als abgeschlossene Teilmenge von $\Probmeasures{X}$ selbst kompakt sein.
 	\end{proof}
+
+	\begin{Bemerkung}
+		Wir haben in diesem Abschnitt insbesondere gesehen, dass $\Finitemeasures{X}$ für metrisierbares und separables $X$ selbst metrisierbar ist. Dies bedeutet auch, dass die schwache Topologie
+		in diesem Fall vollständig durch konvergente Folgen charakterisiert wird. Wir müssen im weiteren Verlauf (bei metrisierbarem und separablem $X$) also nicht mehr mit dem Konzept der Netze arbeiten, dass wir zu Beginn eingeführt haben. Stattdessen
+		können einfach immer Folgen verwenden, um Stetigkeit, Abgeschlossenheit, etc. nachzuweisen.
+	\end{Bemerkung}
 	
 \end{document}
