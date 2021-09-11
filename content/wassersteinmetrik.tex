@@ -4,4 +4,81 @@
 	
 	\section{Die Wassersteinmetrik}
 	
+	Wir orientieren uns an \cite{Villani.2009}.
+	
+	\begin{Definition}[Kopplung]
+		Seien $X$, $Y$ topologische Räume und $A \subseteq \Probmeasures{X}$, $B \subseteq \Probmeasures{Y}$. Wir definieren dann
+		\[ \Pi(A, B) \; \defby \; \setcomp{\pi \in \Probmeasures{X \times Y}}{\pi(\cdot \times Y) \in A \quad \text{und} \quad \pi(X \times \cdot) \in B} \text{.}\]
+		Für $\mu \in \Probmeasures{X}$ und $\nu \in \Probmeasures{Y}$ definieren wir außerdem $\Pi(\mu, \nu) \; \defby \; \Pi(\set{\mu}, \set{\nu})$ und nennen die
+		Elemente von $\Pi(\mu, \nu)$ \emph{Kopplungen von $\mu$ und $\nu$} oder \emph{Transportpläne zwischen $\mu$ und $\nu$}.
+	\end{Definition}
+
+	\begin{Definition}[Kosten eines Transportplans]
+		Seien $X$, $Y$ topologische Räume, $\mu \in \Probmeasures{X}$, $\nu \in \Probmeasures{Y}$ und $\fct{c}{X \times Y}{[0, \infty]}$ eine $\mathcal{B}(X \times Y)$-messbare Kostenfunktion.
+		Die Kosten von $\pi \in \Pi(\mu, \nu)$ möchten wir dann mit
+		\[ C(\pi) \; \defby \; \measureint{}{c}{\pi} \; = \; \measureintx{X \times Y}{c(x, y)}{\pi}{(x, y)} \in \; [0, \infty] \]
+		bezeichnen.
+	\end{Definition}
+
+	\begin{Satz}[Existenz eines optimalen Transportplans]
+		\label{thm:existenceoptimaltransportplan}
+		Seien $X$, $Y$ polnische Räume, $\mu \in \Probmeasures{X}$, $\nu \in \Probmeasures{Y}$ und $\fct{c}{X \times Y}{[0, \infty]}$ eine $\mathcal{B}(X \times Y)$ eine stetige 
+		Kostenfunktion. Dann existiert eine Kopplung $\hat{\pi}$ von $\mu$ und $\nu$, die 
+		\[ C(\hat{\pi}) \; = \; \min_{\pi \in \Pi(\mu, \nu)} C(\pi) \]
+		erfüllt. Wir nennen $\hat{\pi}$ einen \emph{optimalen Transportplan zwischen $\mu$ und $\nu$}.
+	\end{Satz}
+
+	\begin{Hilfssatz}
+		\label{lem:lsccost}
+		In der Situation von Satz~\ref{thm:existenceoptimaltransportplan} gilt für jede schwach konvergente Folge $(\pi_k)_k \in \Probmeasures{X \times Y}^\N$ mit Grenzwert $\pi \in \Probmeasures{X \times Y}$ die Ungleichung
+		\[ C(\pi) \; \leq \; \liminf_{k \to \infty} C(\pi_k) \text{.} \]
+	\end{Hilfssatz}
+
+	\begin{proof}
+		Setzen wir $c_l \defby \min(c, l) \in \Bdcontfct{X}$ für alle $l \in \N$, so gilt $c_l \uparrow c$ punktweise. Sei nun $(\pi_k)_k \in \Probmeasures{X \times Y}^\N$ mit $\pi_k \xrightarrow{w} \pi \in \Probmeasures{X \times Y}$ eine schwach konvergente Folge. Dann gilt
+		$\measureint{}{c_l}{\pi_k} \; \leq \; \measureint{}{c}{\pi_k}$ für alle $k, l \in \N$ und damit auch 
+		\[ \measureint{}{c_l}{\pi} \; = \; \lim_{k \to \infty} \measureint{}{c_l}{\pi_k} \; \leq \; \liminf_{k \to \infty} \measureint{}{c}{\pi_k} \]
+		für alle $l \in \N$. Der Satz von Beppo Levi liefert also
+		\[ \measureint{}{c}{\pi} \; = \; \lim_{l \to \infty} \measureint{}{c_l}{\pi} \; \leq \; \liminf_{k \to \infty} \measureint{}{c}{\pi_k} \]
+		und es folgt die Behauptung.
+	\end{proof}
+
+	\begin{Hilfssatz}
+		\label{lem:couplingstight}
+		Seien $X$, $Y$ polnische Räume und seien $A \subseteq \Probmeasures{X}$ sowie $B \subseteq \Probmeasures{Y}$ straffe Teilmengen. Dann ist $\Pi(A, B) \subseteq \Probmeasures{X \times Y}$ auch straff.
+	\end{Hilfssatz}
+
+	\begin{proof}
+		Fixiere ein beliebiges $\varepsilon > 0 $ und wähle kompakte Teilmengen $K_{\varepsilon/2} \subseteq X$ sowie $L_{\varepsilon/2} \subseteq Y$ so, dass $\mu(K_{\varepsilon/2}) \geq 1 - \frac{\varepsilon}{2}$ 
+		für alle $\mu \in A$ und $\nu(L_{\varepsilon/2}) \geq 1 - \frac{\varepsilon}{2}$ für alle $\nu \in B$ gilt. Dann ist $K_{\varepsilon/2} \times L_{\varepsilon/2} \subseteq \Probmeasures{X \times Y}$ auch kompakt und für jede Kopplung $\pi$ von $\mu$ und $\nu$ gilt
+		\begin{align*}
+			\pi(K_{\varepsilon/2} \times L_{\varepsilon/2}) \; &= \; 1 - \pi(K_{\varepsilon/2}^\mathsf{c} \times Y \cup X \times L_{\varepsilon/2}^\mathsf{c}) \\
+			                                                   &\geq \; 1 - \mu(K_{\varepsilon/2}^\mathsf{c}) - \nu(L_{\varepsilon/2}^\mathsf{c}) \; \geq \; 1 - \varepsilon \text{,}
+		\end{align*}
+	also ist auch $\Pi(A, B) \subseteq \Probmeasures{X \times Y}$ straff.
+	\end{proof}
+
+	\begin{Hilfssatz}
+		\label{lem:couplingsclosed}
+		Seien $X$, $Y$ polnische Räume und $\mu \in \Probmeasures{X}$, $\nu \in \Probmeasures{Y}$. Dann ist $\Pi(\mu, \nu) \subseteq \Probmeasures{X \times Y}$ abgeschlossen.
+	\end{Hilfssatz}
+
+	\begin{proof}
+		Weil $X \times Y$ auch polnisch ist und $\Probmeasures{X \times Y}$ damit nach Satz~\ref{thm:finitemeasurespolish} insbesondere metrisierbar ist, genügt es zu überprüfen, dass der Grenzwert $\pi$ einer jeden schwach konvergenten Folge $(\pi_k)_k \in \Pi(\mu, \nu)^\N$ wieder in $\Pi(\mu, \nu)$ liegt. Tatsächlich gilt für alle $f \in \Bdcontfct{X}$ und $k \in \N$
+		\[ \measureintx{X \times Y}{f(x)}{\pi_k}{(x, y)} \; = \; \measureintx{X}{f(x)}{\mu}{x} \text{,} \]
+		also auch 
+		\[ \measureintx{X \times Y}{f(x)}{\pi}{(x, y)} \; = \; \lim_{k \to \infty} \measureintx{X \times Y}{f(x)}{\pi_k}{(x, y)} \; = \; \measureintx{X}{f(x)}{\mu}{x} \text{,} \]
+		was nach Satz~\ref{thm:measureequality} $\pi(\cdot \times Y) = \mu$ impliziert. Analog sieht man auch $\pi(X \times \cdot) = \nu$ ein, sodass insgesamt $\pi \in \Pi(\mu, \nu)$ folgt.
+	\end{proof}
+
+	\begin{proof}[Beweis von Satz~\ref{thm:existenceoptimaltransportplan}]
+		Zunächst sind $\mu \in \Probmeasures{X}$ und $\nu \in \Probmeasures{Y}$ nach Satz~\ref{thm:tightness} straff, also wegen Hilfssatz~\ref{lem:couplingstight} auch 
+		$\Pi(\mu, \nu)$. Daraufhin liefert Hilfssatz~\ref{lem:couplingsclosed} gemeinsam mit dem Satz von Prokhorov (Satz~\ref{thm:prokhorov}) die Kompaktheit von $\Pi(\mu, \nu) \subseteq \Probmeasures{X \times Y}$.
+		Sei nun $(\pi_k)_k \in \Pi(\mu, \nu)^\N$ mit
+		\[ C(\pi_k) \; \to \inf_{\pi \in \Pi(\mu, \nu)} C(\pi) \text{,} \quad k \to \infty \text{.} \]
+		Dann gibt es eine Teilfolge $(\pi_{k_l})_l$ und ein $\hat{\pi} \in \Pi(\mu, \nu)$ mit $\pi_{k_l} \xrightarrow{w} \hat{\pi}$. Nach Hilfssatz~\ref{lem:lsccost} gilt
+		\[ C(\hat{\pi}) \; \leq \; \liminf_{k \to \infty} C(\pi_k) \; = \inf_{\pi \in \Pi(\mu, \nu)} C(\pi) \text{,} \]
+		was bedeutet, dass $\hat{\pi}$ ein optimaler Transportplan zwischen $\mu$ und $\nu$ ist. 
+	\end{proof}
+	
 \end{document}
