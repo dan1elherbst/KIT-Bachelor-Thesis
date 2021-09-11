@@ -130,6 +130,7 @@
 	\end{Satz}
 
 	\begin{Hilfssatz}
+		\label{lem:wassersteincauchyseq}
 		In der Situation von Satz~\ref{thm:wassersteinweakconvergence} sei $(\mu_k)_k \in \Probmeasures{X}^\N$ eine Cauchyfolge
 		bezüglich $W_p$. Dann ist $\setcomp{\mu_k}{k \in \N}$ straff.
 	\end{Hilfssatz}
@@ -170,6 +171,42 @@
 		Da $S_{\varepsilon}$ totalbeschränkt ist, ist $K_{\varepsilon}$ kompakt und für alle $k \in \N$ ist
 		\[ \mu_k(K_{\varepsilon}) \; \geq \; \mu_k(K_{\varepsilon}) \; \geq \; 1 - \varepsilon \text{,} \]
 		also ist $\setcomp{\mu_k}{k \in \N}$ straff.
+	\end{proof}
+
+	\begin{Hilfssatz}
+		\label{lem:subsequenceofsubsequence}
+		Sei $X$ ein polnischer Raum und sei $(\mu_k)_k \in \Probmeasures{X}^\N$ eine derartige Folge, dass 
+		\begin{itemizethm}
+			\item $\setcomp{\mu_k}{k \in \N}$ straff ist und
+			\item jede Teilfolge von $(\mu_k)_k$ eine Teilfolge besitzt, die schwach gegen ein Wahrscheinlichkeitsmaß $\mu \in \Probmeasures{X}$ konvergiert, wobei $\mu$ unabhängig von der speziellen Teilfolge ist.
+		\end{itemizethm}
+		Dann gilt \[\mu_k \xrightarrow{w} \mu, \quad k \to \infty \text{.} \]
+	\end{Hilfssatz}
+
+	\begin{proof}
+		\tobechanged{TODO}
+	\end{proof}
+
+	\begin{proof}[Beweis von Satz~\ref{thm:wassersteinweakconvergence}]
+		Wir zeigen zunächst die Hinrichtung. Sei dazu $(\mu_k)_k \in \Probmeasures{X}^\N$ und $\mu \in \Probmeasures{X}$ mit $\mu_k \xrightarrow{w} \mu$. Für jedes $k \in \N$ sei $\pi_k \in \Pi(\mu_k, \mu)$ außerdem
+		eine optimale Kopplung von $\mu_k$ und $\mu$. Aufgrund der schwachen Konvergenz von $(mu_k)_k$ ist $\setcomp{\mu_k}{k \in \N} \cup {\mu} \subseteq \Probmeasures{X}$ kompakt und damit nach dem 
+		Satz von Prokhorov (Satz~\ref{thm:prokhorov}) auch straff, also sind insbesondere $\setcomp{\mu_k}{k \in \N}$ und $\set{\mu}$ jeweils straff. 
+		Hilfssatz~\ref{lem:couplingstight} ist damit auch $\Pi(\setcomp{\mu_k}{k \in \N}, \set{\mu})$ straff, was wiederum die Straffheit von $\setcomp{\pi_k}{k \in \N}$ nach sich zieht. Eine erneute Anwendung des
+		Satzes von Prokhorov liefert, dass jede Teilfolge $(\pi_{k_l})_l$ von $(\pi_k)_k$ eine schwach konvergente Teilfolge $(\pi_{k_{\tilde{l}}})_{\tilde{l}}$ besitzt, also existiert für jedes $l$ ein Wahrscheinlichkeitsmaß $\tilde{\pi}_l \in \Probmeasures{X \times X}$ mit
+		\[ \pi_{k_{\tilde{l}}} \xrightarrow{w} \tilde{\pi}_l, \quad l \to \infty \text{.} \]
+		Nach \tobechanged{TODO} ist jedes $\tilde{\pi}_l$ eine optimale Kopplung von $\mu$ und $\mu$, also muss es sich bei $\tilde{\pi}_l$ um die triviale Kopplung $\pi$ handeln, die durch
+		$\pi(A \times B) \defby \mu(A \cap B), \; A, B \in \mathcal{B}(X)$
+		definiert ist.
+		Nach Hilfssatz~\ref{lem:subsequenceofsubsequence} folgt damit also insgesamt die schwache Konvergenz
+		\[ \pi_k \xrightarrow{w} \pi, \quad k \to \infty \text{.} \]
+		Da $d$ beschränkt ist, ist die Zuordnung $(x, y) \mapsto d(x, y)^p$ in $\Bdcontfct{X \times X}$ enthalten, weshalb nun
+		\[ W_p(\mu_k, \mu)^p \; = \; \measureintx{X \times X}{d(x, y)^p}{\pi_k}{(x, y)} \; \to \; \measureintx{X \times X}{d(x, y)^p}{\pi}{(x, y)} \; = \; 0, \quad k \to \infty \]
+		gilt, also auch $W_p(\mu_k, \mu) \to 0$.
+		
+		Für die Rückrichtung seien $(\mu_k)_k \in \Probmeasures{X}^\N$ und $\mu \in \Probmeasures{X}$ sind mit $W_p(\mu_k, \mu) \to 0$. Dann ist $(\mu_k)_k$ sicherlich auch eine Cauchyfolge bezüglich $W_p$ 
+		und Hilfssatz~\ref{lem:wassersteincauchyseq} liefert die Straffheit von $\setcomp{\mu_k}{k \in \N}$. Daher besitzt jede Teilfolge $(\mu_{k_l})_l$ von $(\mu_k)_k$ eine schwach konvergente Teilfolge $(\mu_{k_{\tilde{l}}})_{\tilde{l}}$ , also existiert für jedes $l$ ein Wahrscheinlichkeitsmaß $\tilde{\mu}_l \in \Probmeasures{X \times X}$ mit
+		\[ \mu_{k_{\tilde{l}}} \xrightarrow{w} \tilde{\mu}_l, \quad l \to \infty \text{.} \]
+		\tobechanged{TODO}
 	\end{proof}
 	
 \end{document}
