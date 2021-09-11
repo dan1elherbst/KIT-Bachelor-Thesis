@@ -10,7 +10,7 @@
 		Seien $X$, $Y$ topologische Räume und $A \subseteq \Probmeasures{X}$, $B \subseteq \Probmeasures{Y}$. Wir definieren dann
 		\[ \Pi(A, B) \; \defby \; \setcomp{\pi \in \Probmeasures{X \times Y}}{\pi(\cdot \times Y) \in A \quad \text{und} \quad \pi(X \times \cdot) \in B} \text{.}\]
 		Für $\mu \in \Probmeasures{X}$ und $\nu \in \Probmeasures{Y}$ definieren wir außerdem $\Pi(\mu, \nu) \; \defby \; \Pi(\set{\mu}, \set{\nu})$ und nennen die
-		Elemente von $\Pi(\mu, \nu)$ \emph{Kopplungen von $\mu$ und $\nu$} oder \emph{Transportpläne zwischen $\mu$ und $\nu$}.
+		Elemente von $\Pi(\mu, \nu)$ \emph{Kopplungen} von $\mu$ und $\nu$ oder auch \emph{Transportpläne} zwischen $\mu$ und $\nu$.
 	\end{Definition}
 
 	\begin{Definition}[Kosten eines Transportplans]
@@ -25,7 +25,7 @@
 		Seien $X$, $Y$ polnische Räume, $\mu \in \Probmeasures{X}$, $\nu \in \Probmeasures{Y}$ und $\fct{c}{X \times Y}{[0, \infty]}$ eine $\mathcal{B}(X \times Y)$ eine stetige 
 		Kostenfunktion. Dann existiert eine Kopplung $\hat{\pi}$ von $\mu$ und $\nu$, die 
 		\[ C(\hat{\pi}) \; = \; \min_{\pi \in \Pi(\mu, \nu)} C(\pi) \]
-		erfüllt. Wir nennen $\hat{\pi}$ einen \emph{optimalen Transportplan zwischen $\mu$ und $\nu$}.
+		erfüllt. Wir nennen $\hat{\pi}$ eine \emph{optimale Kopplung} von $\mu$ und $\nu$ oder auch einen \emph{optimalen Transportplan} zwischen $\mu$ und $\nu$.
 	\end{Satz}
 
 	\begin{Hilfssatz}
@@ -80,5 +80,58 @@
 		\[ C(\hat{\pi}) \; \leq \; \liminf_{k \to \infty} C(\pi_k) \; = \inf_{\pi \in \Pi(\mu, \nu)} C(\pi) \text{,} \]
 		was bedeutet, dass $\hat{\pi}$ ein optimaler Transportplan zwischen $\mu$ und $\nu$ ist. 
 	\end{proof}
+
+	\begin{Definition}
+		\label{def:wasserstein}
+		Sei $(X, d)$ ein polnischer metrischer Raum, sei $p \in [1, \infty)$ und seien $\mu, \nu \in \Probmeasures{X}$. Dann nennen wir
+		$$ W_p(\mu, \nu) \; \defby \; \left(\inf_{\pi \in \Pi(\mu, \nu)} \measureintx{X \times X}{d(x, y)^p}{\pi}{(x, y)}\right)^{\! 1/p} \; \in \; [0, \infty] $$
+		die \emph{$p$-te Wassersteindistanz} zwischen $\mu$ und $\nu$.
+	\end{Definition}
+
+	\begin{Bemerkung}
+		Offenbar ist $W_p(\delta_x, \delta_y) = d(x, y)$ für alle $x, y \in X$. 
+	\end{Bemerkung}
+
+	\begin{Satz}
+		\label{thm:wassersteinismetric}
+		In der Situation von Definition~\ref{def:wasserstein} erfüllt $W_p$ die Eigenschaften einer Metrik, abgesehen davon, dass $W_p(\mu, \nu) = \infty$ möglich ist.
+	\end{Satz}
+
+	\begin{proof}
+		Offensichtlich ist $W_p$ symmetrisch.
+		
+		Für die positive Definitheit seien $\mu, \nu \in \Probmeasures{X}$ mit $W_p(\mu, \nu) = 0$. Dann ist
+		\[ W_p(\mu, \nu)^p \; = \inf_{\pi \in \Pi(\mu, \nu)} \measureintx{X \times X}{d(x, y)^p}{\pi}{(x, y)} \; = \; 0 \]
+		und da die Zuordnung $(x, y) \mapsto d(x, y)$ stetig ist, existiert nach Satz~\ref{thm:existenceoptimaltransportplan} eine Kopplung $\hat{\pi} \in \Pi(\mu, \nu)$ mit
+		\[ \measureintx{X \times X}{d(x, y)^p}{\hat{\pi}}{(x, y)} \; = \; 0 \text{.} \]
+		Damit folgt $\hat{\pi}(\setcomp{(x, x)}{x \in X}) = \hat{\pi}(\set{d(x, y)^p = 0}) = 1$ und für jedes $B \in \mathcal{B}(X)$ gilt
+		$\mu(B) = \hat{\pi}(B \times X) = \hat{\pi}(X \times B) = \nu(B)$, also $\mu = \nu$.
+		
+		Es bleibt die Dreiecksungleichung zu zeigen. Seien dazu $\mu_1, \mu_2, \mu_3 \in \Probmeasures{X}$ und seien $\hat{\pi}_{1, 2}$ und $\hat{\pi}_{2, 3}$ optimale Kopplungen von
+		$\mu_1$ und $\mu_2$ bzw. $\mu_2$ und $\mu_3$. Nach \cite[S. 23-24]{Villani.2009} gibt es nun ein Wahrscheinlichkeitsmaß $\pi \in \Probmeasures{X^3}$ mit 
+		$\pi(\cdot \times X) = \hat{\pi}_{1, 2}$ und $\pi(X \times \cdot) = \hat{\pi}_{2, 3}$. Damit gilt
+		\begin{align*}
+			W_p(\mu_1, \mu_3) \; &\leq \; \left(\measureintx{X \times X}{d(x, z)^p}{\pi}{(x, y, z)}\right)^{\! 1/p} \\
+			                     &\leq \; \left(\measureintx{X \times X}{d(x, y)^p}{\pi}{(x, y, z)}\right)^{\! 1/p} + \left(\measureintx{X \times X}{d(y, z)^p}{\pi}{(x, y, z)}\right)^{\! 1/p} \\
+			                     &=    \; W_p(\mu_1, \mu_2) + W_p(\mu_2, \mu_3) \text{,}
+		\end{align*}
+		wobei wir bei der zweiten Abschätzung die Minkowski-Ungleichung anwenden.
+	\end{proof}
+
+	\begin{Definition}[Wassersteinraum]
+		\label{def:wassersteinspace}
+		Sei $(X, d)$ ein polnischer metrischer Raum, sei $p \in [1, \infty)$ und $x_0 \in X$. Dann nennen wir
+		\[ \Wasprobmeasures{p}{X} \; \defby \; \setcomp{\mu \in \Probmeasures{X}}{W_p(\mu, \delta_{x_0}) < \infty} \]
+		den $p$-ten Wassersteinraum von $(X, d)$.
+	\end{Definition}
+
+	\begin{Bemerkung}
+		Die Dreiecksungleichung in Satz~\ref{thm:wassersteinismetric} impliziert unmittelbar, dass $\Wasprobmeasures{p}{X}$ nicht von der Wahl von $x_0 \in X$ abhängt 
+		und dass $W_p$ auf $\Wasprobmeasures{p}{X}$ nur endliche Werte annimmt. $(\Wasprobmeasures{p}{X}, W_p)$ ist also ein metrischer Raum.
+	\end{Bemerkung}
+
+	\begin{Definition}[Schwache Konvergenz in $\mathcal{P}_p$]
+		Hier steht was.
+	\end{Definition}
 	
 \end{document}
