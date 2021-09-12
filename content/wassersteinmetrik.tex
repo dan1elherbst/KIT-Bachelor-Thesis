@@ -38,11 +38,11 @@
 		Seien also $A$ und $B$ abgeschlossen und sei $(\pi_k)_k \in \Pi(A, B)^\N$ eine schwach konvergente Folge mit Grenzwert $\pi \in \Probmeasures{X \times Y}$.
 		Dann ist für alle abgeschlossenen Teilmengen $C \subseteq X$ auch $C \times Y \subseteq X \times Y$ abgeschlossen und das Portmanteau-Theorem (Satz~\ref{thm:portmanteau}) liefert
 		\[ \limsup_{k \to \infty} \, \pi_k(C \times Y) \; \leq \; \pi(C \times Y) \text{.} \]
-		Damit konvergiert $(\pi_k(\cdot \times Y))_k \in A^\N$ nach dem Portmanteau-Theorem schwach gegen $\pi(\cdot \times Y)$ und die Abgeschlossenheit 
+		Damit konvergiert $(\pi_k(\cdot \times Y))_k \in A^\N$ wiederum nach dem Portmanteau-Theorem schwach gegen $\pi(\cdot \times Y)$ und die Abgeschlossenheit 
 		von $A \subseteq \Probmeasures{X}$ liefert, dass $\pi(\cdot \times Y)$ in $A$
 		enthalten ist. Analog folgt $\pi(X \times \cdot) \in B$, also ist insgesamt $\pi \in \Pi(A, B)$.
 		
-		Aussage (c) folgt durch eine Anwendung des Satzes von Prokhorov (Satz~\ref{thm:prokhorov}) direkt aus den Aussagen (a) und (b), denn sowohl in $\Probmeasures{X}$ und $\Probmeasures{Y}$ als auch in $\Probmeasures{X \times Y}$ entsprechen kompakte Teilmengen gerade den Teilmengen, die straff und abgeschlossen sind.
+		Durch eine Anwendung des Satzes von Prokhorov (Satz~\ref{thm:prokhorov}) können wir aus (a) und (b) unmittelbar auch Aussage (c) folgern, denn sowohl in $\Probmeasures{X}$ und $\Probmeasures{Y}$ als auch in $\Probmeasures{X \times Y}$ entsprechen kompakte Teilmengen gerade den Teilmengen, die straff und abgeschlossen sind.
 	\end{proof}
 
 	\begin{Hilfssatz}
@@ -54,7 +54,7 @@
 	\end{Hilfssatz}
 
 	\begin{proof}
-		Analog zum Beweis von Hilfssatz~\ref{lem:couplingsproperties} gilt hier
+		Wie im Beweis von Hilfssatz~\ref{lem:couplingsproperties} gilt hier auch
 		\[ \pi_k(\cdot \times Y) \; \xrightarrow{w} \; \pi(\cdot \times Y) \quad \text{und} \quad \pi_k(X \times \cdot) \; \xrightarrow{w} \; \pi(X \times \cdot), \quad k \to \infty \text{.} \]
 		Wegen $\pi_k(\cdot \times Y) = \mu_k$ und $\pi_k(X \times \cdot) = \nu_k$ für alle $k \in \N$ folgt damit aber insbesondere auch $\pi(\cdot \times Y) = \mu$ und $\pi(X \times \cdot) = \nu$, also
 		ist $\pi$ in $\Pi(\mu, \nu)$ enthalten.
@@ -103,18 +103,11 @@
 	\end{proof}
 
 	\begin{Satz}
-		\label{thm:optimalseqremainsoptimal}
-		Seien $X$, $Y$ polnische Räume, $\fct{c}{X \times Y}{[0, \infty)}$ eine stetige Kostenfunktion sowie $(\mu_k)_k \in \Probmeasures{X}^\N$, $\mu \in \Probmeasures{X}$, 
-		$(\nu_k)_k \in \Probmeasures{Y}^\N$, $\nu \in \Probmeasures{Y}$ mit
-		\[ \mu_k \xrightarrow{w} \mu \quad \text{und} \quad \nu_k \xrightarrow{w} \nu, \quad k \to \infty \text{.} \]
-		
-		Für jedes $k \in \N$ sei $\hat{\pi}_k$ eine optimale Kopplung von $\mu_k$ und $\nu_k$. 
-		Wir möchten nun außerdem annehmen, dass
-		\begin{itemizethm}
-			\item $C(\hat{\pi}_k) < \infty$ für alle $k \in \N$ und
-			\item $\liminf_{k \to \infty} C(\hat{\pi}_k) < \infty$ gilt.
-		\end{itemizethm}
-		Dann konvergiert $(\hat{\pi}_k)_k$ schwach gegen eine optimale Kopplung $\hat{\pi} \in \Pi(\mu, \nu)$ von $\mu$ und $\nu$ und es gilt $C(\hat{\pi}) < \infty$. 
+		\label{thm:optimalplanscompact}
+		Seien $X$, $Y$ polnische Räume, sei $\fct{c}{X \times Y}{[0, \infty)}$ eine stetige Kostenfunktion und seien $A \subseteq \Probmeasures{X}$ und $B \subseteq \Probmeasures{Y}$ kompakte Teilmengen.
+		Dann ist 
+		\[ \setcomp{\pi \in \Pi(A, B)}{\pi \; \text{ist eine optimale Kopplung}} \; \subseteq \; \Probmeasures{X \times Y} \]
+		kompakt.
 	\end{Satz}
 
 	\begin{proof}
@@ -195,7 +188,7 @@
 		\[ \lim_{k \to \infty} \sup_{l \geq k} \, W_p(\mu_k, \mu_l) \; = \; 0 \text{.} \]
 		Wegen $W_1 \leq W_p$ ist $(\mu_k)_k$ dann auch insbesondere bezüglich $W_1$ eine Cauchyfolge. 
 		
-		Fixiere nun ein beliebiges $0 < \varepsilon \leq 1$. Dann gibt es ein derartiges $n \in \N$, dass 
+		Fixiere nun ein beliebiges $\varepsilon > 0$. Dann gibt es ein derartiges $n \in \N$, dass 
 		\[ W_1(\mu_n, \mu_k) \; < \; \varepsilon^2 \]
 		für alle $k \geq n$ gilt. Offenbar können wir damit insbesondere auch für jedes $k \in \N$ ein $j \in \set{1, \dots, n}$ mit
 		$W_1(\mu_j, \mu_k) < \varepsilon^2$ finden. Wegen Satz~\ref{thm:tightness} ist $\set{\mu_1, \dots, \mu_n}$ straff, also existiert ein Kompaktum
@@ -217,7 +210,7 @@
 			                                                                              &\geq \; 1 - \varepsilon - \frac{\varepsilon^2}{\varepsilon} \; = \; 1 - 2\varepsilon \text{,}
 		\end{align*}
 		wobei wir in der zweiten Ungleichung die Dualitätsformel von Kantorovich-Rubinstein (Satz~\ref{thm:kantorovichrubinstein}) angewendet haben.
-		Da wir zu Beginn $0 < \varepsilon \leq 1$ beliebig gewählt haben, können wir die gesamte Argumentation analog für $\varepsilon/2^{(l+1)}, \; l \in \N$ führen und erhalten damit für jedes $l \in \N$ 
+		Da wir zu Beginn $\varepsilon > 0$ beliebig gewählt haben, können wir die gesamte Argumentation analog für $\varepsilon/2^{(l+1)}, \; l \in \N$ führen und erhalten damit für jedes $l \in \N$ 
 		eine endliche Menge $\set{x_1^{(l)}, \dots, x_{m_l}^{(l)}} \subseteq X$ mit
 		\[ \mu_k(\bigcup_{i=1}^{m_l} B_{\varepsilon/2^l}(x_i^{(l)})) \; \geq \; 1 - \frac{\varepsilon}{2^l}, \quad k \in \N \text{.} \]
 		Nun können wir analog zu den Beweisen von Satz~\ref{thm:tightness} und Satz~\ref{thm:prokhorov} vorgehen:
