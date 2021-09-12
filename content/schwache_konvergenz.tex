@@ -94,6 +94,7 @@
 		\begin{equivalentthm}
 			\item $\mu_\iota \xrightarrow{w} \mu$.
 			\item Für alle $f \in \Bduniffct{X}$ gilt $\lim_{\iota \to \infty} \measureint{}{f}{\mu_\iota} = \measureint{}{f}{\mu}$.
+			\item Für alle $f \in \Bdlipschitzfct{X}$ gilt $\lim_{\iota \to \infty} \measureint{}{f}{\mu_\iota} = \measureint{}{f}{\mu}$.
 			\item Es ist 
 			$\lim_{\iota \to \infty} \mu_\iota(X) = \mu(X)$
 			und für alle abgeschlossenen Mengen $C \subseteq X$ gilt 
@@ -109,12 +110,12 @@
 	
 	\begin{proof}
 		Wir präsentieren hier eine Verallgemeinerung des Beweises von Satz 4.14.4 in \cite[Kapitel 4.14]{Simon.2015} mit endlichen Maßen 
-		anstelle von Wahrscheinlichkeitsmaßen und Netzen anstelle von Folgen. Die Implikation \enquote{(i) $\Rightarrow$ (ii)} folgt 
+		anstelle von Wahrscheinlichkeitsmaßen und Netzen anstelle von Folgen. Die Implikationen \enquote{(i) $\Rightarrow$ (ii) $\Rightarrow$ (iii)} folgen 
 		direkt aus Hilfssatz~\ref{lem:generalweakconvergence}. 
 		
-		(ii) $\Rightarrow$ (iii): Sei $C \subseteq X$ abgeschlossen und seien 
+		(iii) $\Rightarrow$ (iv): Sei $C \subseteq X$ abgeschlossen und seien 
 		$f_m, \; m \in \N$ die Funktionen aus Hilfssatz~\ref{lem:opensets}. 
-		Diese sind gleichmäßig stetig und beschränkt.
+		Diese sind lipschitzstetig und beschränkt.
 		Dann gilt für alle $m \in \N$
 		$$\mu_\iota(C) \; = \; \measureint{}{\indfct_C}{\mu_\iota} \; \leq \; 
 		\measureint{}{f_m}{\mu_\iota} \; \to \;
@@ -133,7 +134,7 @@
 		$$\mu_\iota(X) \; = \; \measureint{}{\indfct_{X}}{\mu_\iota} \; \to \; \measureint{}{\indfct_{X}}{\mu} \; = \; \mu(X) \text{,} 
 		\quad \iota \to \infty \text{.}$$
 		
-		(iii) $\Leftrightarrow$ (iv): Es gelte (iii). Sei $U$ offen, also 
+		(iv) $\Leftrightarrow$ (v): Es gelte (iv). Sei $U$ offen, also 
 		$C \defby U^\mathsf{c}$ abgeschlossen. Dann erhalten wir
 		\begin{align*}
 			\liminf_{\iota \to \infty} \mu_\iota(U) \; &= \; \liminf_{\iota \to \infty} (\mu_\iota(X) - \mu_\iota(C)) \; = \;
@@ -141,9 +142,9 @@
 			&\geq \; 
 			\mu(X) - \mu(C) \; = \; \mu(U)
 		\end{align*}
-		und damit (iv). Die andere Richtung zeigt man analog.
+		und damit (v). Die andere Richtung zeigt man analog.
 		
-		(iii), (iv) $\Rightarrow$ (v): Sei $A \in \mathcal{B}(X)$ mit 
+		(iv), (v) $\Rightarrow$ (vi): Sei $A \in \mathcal{B}(X)$ mit 
 		$\mu(\partial A) = 0$. Wegen
 		$A^\mathsf{o} \subseteq A \subseteq \overline{A}$ und 
 		$\partial A = \overline{A} \setminus A^\mathsf{o}$ gilt $\mu(A^\mathsf{o}) = 
@@ -159,7 +160,7 @@
 		also insgesamt
 		$$\lim_{\iota \to \infty} \mu_\iota(A) \; = \; \mu(A) \text{.}$$
 		
-		(v) $\Rightarrow$ (i): Sei $f \in \Bdcontfct{X}$ und $a < b \in \R$ 
+		(vi) $\Rightarrow$ (i): Sei $f \in \Bdcontfct{X}$ und $a < b \in \R$ 
 		mit $a < f < b$. Die Menge
 		$$S \defby \setcomp{c \in (a, b)}{\mu(\set{f = c}) > 0} \text{,}$$
 		ist abzählbar, da 
@@ -211,12 +212,12 @@
 		was wegen Hilfssatz~\ref{lem:generalweakconvergence} die schwache Konvergenz $\mu_\iota \xrightarrow{w} \mu$ impliziert.
 	\end{proof}
 
-		\begin{Bemerkung}[Verteilungskonvergenz]
+	\begin{Bemerkung}[Verteilungskonvergenz]
 		Betrachte den Fall $X := \R$. Sei nun $(\mathbb{P}_n)_n \in \Probmeasures{\R}^\N$,  $\mathbb{P} \in \Probmeasures{\R}$ und seien $\fctmap{F_n}{\R}{[0, 1]}{x}{\mathbb{P}_n((-\infty, x])}$, $\fctmap{F}{\R}{[0, 1]}{x}{\mathbb{P}((-\infty, x])}$ die zugehörigen Verteilungsfunktionen. In der Stochastik spricht man davon, dass $(\mathbb{P}_n)_n$ in Verteilung gegen $\mathbb{P}$ konvergiert, falls 
 		\[ \lim_{n \to \infty} F_n(x) \; = \; F(x) \]
 		für alle $x \in \R$ gilt, in denen $F$ stetig ist \cite[Definition 6.1]{Henze.2016}. 
 		
-		Tatsächlich ist die Verteilungskonvergenz von $(\mathbb{P}_n)_n$ gegen $\mathbb{P}$ gerade äquivalent zur schwachen Konvergenz $\mathbb{P}_n \xrightarrow{w} \mathbb{P}$. Dies lässt sich analog zur Äquivalenz (i) $\Leftrightarrow$ (v) in Satz~\ref{thm:portmanteau} beweisen, wobei für den Beweis der Rückrichtung passende Intervalle als $A_j^{(m)}$ verwendet werden müssen.
+		Tatsächlich ist die Verteilungskonvergenz von $(\mathbb{P}_n)_n$ gegen $\mathbb{P}$ gerade äquivalent zur schwachen Konvergenz $\mathbb{P}_n \xrightarrow{w} \mathbb{P}$. Dies lässt sich analog zur Äquivalenz (i) $\Leftrightarrow$ (vi) in Satz~\ref{thm:portmanteau} beweisen, wobei für den Beweis der Rückrichtung passende Intervalle als $A_j^{(m)}$ verwendet werden müssen.
 	\end{Bemerkung}
 	
 \end{document}

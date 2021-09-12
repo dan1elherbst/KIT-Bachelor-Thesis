@@ -417,13 +417,15 @@
 		Sei $X$ ein topologischer Raum. Dann schreiben wir
 		\[ \Bdcontfct{X} \; \defby \; \setcomp{\fct{f}{X}{\R}}{f \; \text{ist stetig und beschränkt}} \]
 		für die Menge aller stetigen und beschränkten Funktionen auf $X$. 
-		Ist $X$ ein metrischer Raum, so schreiben wir
-		\[ \Bduniffct{X} \; \defby \; \setcomp{\fct{f}{X}{\R}}{f \; \text{ist gleichmäßig stetig und beschränkt}} \]
-		für die Menge aller gleichmäßig stetigen und beschränkten Funktionen auf $X$. 
+		Ist $X$ ein metrischer Raum, so schreiben wir außerdem
+		\begin{align*}
+			\Bduniffct{X} \; &\defby \; \setcomp{\fct{f}{X}{\R}}{f \; \text{ist gleichmäßig stetig und beschränkt}} \quad \text{und} \\
+			\Bdlipschitzfct{X} \; &\defby \; \setcomp{\fct{f}{X}{\R}}{f \; \text{ist lipschitzstetig und beschränkt}} \text{.}
+		\end{align*}
 	\end{Definition}
 	
 	\begin{Bemerkung}
-		Sei $X$ ein metrischer Raum. Sicherlich ist dann $\Bduniffct{X} \subseteq \Bdcontfct{X}$, allerdings hängt $\Bduniffct{X}$ im Gegensatz 
+		Sei $X$ ein metrischer Raum. Sicherlich ist dann $\Bdlipschitzfct{X} \subseteq \Bduniffct{X} \subseteq \Bdcontfct{X}$, allerdings hängen $\Bdlipschitzfct{X}$ und $\Bduniffct{X}$ im Gegensatz 
 		zu $\Bdcontfct{X}$ von der Metrik selbst und nicht ausschließlich von der Topologie ab.
 	\end{Bemerkung}
 	

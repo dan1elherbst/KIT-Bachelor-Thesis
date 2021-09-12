@@ -6,6 +6,8 @@
 	
 	Wir orientieren uns an \cite{Villani.2009}.
 	
+	\subsection{Optimaler Transport}
+	
 	\begin{Definition}[Kopplung]
 		Seien $X$, $Y$ topologische Räume und $A \subseteq \Probmeasures{X}$, $B \subseteq \Probmeasures{Y}$. Wir definieren dann
 		\[ \Pi(A, B) \; \defby \; \setcomp{\pi \in \Probmeasures{X \times Y}}{\pi(\cdot \times Y) \in A \quad \text{und} \quad \pi(X \times \cdot) \in B} \text{.}\]
@@ -81,6 +83,27 @@
 		was bedeutet, dass $\hat{\pi}$ ein optimaler Transportplan zwischen $\mu$ und $\nu$ ist. 
 	\end{proof}
 
+	\begin{Satz}
+		\label{thm:optimalseqremainsoptimal}
+		Seien $X$, $Y$ polnische Räume, $\fct{c}{X \times Y}{[0, \infty)}$ eine stetige Kostenfunktion sowie $(\mu_k)_k \in \Probmeasures{X}^\N$, $\mu \in \Probmeasures{X}$, 
+		$(\nu_k)_k \in \Probmeasures{Y}^\N$, $\nu \in \Probmeasures{Y}$ mit
+		\[ \mu_k \xrightarrow{w} \mu \quad \text{und} \quad \nu_k \xrightarrow{w} \nu, \quad k \to \infty \text{.} \]
+		
+		Für jedes $k \in \N$ sei $\hat{\pi}_k$ eine optimale Kopplung von $\mu_k$ und $\nu_k$. 
+		Wir möchten nun außerdem annehmen, dass
+		\begin{itemizethm}
+			\item $C(\hat{\pi}_k) < \infty$ für alle $k \in \N$ und
+			\item $\liminf_{k \to \infty} C(\hat{\pi}_k) < \infty$ gilt.
+		\end{itemizethm}
+		Dann konvergiert $(\hat{\pi}_k)_k$ schwach gegen eine optimale Kopplung $\hat{\pi} \in \Pi(\mu, \nu)$ von $\mu$ und $\nu$ und es gilt $C(\hat{\pi}) < \infty$. 
+	\end{Satz}
+
+	\begin{proof}
+		\tobechanged{TODO}
+	\end{proof}
+
+	\subsection{Wassersteinmetriken}
+
 	\begin{Definition}
 		\label{def:wasserstein}
 		Sei $(X, d)$ ein polnischer metrischer Raum, sei $p \in [1, \infty)$ und seien $\mu, \nu \in \Probmeasures{X}$. Dann nennen wir
@@ -122,6 +145,19 @@
 		$p \leq q \implies W_p \leq W_q$.
 	\end{Bemerkung}
 
+	\begin{Satz}[Dualitätsformel von Kantorovich-Rubinstein]
+		\label{thm:kantorovichrubinstein}
+		Sei $(X, d)$ ein polnischer metrischer Raum, wobei $d$ eine beschränkte Metrik sei. Wir definieren
+		\[ \Lipschitzlequnit{X} \; \defby \; \setcomp{\fct{f}{X}{\R}}{f \; \text{ist }1\text{-lipschitzstetig} } \text{.} \]
+		
+		Dann gilt für jedes Paar $\mu, \nu \in \Probmeasures{X}$ von Wahrscheinlichkeitsmaßen
+		\[ W_1(\mu, \nu) \; = \; \sup_{f \in \Lipschitzlequnit{X}} \left( \measureint{}{f}{\mu} - \measureint{}{f}{\nu} \right) \text{.} \]
+	\end{Satz}
+
+	\begin{proof}
+		\tobechanged{TODO}
+	\end{proof}
+
 	\begin{Satz}
 		\label{thm:wassersteinweakconvergence}
 		Sei $(X, d)$ ein polnischer metrischer Raum, wobei $d$ eine beschränkte Metrik sei. Dann gilt
@@ -159,53 +195,42 @@
 			\mu_k(U_\varepsilon) \; = \; \measureint{}{\indfct_{U_\varepsilon}}{\mu_k} \; &\geq \; \measureint{}{\varphi}{\mu_k} \; = \; \measureint{}{\varphi}{\mu_j} + \left( \measureint{}{\varphi}{\mu_k} - \measureint{}{\varphi}{\mu_j} \right) \\
 			                                                                              &\geq \; \measureint{}{\varphi}{\mu_j} - \frac{W_1(\mu_j, \mu_k)}{\varepsilon} \; \geq \; \mu_j(U) - \frac{W_1(\mu_j, \mu_k)}{\varepsilon} \\
 			                                                                              &\geq \; \mu_j(K) - \frac{W_1(\mu_j, \mu_k)}{\varepsilon} \; \geq \; 1 - \varepsilon - \frac{W_1(\mu_j, \mu_k)}{\varepsilon} \\
-			                                                                              &\geq \; 1 - \varepsilon - \frac{\varepsilon^2}{\varepsilon} \; = \; 1 - 2\varepsilon \text{.}
+			                                                                              &\geq \; 1 - \varepsilon - \frac{\varepsilon^2}{\varepsilon} \; = \; 1 - 2\varepsilon \text{,}
 		\end{align*}
-		
+		wobei wir in der zweiten Ungleichung die Dualitätsformel von Kantorovich-Rubinstein (Satz~\ref{thm:kantorovichrubinstein}) verwendet haben.
 		Da wir zu Beginn $0 < \varepsilon \leq 1$ beliebig gewählt haben, können wir die gesamte Argumentation analog für $\varepsilon/2^{(l+1)}, \; l \in \N$ führen und erhalten damit für jedes $l \in \N$ 
 		eine endliche Menge $\set{x_1^{(l)}, \dots, x_{m_l}^{(l)}} \subseteq X$ mit
 		\[ \mu_k(\bigcup_{i=1}^{m_l} B_{\varepsilon/2^l}(x_i^{(l)})) \; \geq \; 1 - \frac{\varepsilon}{2^l}, \quad k \in \N \text{.} \]
 		Nun können wir analog zu den Beweisen von Satz~\ref{thm:tightness} und Satz~\ref{thm:prokhorov} vorgehen:
 		Wir setzen
 		\[ S_{\varepsilon} \; \defby \; \bigcap_{l \in \N} \bigcup_{i=1}^{m_l} B_{\varepsilon/2^l}(x_i^{(l)}) \quad \text{und} \quad K_{\varepsilon} \defby \overline{S_\varepsilon} \text{.} \]
-		Da $S_{\varepsilon}$ totalbeschränkt ist, ist $K_{\varepsilon}$ kompakt und für alle $k \in \N$ ist
+		Da $S_{\varepsilon}$ totalbeschränkt ist, ist $K_{\varepsilon}$ kompakt und für alle $k \in \N$ gilt
 		\[ \mu_k(K_{\varepsilon}) \; \geq \; \mu_k(K_{\varepsilon}) \; \geq \; 1 - \varepsilon \text{,} \]
 		also ist $\setcomp{\mu_k}{k \in \N}$ straff.
 	\end{proof}
 
-	\begin{Hilfssatz}
-		\label{lem:subsequenceofsubsequence}
-		Sei $X$ ein polnischer Raum und sei $(\mu_k)_k \in \Probmeasures{X}^\N$ eine derartige Folge, dass 
-		\begin{itemizethm}
-			\item $\setcomp{\mu_k}{k \in \N}$ straff ist und
-			\item jede Teilfolge von $(\mu_k)_k$ eine Teilfolge besitzt, die schwach gegen ein Wahrscheinlichkeitsmaß $\mu \in \Probmeasures{X}$ konvergiert, wobei $\mu$ unabhängig von der speziellen Teilfolge ist.
-		\end{itemizethm}
-		Dann gilt \[\mu_k \xrightarrow{w} \mu, \quad k \to \infty \text{.} \]
-	\end{Hilfssatz}
-
-	\begin{proof}
-		\tobechanged{TODO}
-	\end{proof}
-
 	\begin{proof}[Beweis von Satz~\ref{thm:wassersteinweakconvergence}]
 		Wir zeigen zunächst die Hinrichtung. Sei dazu $(\mu_k)_k \in \Probmeasures{X}^\N$ und $\mu \in \Probmeasures{X}$ mit $\mu_k \xrightarrow{w} \mu$. Für jedes $k \in \N$ sei $\pi_k \in \Pi(\mu_k, \mu)$ außerdem
-		eine optimale Kopplung von $\mu_k$ und $\mu$. Aufgrund der schwachen Konvergenz von $(mu_k)_k$ ist $\setcomp{\mu_k}{k \in \N} \cup {\mu} \subseteq \Probmeasures{X}$ kompakt und damit nach dem 
+		eine optimale Kopplung von $\mu_k$ und $\mu$. Aufgrund der schwachen Konvergenz von $(\mu_k)_k$ ist $\setcomp{\mu_k}{k \in \N} \cup {\mu} \subseteq \Probmeasures{X}$ kompakt und damit nach dem 
 		Satz von Prokhorov (Satz~\ref{thm:prokhorov}) auch straff, also sind insbesondere $\setcomp{\mu_k}{k \in \N}$ und $\set{\mu}$ jeweils straff. 
-		Hilfssatz~\ref{lem:couplingstight} ist damit auch $\Pi(\setcomp{\mu_k}{k \in \N}, \set{\mu})$ straff, was wiederum die Straffheit von $\setcomp{\pi_k}{k \in \N}$ nach sich zieht. Eine erneute Anwendung des
-		Satzes von Prokhorov liefert, dass jede Teilfolge $(\pi_{k_l})_l$ von $(\pi_k)_k$ eine schwach konvergente Teilfolge $(\pi_{k_{\tilde{l}}})_{\tilde{l}}$ besitzt, also existiert für jedes $l$ ein Wahrscheinlichkeitsmaß $\tilde{\pi}_l \in \Probmeasures{X \times X}$ mit
-		\[ \pi_{k_{\tilde{l}}} \xrightarrow{w} \tilde{\pi}_l, \quad l \to \infty \text{.} \]
-		Nach \tobechanged{TODO} ist jedes $\tilde{\pi}_l$ eine optimale Kopplung von $\mu$ und $\mu$, also muss es sich bei $\tilde{\pi}_l$ um die triviale Kopplung $\pi$ handeln, die durch
+		Hilfssatz~\ref{lem:couplingstight} ist damit auch $\Pi(\setcomp{\mu_k}{k \in \N}, \set{\mu})$ straff, was wiederum die Straffheit von $\setcomp{\pi_k}{k \in \N}$ nach sich zieht. 
+		
+		Fixiere nun eine beliebige Teilfolge $(\pi_{k_l})_l$ von $(\pi_k)_k$. Nach dem Satz von Prokhorov hat diese Teilfolge eine schwach konvergente Teilfolge $(\pi_{k_{\tilde{l}}})_{\tilde{l}}$, also existiert ein Wahrscheinlichkeitsmaß $\tilde{\pi} \in \Probmeasures{X \times X}$ mit
+		\[ \pi_{k_{\tilde{l}}} \xrightarrow{w} \tilde{\pi}, \quad \tilde{l} \to \infty \text{.} \]
+		Nach Satz~\ref{thm:optimalseqremainsoptimal} muss $\tilde{\pi}$ eine optimale Kopplung von $\mu$ und $\mu$ sein, also handelt es sich bei $\tilde{\pi}$ um die triviale Kopplung $\pi$, die durch
 		$\pi(A \times B) \defby \mu(A \cap B), \; A, B \in \mathcal{B}(X)$
 		definiert ist.
-		Nach Hilfssatz~\ref{lem:subsequenceofsubsequence} folgt damit also insgesamt die schwache Konvergenz
+		Eine Anwendung von Hilfssatz~\ref{cor:subsequenceofsubsequence} liefert damit also insgesamt die schwache Konvergenz
 		\[ \pi_k \xrightarrow{w} \pi, \quad k \to \infty \text{.} \]
-		Da $d$ beschränkt ist, ist die Zuordnung $(x, y) \mapsto d(x, y)^p$ in $\Bdcontfct{X \times X}$ enthalten, weshalb nun
+		Aufgrund der Beschränktheit von $d$ ist die Zuordnung $(x, y) \mapsto d(x, y)^p$ in $\Bdcontfct{X \times X}$ enthalten, weshalb nun
 		\[ W_p(\mu_k, \mu)^p \; = \; \measureintx{X \times X}{d(x, y)^p}{\pi_k}{(x, y)} \; \to \; \measureintx{X \times X}{d(x, y)^p}{\pi}{(x, y)} \; = \; 0, \quad k \to \infty \]
 		gilt, also auch $W_p(\mu_k, \mu) \to 0$.
 		
-		Für die Rückrichtung seien $(\mu_k)_k \in \Probmeasures{X}^\N$ und $\mu \in \Probmeasures{X}$ sind mit $W_p(\mu_k, \mu) \to 0$. Dann ist $(\mu_k)_k$ sicherlich auch eine Cauchyfolge bezüglich $W_p$ 
-		und Hilfssatz~\ref{lem:wassersteincauchyseq} liefert die Straffheit von $\setcomp{\mu_k}{k \in \N}$. Daher besitzt jede Teilfolge $(\mu_{k_l})_l$ von $(\mu_k)_k$ eine schwach konvergente Teilfolge $(\mu_{k_{\tilde{l}}})_{\tilde{l}}$ , also existiert für jedes $l$ ein Wahrscheinlichkeitsmaß $\tilde{\mu}_l \in \Probmeasures{X \times X}$ mit
-		\[ \mu_{k_{\tilde{l}}} \xrightarrow{w} \tilde{\mu}_l, \quad l \to \infty \text{.} \]
+		Für die Rückrichtung seien $(\mu_k)_k \in \Probmeasures{X}^\N$ und $\mu \in \Probmeasures{X}$ mit $W_p(\mu_k, \mu) \to 0$. Dann ist $(\mu_k)_k$ sicherlich auch eine Cauchyfolge bezüglich $W_p$ 
+		und Hilfssatz~\ref{lem:wassersteincauchyseq} liefert die Straffheit von $\setcomp{\mu_k}{k \in \N}$. 
+		
+		Fixiere eine beliebige Teilfolge $(\mu_{k_l})_l$ von $(\mu_k)_k$. Nach dem Satz von Prokhorov hat diese eine schwach konvergente Teilfolge $(\mu_{k_{\tilde{l}}})_{\tilde{l}}$ , also existiert ein Wahrscheinlichkeitsmaß $\tilde{\mu} \in \Probmeasures{X \times X}$ mit
+		\[ \mu_{k_{\tilde{l}}} \xrightarrow{w} \tilde{\mu}, \quad \tilde{l} \to \infty \text{.} \]
 		\tobechanged{TODO}
 	\end{proof}
 	
