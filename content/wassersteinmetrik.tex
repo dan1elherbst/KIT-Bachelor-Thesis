@@ -6,7 +6,7 @@
 	
 	Wir orientieren uns an \cite{Villani.2009}.
 	
-	\subsection{Optimaler Transport}
+	\subsection{Kopplungen}
 	
 	\begin{Definition}[Kopplung]
 		Seien $X$, $Y$ topologische Räume und $A \subseteq \Probmeasures{X}$, $B \subseteq \Probmeasures{Y}$. Wir definieren dann
@@ -14,6 +14,53 @@
 		Für $\mu \in \Probmeasures{X}$ und $\nu \in \Probmeasures{Y}$ definieren wir außerdem $\Pi(\mu, \nu) \; \defby \; \Pi(\set{\mu}, \set{\nu})$ und nennen die
 		Elemente von $\Pi(\mu, \nu)$ \emph{Kopplungen} von $\mu$ und $\nu$ oder auch \emph{Transportpläne} zwischen $\mu$ und $\nu$.
 	\end{Definition}
+
+	\begin{Hilfssatz}
+		\label{lem:couplingsproperties}
+		Seien $X$, $Y$ polnische Räume und $A \subseteq \Probmeasures{X}$ sowie $B \subseteq \Probmeasures{Y}$. Dann gelten die folgenden Implikationen:
+		\begin{enumeratethm}
+			\item Sind $A$ und $B$ straff, so ist auch $\Pi(A, B) \subseteq \Probmeasures{X \times Y}$ straff.
+			\item Sind $A$ und $B$ abgeschlossen, so ist auch $\Pi(A, B) \subseteq \Probmeasures{X \times Y}$ abgeschlossen.
+			\item Sind $A$ und $B$ kompakt, so ist auch $\Pi(A, B) \subseteq \Probmeasures{X \times Y}$ kompakt.
+		\end{enumeratethm}
+	\end{Hilfssatz}
+
+	\begin{proof}
+		Zunächst möchten wir Aussage (a) zeigen. Fixiere dazu ein beliebiges $\varepsilon > 0 $ und wähle kompakte Teilmengen $K_{\varepsilon/2} \subseteq X$ sowie $L_{\varepsilon/2} \subseteq Y$ so, dass $\mu(K_{\varepsilon/2}) \geq 1 - \frac{\varepsilon}{2}$ 
+		für alle $\mu \in A$ und $\nu(L_{\varepsilon/2}) \geq 1 - \frac{\varepsilon}{2}$ für alle $\nu \in B$ gilt. Dann ist $K_{\varepsilon/2} \times L_{\varepsilon/2} \subseteq \Probmeasures{X \times Y}$ auch kompakt und für jede Kopplung $\pi$ von $\mu$ und $\nu$ gilt
+		\begin{align*}
+			\pi(K_{\varepsilon/2} \times L_{\varepsilon/2}) \; &= \; 1 - \pi(K_{\varepsilon/2}^\mathsf{c} \times Y \cup X \times L_{\varepsilon/2}^\mathsf{c}) \\
+			&\geq \; 1 - \mu(K_{\varepsilon/2}^\mathsf{c}) - \nu(L_{\varepsilon/2}^\mathsf{c}) \; \geq \; 1 - \varepsilon \text{,}
+		\end{align*}
+		also ist auch $\Pi(A, B) \subseteq \Probmeasures{X \times Y}$ straff.
+		
+		Da mit $X$ und $Y$ auch $X \times Y$ polnisch ist, können wir für Aussage (b) mit der Charakterisierung von Abgeschlossenheit durch Folgen arbeiten.
+		Seien also $A$ und $B$ abgeschlossen und sei $(\pi_k)_k \in \Pi(A, B)^\N$ eine schwach konvergente Folge mit Grenzwert $\pi \in \Probmeasures{X \times Y}$.
+		Dann ist für alle abgeschlossenen Teilmengen $C \subseteq X$ auch $C \times Y \subseteq X \times Y$ abgeschlossen und das Portmanteau-Theorem (Satz~\ref{thm:portmanteau}) liefert
+		\[ \limsup_{k \to \infty} \, \pi_k(C \times Y) \; \leq \; \pi(C \times Y) \text{.} \]
+		Damit konvergiert $(\pi_k(\cdot \times Y))_k \in A^\N$ nach dem Portmanteau-Theorem schwach gegen $\pi(\cdot \times Y)$ und die Abgeschlossenheit 
+		von $A \subseteq \Probmeasures{X}$ liefert, dass $\pi(\cdot \times Y)$ in $A$
+		enthalten ist. Analog folgt $\pi(X \times \cdot) \in B$, also ist insgesamt $\pi \in \Pi(A, B)$.
+		
+		Aussage (c) folgt durch eine Anwendung des Satzes von Prokhorov (Satz~\ref{thm:prokhorov}) direkt aus den Aussagen (a) und (b), denn sowohl in $\Probmeasures{X}$ und $\Probmeasures{Y}$ als auch in $\Probmeasures{X \times Y}$ entsprechen kompakte Teilmengen gerade den Teilmengen, die straff und abgeschlossen sind.
+	\end{proof}
+
+	\begin{Hilfssatz}
+		Seien $X$, $Y$ polnische Räume und seien $(\mu_k)_k \in \Probmeasures{X}^\N$, $\mu \in \Probmeasures{X}$, $(\nu_k)_k \in \Probmeasures{Y}^\N$ und $\nu \in \Probmeasures{Y}$ mit
+		\[ \mu_k \xrightarrow{w} \mu \quad \text{und} \quad \nu_k \xrightarrow{w} \nu, \quad k \to \infty \text{.} \]
+		Sei außerdem $\pi_k \in \Pi(\mu_k, \nu_k)$ für alle $k \in \N$ und $\pi \in \Probmeasures{X \times Y}$ so, dass
+		\[ \pi_k \xrightarrow{w} \pi, \quad k \to \infty \text{.} \]
+		Dann ist $\pi \in \Pi(\mu, \nu)$.
+	\end{Hilfssatz}
+
+	\begin{proof}
+		Analog zum Beweis von Hilfssatz~\ref{lem:couplingsproperties} gilt hier
+		\[ \pi_k(\cdot \times Y) \; \xrightarrow{w} \; \pi(\cdot \times Y) \quad \text{und} \quad \pi_k(X \times \cdot) \; \xrightarrow{w} \; \pi(X \times \cdot), \quad k \to \infty \text{.} \]
+		Wegen $\pi_k(\cdot \times Y) = \mu_k$ und $\pi_k(X \times \cdot) = \nu_k$ für alle $k \in \N$ folgt damit aber insbesondere auch $\pi(\cdot \times Y) = \mu$ und $\pi(X \times \cdot) = \nu$, also
+		ist $\pi$ in $\Pi(\mu, \nu)$ enthalten.
+	\end{proof}
+
+	\subsection{Optimaler Transport}
 
 	\begin{Definition}[Kosten eines Transportplans]
 		Seien $X$, $Y$ topologische Räume, $\mu \in \Probmeasures{X}$, $\nu \in \Probmeasures{Y}$ und $\fct{c}{X \times Y}{[0, \infty]}$ eine $\mathcal{B}(X \times Y)$-messbare Kostenfunktion.
@@ -45,37 +92,9 @@
 		und es folgt die Behauptung.
 	\end{proof}
 
-	\begin{Hilfssatz}
-		\label{lem:couplingstight}
-		Seien $X$, $Y$ polnische Räume und seien $A \subseteq \Probmeasures{X}$ sowie $B \subseteq \Probmeasures{Y}$ straffe Teilmengen. Dann ist $\Pi(A, B) \subseteq \Probmeasures{X \times Y}$ auch straff.
-	\end{Hilfssatz}
-
-	\begin{proof}
-		Fixiere ein beliebiges $\varepsilon > 0 $ und wähle kompakte Teilmengen $K_{\varepsilon/2} \subseteq X$ sowie $L_{\varepsilon/2} \subseteq Y$ so, dass $\mu(K_{\varepsilon/2}) \geq 1 - \frac{\varepsilon}{2}$ 
-		für alle $\mu \in A$ und $\nu(L_{\varepsilon/2}) \geq 1 - \frac{\varepsilon}{2}$ für alle $\nu \in B$ gilt. Dann ist $K_{\varepsilon/2} \times L_{\varepsilon/2} \subseteq \Probmeasures{X \times Y}$ auch kompakt und für jede Kopplung $\pi$ von $\mu$ und $\nu$ gilt
-		\begin{align*}
-			\pi(K_{\varepsilon/2} \times L_{\varepsilon/2}) \; &= \; 1 - \pi(K_{\varepsilon/2}^\mathsf{c} \times Y \cup X \times L_{\varepsilon/2}^\mathsf{c}) \\
-			                                                   &\geq \; 1 - \mu(K_{\varepsilon/2}^\mathsf{c}) - \nu(L_{\varepsilon/2}^\mathsf{c}) \; \geq \; 1 - \varepsilon \text{,}
-		\end{align*}
-	also ist auch $\Pi(A, B) \subseteq \Probmeasures{X \times Y}$ straff.
-	\end{proof}
-
-	\begin{Hilfssatz}
-		\label{lem:couplingsclosed}
-		Seien $X$, $Y$ polnische Räume und $\mu \in \Probmeasures{X}$, $\nu \in \Probmeasures{Y}$. Dann ist $\Pi(\mu, \nu) \subseteq \Probmeasures{X \times Y}$ abgeschlossen.
-	\end{Hilfssatz}
-
-	\begin{proof}
-		Weil $X \times Y$ auch polnisch ist und $\Probmeasures{X \times Y}$ damit nach Satz~\ref{thm:finitemeasurespolish} insbesondere metrisierbar ist, genügt es zu überprüfen, dass der Grenzwert $\pi$ einer jeden schwach konvergenten Folge $(\pi_k)_k \in \Pi(\mu, \nu)^\N$ wieder in $\Pi(\mu, \nu)$ liegt. Tatsächlich gilt für alle $f \in \Bdcontfct{X}$ und $k \in \N$
-		\[ \measureintx{X \times Y}{f(x)}{\pi_k}{(x, y)} \; = \; \measureintx{X}{f(x)}{\mu}{x} \text{,} \]
-		also auch 
-		\[ \measureintx{X \times Y}{f(x)}{\pi}{(x, y)} \; = \; \lim_{k \to \infty} \measureintx{X \times Y}{f(x)}{\pi_k}{(x, y)} \; = \; \measureintx{X}{f(x)}{\mu}{x} \text{,} \]
-		was nach Satz~\ref{thm:measureequality} $\pi(\cdot \times Y) = \mu$ impliziert. Analog sieht man auch $\pi(X \times \cdot) = \nu$ ein, sodass insgesamt $\pi \in \Pi(\mu, \nu)$ folgt.
-	\end{proof}
-
 	\begin{proof}[Beweis von Satz~\ref{thm:existenceoptimaltransportplan}]
-		Zunächst sind $\mu \in \Probmeasures{X}$ und $\nu \in \Probmeasures{Y}$ nach Satz~\ref{thm:tightness} straff, also wegen Hilfssatz~\ref{lem:couplingstight} auch 
-		$\Pi(\mu, \nu)$. Daraufhin liefert Hilfssatz~\ref{lem:couplingsclosed} gemeinsam mit dem Satz von Prokhorov (Satz~\ref{thm:prokhorov}) die Kompaktheit von $\Pi(\mu, \nu) \subseteq \Probmeasures{X \times Y}$.
+		Zunächst sind $\set{\mu} \subseteq \Probmeasures{X}$ und $\set{\nu} \subseteq \Probmeasures{Y}$ kompakt, also ist $\Pi(\mu, \nu) \subseteq \Probmeasures{X \times Y}$ 
+		wegen Hilfssatz~\ref{lem:couplingsproperties} (c) ebenfalls kompakt.
 		Sei nun $(\pi_k)_k \in \Pi(\mu, \nu)^\N$ mit
 		\[ C(\pi_k) \; \to \inf_{\pi \in \Pi(\mu, \nu)} C(\pi) \text{,} \quad k \to \infty \text{.} \]
 		Dann gibt es eine Teilfolge $(\pi_{k_l})_l$ und ein $\hat{\pi} \in \Pi(\mu, \nu)$ mit $\pi_{k_l} \xrightarrow{w} \hat{\pi}$. Nach Hilfssatz~\ref{lem:lsccost} gilt
@@ -197,7 +216,7 @@
 			                                                                              &\geq \; \mu_j(K) - \frac{W_1(\mu_j, \mu_k)}{\varepsilon} \; \geq \; 1 - \varepsilon - \frac{W_1(\mu_j, \mu_k)}{\varepsilon} \\
 			                                                                              &\geq \; 1 - \varepsilon - \frac{\varepsilon^2}{\varepsilon} \; = \; 1 - 2\varepsilon \text{,}
 		\end{align*}
-		wobei wir in der zweiten Ungleichung die Dualitätsformel von Kantorovich-Rubinstein (Satz~\ref{thm:kantorovichrubinstein}) verwendet haben.
+		wobei wir in der zweiten Ungleichung die Dualitätsformel von Kantorovich-Rubinstein (Satz~\ref{thm:kantorovichrubinstein}) angewendet haben.
 		Da wir zu Beginn $0 < \varepsilon \leq 1$ beliebig gewählt haben, können wir die gesamte Argumentation analog für $\varepsilon/2^{(l+1)}, \; l \in \N$ führen und erhalten damit für jedes $l \in \N$ 
 		eine endliche Menge $\set{x_1^{(l)}, \dots, x_{m_l}^{(l)}} \subseteq X$ mit
 		\[ \mu_k(\bigcup_{i=1}^{m_l} B_{\varepsilon/2^l}(x_i^{(l)})) \; \geq \; 1 - \frac{\varepsilon}{2^l}, \quad k \in \N \text{.} \]
