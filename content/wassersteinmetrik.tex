@@ -34,20 +34,20 @@
 		\end{align*}
 		also ist auch $\Pi(A, B) \subseteq \Probmeasures{X \times Y}$ straff.
 		
-		Da mit $X$ und $Y$ auch $X \times Y$ polnisch ist, können wir für Aussage (b) mit der Charakterisierung von Abgeschlossenheit durch Folgen arbeiten.
+		Da mit $X$ und $Y$ auch $X \times Y$ polnisch ist (siehe Folgerung~\ref{cor:productsofpolishspaces}), können wir für Aussage (b) mit der Charakterisierung von Abgeschlossenheit durch Folgen arbeiten.
 		Seien also $A$ und $B$ abgeschlossen und sei $(\pi_k)_k \in \Pi(A, B)^\N$ eine schwach konvergente Folge mit Grenzwert $\pi \in \Probmeasures{X \times Y}$.
 		Dann ist für alle abgeschlossenen Teilmengen $C \subseteq X$ auch $C \times Y \subseteq X \times Y$ abgeschlossen und das Portmanteau-Theorem (Satz~\ref{thm:portmanteau}) liefert
 		\[ \limsup_{k \to \infty} \, \pi_k(C \times Y) \; \leq \; \pi(C \times Y) \text{.} \]
 		Damit konvergiert $(\pi_k(\cdot \times Y))_k \in A^\N$ wiederum nach dem Portmanteau-Theorem schwach gegen $\pi(\cdot \times Y)$ und die Abgeschlossenheit 
 		von $A \subseteq \Probmeasures{X}$ liefert, dass $\pi(\cdot \times Y)$ in $A$
-		enthalten ist. Analog folgt $\pi(X \times \cdot) \in B$, also ist insgesamt $\pi \in \Pi(A, B)$.
+		enthalten ist. Analog folgt $\pi(X \times \cdot) \in B$, also ist insgesamt $\pi \in \Pi(A, B)$. Daher ist $\Pi(A, B)$ abgeschlossen.
 		
 		Durch eine Anwendung des Satzes von Prokhorov (Satz~\ref{thm:prokhorov}) können wir aus (a) und (b) unmittelbar auch Aussage (c) folgern, denn dieser liefert, dass sowohl in $\Probmeasures{X}$ und $\Probmeasures{Y}$ als auch in $\Probmeasures{X \times Y}$ kompakte Teilmengen gerade den Teilmengen entsprechen, die straff und abgeschlossen sind.
 	\end{proof}
 
 	\begin{Hilfssatz}
 		\label{lem:convimpliescouplingsconv}
-		Seien $X$, $Y$ polnische Räume und seien $(\mu_k)_k \in \Probmeasures{X}^\N$, $\mu \in \Probmeasures{X}$, $(\nu_k)_k \in \Probmeasures{Y}^\N$ und $\nu \in \Probmeasures{Y}$ mit
+		Seien $X$, $Y$ metrisierbare topologische Räume und seien $(\mu_k)_k \in \Probmeasures{X}^\N$, $\mu \in \Probmeasures{X}$, $(\nu_k)_k \in \Probmeasures{Y}^\N$ und $\nu \in \Probmeasures{Y}$ mit
 		\[ \mu_k \xrightarrow{w} \mu \quad \text{und} \quad \nu_k \xrightarrow{w} \nu, \quad k \to \infty \text{.} \]
 		Sei außerdem $\pi_k \in \Pi(\mu_k, \nu_k)$ für alle $k \in \N$ und $\pi \in \Probmeasures{X \times Y}$ so, dass
 		\[ \pi_k \xrightarrow{w} \pi, \quad k \to \infty \text{.} \]
@@ -237,7 +237,20 @@
 		also ist $\setcomp{\mu_k}{k \in \N}$ straff.
 	\end{proof}
 
+	\begin{Hilfssatz}
+		Sei $X$ ein polnischer Raum und $(\mu_k)_k \in \Probmeasures{X}^\N$ eine derartige Folge
+	\end{Hilfssatz}
+
 	\begin{proof}[Beweis von Satz~\ref{thm:wassersteinweakconvergence}]
+		Für beide Richtungen des Beweises verwenden die elementare Tatsache, dass für $(\mu_k)_k \in \Probmeasures{X}^\N$ und $\mu \in \Probmeasures{X}$ die Äquivalenz
+		\[ \begin{matrix}
+			\mu_k \xrightarrow{w} \mu \quad & \iff & \quad \begin{array}{lr}
+				\text{jede Teilfolge} \; (\mu_{k'})_{k'} \; \text{von} \; (\mu_k)_k \; \text{hat} \\
+				\text{eine Teilfolge} \; (\mu_{k''})_{k''} \; \text{mit} \; \mu_{k''} \xrightarrow{w} \mu
+			\end{array} \label{6.1} \tag{6.1}
+		\end{matrix} \]
+		gilt.
+		
 		Wir möchten zunächst die Hinrichtung zeigen. Sei dazu $(\mu_k)_k \in \Probmeasures{X}^\N$ und $\mu \in \Probmeasures{X}$ mit $\mu_k \xrightarrow{w} \mu$. Sei außerdem $\pi_k \in \Pi(\mu_k, \mu)$ 
 		für jedes $k \in \N$ eine optimale Kopplung von $\mu_k$ und $\mu$. 
 		Insbesondere sind dann $A \defby \setcomp{\mu_k}{k \in \N} \cup \set{\mu}$ und $B \defby \set{\mu}$ kompakt und Satz~\ref{thm:optimalplanscompact} 
@@ -249,22 +262,22 @@
 		\[ \measureintx{X \times X}{d(x, y)^p}{\pi'}{(x, y)} \; = \; W_p(\mu, \mu)^p \; = \; 0 \text{.} \]
 		Daher gilt $\pi'(\setcomp{(x, x)}{x \in X}) = 1$ und für alle $A, B \in \mathcal{B}(X)$ folgt $\pi'(A \times B) = \mu(A \cap B)$, weshalb $\pi'$ einfach die 
 		triviale Kopplung $\pi$ von $\mu$ und $\mu$ ist. Weil $\setcomp{\pi_k}{k \in \N} \subseteq \hat{\Pi}(A, B)$ gilt, ist $\overline{\setcomp{\pi_k}{k \in \N}}$ kompakt und $\setcomp{\pi_k}{k \in \N}$ damit nach
-		dem Satz von Prokhorov (Satz~\ref{thm:prokhorov}) straff. Insgesamt impliziert Folgerung~\ref{cor:subsequenceofsubsequence} nun also die schwache Konvergenz
+		dem Satz von Prokhorov (Satz~\ref{thm:prokhorov}) straff. Insgesamt impliziert \eqref{6.1} nun also die schwache Konvergenz
 		\[ \pi_k \xrightarrow{w} \pi, \quad k \to \infty \text{.} \] 
 		Da die Zuordnung $(x, y) \mapsto d(x, y)^p$ wegen der Beschränktheit von $d$ aber in $\Bdcontfct{X \times X}$ enthalten ist, folgt 
 		\[ W_p(\mu_k, \mu)^p \; = \; \measureintx{X \times X}{d(x, y)^p}{\pi_k}{(x, y)} \; \to \; \measureintx{X \times X}{d(x, y)^p}{\pi}{(x, y)} \; = \; 0, \quad k \to \infty \text{,} \]
 		also auch $W_p(\mu_k, \mu) \to 0$.
 		
 		Für die Rückrichtung sei nun $(\mu_k)_k \in \Probmeasures{X}^\N$ und $\mu \in \Probmeasures{X}$ so, dass $W_p(\mu_k, \mu) \to 0$. Nach Hilfssatz~\ref{lem:wassersteincauchyseq} ist $\setcomp{\mu_k}{k \in \N}$ dann straff, nach dem Satz von Prokhorov ist $\overline{\setcomp{\mu_k}{k \in \N}}$ also kompakt. Sei $(\mu_{k'})_{k'}$ nun eine Teilfolge von $(\mu_k)_k$. Dann existiert eine derartige Teilfolge $(\mu_{k''})_{k''}$ von $(\mu_{k'})_{k'}$ und ein Wahrscheinlichkeitsmaß $\mu'' \in \Probmeasures{X}$, dass
-		\[ \mu_{k''} \xrightarrow{w} \mu'', \quad k'' \to \infty \text{.} \label{6.1} \tag{6.1} \]
-		Für $k'' \in \N$ sei $\pi_{k''}$ eine optimale Kopplung von $\mu_{k''}$ und $\mu$. Da $\setcomp{\pi_{k''}}{k'' \in \N}$ nach Hilfssatz~\ref{lem:couplingsproperties} straff ist, liefert der Satz von Prokhorov die Existenz einer Teilfolge $(\pi_{k'''})_{k'''}$ von $(\pi_{k''})_{k''}$, die schwach gegen ein $\pi''' \in \Probmeasures{X \times X}$ konvergiert. Nach Hilfssatz~\ref{lem:convimpliescouplingsconv} ist $\pi'''$ eine Kopplung von $\mu''$ und $\mu$. Durch eine Anwendung von Hilfssatz~\ref{lem:lsccost} können wir also
+		\[ \mu_{k''} \xrightarrow{w} \mu'', \quad k'' \to \infty \text{.} \label{6.2} \tag{6.2} \]
+		Für $k'' \in \N$ sei $\pi_{k''}$ eine optimale Kopplung von $\mu_{k''}$ und $\mu$. Da $\setcomp{\pi_{k''}}{k'' \in \N}$ nach Hilfssatz~\ref{lem:couplingsproperties} straff ist, liefert der Satz von Prokhorov die Existenz einer Teilfolge $(\pi_{k'''})_{k'''}$ von $(\pi_{k''})_{k''}$, die schwach gegen ein $\pi''' \in \Probmeasures{X \times X}$ konvergiert. Nach Hilfssatz~\ref{lem:convimpliescouplingsconv} ist $\pi'''$ eine Kopplung von $\mu''$ und $\mu$. Durch eine Anwendung von Hilfssatz~\ref{lem:lsccost} können wir wie folgt abschätzen:
 		\begin{align*}
 			W_p(\mu'', \mu)^p \; &= \; \inf_{\pi \in \Pi(\mu'', \mu)} \measureintx{X \times X}{d(x, y)^p}{\pi}{(x, y)} \\
 			                \; &\leq \; \measureintx{X \times X}{d(x, y)^p}{\pi'''}{(x, y)} \\
-			                \; &\leq \; \liminf_{k''' \to \infty} \measureintx{X \times X}{d(x, y)^p}{\pi_{k'''}}{(x, y)} \; = \; \liminf_{k''' \to \infty} \, W_p( \mu_{k'''}, \mu)^p \; = \; 0
+			                \; &\leq \; \liminf_{k''' \to \infty} \measureintx{X \times X}{d(x, y)^p}{\pi_{k'''}}{(x, y)} \; = \; \liminf_{k''' \to \infty} \, W_p( \mu_{k'''}, \mu)^p \; = \; 0 \text{.}
 		\end{align*}
-		abschätzen. Da dies $\mu'' = \mu$ impliziert, gilt wegen \eqref{6.1} und Folgerung~\ref{cor:subsequenceofsubsequence} insgesamt also die schwache Konvergenz
-		\[ \mu_k \xrightarrow{w} \mu, \quad k \to \infty \text{.} \]
+		Da dies $\mu'' = \mu$ impliziert, gilt wegen \eqref{6.1} und \eqref{6.2} also
+		$\mu_k \xrightarrow{w} \mu, \; k \to \infty$.
 	\end{proof}
 	
 \end{document}
