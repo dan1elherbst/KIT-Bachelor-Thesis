@@ -39,8 +39,8 @@
 		Sei  $(x_\iota)_{\iota \in I}$ ein Netz in $X$, das gegen $z \in X$ konvergiert und sei $f \in \Bdcontfct{X}$. Dann ist
 		\[ \measureint{}{f}{\delta_{x_\iota}} \; = \; f(x_\iota) \; \to \; f(z) = \measureint{}{f}{\delta_{z}}, \quad \iota \to \infty \text{,} \]
 		also konvergiert $\delta_{x_\iota}$ schwach gegen $\delta_z$. Gelte umgekehrt $\delta_{x_\iota} \xrightarrow{w} \delta_z$. Wähle eine Metrik $d$, die $X$ metrisiert und
-		setze $f \defby \min \set{1, d(\cdot, z)} \in \Bdcontfct{X}$. Dann ist 
-		\[ \min \set{1, d(x_\iota, z)} \; = \; \measureint{}{f}{\delta_{x_\iota}} \; \to \; \measureint{}{f}{\delta_{z}} = 0 \text{,} \]
+		setze $f \defby \min (1, d(\cdot, z)) \in \Bdcontfct{X}$. Dann ist 
+		\[ \min (1, d(x_\iota, z)) \; = \; \measureint{}{f}{\delta_{x_\iota}} \; \to \; \measureint{}{f}{\delta_{z}} = 0 \text{,} \]
 		was $x_\iota \to z$ nach sich zieht.
 		
 		Nun möchten wir Aussage (b) zeigen. Sei $(x_n)_n \in X^\N$ und sei $\mu \in \Finitemeasures{X}$ mit $\delta_{x_n} \xrightarrow{w} \mu$, $n \to \infty$. Zunächst gilt sicherlich $\mu \in \Probmeasures{X}$.

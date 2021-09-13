@@ -165,7 +165,7 @@
 		Sei $(X, d)$ ein metrischer Raum und $C \subseteq X$ eine abgeschlossene 
 		Teilmenge. Ferner definieren wir für $n \in \N$
 		$$ A_n \defby \setcomp{y \in X}{d(y, C) < \frac{1}{n}} \quad \text{und} \quad 
-		\fctmap{f_n}{X}{\R}{x}{\max \set{0, 1-n d(x, C)}} \text{,}$$
+		\fctmap{f_n}{X}{\R}{x}{\max (0, 1-n d(x, C))} \text{,}$$
 		wobei wir $d(y, C) \defby \inf_{x \in C} d(y, x)$ setzen.
 		Dann gilt:
 		\begin{enumeratethm}
@@ -190,7 +190,7 @@
 		
 		Schließlich fällt $f_n$ und für $x \in C$ gilt $f_n(x) = 1$. 
 		Für $x \in C^\mathsf{c}$ ist $d(x, C) > 0$ und damit
-		$$f_n(x) = \max \set{0, 1-n d(x, C)} 
+		$$f_n(x) = \max (0, 1-n d(x, C))
 		\to 0 \text{,} \quad n \to \infty \text{,}$$
 		womit die Behauptung folgt.
 	\end{proof}
@@ -219,9 +219,9 @@
 		von $A$ zu beweisen.
 		
 		Für $x, y \in A$ definieren wir
-		\[\tilde{d}(x, y) \; \defby \; d(x, y) + \sum_{n=1}^{\infty} \min \left\{
+		\[\tilde{d}(x, y) \; \defby \; d(x, y) + \sum_{n=1}^{\infty} \min \left(
 		\frac{1}{2^n}, \left| \frac{1}{d(x, C_n)} - \frac{1}{d(y, C_n)} \right|
-		\right\} \text{.}\]
+		\right) \text{.}\]
 		Offensichtlich ist $\tilde{d}$ eine Metrik auf $A$, 
 		die dieselbe Topologie wie $d$ erzeugt. 
 		
@@ -232,10 +232,10 @@
 		$x \in X$. Angenommen $x \notin A$, so gibt es ein $m \in \N$ mit 
 		$x \in C_m$. Damit ist aber für alle $k \in \N$
 		$$\sup_{l \geq k} \tilde{d}(x_k, x_l) \; \geq \; \sup_{l \geq k} 
-		\, \sum_{n=1}^{\infty} \min \left\{
+		\, \sum_{n=1}^{\infty} \min \left(
 		\frac{1}{2^n}, \left| \frac{1}{d(x_k, C_n)} -
 		\frac{1}{d(x_l, C_n)} \right|
-		\right\} \; \geq \; \frac{1}{2^m} \; > \; 0 \text{,}$$
+		\right) \; \geq \; \frac{1}{2^m} \; > \; 0 \text{,}$$
 		was der Tatsache widerspricht, dass $(x_k)_k$ eine Cauchyfolge 
 		bezüglich $\tilde{d}$ ist. Also muss $x \in A$ gelten. 
 		Aus der Stetigkeit von $x \mapsto d(x, C_n)$ folgt mit dem 
@@ -345,23 +345,23 @@
 		Sei $(X, d)$ ein separabler metrischer Raum und sei 
 		$\mathcal{D} \defby \setcomp{x_n}{n \in \N} \subseteq X$ eine abzählbare 
 		dichte Teilmenge. Außerdem setzen wir
-		\[\fctmap{\varphi}{X}{H}{x}{\left(\min \set{1, d(x, x_n)} \right)_n} \text{.} \label{eq:2.4} \tag{2.4}\]
+		\[\fctmap{\varphi}{X}{H}{x}{\left(\min (1, d(x, x_n)) \right)_n} \text{.} \label{eq:2.4} \tag{2.4}\]
 		Dann ist $\varphi$ ein Homöomorphismus zwischen $X$ und $\varphi(X)$.
 	\end{Hilfssatz}
 	
 	\begin{proof}
 		Wir zeigen zunächst, dass $\varphi$ injektiv ist. 
 		Seien dazu $y, z \in H$ mit $\varphi(y) = \varphi(z)$, also gilt
-		\[\min\set{1, d(y, x_n)} = \min \set{1, d(z, x_n)} \label{eq:2.5} \tag{2.5}\]
+		\[\min (1, d(y, x_n)) = \min (1, d(z, x_n)) \label{eq:2.5} \tag{2.5}\]
 		für alle $n \in \N$. Weil es eine Folge $(y_n)_n \in \mathcal{D}^\N$ mit 
 		$y_n \to y$ gibt und diese wegen \eqref{eq:2.5} auch gegen $z$ 
 		konvergiert, folgt die Gleichheit von $y$ und $z$.
 		
 		Die Stetigkeit von $\varphi$ folgt direkt, weil die 
-		Komponentenfunktionen $x \mapsto \min\set{1, d(x, x_n)}$ jeweils stetig sind. 
+		Komponentenfunktionen $x \mapsto \min (1, d(x, x_n))$ jeweils stetig sind. 
 		Seien nun $(y_k)_k \in X^\N$ und $y \in X$ mit $\varphi(y_k) \to \varphi(y)$, 
 		also
-		\[\min\set{1, d(y_k, x_n)} \; \to \; \min\set{1, d(y, x_n)}, 
+		\[\min (1, d(y_k, x_n)) \; \to \; \min (1, d(y, x_n)), 
 		\quad k \to \infty \label{eq:2.6} \tag{2.6}\]
 		für alle $n \in \N$. Wählt man nun $\varepsilon < 1$ beliebig, 
 		so existiert ein $n \in \N$ mit $d(y, x_n) \leq \varepsilon$. 
