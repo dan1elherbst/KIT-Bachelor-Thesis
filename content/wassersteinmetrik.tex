@@ -46,6 +46,7 @@
 	\end{proof}
 
 	\begin{Hilfssatz}
+		\label{lem:convimpliescouplingsconv}
 		Seien $X$, $Y$ polnische Räume und seien $(\mu_k)_k \in \Probmeasures{X}^\N$, $\mu \in \Probmeasures{X}$, $(\nu_k)_k \in \Probmeasures{Y}^\N$ und $\nu \in \Probmeasures{Y}$ mit
 		\[ \mu_k \xrightarrow{w} \mu \quad \text{und} \quad \nu_k \xrightarrow{w} \nu, \quad k \to \infty \text{.} \]
 		Sei außerdem $\pi_k \in \Pi(\mu_k, \nu_k)$ für alle $k \in \N$ und $\pi \in \Probmeasures{X \times Y}$ so, dass
@@ -106,12 +107,12 @@
 		\label{thm:optimalplanscompact}
 		Seien $X$, $Y$ polnische Räume, sei $\fct{c}{X \times Y}{[0, \infty)}$ eine stetige Kostenfunktion und seien $A \subseteq \Probmeasures{X}$ und $B \subseteq \Probmeasures{Y}$ kompakte Teilmengen.
 		Dann ist 
-		\[ \setcomp{\pi \in \Pi(A, B)}{\pi \; \text{ist eine optimale Kopplung}} \; \subseteq \; \Probmeasures{X \times Y} \]
+		\[ \hat{\Pi}(A, B) \; \defby \; \setcomp{\pi \in \Pi(A, B)}{\pi \; \text{ist eine optimale Kopplung}} \; \subseteq \; \Probmeasures{X \times Y} \]
 		kompakt.
 	\end{Satz}
 
 	\begin{proof}
-		\tobechanged{TODO}
+		Siehe \cite[Folgerung 5.21]{Villani.2009}.
 	\end{proof}
 
 	\subsection{Wassersteinmetriken}
@@ -167,7 +168,7 @@
 	\end{Satz}
 
 	\begin{proof}
-		\tobechanged{TODO}
+		Siehe \cite[Bemerkung 6.5]{Villani.2009}.
 	\end{proof}
 
 	\begin{Satz}
@@ -202,14 +203,16 @@
 		\[ \fctmap{\varphi}{X}{\R}{x}{\max \left\{1-\frac{d(x, U)}{\varepsilon}, 0 \right\}} \text{.} \]
 		Offensichtlich ist $\indfct_U \leq \varphi \leq \indfct_{U_\varepsilon}$ und $\varphi$ ist $1/\varepsilon$-lipschitzstetig.
 		
-		Für  $k \in \N$ sei nun $j \in \set{1, \dots, n}$ mit $W_1(\mu_j, \mu_k) < \varepsilon^2$. Dann können wir abschätzen:
+		Für  $k \in \N$ sei nun $j \in \set{1, \dots, n}$ mit $W_1(\mu_j, \mu_k) < \varepsilon^2$. Da $\varepsilon\varphi$ $1$-lipschitzstetig ist, liefert die 
+		Dualitätsformel von Kantorovich-Rubinstein (Satz~\ref{thm:kantorovichrubinstein})
+		\[ W_1(\mu_j, \mu_k) \; \geq \; \varepsilon \left( \measureint{}{\varphi}{\mu_k} - \measureint{}{\varphi}{\mu_j} \right) \text{.} \]
+		Also können wir abschätzen:
 		\begin{align*}
 			\mu_k(U_\varepsilon) \; = \; \measureint{}{\indfct_{U_\varepsilon}}{\mu_k} \; &\geq \; \measureint{}{\varphi}{\mu_k} \; = \; \measureint{}{\varphi}{\mu_j} + \left( \measureint{}{\varphi}{\mu_k} - \measureint{}{\varphi}{\mu_j} \right) \\
 			                                                                              &\geq \; \measureint{}{\varphi}{\mu_j} - \frac{W_1(\mu_j, \mu_k)}{\varepsilon} \; \geq \; \mu_j(U) - \frac{W_1(\mu_j, \mu_k)}{\varepsilon} \\
 			                                                                              &\geq \; \mu_j(K) - \frac{W_1(\mu_j, \mu_k)}{\varepsilon} \; \geq \; 1 - \varepsilon - \frac{W_1(\mu_j, \mu_k)}{\varepsilon} \\
-			                                                                              &\geq \; 1 - \varepsilon - \frac{\varepsilon^2}{\varepsilon} \; = \; 1 - 2\varepsilon \text{,}
+			                                                                              &\geq \; 1 - \varepsilon - \frac{\varepsilon^2}{\varepsilon} \; = \; 1 - 2\varepsilon \text{.}
 		\end{align*}
-		wobei wir in der zweiten Ungleichung die Dualitätsformel von Kantorovich-Rubinstein (Satz~\ref{thm:kantorovichrubinstein}) angewendet haben.
 		Da wir zu Beginn $\varepsilon > 0$ beliebig gewählt haben, können wir die gesamte Argumentation analog für $\varepsilon/2^{(l+1)}, \; l \in \N$ führen und erhalten damit für jedes $l \in \N$ 
 		eine endliche Menge $\set{x_1^{(l)}, \dots, x_{m_l}^{(l)}} \subseteq X$ mit
 		\[ \mu_k(\bigcup_{i=1}^{m_l} B_{\varepsilon/2^l}(x_i^{(l)})) \; \geq \; 1 - \frac{\varepsilon}{2^l}, \quad k \in \N \text{.} \]
@@ -222,28 +225,21 @@
 	\end{proof}
 
 	\begin{proof}[Beweis von Satz~\ref{thm:wassersteinweakconvergence}]
-		Wir zeigen zunächst die Hinrichtung. Sei dazu $(\mu_k)_k \in \Probmeasures{X}^\N$ und $\mu \in \Probmeasures{X}$ mit $\mu_k \xrightarrow{w} \mu$. Für jedes $k \in \N$ sei $\pi_k \in \Pi(\mu_k, \mu)$ außerdem
-		eine optimale Kopplung von $\mu_k$ und $\mu$. Aufgrund der schwachen Konvergenz von $(\mu_k)_k$ ist $\setcomp{\mu_k}{k \in \N} \cup {\mu} \subseteq \Probmeasures{X}$ kompakt und damit nach dem 
-		Satz von Prokhorov (Satz~\ref{thm:prokhorov}) auch straff, also sind insbesondere $\setcomp{\mu_k}{k \in \N}$ und $\set{\mu}$ jeweils straff. 
-		Hilfssatz~\ref{lem:couplingstight} ist damit auch $\Pi(\setcomp{\mu_k}{k \in \N}, \set{\mu})$ straff, was wiederum die Straffheit von $\setcomp{\pi_k}{k \in \N}$ nach sich zieht. 
-		
-		Fixiere nun eine beliebige Teilfolge $(\pi_{k_l})_l$ von $(\pi_k)_k$. Nach dem Satz von Prokhorov hat diese Teilfolge eine schwach konvergente Teilfolge $(\pi_{k_{\tilde{l}}})_{\tilde{l}}$, also existiert ein Wahrscheinlichkeitsmaß $\tilde{\pi} \in \Probmeasures{X \times X}$ mit
-		\[ \pi_{k_{\tilde{l}}} \xrightarrow{w} \tilde{\pi}, \quad \tilde{l} \to \infty \text{.} \]
-		Nach Satz~\ref{thm:optimalseqremainsoptimal} muss $\tilde{\pi}$ eine optimale Kopplung von $\mu$ und $\mu$ sein, also handelt es sich bei $\tilde{\pi}$ um die triviale Kopplung $\pi$, die durch
-		$\pi(A \times B) \defby \mu(A \cap B), \; A, B \in \mathcal{B}(X)$
-		definiert ist.
-		Eine Anwendung von Hilfssatz~\ref{cor:subsequenceofsubsequence} liefert damit also insgesamt die schwache Konvergenz
-		\[ \pi_k \xrightarrow{w} \pi, \quad k \to \infty \text{.} \]
-		Aufgrund der Beschränktheit von $d$ ist die Zuordnung $(x, y) \mapsto d(x, y)^p$ in $\Bdcontfct{X \times X}$ enthalten, weshalb nun
-		\[ W_p(\mu_k, \mu)^p \; = \; \measureintx{X \times X}{d(x, y)^p}{\pi_k}{(x, y)} \; \to \; \measureintx{X \times X}{d(x, y)^p}{\pi}{(x, y)} \; = \; 0, \quad k \to \infty \]
-		gilt, also auch $W_p(\mu_k, \mu) \to 0$.
-		
-		Für die Rückrichtung seien $(\mu_k)_k \in \Probmeasures{X}^\N$ und $\mu \in \Probmeasures{X}$ mit $W_p(\mu_k, \mu) \to 0$. Dann ist $(\mu_k)_k$ sicherlich auch eine Cauchyfolge bezüglich $W_p$ 
-		und Hilfssatz~\ref{lem:wassersteincauchyseq} liefert die Straffheit von $\setcomp{\mu_k}{k \in \N}$. 
-		
-		Fixiere eine beliebige Teilfolge $(\mu_{k_l})_l$ von $(\mu_k)_k$. Nach dem Satz von Prokhorov hat diese eine schwach konvergente Teilfolge $(\mu_{k_{\tilde{l}}})_{\tilde{l}}$ , also existiert ein Wahrscheinlichkeitsmaß $\tilde{\mu} \in \Probmeasures{X \times X}$ mit
-		\[ \mu_{k_{\tilde{l}}} \xrightarrow{w} \tilde{\mu}, \quad \tilde{l} \to \infty \text{.} \]
-		\tobechanged{TODO}
+		Wir möchten zunächst die Hinrichtung zeigen. Sei dazu $(\mu_k)_k \in \Probmeasures{X}^\N$ und $\mu \in \Probmeasures{X}$ mit $\mu_k \xrightarrow{w} \mu$. Sei außerdem $\pi_k \in \Pi(\mu_k, \mu)$ 
+		für jedes $k \in \N$ eine optimale Kopplung von $\mu_k$ und $\mu$. 
+		Insbesondere sind dann $A \defby \setcomp{\mu_k}{k \in \N} \cup \set{\mu}$ und $B \defby \set{\mu}$ kompakt und Satz~\ref{thm:optimalplanscompact} 
+		liefert, dass 
+		\[ \hat{\Pi}(A, B) \; \defby \; \setcomp{\pi \in \Pi(A, B)}{\pi \; \text{ist eine optimale Kopplung}} \; \subseteq \; \Probmeasures{X \times X} \]
+		kompakt ist. Da $\pi_k$ für jedes $k \in \N$ in $\hat{\Pi}(A, B)$ liegt, hat jede Teilfolge $(\pi_{k_l})_l$ von $(\pi_k)_k$ eine Teilfolge $(\pi_{k_{\tilde{l}}})_{\tilde{l}}$, 
+		die schwach gegen ein $\tilde{\pi} \in \hat{\Pi}(A, B)$ konvergiert. Wegen Hilfssatz~\ref{lem:convimpliescouplingsconv} muss $\tilde{\pi}$ eine optimale Kopplung von $\mu$ und $\mu$ sein, also
+		\[ \measureintx{X \times X}{d(x, y)^p}{\tilde{\pi}}{(x, y)} \; = \; W_p(\mu, \mu)^p \; = \; 0 \text{.} \]
+		Daher gilt $\tilde{\pi}(\setcomp{(x, x)}{x \in X}) = 1$ und für alle $A, B \in \mathcal{B}(X)$ folgt $\tilde{\pi}(A \times B) = \mu(A \cap B)$, weshalb $\tilde{\pi}$ die 
+		triviale Kopplung $\pi$ von $\mu$ und $\mu$ ist. Weil $\setcomp{\pi_k}{k \in \N} \subseteq \hat{\Pi}(A, B)$ gilt, ist $\overline{\setcomp{\pi_k}{k \in \N}}$ kompakt und $\setcomp{\pi_k}{k \in \N}$ damit nach
+		dem Satz von Prokhorov (Satz~\ref{thm:prokhorov}) straff. Insgesamt impliziert Folgerung~\ref{cor:subsequenceofsubsequence} nun also die schwache Konvergenz
+		\[ \pi_k \xrightarrow{w} \pi, \quad k \to \infty \text{.} \] 
+		Da die Zuordnung $(x, y) \mapsto d(x, y)^p$ wegen der Beschränktheit von $d$ aber in $\Bdcontfct{X \times X}$ enthalten ist, folgt 
+		\[ W_p(\mu_k, \mu)^p \; = \; \measureintx{X \times X}{d(x, y)^p}{\pi_k}{(x, y)} \; \to \; \measureintx{X \times X}{d(x, y)^p}{\pi}{(x, y)} \; = \; 0, \quad k \to \infty \text{,} \]
+		also auch $W_p(\mu_k, \mu) \to 0$.
 	\end{proof}
 	
 \end{document}
