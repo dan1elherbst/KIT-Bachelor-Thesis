@@ -4,17 +4,25 @@
 	
 	\section{Grundlagen}
 	
+	In diesem Abschnitt möchten wir einige Begriffe und Schreibweisen festlegen sowie ein paar wenige Grundlagen vorstellen, 
+	die wir im weiteren Verlauf der Arbeit benötigen werden. 
+	In Teilabschnitt~\ref{subsec:topologische_grundlagen} führen wir zunächst zwei grundlegende Konzepte aus der Topologie ein, während wir
+	uns in Teilabschnitt~\ref{subsec:borel-maße_auf_topologischen_räumen} neben der Definition einiger Begriffe mit der 
+	\emph{Regularität} bzw. \emph{schwachen Regularität} eine grundlegende Approximationseigenschaft für Maße auf topologischen Räumen ansehen werden.
+	
 	\subsection{Topologische Grundlagen}
+	\label{subsec:topologische_grundlagen}
 	
 	\subsubsection*{Netze}
 	
 	Im Allgemeinen beschreiben Folgen und deren Konvergenz die Eigenschaften eines topologischen Raumes nur unzureichend:
 	Beispielsweise ist Folgenstetigkeit nicht notwendigerweise äquivalent zu Stetigkeit und zwei unterschiedliche Topologien auf einer 
-	gegebenen Menge können generell dieselben konvergenten Folgen haben. Um solche Probleme im Folgenden zu umgehen, führen wir das
+	gegebenen Menge können generell dieselben konvergenten Folgen haben (siehe etwa \cite[Beispiel 2.6.1]{Simon.2015}). 
+	Um solche Probleme im Folgenden zu umgehen, führen wir das
 	Konzept des Netzes aus der mengentheoretischen Topologie ein. Netze verallgemeinern Folgen und können in vielerlei Hinsicht die 
 	Eigenschaften eines topologischen Raumes besser erfassen.
 	
-	Überwiegend orientieren wir uns in diesem Abschnitt an \cite[Kapitel 2.6]{Simon.2015}.
+	Überwiegend orientieren wir uns in diesem Teilabschnitt an \cite[Kapitel 2.6]{Simon.2015}.
 	
 	\begin{Definition}[Gerichtete Menge]
 		\label{def:directedset}
@@ -28,6 +36,7 @@
 	\end{Definition}
 	
 	\begin{Definition}[Netz]
+		\label{def:netz}
 		Sei $X$ eine Menge und $(I, \preceq)$ eine gerichtete Menge. Ein \emph{Netz} in $X$ ist dann eine Abbildung $\fct{x}{I}{X}$. In diesem
 		Fall schreiben wir auch $x = (x_\iota)_{\iota \in I}$.
 	\end{Definition}
@@ -43,8 +52,8 @@
 		dann auch mit dem von uns bekannten Konvergenzbegriff von Folgen in topologischen Räumen überein.
 	\end{Bemerkung}
 	
-	Wie bereits angekündigt lassen sich topologische Räume im Allgemeinen viel besser über Netze charakterisieren als lediglich über Folgen. Der nächste Satz
-	konkretisiert dies.
+	Mit dem folgenden Satz konkretisieren wir unsere zu Beginn dieses Abschnitts getroffene Aussage, dass Netze die Eigenschaften topologischer Räume
+	besser als Folgen erfassen: Tatsächlich lässt sich jede Topologie einzig und allein durch ihre konvergenten Netze charakterisieren.
 	
 	\begin{Satz}
 		\label{thm:netconvergence}
@@ -98,9 +107,9 @@
 	\subsubsection*{Initialtopologie}
 	
 	Wir möchten nun noch ein weiteres Konzept aus der Topologie, die sogenannte \emph{Initialtopologie} einführen.
-	Auch wenn es sich hier um einen sehr elementaren Begriff handelt, wird dieser uns an späterer Stelle 
+	Auch wenn es sich hier um einen sehr elementaren Begriff handelt, wird dieser uns an späterer Stelle gerade 
 	in Kombination mit Hilfssatz~\ref{lem: convergenceinitialtopology} häufig ermöglichen, 
-	gewisse Topologien und deren Konvergenzverhalten in knapper Form auszudrücken. 
+	gewisse Topologien, mit denen wir arbeiten, und deren Konvergenzverhalten in knapper Form auszudrücken. 
 	
 	Der folgende Abschnitt orientiert sich an \cite[Kapitel 2.13]{Aliprantis.2006}.
 	
@@ -135,289 +144,20 @@
 		$\iota_0^{(i)} \preceq \iota$ gilt. Sukzessive Anwendung von Eigenschaft (c) in Definition~\ref{def:directedset} liefert ein $\iota_0 \in I$ mit 
 		$x_\iota \in \tilde{V}$ für $\iota_0 \preceq \iota$, was schließlich die Konvergenz $x_\iota \to z, \; \iota \to \infty$ bedeutet.
 	\end{proof}
-	
-	\subsection{Polnische Räume}
-	
-	In diesem Abschnitt beschäftigen wir uns mit den grundlegenden Eigenschaften von polnischen Räumen, 
-	einer Klasse von speziellen topologischen Räumen. 
-	
-	Wir orientieren uns hierbei an den relevanten Teilen aus \cite[Kapitel 4.14]{Simon.2015}.
-	
-	\begin{Definition}[Polnischer Raum]
-		Ein \emph{polnischer Raum} ist ein separabler und vollständig metrisierbarer topologischer Raum.
-	\end{Definition}
-	
-	Es sei hier anzumerken, dass dies tatsächlich eine rein topologische Eigenschaft ist: Wir fordern für einen polnischen Raum $X$ nur die Existenz einer Metrik,
-	die die Topologie von $X$ erzeugt und bezüglich der $X$ vollständig ist, möchten uns aber die Flexibilität
-	bewahren, diese Metrik nicht zu fixieren und bei Bedarf zwischen verschiedenen solchen Metriken
-	zu wechseln. Es kann durchaus Metriken geben, die $X$ zwar metrisieren, jedoch nicht vollständig.
-	Beispielsweise ist $\R$ ausgestattet mit der Standardtopologie offensichtlich ein polnischer Raum,
-	denn $\R$ ist separabel und die euklidische Metrik metrisiert $\R$ vollständig. 
-	Allerdings ist $(0, 1)$ als Teilraum von $\R$ mit der euklidischen Metrik zwar separabel, aber nicht vollständig.
-	Da $(0, 1)$ homöomorph zu $\R$ ist, ist $(0, 1)$ aber dennoch ein polnischer Raum.
-	
-	Der folgende Hilfssatz~\ref{lem:opensets} behandelt die recht elementare Tatsache, dass sich in metrischen Räumen 
-	abgeschlossene Mengen von außen gewissermaßen \enquote{beliebig gut} durch offene Mengen approximieren lassen. 
-	Diese Erkenntnis werden wir im weiteren Verlauf der Arbeit noch häufiger benötigen.
-	
-	\begin{Hilfssatz}
-		\label{lem:opensets}
-		Sei $(X, d)$ ein metrischer Raum und $C \subseteq X$ eine abgeschlossene 
-		Teilmenge. Ferner definieren wir für $n \in \N$
-		$$ A_n \defby \setcomp{y \in X}{d(y, C) < \frac{1}{n}} \quad \text{und} \quad 
-		\fctmap{f_n}{X}{\R}{x}{\max (0, 1-n d(x, C))} \text{,}$$
-		wobei wir $d(y, C) \defby \inf_{x \in C} d(y, x)$ setzen.
-		Dann gilt:
-		\begin{enumeratethm}
-			\item $A_n$ ist offen für alle $n \in \N$.
-			\item $C = \bigcap_{n \in \N} A_n$, insbesondere ist $C$ also eine $G_\delta$-Menge.
-			\item Für alle $n$ ist $\restr{f_n}{A_n^\mathsf{c}} = 0$ und $f_n$ ist lipschitzstetig.
-			\item $f_n \convdown \indfct_C$.
-		\end{enumeratethm}
-	\end{Hilfssatz}
-	
-	\begin{proof}
-		Aussage (a) folgt aus der Stetigkeit von $y \mapsto d(y, C)$.
-		
-		Weiter ist $C \subseteq A_n$ für alle $n \in \N$ und damit 
-		$C \subseteq \bigcap_{n \in \N} A_n$. 
-		Umgekehrt gibt es für ein beliebiges $y \in \bigcap_{n \in \N} A_n$
-		eine Folge $(x_n)_n \in C^\N$ mit $x_n \rightarrow y$. 
-		Wegen der Abgeschlossenheit von $C$ liegt $y$ damit in $C$, sodass (b) gezeigt ist.
-		
-		Aussage (c) ist klar ($f_n$ ist als Komposition 
-		lipschitzstetiger Funktionen selbst lipschitzstetig).
-		
-		Schließlich fällt $f_n$ und für $x \in C$ gilt $f_n(x) = 1$. 
-		Für $x \in C^\mathsf{c}$ ist $d(x, C) > 0$ und damit
-		$$f_n(x) = \max (0, 1-n d(x, C))
-		\to 0 \text{,} \quad n \to \infty \text{,}$$
-		womit die Behauptung folgt.
-	\end{proof}
-
-	Im Folgenden lernen wir Eigenschaften und Charakterisierungen polnischer Räume kennen.
-	
-	Der folgende Satz beantwortet uns zunächst, welche Teilmengen eines polnischen Raumes selbst wieder polnisch sind:
-
-	\begin{Satz}[Alexandroff]
-		\label{thm:gdeltasubsetsofpolishspaces}
-		Sei $X$ ein polnischer Raum. Dann ist $A \subseteq X$ genau dann selbst ein polnischer Raum bezüglich der Teilraumtopologie, 
-		wenn $A \subseteq X$ eine $G_\delta$-Teilmenge ist.
-	\end{Satz}
-
-	\begin{proof}
-		Der Beweis der Hinrichtung folgt \cite[Satz 7]{JordanBell.2014}, während der Beweis der Rückrichtung eine Anpassung des Beweises
-		von Satz 4.14.6 aus \cite[Kapitel 4.14]{Simon.2015} ist.
-		
-		Für die Hinrichtung sei $A \subseteq X$ eine $G_\delta$-Teilmenge und seien 
-		$U_n \subseteq X, \, n \in \N$ offene Mengen mit 
-		$A = \bigcap_{n \in \N} U_n$, wobei wir außerdem 
-		$C_n \defby U_n^{\mathsf{c}}$ schreiben. Ferner sei 
-		$d$ eine Metrik, die $X$ vollständig metrisiert. 
-		Da $A$ als Teilmenge eines separablen metrischen Raumes 
-		selbst separabel ist, genügt es, die vollständige Metrisierbarkeit 
-		von $A$ zu beweisen.
-		
-		Für $x, y \in A$ definieren wir
-		\[\tilde{d}(x, y) \; \defby \; d(x, y) + \sum_{n=1}^{\infty} \min \left(
-		\frac{1}{2^n}, \left| \frac{1}{d(x, C_n)} - \frac{1}{d(y, C_n)} \right|
-		\right) \text{.}\]
-		Offensichtlich ist $\tilde{d}$ eine Metrik auf $A$, 
-		die dieselbe Topologie wie $d$ erzeugt. 
-		
-		Wir möchten nun zeigen, dass $(A, \tilde{d})$ vollständig ist. 
-		Sei dazu $(x_k)_k \in A^\N$ eine Cauchyfolge. Wegen $d \leq \tilde{d}$ 
-		ist $(x_k)_k$ dann auch bezüglich $d$ eine Cauchyfolge und die 
-		Vollständigkeit von $(X, d)$ liefert die Existenz eines Grenzwertes 
-		$x \in X$. Angenommen $x \notin A$, so gibt es ein $m \in \N$ mit 
-		$x \in C_m$. Damit ist aber für alle $k \in \N$
-		$$\sup_{l \geq k} \tilde{d}(x_k, x_l) \; \geq \; \sup_{l \geq k} 
-		\, \sum_{n=1}^{\infty} \min \left(
-		\frac{1}{2^n}, \left| \frac{1}{d(x_k, C_n)} -
-		\frac{1}{d(x_l, C_n)} \right|
-		\right) \; \geq \; \frac{1}{2^m} \; > \; 0 \text{,}$$
-		was der Tatsache widerspricht, dass $(x_k)_k$ eine Cauchyfolge 
-		bezüglich $\tilde{d}$ ist. Also muss $x \in A$ gelten. 
-		Aus der Stetigkeit von $x \mapsto d(x, C_n)$ folgt mit dem 
-		Satz von Lebesgue unmittelbar die Konvergenz 
-		$\tilde{d}(x_k, x) \to 0$ für $k \to \infty$,
-		also ist $(A, \tilde{d})$ vollständig und $A$ damit selbst ein
-		polnischer Raum.
-		
-		Nun beweisen wir noch die Rückrichtung. Sei dazu $A \subseteq X$ eine derartige Teilmenge, dass
-		$A$ bezüglich der Teilraumtopologie selbst polnisch ist. $\tilde{d}$ metrisiere im Folgenden 
-		$A$ vollständig.
-		Sicherlich ist $B_{1/k}(x_m) \subseteq A$ für alle 
-		$k, m \in \N$ relativ offen, also gibt es jeweils offene Mengen 
-		$V_{k, m} \subseteq X$ mit
-		\[ B_{1/k}(x_m) \; = \; V_{k, m} 
-		\cap A \text{.} \label{eq:2.1} \tag{2.1}\]
-		Wir möchten jetzt zeigen, dass
-		\[ A \; = \; \overline{A} \, \cap \, 
-		\bigcap_{k \in \N} \left( \bigcup_{m \in \N} V_{k, m} \right) 
-		\label{eq:2.2} \tag{2.2}\]
-		gilt. 
-		Weil $\overline{A}$ nach Hilfssatz~\ref{lem:opensets} 
-		als abgeschlossene Menge eine $G_\delta$-Menge ist, 
-		folgt aus \eqref{eq:2.2} direkt die Aussage (b).
-		
-		Für jedes $m \in \N$ ist sicherlich $A \subseteq 
-		\bigcup_{m \in \N} V_{k, m}$, weshalb \enquote{$\subseteq$} 
-		in \eqref{eq:2.2} unmittelbar folgt.
-		Wir nehmen nun an, dass $z$ in der rechten Seite von \eqref{eq:2.2} liegt. 
-		Dann gibt es für jedes $k \in \N$ ein $m_k \in \N$ mit $z \in V_{k, m_k}$. 
-		Ferner existiert wegen $z \in \overline{A}$ eine Folge $(y_k)_k \in A^\N$ 
-		mit $y_k \to z$, wobei wir zusätzlich
-		$y_k \in \bigcap_{j=1}^{k} V_{j, m_j}$
-		fordern. Weil damit nach \eqref{eq:2.1} auch für alle $k \in \N$
-		\[y_k \in \bigcap_{j=1}^{k} B_{1/k}(x_m)\]
-		gilt, ist $(y_k)_k$ eine Cauchyfolge bezüglich $\tilde{d}$. Aufgrund der Vollständigkeit von 
-		$(A, \tilde{d})$ gibt es also ein $y \in A$ mit $y_k \to y$, was 
-		$z = y \in A$ und damit \enquote{$\supseteq$} 
-		in \eqref{eq:2.2} impliziert.
-	\end{proof}
-	
-	Mit dem \emph{Hilbertwürfel} möchten wir uns nun einen speziellen polnischen Raum ansehen, 
-	der sich später in gewisser Weise als universell für alle polnischen Räume erweisen wird.
-	
-	\begin{Definition}[Hilbertwürfel]
-		Der \emph{Hilbertwürfel} ist der topologische Raum $H = [0, 1]^\N$ 
-		ausgestattet mit der Produkttopologie, also der Initialtopologie bezüglich 
-		aller Projektionen $\fctmap{\pi_n}{H}{[0, 1]}{x}{x_n}, \; n \in \N$.
-	\end{Definition}
-
-	Einige grundlegende Eigenschaften des Hilbertwürfels fassen wir im folgenden Hilfssatz zusammen.
-	
-	\begin{Hilfssatz}
-		\label{lem:hilbertcube}
-		Für den Hilbertwürfel $H$ gelten folgende Aussagen:
-		\begin{enumeratethm}
-			\item Eine Folge $(x^{(k)})_k \in H^\N$ konvergiert genau dann gegen 
-			ein $x \in H$, wenn alle Komponenten konvergieren, also, wenn
-			$\lim_{n \to \infty} x_n^{(k)} = x_n$ für alle $n \in \N$ ist.
-			\item Setzen wir für $x, y \in H$
-			$$\rho(x, y) \defby \max_{n \in \N} \frac{|x_n - y_n|}{2^n} \text{,}$$
-			so definiert $\rho$ eine Metrik, die $H$ metrisiert.
-			\item $H$ ist kompakt.
-		\end{enumeratethm}
-	\end{Hilfssatz}
-	
-	\begin{proof}
-		Aussage (a) folgt direkt aus Hilfssatz~\ref{lem: convergenceinitialtopology}.
-		
-		Für den Beweis von (b) bemerke man zunächst, dass Mengen der Form 
-		\[U = \prod_{n=1}^{\infty} U_n\text{,} \quad U_n \subseteq [0, 1] \text{ offen, }
-		\quad U_n = [0, 1] \text{ für fast alle } n \label{eq:2.3} \tag{2.3}\]
-		eine Basis der Topologie von $H$ bilden.
-		
-		Offenbar wird durch $\rho$ aus (b) eine Metrik auf $H$ definiert. 
-		Es genügt also zu zeigen, dass $\rho$ die Topologie von $H$ induziert. 
-		Für $x \in H$ und $r > 0$ ist 
-		$B_r(x) = \prod_{n=1}^{\infty} B_{2^n r}(x_n) \subseteq H$ 
-		offen. Ist nun $U = \prod_{n=1}^{\infty} U_n$ wie in \eqref{eq:2.3}, 
-		so lässt sich leicht einsehen, dass es für jedes $x \in U$ ein $r > 0$ 
-		gibt mit $B_r(x) \subseteq U$, also ist $U$ offen bezüglich der von $\rho$ 
-		erzeugten Topologie und insgesamt wird $H$ von $\rho$ metrisiert.
-		
-		Der aus der Topologie bekannte \emph{Satz von Tychonoff} (vgl. \cite[Satz 2.7.1]{Simon.2015}) liefert 
-		unmittelbar die Kompaktheit von $H$.
-	\end{proof}
 
 	\begin{Bemerkung}
-		Insbesondere handelt es sich bei $H$ um einen polnischen Raum, denn alle kompakten metrischen Räume sind insbesondere 
-		separabel und vollständig und damit auch polnisch.
-	\end{Bemerkung}
-	
-	$H$ erfüllt nun die folgende Universalitätseigenschaft.
-	
-	\begin{Satz}[Universalitätseigenschaft des Hilbertwürfels]
-		\label{thm:characterizationpolishspaces}
-		Ein topologischer Raum $X$ ist genau dann separabel und metrisierbar, wenn $X$ homöomorph zu einer Teilmenge von $H$ ist.
-		
-		Ferner ist $X$ genau dann polnisch, wenn $X$ homöomorph zu einer $G_\delta$-Teilmenge von $H$ ist.
-	\end{Satz}
-	
-	Wir werden den Beweis von Satz~\ref{thm:characterizationpolishspaces} simultan für metrisierbare und 
-	separable bzw. für polnische Räume führen, benötigen hierfür aber zunächst noch einen Hilfssatz.
-	
-	\begin{Hilfssatz}
-		\label{lem:characterizationpolishspaces}
-		Sei $(X, d)$ ein separabler metrischer Raum und sei 
-		$\mathcal{D} \defby \setcomp{x_n}{n \in \N} \subseteq X$ eine abzählbare 
-		dichte Teilmenge. Außerdem setzen wir
-		\[\fctmap{\varphi}{X}{H}{x}{\left(\min (1, d(x, x_n)) \right)_n} \text{.} \label{eq:2.4} \tag{2.4}\]
-		Dann ist $\varphi$ ein Homöomorphismus zwischen $X$ und $\varphi(X)$.
-	\end{Hilfssatz}
-	
-	\begin{proof}
-		Wir zeigen zunächst, dass $\varphi$ injektiv ist. 
-		Seien dazu $y, z \in H$ mit $\varphi(y) = \varphi(z)$, also gilt
-		\[\min (1, d(y, x_n)) = \min (1, d(z, x_n)) \label{eq:2.5} \tag{2.5}\]
-		für alle $n \in \N$. Weil es eine Folge $(y_n)_n \in \mathcal{D}^\N$ mit 
-		$y_n \to y$ gibt und diese wegen \eqref{eq:2.5} auch gegen $z$ 
-		konvergiert, folgt die Gleichheit von $y$ und $z$.
-		
-		Die Stetigkeit von $\varphi$ folgt direkt, weil die 
-		Komponentenfunktionen $x \mapsto \min (1, d(x, x_n))$ jeweils stetig sind. 
-		Seien nun $(y_k)_k \in X^\N$ und $y \in X$ mit $\varphi(y_k) \to \varphi(y)$, 
-		also
-		\[\min (1, d(y_k, x_n)) \; \to \; \min (1, d(y, x_n)), 
-		\quad k \to \infty \label{eq:2.6} \tag{2.6}\]
-		für alle $n \in \N$. Wählt man nun $\varepsilon < 1$ beliebig, 
-		so existiert ein $n \in \N$ mit $d(y, x_n) \leq \varepsilon$. 
-		Wegen \eqref{eq:2.6} ist dann auch
-		$d(y_k, x_n) \to d(y, x_n), \; k \to \infty$. Es gilt also die Ungleichung
-		$$\limsup_{k \to \infty} d(y_k, y) \; \leq \; 
-		\limsup_{k \to \infty} d(y_k, x_n) + d(y, x_n) \; \leq \; 2\varepsilon$$
-		und mit $\varepsilon \to 0$ folgt die Stetigkeit von $\varphi^{-1}$, 
-		womit wir nachgewiesen haben, dass $\varphi$ ein Homöomorphismus auf sein Bild ist. 
-	\end{proof}
-
-	\begin{proof}[Beweis von Satz~\ref{thm:characterizationpolishspaces}]
-		Da wir in Hilfssatz~\ref{lem:characterizationpolishspaces} bereits 
-		gesehen haben, dass jeder separable metrisierbare Raum homöomorph zu einer 
-		Teilmenge des Hilbertwürfels $H$ ist und jede Teilmenge von $H$ separabel und metrisierbar ist,
-		folgt der erste Teil von Satz~\ref{thm:characterizationpolishspaces}. 
-		
-		Sei $X$ nun ein polnischer Raum und fixiere eine Metrik $d$, die $X$ vollständig metrisiert. 
-		Nach Hilfssatz~\ref{lem:characterizationpolishspaces} ist $X$ via $\fct{\varphi}{X}{H}$ aus \eqref{eq:2.6}
-		homöomorph zu einer Teilmenge von $H$ und da $H$ selbst polnisch ist, muss $\varphi(X) \subseteq H$ nach 
-		Satz~\ref{thm:gdeltasubsetsofpolishspaces} eine $G_\delta$-Teilmenge sein.
-		Ferner folgt aus demselben Satz, dass jede $G_\delta$-Teilmenge von $H$ polnisch ist.
-	\end{proof}
-
-	\begin{Folgerung}
-		\label{cor:productsofpolishspaces}
-		Sei $X_n$ für jedes $n \in \N$ ein topologischer Raum. Dann gelten folgende Implikationen:
-		\begin{enumeratethm}
-			\item Ist $X_n$ separabel und metrisierbar für jedes $n \in \N$, so ist auch $\prod_{n=1}^{\infty} X_n$ mit der Produkttopologie separabel und metrisierbar.
-			\item Ist $X_n$ polnisch für jedes $n \in \N$, so ist auch $\prod_{n=1}^{\infty} X_n$ mit der Produkttopologie polnisch.
-		\end{enumeratethm}
-	\end{Folgerung}
-
-	\begin{proof}
-		Wir zeigen zunächst Aussage (a). Seien alle $X_n$ separabel und metrisierbar. Nach Satz~\ref{thm:characterizationpolishspaces} bzw. 
-		Hilfssatz~\ref{lem:characterizationpolishspaces} existieren dann Einbettungen $\fct{\varphi_n}{X_n}{H}, \; n \in \N$. Nun ist aber 
-		\[ \prod_{n=1}^{\infty} X_n \; \cong \; \prod_{n=1}^{\infty} \varphi_n(X_n) \; \subseteq \; \prod_{n=1}^{\infty} H \; \cong \; H \]
-		und Satz~\ref{thm:characterizationpolishspaces} liefert, dass $\prod_{n=1}^{\infty} X_n$ separabel und metrisierbar ist.
-		
-		Für Teilaufgabe (b) setzen wir zusätzlich alle $X_n$ als polnisch voraus. Dann ist $\varphi_n(X_n)$ für jedes $n \in \N$ eine $G_{\delta}$-Teilmenge von $H$, also
-		existieren für alle $k, n \in \N$ derartige offene Mengen $U_n^{(k)} \subseteq H$, dass $\varphi_n(X_n) = \bigcap_{k \in \N} U_n^{(k)}$ ist. Da nun insbesondere auch
-		\[ V_n^{(k)} \; \defby \; \left( \prod_{m=1}^{n-1} H \times U_n^{(k)} \times \!\!\! \prod_{m=n+1}^{\infty} H \right) \; \subseteq \; \prod_{n=1}^{\infty} H \]
-		für alle $k, n \in \N$ offen ist, folgt
-		\[ \prod_{n=1}^{\infty} X_n \; \cong \; \prod_{n=1}^{\infty} \bigcap_{k \in \N} U_n^{(k)} \; = \; \bigcap_{n \in \N} \bigcap_{k \in \N} V_n^{(k)} \; \subseteq \; \prod_{n=1}^{\infty} H \; \cong \; H \text{,} \]
-		also ist $\prod_{n=1}^{\infty} X_n$ homöomorph zu einer $G_{\delta}$-Teilmenge von $H$ und damit nach Satz~\ref{thm:characterizationpolishspaces} polnisch.
-	\end{proof}
-
-	\begin{Bemerkung}
-		Insbesondere gelten die Aussagen aus Folgerung~\ref{cor:productsofpolishspaces} auch für endliche Produkte, denn für alle übrigen $n \in \N$ können wir $X_n$ in diesem Fall einfach als einen einzigen Punkt wählen.
+		Man kann sich die Frage stellen, warum wir bei der Definition eines Netzes $(x_\iota)_{\iota \in I}$ fordern, dass die Indexmenge $I$ \emph{gerichtet} ist und etwa nicht lediglich
+		partiell geordnet. Am Ende des vorigen Beweises lässt sich allerdings der Mehrwert, den wir durch Eigenschaft (c) in der Definition einer gerichteten Menge erhalten, sehr gut erkennen: 
+		Wir können ein \enquote*{Maximum} 
+		von endlich vielen $\iota \in I$ zu finden und damit ähnlich zu argumentieren, als würden wir gerade mit Folgen arbeiten.
 	\end{Bemerkung}
 	
 	\subsection{Borel-Maße auf topologischen Räumen}
+	\label{subsec:borel-maße_auf_topologischen_räumen}
 	
 	Nun wenden wir uns (endlichen) Borel-Maßen auf topologischen bzw. metrischen Räumen zu. Da diese den primären Betrachtungsgegenstand der
 	Arbeit darstellen, möchten wir zunächst einige Begriffe definieren, Schreibweisen festlegen, und - zumindest im Falle von metrischen Räumen - eine im Folgenden sehr 
-	hilfreiche Eigenschaft dieser Maße, die \emph{(Schwache) Regularität} vorstellen.
+	hilfreiche Eigenschaft dieser Maße, \emph{Schwache Regularität} bzw. \emph{Regularität}, vorstellen.
 	
 	Wieder werden wir uns an den relevanten Teilen von \cite[Kapitel 4.14]{Simon.2015} orientieren.
 	
@@ -453,13 +193,13 @@
 	
 	\begin{Bemerkung}
 		Sei $X$ ein metrischer Raum. Sicherlich ist dann $\Bdlipschitzfct{X} \subseteq \Bduniffct{X} \subseteq \Bdcontfct{X}$, allerdings hängen $\Bdlipschitzfct{X}$ und $\Bduniffct{X}$ im Gegensatz 
-		zu $\Bdcontfct{X}$ von der Metrik selbst und nicht ausschließlich von der Topologie ab.
+		zu $\Bdcontfct{X}$ von der Metrik selbst und nicht ausschließlich von der induzierten Topologie ab.
 	\end{Bemerkung}
 	
 	Wie angekündigt werden wir uns im Folgenden mit der \emph{(schwachen) Regularität} von endlichen Borel-Maßen auseinandersetzen. 
 	Hierbei handelt es sich um eine Approximationseigenschaft, die es uns etwa erlaubt, gewisse Aussagen 
-	zunächst für abgeschlossene bzw. kompakte und für offene Mengen zu zeigen, um diese 
-	anschließend auf ganz $\mathcal{B}(X)$ auszuweiten. 
+	zunächst für abgeschlossene bzw. kompakte und für offene Mengen (die gewissermaßen \enquote*{strukturierter} als lediglich messbare Mengen sind) zu zeigen, 
+	um diese anschließend auf ganz $\mathcal{B}(X)$ auszuweiten. 
 	
 	\begin{Definition}[Schwache Regularität von Maßen]
 		\label{def:regularity}
@@ -489,9 +229,52 @@
 		Ist $(X, d)$ ein metrischer Raum, so ist jedes endliche Borel-Maß $\mu$ auf $X$ schwach regulär.
 	\end{Satz}
 	
-	Für den Beweis des Satzes benötigen wir noch einen Hilfssatz, welcher 
-	uns ermöglichen wird, die schwache Regularität nur auf einem Erzeuger von $\mathcal{B}(X)$ 
-	zu zeigen (für den wir dann die abgeschlossenen Mengen wählen).
+	Für den Beweis des Satzes benötigen wir noch zwei Hilfssätze. 
+	
+	Der erste (Hilfssatz~\ref{lem:opensets}) behandelt die recht elementare Tatsache, dass sich in metrischen Räumen 
+	abgeschlossene Mengen von außen gewissermaßen \enquote*{beliebig gut} durch offene Mengen approximieren lassen. 
+	Diese Erkenntnis werden wir im weiteren Verlauf der Arbeit noch häufiger benötigen.
+	
+	Der zweite Hilfssatz, den wir vorstellen,
+	wird uns ermöglichen, die schwache Regularität nur auf einem Erzeuger von $\mathcal{B}(X)$ 
+	zu zeigen. Im endgültigen Beweis des Satzes werden wir dann die abgeschlossenen Mengen als Erzeuger wählen.
+	
+	
+	
+	\begin{Hilfssatz}
+		\label{lem:opensets}
+		Sei $(X, d)$ ein metrischer Raum und $C \subseteq X$ eine abgeschlossene 
+		Teilmenge. Ferner definieren wir für $n \in \N$
+		$$ A_n \defby \setcomp{y \in X}{d(y, C) < \frac{1}{n}} \quad \text{und} \quad 
+		\fctmap{f_n}{X}{\R}{x}{\max (0, 1-n d(x, C))} \text{,}$$
+		wobei wir $d(y, C) \defby \inf_{x \in C} d(y, x)$ setzen.
+		Dann gilt:
+		\begin{enumeratethm}
+			\item $A_n$ ist offen für alle $n \in \N$.
+			\item $C = \bigcap_{n \in \N} A_n$, insbesondere ist $C$ also eine $G_\delta$-Menge.
+			\item Für alle $n$ ist $\restr{f_n}{A_n^\mathsf{c}} = 0$ und $f_n$ ist lipschitzstetig.
+			\item $f_n \convdown \indfct_C$.
+		\end{enumeratethm}
+	\end{Hilfssatz}
+	
+	\begin{proof}
+		Aussage (a) folgt aus der Stetigkeit von $y \mapsto d(y, C)$.
+		
+		Weiter ist $C \subseteq A_n$ für alle $n \in \N$ und damit 
+		$C \subseteq \bigcap_{n \in \N} A_n$. 
+		Umgekehrt gibt es für ein beliebiges $y \in \bigcap_{n \in \N} A_n$
+		eine Folge $(x_n)_n \in C^\N$ mit $x_n \rightarrow y$. 
+		Wegen der Abgeschlossenheit von $C$ liegt $y$ damit in $C$, sodass (b) gezeigt ist.
+		
+		Aussage (c) ist klar ($f_n$ ist als Komposition 
+		lipschitzstetiger Funktionen selbst lipschitzstetig).
+		
+		Schließlich fällt $f_n$ und für $x \in C$ gilt $f_n(x) = 1$. 
+		Für $x \in C^\mathsf{c}$ ist $d(x, C) > 0$ und damit
+		$$f_n(x) = \max (0, 1-n d(x, C))
+		\to 0 \text{,} \quad n \to \infty \text{,}$$
+		womit die Behauptung folgt.
+	\end{proof}
 	
 	\begin{Hilfssatz}
 		\label{lem:sigmaalg}
@@ -549,8 +332,8 @@
 		Weil $U$ offen ist, folgt insgesamt die schwache Regularität von $\mu$.
 	\end{proof}
 	
-	Ausgestattet mit den Hilfssätzen \ref{lem:opensets} und \ref{lem:sigmaalg} kann nun, 
-	wie oben bereits angedeutet wurde, Satz~\ref{thm:weakregularity} bewiesen werden.
+	Ausgestattet mit den Hilfssätzen \ref{lem:opensets} und \ref{lem:sigmaalg} können wir jetzt zum Beweis von Satz~\ref{thm:weakregularity} 
+	übergehen.
 	
 	\begin{proof}[Beweis von Satz~\ref{thm:weakregularity}]
 		Es ist nun zu zeigen, dass für jedes endliche Borel-Maß $\mu$ auf $X$
@@ -580,29 +363,33 @@
 	zweier endlicher Maße auf metrischen Räumen bereitstellt. Im weiteren Verlauf 
 	wird sich dies noch als nützlich erweisen.
 	
-	\begin{Satz}
-		\label{thm:measureequality}
+	\begin{Folgerung}
+		\label{cor:measureequality}
 		Sei $(X,d)$ ein metrischer Raum und seien $\mu, \nu \in \Finitemeasures{X}$. 
 		Dann sind die folgenden Aussagen äquivalent:
 		\begin{equivalentthm}
 			\item $\mu = \nu$.
+			\item Für alle $f \in \Bdcontfct{X}$ ist
+			$\measureint{}{f}{\mu} = \measureint{}{f}{\nu}$.
 			\item Für alle $f \in \Bduniffct{X}$ ist
+			$\measureint{}{f}{\mu} = \measureint{}{f}{\nu}$.
+			\item Für alle $f \in \Bdlipschitzfct{X}$ ist
 			$\measureint{}{f}{\mu} = \measureint{}{f}{\nu}$.
 			\item Für alle abgeschlossenen Mengen $C \subseteq X$ ist $\mu(C) = \nu(C)$.
 		\end{equivalentthm}
-	\end{Satz}
+	\end{Folgerung}
 	
 	\begin{proof}
-		Die Implikation (i) $\Rightarrow$ (ii) ist klar und (iii) 
+		Die Implikationen (i) $\Rightarrow$ (ii) $\Rightarrow$ (iii) $\Rightarrow$ (iv) sind klar und (v) 
 		$\Rightarrow$ (i) folgt aus Satz~\ref{thm:weakregularity}.
 		
-		(ii) $\Rightarrow$ (iii): Gelte (ii) und sei $C \subseteq X$ abgeschlossen. 
+		(iv) $\Rightarrow$ (v): Gelte (iv) und sei $C \subseteq X$ abgeschlossen. 
 		Dann gilt für die Funktionen $f_n \in \Bduniffct{X}$ aus Hilfssatz~\ref{lem:opensets}
 		$$\measureint{}{f_n}{\mu} = \measureint{}{f_n}{\nu}\text{,} \quad n \in \N \text{.}$$
 		Wegen $| f_n | \leq 1$ und $f_n \convdown \indfct_C$ folgt mit dem Satz von Lebesgue 
 		$$\measureint{}{f_n}{\mu} \; \to \; \mu(C) \quad \text{und} \quad \measureint{}{f_n}{\nu} 
 		\; \to \; \nu(C)$$
-		und damit gilt (iii).
+		und damit gilt (v).
 	\end{proof}
 	
 \end{document}

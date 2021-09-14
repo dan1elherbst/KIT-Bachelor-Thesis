@@ -2,7 +2,7 @@
 
 \begin{document}
 	
-	\section{Die Wassersteinmetrik}
+	\section{Optimaler Transport und Wassersteinmetriken}
 	
 	Wir orientieren uns an \cite{Villani.2009}.
 	
@@ -124,14 +124,6 @@
 		die \emph{$p$-te Wassersteindistanz} zwischen $\mu$ und $\nu$.
 	\end{Definition}
 
-	\begin{Bemerkung}
-		Seien $x_0, y_0 \in X$. Wegen $\Pi(\delta_{x_0}, \delta_{y_0}) = \set{\delta_{(x_0, y_0)}} \subseteq \Probmeasures{X \times X}$ folgt
-		\[ W_p(\delta_{x_0}, \delta_{y_0}) \; = \; \left( \measureintx{X \times X}{d(x, y)^p}{\delta_{(x_0, y_0)}}{(x, y)} \right)^{1/p} \; = \; d(x_0, y_0) \text{.} \]
-		Die Einbettung 
-		\[ (X, d) \to (\Probmeasures{X}, W_p), \quad x \mapsto \delta_x \]
-		ist also isometrisch.
-	\end{Bemerkung}
-
 	\begin{Satz}
 		\label{thm:wassersteinismetric}
 		In der Situation von Definition~\ref{def:wasserstein} erfüllt $W_p$ die Eigenschaften einer Metrik, abgesehen davon, dass $W_p(\mu, \nu) = \infty$ möglich ist.
@@ -157,6 +149,14 @@
 		\end{align*}
 		wobei wir bei der zweiten Abschätzung die Minkowski-Ungleichung anwenden.
 	\end{proof}
+
+	\begin{Bemerkung}
+		Seien $x_0, y_0 \in X$. Wegen $\Pi(\delta_{x_0}, \delta_{y_0}) = \set{\delta_{(x_0, y_0)}} \subseteq \Probmeasures{X \times X}$ folgt
+		\[ W_p(\delta_{x_0}, \delta_{y_0}) \; = \; \left( \measureintx{X \times X}{d(x, y)^p}{\delta_{(x_0, y_0)}}{(x, y)} \right)^{1/p} \; = \; d(x_0, y_0) \text{.} \]
+		Die Einbettung 
+		\[ (X, d) \to (\Probmeasures{X}, W_p), \quad x \mapsto \delta_x \]
+		ist also isometrisch.
+	\end{Bemerkung}
 
 	\begin{Bemerkung}
 		Seien $\pi \in \Probmeasures{X \times X}$, $1 \leq p \leq q < \infty$ und $r \in [1, \infty]$ so, dass $\frac{1}{q/p} + \frac{1}{r} = 1$. Eine Anwendung der Hölder-Ungleichung liefert dann

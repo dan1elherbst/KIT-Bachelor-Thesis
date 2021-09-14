@@ -5,6 +5,8 @@
 	\section{Eigenschaften der schwachen Topologie}
 	\label{sec:eigenschaften-der-schwachen-topologie}
 	
+	\subsection{Beziehung zur Topologie des Grundraumes}
+	
 	Nachdem wir im vorigen Abschnitt die schwache Topologie definiert haben, möchten wir uns nun einige Eigenschaften dieser ansehen, wenn man weitere Bedingungen an den Grundraum $X$ stellt. 
 	Als Grundbedingung möchten wir in diesem Abschnitt immer die Metrisierbarkeit von $X$ fordern.
 	Unter dieser Voraussetzung werden die folgenden Aussagen unsere zentralen Erkenntnisse sein:
@@ -47,7 +49,7 @@
 		Außerdem muss $(x_n)_n$ eine konvergente Teilfolge besitzen. Ansonsten ist nämlich $S \defby \setcomp{x_n}{n \in \N} \subseteq X$ eine unendliche und abgeschlossene Teilmenge. Das Portmanteau-Theorem (Satz~\ref{thm:portmanteau}) liefert also für jede unendliche Teilmenge $\tilde{S} \subseteq S$ die Abschätzung
 		\[ 1 \; = \; \limsup_{n \to \infty} \delta_{x_n}(\tilde{S}) \; \leq \; \mu(\tilde{S}) \; \leq \; 1 \text{,} \]
 		was einen Widerspruch darstellt. Also existiert eine Teilfolge $(x_{n_k})_k$ und $x \in X$ mit $x_{n_k} \to x, \; k \to \infty$. Damit ist aber auch $\delta_{x_{n_k}} \xrightarrow{w} \delta_x$, weshalb mit
-		Satz~\ref{thm:measureequality} die Gleichheit $\mu = \delta_x \in \Delta$ folgt.
+		Folgerung~\ref{cor:measureequality} die Gleichheit $\mu = \delta_x \in \Delta$ folgt.
 	\end{proof}
 
 	Nun wenden wir uns den angekündigten zentralen Aussagen dieses Abschnittes zu. 
@@ -113,7 +115,7 @@
 		Sei außerdem $g \in \Bduniffct{X}$. Dann gibt es eine Folge $(g_n)_n \in \mathcal{D}^\N$ mit $\norm{g - g_n}_\infty \to 0, \; n \to \infty$, was auch 
 		\[ \measureint{}{g_n}{\mu} \to \measureint{}{g}{\mu} \quad \text{und} \quad \measureint{}{g_n}{\nu} \to \measureint{}{g}{\nu}, \quad n \to \infty \]
 		impliziert. Da aber $\measureint{}{g_n}{\mu} = \measureint{}{g_n}{\nu}$ für alle $n \in \N$ gilt, folgt auch $\measureint{}{g}{\mu} = \measureint{}{g}{\nu}$.
-		Satz~\ref{thm:measureequality} liefert nun die Gleichheit $\mu = \nu$.
+		Folgerung~\ref{cor:measureequality} liefert nun die Gleichheit $\mu = \nu$.
 		
 		Um den Beweis der Hinrichtung abzuschließen, genügt es wegen Satz~\ref{thm:netconvergence} zu beweisen, dass für jedes Netz $(\mu_\iota)_{\iota \in I}$ in $\Finitemeasures{X}$ und $\mu \in \Finitemeasures{X}$ die
 		Äquivalenz
