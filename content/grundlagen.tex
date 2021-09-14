@@ -37,12 +37,12 @@
 	
 	\begin{Definition}[Netz]
 		\label{def:netz}
-		Sei $X$ eine Menge und $(I, \preceq)$ eine gerichtete Menge. Ein \emph{Netz} in $X$ ist dann eine Abbildung $\fct{x}{I}{X}$. In diesem
+		Sei $\X$ eine Menge und $(I, \preceq)$ eine gerichtete Menge. Ein \emph{Netz} in $\X$ ist dann eine Abbildung $\fct{x}{I}{\X}$. In diesem
 		Fall schreiben wir auch $x = (x_\iota)_{\iota \in I}$.
 	\end{Definition}
 	
 	\begin{Definition}[Konvergenz von Netzen]
-		Sei $X$ ein topologischer Raum und sei $x = (x_\iota)_{\iota \in I}$ ein Netz in $X$. Wir sagen, dass $x$ gegen $z \in X$ konvergiert, falls
+		Sei $\X$ ein topologischer Raum und sei $x = (x_\iota)_{\iota \in I}$ ein Netz in $\X$. Wir sagen, dass $x$ gegen $z \in \X$ konvergiert, falls
 		es für jede Umgebung $U$ von $z$ ein derartiges $\iota_0 \in I$ gibt, dass $x_\iota \in U$ für alle $\iota_0 \preceq \iota \in I$ erfüllt ist.
 		In diesem Fall schreiben wir auch $\lim_{\iota \to \infty} x_\iota = z$ oder $x_\iota \to z, \; \iota \to \infty$.
 	\end{Definition}
@@ -57,14 +57,14 @@
 	
 	\begin{Satz}
 		\label{thm:netconvergence}
-		Seien $X$ und $Y$ topologische Räume. Dann gelten die folgenden Aussagen:
+		Seien $\X$ und $\Y$ topologische Räume. Dann gelten die folgenden Aussagen:
 		\begin{enumeratethm}
-			\item Eine Teilmenge $C \subseteq X$ ist genau dann abgeschlossen, wenn der Grenzwert $z \in X$ eines jeden konvergenten Netzes 
-			$x = (x_\iota)_{\iota \in I}$ in $X$ bereits in $C$ liegt.
-			\item Eine Funktion $\fct{f}{X}{Y}$ ist genau dann stetig, wenn für jedes konvergente Netz $x = (x_\iota)_{\iota \in I}$ in $X$ 
+			\item Eine Teilmenge $C \subseteq \X$ ist genau dann abgeschlossen, wenn der Grenzwert $z \in \X$ eines jeden konvergenten Netzes 
+			$x = (x_\iota)_{\iota \in I}$ in $\X$ bereits in $C$ liegt.
+			\item Eine Funktion $\fct{f}{\X}{\Y}$ ist genau dann stetig, wenn für jedes konvergente Netz $x = (x_\iota)_{\iota \in I}$ in $\X$ 
 			\[ \lim_{\iota \to \infty} f(x_\iota) \; = \; f(\lim_{\iota \to \infty} x_\iota) \]
 			erfüllt ist.
-			\item Zwei Topologien auf $X$ sind genau dann identisch, wenn alle Netze in $X$ bezüglich beiden Topologien dasselbe Konvergenzverhalten aufweisen.
+			\item Zwei Topologien auf $\X$ sind genau dann identisch, wenn alle Netze in $\X$ bezüglich beiden Topologien dasselbe Konvergenzverhalten aufweisen.
 		\end{enumeratethm}
 	\end{Satz}
 	
@@ -73,7 +73,7 @@
 	\end{proof}
 	
 	\begin{Bemerkung}
-		Auch wenn man in spezielleren Fällen (wie etwa bei metrisierbarem $X$) problemlos mit Folgen arbeiten kann, sei an dieser Stelle angemerkt, dass im Allgemeinen 
+		Auch wenn man in spezielleren Fällen (wie etwa bei metrisierbarem $\X$) problemlos mit Folgen arbeiten kann, sei an dieser Stelle angemerkt, dass im Allgemeinen 
 		keine der drei Aussagen gelten, wenn man \enquote{Netz} durch \enquote{Folge} ersetzt (vgl. \cite[Beispiel 2.6.1]{Simon.2015}).
 	\end{Bemerkung}
 	
@@ -115,20 +115,20 @@
 	
 	\begin{Definition}[Initialtopologie]
 		\label{def:initialtopology}
-		Sei $X$ eine Menge, $A$ eine beliebige Indexmenge und für jedes $\alpha \in A$ sei $Y_\alpha$ ein topologischer Raum sowie $\fct{f_\alpha}{X}{Y_\alpha}$ eine Abbildung.
-		Die Initialtopologie auf $X$ bezüglich der Abbildungen $f_\alpha, \; \alpha \in A$ ist dann die kleinste Topologie auf $X$, bezüglich der alle Abbildungen 
+		Sei $\X$ eine Menge, $A$ eine beliebige Indexmenge und für jedes $\alpha \in A$ sei $\Y_\alpha$ ein topologischer Raum sowie $\fct{f_\alpha}{\X}{\Y_\alpha}$ eine Abbildung.
+		Die Initialtopologie auf $\X$ bezüglich der Abbildungen $f_\alpha, \; \alpha \in A$ ist dann die kleinste Topologie auf $\X$, bezüglich der alle Abbildungen 
 		$f_\alpha, \; \alpha \in A$ stetig sind.
 	\end{Definition}
 
 	\begin{Bemerkung}[Produkttopologie]
-		Sei $A$ eine beliebige Indexmenge und sei für jedes $\alpha \in A$ ein topologischer Raum $X_\alpha$ gegeben. Die Produkttopologie der $X_\alpha, \; \alpha \in A$
-		auf dem kartesischen Produkt $X \defby \prod_{\alpha \in A} X_\alpha$ ist dann offensichtlich die Initialtopologie der kanonischen Projektionen 
-		$\fctmap{\pi_\beta}{X}{X_\beta}{x = (x_\alpha)_{\alpha \in A}}{x_\beta}, \; \beta \in A$.
+		Sei $A$ eine beliebige Indexmenge und sei für jedes $\alpha \in A$ ein topologischer Raum $\X_\alpha$ gegeben. Die Produkttopologie der $\X_\alpha, \; \alpha \in A$
+		auf dem kartesischen Produkt $\X \defby \prod_{\alpha \in A} \X_\alpha$ ist dann offensichtlich die Initialtopologie der kanonischen Projektionen 
+		$\fctmap{\pi_\beta}{\X}{\X_\beta}{x = (x_\alpha)_{\alpha \in A}}{x_\beta}, \; \beta \in A$.
 	\end{Bemerkung}
 	
 	\begin{Hilfssatz}[Konvergenz bezüglich der Initialtopologie]
 		\label{lem: convergenceinitialtopology}
-		In der Situation von Definition~\ref{def:initialtopology} konvergiert ein Netz $x = (x_\iota)_{\iota \in I}$ in $X$ genau dann gegen ein $z \in X$, wenn für alle $\alpha \in A$
+		In der Situation von Definition~\ref{def:initialtopology} konvergiert ein Netz $x = (x_\iota)_{\iota \in I}$ in $\X$ genau dann gegen ein $z \in \X$, wenn für alle $\alpha \in A$
 		die Konvergenz $f_\alpha(x_\iota) \to f_\alpha(z), \; \iota \to \infty$ gilt.
 	\end{Hilfssatz}
 
@@ -136,9 +136,9 @@
 		Wegen Satz~\ref{thm:netconvergence} (b) folgt die Hinrichtung direkt aus der Stetigkeit der Abbildungen $f_\alpha, \; \alpha \in A$.
 		
 		Für die Rückrichtung möchten wir zeigen, dass für alle Umgebungen $V$ von $z$ ein derartiges $\iota_0 \in I$ existiert, dass $x_\iota \in V$ für $\iota_0 \preceq \iota$ gilt.
-		Man bemerke zunächst, dass die Menge alle Urbilder von offenen Mengen in $Y_\alpha$ unter $f_\alpha$ für alle $\alpha \in A$ eine Subbasis der Topologie von $X$ ist.
+		Man bemerke zunächst, dass die Menge alle Urbilder von offenen Mengen in $\Y_\alpha$ unter $f_\alpha$ für alle $\alpha \in A$ eine Subbasis der Topologie von $\X$ ist.
 		Daher genügt es, Mengen der Form
-		\[ \tilde{V} \; \defby \; \bigcap_{i=1}^{n} f_{\alpha_i}^{-1}(U_i) \; \subseteq \; X \]
+		\[ \tilde{V} \; \defby \; \bigcap_{i=1}^{n} f_{\alpha_i}^{-1}(U_i) \; \subseteq \; \X \]
 		zu betrachten, wobei $\alpha_1, \dots, \alpha_n \in A$ sind und $U_i$ offene Umgebungen von $f_{\alpha_i}(z)$, $i \in \set{1, \dots, n}$.
 		Sei nun ein solches $\tilde{V}$ gegeben. Dann können wir für $i \in \set{1, \dots, n}$ jeweils ein $\iota_0^{(i)} \in I$ finden, sodass $x_\iota \in f_{\alpha_i}^{-1}(U_i)$ für 
 		$\iota_0^{(i)} \preceq \iota$ gilt. Sukzessive Anwendung von Eigenschaft (c) in Definition~\ref{def:directedset} liefert ein $\iota_0 \in I$ mit 
@@ -163,54 +163,54 @@
 	
 	\begin{Definition}[Borel-$\sigma$-Algebra]
 		\label{def:borelsigmaalg}
-		Sei $X$ ein topologischer Raum mit Topologie $\mathcal{O}$. Dann definieren wir die
+		Sei $\X$ ein topologischer Raum mit Topologie $\mathcal{O}$. Dann definieren wir die
 		\emph{Borel-$\sigma$-Algebra} 
-		$$\mathcal{B}(X) = \mathcal{B} \defby \sigma(\mathcal{O})$$
-		als die kleinste $\sigma$-Algebra auf $X$, die $\mathcal{O}$ umfasst.
+		$$\mathcal{B}(\X) = \mathcal{B} \defby \sigma(\mathcal{O})$$
+		als die kleinste $\sigma$-Algebra auf $\X$, die $\mathcal{O}$ umfasst.
 	\end{Definition}
 
 	\begin{Definition}[Borel-Maße]
-		In der Situation von Definition~\ref{def:borelsigmaalg} nennen wir Maße auf $\mathcal{B}(X)$ \emph{Borel-Maße}. Wir führen außerdem die Schreibweisen
+		In der Situation von Definition~\ref{def:borelsigmaalg} nennen wir Maße auf $\mathcal{B}(\X)$ \emph{Borel-Maße}. Wir führen außerdem die Schreibweisen
 		\begin{align*}
-			\Finitemeasures{X}  \; &\defby \; \setcomp{\fct{\mu}{\mathcal{B}(X)}{[0,\infty)}}{\mu \; 
+			\Finitemeasures{\X}  \; &\defby \; \setcomp{\fct{\mu}{\mathcal{B}(\X)}{[0,\infty)}}{\mu \; 
 				\text{ist endliches Maß}} \\
-			\Probmeasures{X} \; &\defby \; \setcomp{\fct{\mu}{\mathcal{B}(X)}{[0,1]}}{\mu \; 
+			\Probmeasures{\X} \; &\defby \; \setcomp{\fct{\mu}{\mathcal{B}(\X)}{[0,1]}}{\mu \; 
 				\text{ist Wahrscheinlichkeitsmaß}}
 		\end{align*}
-		für die Menge aller \emph{endlichen Borel-Maße} beziehungsweise \emph{Borel-Wahrscheinlichkeitsmaße} auf $X$ ein.
+		für die Menge aller \emph{endlichen Borel-Maße} beziehungsweise \emph{Borel-Wahrscheinlichkeitsmaße} auf $\X$ ein.
 	\end{Definition}
 	
 	\begin{Definition}[Stetige beschränkte Funktionen]
-		Sei $X$ ein topologischer Raum. Dann schreiben wir
-		\[ \Bdcontfct{X} \; \defby \; \setcomp{\fct{f}{X}{\R}}{f \; \text{ist stetig und beschränkt}} \]
-		für die Menge aller stetigen und beschränkten Funktionen auf $X$. 
-		Ist $X$ ein metrischer Raum, so schreiben wir außerdem
+		Sei $\X$ ein topologischer Raum. Dann schreiben wir
+		\[ \Bdcontfct{\X} \; \defby \; \setcomp{\fct{f}{\X}{\R}}{f \; \text{ist stetig und beschränkt}} \]
+		für die Menge aller stetigen und beschränkten Funktionen auf $\X$. 
+		Ist $\X$ ein metrischer Raum, so schreiben wir außerdem
 		\begin{align*}
-			\Bduniffct{X} \; &\defby \; \setcomp{\fct{f}{X}{\R}}{f \; \text{ist gleichmäßig stetig und beschränkt}} \quad \text{und} \\
-			\Bdlipschitzfct{X} \; &\defby \; \setcomp{\fct{f}{X}{\R}}{f \; \text{ist lipschitzstetig und beschränkt}} \text{.}
+			\Bduniffct{\X} \; &\defby \; \setcomp{\fct{f}{\X}{\R}}{f \; \text{ist gleichmäßig stetig und beschränkt}} \quad \text{und} \\
+			\Bdlipschitzfct{\X} \; &\defby \; \setcomp{\fct{f}{\X}{\R}}{f \; \text{ist lipschitzstetig und beschränkt}} \text{.}
 		\end{align*}
 	\end{Definition}
 	
 	\begin{Bemerkung}
-		Sei $X$ ein metrischer Raum. Sicherlich ist dann $\Bdlipschitzfct{X} \subseteq \Bduniffct{X} \subseteq \Bdcontfct{X}$, allerdings hängen $\Bdlipschitzfct{X}$ und $\Bduniffct{X}$ im Gegensatz 
-		zu $\Bdcontfct{X}$ von der Metrik selbst und nicht ausschließlich von der induzierten Topologie ab.
+		Sei $\X$ ein metrischer Raum. Sicherlich ist dann $\Bdlipschitzfct{\X} \subseteq \Bduniffct{\X} \subseteq \Bdcontfct{\X}$, allerdings hängen $\Bdlipschitzfct{\X}$ und $\Bduniffct{\X}$ im Gegensatz 
+		zu $\Bdcontfct{\X}$ von der Metrik selbst und nicht ausschließlich von der induzierten Topologie ab.
 	\end{Bemerkung}
 	
 	Wie angekündigt werden wir uns im Folgenden mit der \emph{(schwachen) Regularität} von endlichen Borel-Maßen auseinandersetzen. 
 	Hierbei handelt es sich um eine Approximationseigenschaft, die es uns etwa erlaubt, gewisse Aussagen 
 	zunächst für abgeschlossene bzw. kompakte und für offene Mengen (die gewissermaßen \enquote*{strukturierter} als lediglich messbare Mengen sind) zu zeigen, 
-	um diese anschließend auf ganz $\mathcal{B}(X)$ auszuweiten. 
+	um diese anschließend auf ganz $\mathcal{B}(\X)$ auszuweiten. 
 	
 	\begin{Definition}[Schwache Regularität von Maßen]
 		\label{def:regularity}
-		Sei $X$ ein topologischer Raum und $\mu$ ein endliches Borel-Maß auf $X$. 
-		Dann nennen wir $B \in \mathcal{B}(X)$ \emph{schwach von 
+		Sei $\X$ ein topologischer Raum und $\mu$ ein endliches Borel-Maß auf $\X$. 
+		Dann nennen wir $B \in \mathcal{B}(\X)$ \emph{schwach von 
 			innen bzw. von außen regulär}, falls
 		$$\mu(B) = \sup_{\substack{C \subseteq B \\ C \; \text{abgeschlossen}}} \mu(C) 
 		\quad \text{bzw.} \quad \mu(B) = \inf_{\substack{U \supseteq B \\ U \; \text{offen}}} 
 		\mu(U)$$
-		gelten. Wir nennen $B \in \mathcal{B}(X)$ \emph{schwach regulär}, wenn $B$ schwach von innen und 
-		von außen regulär ist. Sind alle $B \in \mathcal{B}(X)$ schwach regulär, 
+		gelten. Wir nennen $B \in \mathcal{B}(\X)$ \emph{schwach regulär}, wenn $B$ schwach von innen und 
+		von außen regulär ist. Sind alle $B \in \mathcal{B}(\X)$ schwach regulär, 
 		so nennen wir $\mu$ ein \emph{schwach reguläres Maß}.
 	\end{Definition}
 	
@@ -226,7 +226,7 @@
 	
 	\begin{Satz}
 		\label{thm:weakregularity}
-		Ist $(X, d)$ ein metrischer Raum, so ist jedes endliche Borel-Maß $\mu$ auf $X$ schwach regulär.
+		Ist $(\X, d)$ ein metrischer Raum, so ist jedes endliche Borel-Maß $\mu$ auf $\X$ schwach regulär.
 	\end{Satz}
 	
 	Für den Beweis des Satzes benötigen wir noch zwei Hilfssätze. 
@@ -236,17 +236,17 @@
 	Diese Erkenntnis werden wir im weiteren Verlauf der Arbeit noch häufiger benötigen.
 	
 	Der zweite Hilfssatz, den wir vorstellen,
-	wird uns ermöglichen, die schwache Regularität nur auf einem Erzeuger von $\mathcal{B}(X)$ 
+	wird uns ermöglichen, die schwache Regularität nur auf einem Erzeuger von $\mathcal{B}(\X)$ 
 	zu zeigen. Im endgültigen Beweis des Satzes werden wir dann die abgeschlossenen Mengen als Erzeuger wählen.
 	
 	
 	
 	\begin{Hilfssatz}
 		\label{lem:opensets}
-		Sei $(X, d)$ ein metrischer Raum und $C \subseteq X$ eine abgeschlossene 
+		Sei $(\X, d)$ ein metrischer Raum und $C \subseteq \X$ eine abgeschlossene 
 		Teilmenge. Ferner definieren wir für $n \in \N$
-		$$ A_n \defby \setcomp{y \in X}{d(y, C) < \frac{1}{n}} \quad \text{und} \quad 
-		\fctmap{f_n}{X}{\R}{x}{\max (0, 1-n d(x, C))} \text{,}$$
+		$$ A_n \defby \setcomp{y \in \X}{d(y, C) < \frac{1}{n}} \quad \text{und} \quad 
+		\fctmap{f_n}{\X}{\R}{x}{\max (0, 1-n d(x, C))} \text{,}$$
 		wobei wir $d(y, C) \defby \inf_{x \in C} d(y, x)$ setzen.
 		Dann gilt:
 		\begin{enumeratethm}
@@ -279,28 +279,28 @@
 	\begin{Hilfssatz}
 		\label{lem:sigmaalg}
 		In der Situation von Definition~\ref{def:regularity} ist
-		$$\mathcal{S} \defby \setcomp{B \in \mathcal{B}(X)}{B \text{ schwach regulär bzgl. } \mu}$$
+		$$\mathcal{S} \defby \setcomp{B \in \mathcal{B}(\X)}{B \text{ schwach regulär bzgl. } \mu}$$
 		eine $\sigma$-Algebra.
 	\end{Hilfssatz}
 	
 	\begin{proof}
 		Wir stellen eine Anpassung des Beweises von 
 		\cite[Lemma 4.5.5]{Simon.2015} vor, wo die entsprechende Aussage mit \enquote{regulär} 
-		anstelle \enquote{schwach regulär} für kompakte $X$ bewiesen wird.
+		anstelle \enquote{schwach regulär} für kompakte $\X$ bewiesen wird.
 		
-		Offensichtlich liegen $\emptyset$ und $X$ in $\mathcal{S}$. Sei 
+		Offensichtlich liegen $\emptyset$ und $\X$ in $\mathcal{S}$. Sei 
 		$B \in \mathcal{S}$ und damit schwach regulär 
-		von innen und von außen. Wegen $\mu(X) < \infty$ gilt dann
+		von innen und von außen. Wegen $\mu(\X) < \infty$ gilt dann
 		$$\mu(B^\mathsf{c}) 
-		\, = \, \mu(X) - \mu(B) 
-		\, = \, \mu(X) - \sup_{\substack{C \subseteq B \\ C^\mathsf{c} \in \mathcal{O}}} \mu(C) 
-		\, = \, \inf_{\substack{C \subseteq B \\ C^\mathsf{c} \in \mathcal{O}}} (\mu(X) - \mu(C))
+		\, = \, \mu(\X) - \mu(B) 
+		\, = \, \mu(\X) - \sup_{\substack{C \subseteq B \\ C^\mathsf{c} \in \mathcal{O}}} \mu(C) 
+		\, = \, \inf_{\substack{C \subseteq B \\ C^\mathsf{c} \in \mathcal{O}}} (\mu(\X) - \mu(C))
 		\, = \, \inf_{\substack{U \supseteq B^\mathsf{c} \\ U \in \mathcal{O}}} \mu(U)$$
 		sowie analog
 		$$\mu(B^\mathsf{c}) 
-		\, = \, \mu(X) - \mu(B) 
-		\, = \, \mu(X) - \inf_{\substack{U \supseteq B \\ U \in \mathcal{O}}} \mu(C)
-		\, = \, \sup_{\substack{U \supseteq B \\ U \in \mathcal{O}}} (\mu(X) - \mu(U))
+		\, = \, \mu(\X) - \mu(B) 
+		\, = \, \mu(\X) - \inf_{\substack{U \supseteq B \\ U \in \mathcal{O}}} \mu(C)
+		\, = \, \sup_{\substack{U \supseteq B \\ U \in \mathcal{O}}} (\mu(\X) - \mu(U))
 		\, = \, \sup_{\substack{C \subseteq B^\mathsf{c} \\ C^\mathsf{c} \in 
 				\mathcal{O}}} \mu(U) \text{.}$$
 		Also ist auch $B^\mathsf{c}$ schwach regulär. 
@@ -336,25 +336,25 @@
 	übergehen.
 	
 	\begin{proof}[Beweis von Satz~\ref{thm:weakregularity}]
-		Es ist nun zu zeigen, dass für jedes endliche Borel-Maß $\mu$ auf $X$
+		Es ist nun zu zeigen, dass für jedes endliche Borel-Maß $\mu$ auf $\X$
 		die Menge 
-		$$\mathcal{S} \defby \setcomp{B \in \mathcal{B}(X)}{B \text{ schwach regulär bzgl. } \mu}$$
-		bereits ganz $\mathcal{B}(X)$ ist. 
+		$$\mathcal{S} \defby \setcomp{B \in \mathcal{B}(\X)}{B \text{ schwach regulär bzgl. } \mu}$$
+		bereits ganz $\mathcal{B}(\X)$ ist. 
 		Da $\mathcal{S}$ nach Hilfssatz~\ref{lem:sigmaalg} eine 
 		$\sigma$-Algebra ist und 
-		$\mathcal{B}(X)$ von den abgeschlossenen Mengen erzeugt wird, genügt es zu zeigen, 
+		$\mathcal{B}(\X)$ von den abgeschlossenen Mengen erzeugt wird, genügt es zu zeigen, 
 		dass diese in $\mathcal{S}$ enthalten sind. 
 		
-		Sei $C \in \mathcal{B}(X)$. Dann ist $C$ sicherlich schwach regulär von innen. 
+		Sei $C \in \mathcal{B}(\X)$. Dann ist $C$ sicherlich schwach regulär von innen. 
 		Nun verwenden wir die offenen Mengen $A_n, \; n \in \N$ aus 
 		Hilfssatz~\ref{lem:opensets}. 
-		Wegen $A_n \convdown C$ und $\mu(X) < \infty$ folgt mit der 
+		Wegen $A_n \convdown C$ und $\mu(\X) < \infty$ folgt mit der 
 		Maßstetigkeit von oben die Konvergenz $\mu(A_n) \convdown \mu(C)$,
 		sodass $C$ auch schwach regulär von außen ist.
 	\end{proof}
 
 	\begin{Bemerkung}
-		Handelt es sich in der Situation von Satz~\ref{thm:weakregularity} bei $X$ um einen polnischen Raum, 
+		Handelt es sich in der Situation von Satz~\ref{thm:weakregularity} bei $\X$ um einen polnischen Raum, 
 		so werden wir zu einem späteren Zeitpunkt (in Folgerung~\ref{kor:polishregular}) noch sehen, dass hier tatsächlich sogar Regularität gilt.
 	\end{Bemerkung}
 	
@@ -365,17 +365,17 @@
 	
 	\begin{Folgerung}
 		\label{cor:measureequality}
-		Sei $(X,d)$ ein metrischer Raum und seien $\mu, \nu \in \Finitemeasures{X}$. 
+		Sei $(\X,d)$ ein metrischer Raum und seien $\mu, \nu \in \Finitemeasures{\X}$. 
 		Dann sind die folgenden Aussagen äquivalent:
 		\begin{equivalentthm}
 			\item $\mu = \nu$.
-			\item Für alle $f \in \Bdcontfct{X}$ ist
+			\item Für alle $f \in \Bdcontfct{\X}$ ist
 			$\measureint{}{f}{\mu} = \measureint{}{f}{\nu}$.
-			\item Für alle $f \in \Bduniffct{X}$ ist
+			\item Für alle $f \in \Bduniffct{\X}$ ist
 			$\measureint{}{f}{\mu} = \measureint{}{f}{\nu}$.
-			\item Für alle $f \in \Bdlipschitzfct{X}$ ist
+			\item Für alle $f \in \Bdlipschitzfct{\X}$ ist
 			$\measureint{}{f}{\mu} = \measureint{}{f}{\nu}$.
-			\item Für alle abgeschlossenen Mengen $C \subseteq X$ ist $\mu(C) = \nu(C)$.
+			\item Für alle abgeschlossenen Mengen $C \subseteq \X$ ist $\mu(C) = \nu(C)$.
 		\end{equivalentthm}
 	\end{Folgerung}
 	
@@ -383,8 +383,8 @@
 		Die Implikationen (i) $\Rightarrow$ (ii) $\Rightarrow$ (iii) $\Rightarrow$ (iv) sind klar und (v) 
 		$\Rightarrow$ (i) folgt aus Satz~\ref{thm:weakregularity}.
 		
-		(iv) $\Rightarrow$ (v): Gelte (iv) und sei $C \subseteq X$ abgeschlossen. 
-		Dann gilt für die Funktionen $f_n \in \Bduniffct{X}$ aus Hilfssatz~\ref{lem:opensets}
+		(iv) $\Rightarrow$ (v): Gelte (iv) und sei $C \subseteq \X$ abgeschlossen. 
+		Dann gilt für die Funktionen $f_n \in \Bduniffct{\X}$ aus Hilfssatz~\ref{lem:opensets}
 		$$\measureint{}{f_n}{\mu} = \measureint{}{f_n}{\nu}\text{,} \quad n \in \N \text{.}$$
 		Wegen $| f_n | \leq 1$ und $f_n \convdown \indfct_C$ folgt mit dem Satz von Lebesgue 
 		$$\measureint{}{f_n}{\mu} \; \to \; \mu(C) \quad \text{und} \quad \measureint{}{f_n}{\nu} 

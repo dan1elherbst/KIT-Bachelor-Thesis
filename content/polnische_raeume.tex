@@ -11,10 +11,10 @@
 	\end{Definition}
 
 	\begin{Bemerkung}
-		Es sei hier anzumerken, dass dies tatsächlich eine rein topologische Eigenschaft ist. Wir fordern für einen polnischen Raum $X$ nämlich nur die Existenz einer Metrik,
-		die die Topologie von $X$ erzeugt und bezüglich der $X$ vollständig ist, möchten uns aber die Flexibilität
+		Es sei hier anzumerken, dass dies tatsächlich eine rein topologische Eigenschaft ist. Wir fordern für einen polnischen Raum $\X$ nämlich nur die Existenz einer Metrik,
+		die die Topologie von $\X$ erzeugt und bezüglich der $\X$ vollständig ist, möchten uns aber die Flexibilität
 		bewahren, diese Metrik nicht zu fixieren und bei Bedarf zwischen verschiedenen solchen Metriken
-		zu wechseln. Es kann durchaus Metriken geben, die $X$ zwar metrisieren, jedoch nicht vollständig.
+		zu wechseln. Es kann durchaus Metriken geben, die $\X$ zwar metrisieren, jedoch nicht vollständig.
 		Beispielsweise ist $\R$ ausgestattet mit der Standardtopologie offensichtlich ein polnischer Raum,
 		denn $\R$ ist separabel und die euklidische Metrik metrisiert $\R$ vollständig. 
 		Allerdings ist $(0, 1)$ als Teilraum von $\R$ mit der euklidischen Metrik zwar separabel, aber nicht vollständig.
@@ -31,19 +31,19 @@
 	
 	\begin{Satz}[Alexandroff]
 		\label{thm:gdeltasubsetsofpolishspaces}
-		Sei $X$ ein polnischer Raum. Dann ist $A \subseteq X$ genau dann selbst ein polnischer Raum bezüglich der Teilraumtopologie, 
-		wenn $A \subseteq X$ eine $G_\delta$-Teilmenge ist.
+		Sei $\X$ ein polnischer Raum. Dann ist $A \subseteq \X$ genau dann selbst ein polnischer Raum bezüglich der Teilraumtopologie, 
+		wenn $A \subseteq \X$ eine $G_\delta$-Teilmenge ist.
 	\end{Satz}
 	
 	\begin{proof}
 		Der Beweis der Hinrichtung folgt \cite[Satz 7]{JordanBell.2014}, während der Beweis der Rückrichtung eine Anpassung des Beweises
 		von Satz 4.14.6 aus \cite[Kapitel 4.14]{Simon.2015} ist.
 		
-		Für die Hinrichtung sei $A \subseteq X$ eine $G_\delta$-Teilmenge und seien 
-		$U_n \subseteq X, \, n \in \N$ offene Mengen mit 
+		Für die Hinrichtung sei $A \subseteq \X$ eine $G_\delta$-Teilmenge und seien 
+		$U_n \subseteq \X, \, n \in \N$ offene Mengen mit 
 		$A = \bigcap_{n \in \N} U_n$, wobei wir außerdem 
 		$C_n \defby U_n^{\mathsf{c}}$ schreiben. Ferner sei 
-		$d$ eine Metrik, die $X$ vollständig metrisiert. 
+		$d$ eine Metrik, die $\X$ vollständig metrisiert. 
 		Da $A$ als Teilmenge eines separablen metrischen Raums 
 		selbst separabel ist, genügt es, die vollständige Metrisierbarkeit 
 		von $A$ zu beweisen.
@@ -58,8 +58,8 @@
 		Wir möchten nun zeigen, dass $(A, \tilde{d})$ vollständig ist. 
 		Sei dazu $(x_k)_k \in A^\N$ eine Cauchyfolge. Wegen $d \leq \tilde{d}$ 
 		ist $(x_k)_k$ dann auch bezüglich $d$ eine Cauchyfolge und die 
-		Vollständigkeit von $(X, d)$ liefert die Existenz eines Grenzwertes 
-		$x \in X$. Angenommen $x \notin A$, so gibt es ein $m \in \N$ mit 
+		Vollständigkeit von $(\X, d)$ liefert die Existenz eines Grenzwertes 
+		$x \in \X$. Angenommen $x \notin A$, so gibt es ein $m \in \N$ mit 
 		$x \in C_m$. Damit ist aber für alle $k \in \N$
 		$$\sup_{l \geq k} \tilde{d}(x_k, x_l) \; \geq \; \sup_{l \geq k} 
 		\, \sum_{n=1}^{\infty} \min \left(
@@ -74,12 +74,12 @@
 		also ist $(A, \tilde{d})$ vollständig und $A$ damit selbst ein
 		polnischer Raum.
 		
-		Nun beweisen wir noch die Rückrichtung. Sei dazu $A \subseteq X$ eine derartige Teilmenge, dass
+		Nun beweisen wir noch die Rückrichtung. Sei dazu $A \subseteq \X$ eine derartige Teilmenge, dass
 		$A$ bezüglich der Teilraumtopologie selbst polnisch ist. $\tilde{d}$ metrisiere im Folgenden 
 		$A$ vollständig.
 		Sicherlich ist $B_{1/k}(x_m) \subseteq A$ für alle 
 		$k, m \in \N$ relativ offen, also gibt es jeweils offene Mengen 
-		$V_{k, m} \subseteq X$ mit
+		$V_{k, m} \subseteq \X$ mit
 		\[ B_{1/k}(x_m) \; = \; V_{k, m} 
 		\cap A \text{.} \label{eq:2.1} \tag{2.1}\]
 		Wir möchten jetzt zeigen, dass
@@ -163,9 +163,9 @@
 	
 	\begin{Satz}[Universalitätseigenschaft des Hilbertwürfels]
 		\label{thm:characterizationpolishspaces}
-		Ein topologischer Raum $X$ ist genau dann separabel und metrisierbar, wenn $X$ homöomorph zu einer Teilmenge von $H$ ist.
+		Ein topologischer Raum $\X$ ist genau dann separabel und metrisierbar, wenn $\X$ homöomorph zu einer Teilmenge von $H$ ist.
 		
-		Ferner ist $X$ genau dann polnisch, wenn $X$ homöomorph zu einer $G_\delta$-Teilmenge von $H$ ist.
+		Ferner ist $\X$ genau dann polnisch, wenn $\X$ homöomorph zu einer $G_\delta$-Teilmenge von $H$ ist.
 	\end{Satz}
 	
 	Wir werden den Beweis von Satz~\ref{thm:characterizationpolishspaces} simultan für metrisierbare und 
@@ -174,11 +174,11 @@
 	
 	\begin{Hilfssatz}
 		\label{lem:characterizationpolishspaces}
-		Sei $(X, d)$ ein separabler metrischer Raum und sei 
-		$\mathcal{D} \defby \setcomp{x_n}{n \in \N} \subseteq X$ eine abzählbare 
+		Sei $(\X, d)$ ein separabler metrischer Raum und sei 
+		$\mathcal{D} \defby \setcomp{x_n}{n \in \N} \subseteq \X$ eine abzählbare 
 		dichte Teilmenge. Außerdem setzen wir
-		\[\fctmap{\varphi}{X}{H}{x}{\left(\min (1, d(x, x_n)) \right)_n} \text{.} \label{eq:2.4} \tag{2.4}\]
-		Dann ist $\varphi$ ein Homöomorphismus zwischen $X$ und $\varphi(X)$.
+		\[\fctmap{\varphi}{\X}{H}{x}{\left(\min (1, d(x, x_n)) \right)_n} \text{.} \label{eq:2.4} \tag{2.4}\]
+		Dann ist $\varphi$ ein Homöomorphismus zwischen $\X$ und $\varphi(\X)$.
 	\end{Hilfssatz}
 	
 	\begin{proof}
@@ -191,7 +191,7 @@
 		
 		Die Stetigkeit von $\varphi$ folgt direkt, weil die 
 		Komponentenfunktionen $x \mapsto \min (1, d(x, x_n))$ jeweils stetig sind. 
-		Seien nun $(y_k)_k \in X^\N$ und $y \in X$ mit $\varphi(y_k) \to \varphi(y)$, 
+		Seien nun $(y_k)_k \in \X^\N$ und $y \in \X$ mit $\varphi(y_k) \to \varphi(y)$, 
 		also
 		\[\min (1, d(y_k, x_n)) \; \to \; \min (1, d(y, x_n)), 
 		\quad k \to \infty \label{eq:2.6} \tag{2.6}\]
@@ -214,9 +214,9 @@
 		Teilmenge des Hilbertwürfels $H$ ist und jede Teilmenge von $H$ separabel und metrisierbar ist,
 		folgt der erste Teil von Satz~\ref{thm:characterizationpolishspaces}. 
 		
-		Sei $X$ nun ein polnischer Raum und fixiere eine Metrik $d$, die $X$ vollständig metrisiert. 
-		Nach Hilfssatz~\ref{lem:characterizationpolishspaces} ist $X$ via $\fct{\varphi}{X}{H}$ aus \eqref{eq:2.6}
-		homöomorph zu einer Teilmenge von $H$ und da $H$ selbst polnisch ist, muss $\varphi(X) \subseteq H$ nach 
+		Sei $\X$ nun ein polnischer Raum und fixiere eine Metrik $d$, die $\X$ vollständig metrisiert. 
+		Nach Hilfssatz~\ref{lem:characterizationpolishspaces} ist $\X$ via $\fct{\varphi}{\X}{H}$ aus \eqref{eq:2.6}
+		homöomorph zu einer Teilmenge von $H$ und da $H$ selbst polnisch ist, muss $\varphi(\X) \subseteq H$ nach 
 		Satz~\ref{thm:gdeltasubsetsofpolishspaces} eine $G_\delta$-Teilmenge sein.
 		Ferner folgt aus demselben Satz, dass jede $G_\delta$-Teilmenge von $H$ polnisch ist.
 	\end{proof}
@@ -225,29 +225,29 @@
 	
 	\begin{Folgerung}
 		\label{cor:productsofpolishspaces}
-		Sei $X_n$ für jedes $n \in \N$ ein topologischer Raum. Dann gelten folgende Implikationen:
+		Sei $\X_n$ für jedes $n \in \N$ ein topologischer Raum. Dann gelten folgende Implikationen:
 		\begin{enumeratethm}
-			\item Ist $X_n$ separabel und metrisierbar für jedes $n \in \N$, so ist auch $\prod_{n=1}^{\infty} X_n$ mit der Produkttopologie separabel und metrisierbar.
-			\item Ist $X_n$ polnisch für jedes $n \in \N$, so ist auch $\prod_{n=1}^{\infty} X_n$ mit der Produkttopologie polnisch.
+			\item Ist $\X_n$ separabel und metrisierbar für jedes $n \in \N$, so ist auch $\prod_{n=1}^{\infty} \X_n$ mit der Produkttopologie separabel und metrisierbar.
+			\item Ist $\X_n$ polnisch für jedes $n \in \N$, so ist auch $\prod_{n=1}^{\infty} \X_n$ mit der Produkttopologie polnisch.
 		\end{enumeratethm}
 	\end{Folgerung}
 	
 	\begin{proof}
-		Wir zeigen zunächst Aussage (a). Seien alle $X_n$ separabel und metrisierbar. Nach Satz~\ref{thm:characterizationpolishspaces} bzw. 
-		Hilfssatz~\ref{lem:characterizationpolishspaces} existieren dann Einbettungen $\fct{\varphi_n}{X_n}{H}, \; n \in \N$. Nun ist aber 
-		\[ \prod_{n=1}^{\infty} X_n \; \cong \; \prod_{n=1}^{\infty} \varphi_n(X_n) \; \subseteq \; \prod_{n=1}^{\infty} H \; \cong \; H \]
-		und Satz~\ref{thm:characterizationpolishspaces} liefert, dass $\prod_{n=1}^{\infty} X_n$ separabel und metrisierbar ist.
+		Wir zeigen zunächst Aussage (a). Seien alle $\X_n$ separabel und metrisierbar. Nach Satz~\ref{thm:characterizationpolishspaces} bzw. 
+		Hilfssatz~\ref{lem:characterizationpolishspaces} existieren dann Einbettungen $\fct{\varphi_n}{\X_n}{H}, \; n \in \N$. Nun ist aber 
+		\[ \prod_{n=1}^{\infty} \X_n \; \cong \; \prod_{n=1}^{\infty} \varphi_n(\X_n) \; \subseteq \; \prod_{n=1}^{\infty} H \; \cong \; H \]
+		und Satz~\ref{thm:characterizationpolishspaces} liefert, dass $\prod_{n=1}^{\infty} \X_n$ separabel und metrisierbar ist.
 		
-		Für Teilaufgabe (b) setzen wir zusätzlich alle $X_n$ als polnisch voraus. Dann ist $\varphi_n(X_n)$ für jedes $n \in \N$ eine $G_{\delta}$-Teilmenge von $H$, also
-		existieren für alle $k, n \in \N$ derartige offene Mengen $U_n^{(k)} \subseteq H$, dass $\varphi_n(X_n) = \bigcap_{k \in \N} U_n^{(k)}$ ist. Da nun insbesondere auch
+		Für Teilaufgabe (b) setzen wir zusätzlich alle $\X_n$ als polnisch voraus. Dann ist $\varphi_n(\X_n)$ für jedes $n \in \N$ eine $G_{\delta}$-Teilmenge von $H$, also
+		existieren für alle $k, n \in \N$ derartige offene Mengen $U_n^{(k)} \subseteq H$, dass $\varphi_n(\X_n) = \bigcap_{k \in \N} U_n^{(k)}$ ist. Da nun insbesondere auch
 		\[ V_n^{(k)} \; \defby \; \left( \prod_{m=1}^{n-1} H \times U_n^{(k)} \times \!\!\! \prod_{m=n+1}^{\infty} H \right) \; \subseteq \; \prod_{n=1}^{\infty} H \]
 		für alle $k, n \in \N$ offen ist, folgt
-		\[ \prod_{n=1}^{\infty} X_n \; \cong \; \prod_{n=1}^{\infty} \bigcap_{k \in \N} U_n^{(k)} \; = \; \bigcap_{n \in \N} \bigcap_{k \in \N} V_n^{(k)} \; \subseteq \; \prod_{n=1}^{\infty} H \; \cong \; H \text{,} \]
-		also ist $\prod_{n=1}^{\infty} X_n$ homöomorph zu einer $G_{\delta}$-Teilmenge von $H$ und damit nach Satz~\ref{thm:characterizationpolishspaces} polnisch.
+		\[ \prod_{n=1}^{\infty} \X_n \; \cong \; \prod_{n=1}^{\infty} \bigcap_{k \in \N} U_n^{(k)} \; = \; \bigcap_{n \in \N} \bigcap_{k \in \N} V_n^{(k)} \; \subseteq \; \prod_{n=1}^{\infty} H \; \cong \; H \text{,} \]
+		also ist $\prod_{n=1}^{\infty} \X_n$ homöomorph zu einer $G_{\delta}$-Teilmenge von $H$ und damit nach Satz~\ref{thm:characterizationpolishspaces} polnisch.
 	\end{proof}
 	
 	\begin{Bemerkung}
-		Die Aussagen aus Folgerung~\ref{cor:productsofpolishspaces} gelten auch für endliche Produkte, denn für alle übrigen $n \in \N$ können wir $X_n$ in diesem Fall einfach als einen einzigen Punkt wählen.
+		Die Aussagen aus Folgerung~\ref{cor:productsofpolishspaces} gelten auch für endliche Produkte, denn für alle übrigen $n \in \N$ können wir $\X_n$ in diesem Fall einfach als einen einzigen Punkt wählen.
 	\end{Bemerkung}
 	
 \end{document}
