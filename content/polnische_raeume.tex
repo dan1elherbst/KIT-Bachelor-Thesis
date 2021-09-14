@@ -4,27 +4,30 @@
 	
 	\section{Polnische Räume}
 	
-	In diesem Abschnitt beschäftigen wir uns mit den grundlegenden Eigenschaften von polnischen Räumen, 
-	einer Klasse von speziellen topologischen Räumen. 
-	
-	Wir orientieren uns hierbei an den relevanten Teilen aus \cite[Kapitel 4.14]{Simon.2015}.
+	Im weiteren Verlauf der Arbeit wird insbesondere eine Klasse topologischer Räume besonders wichtig sein: Die der polnischen Räume.
 	
 	\begin{Definition}[Polnischer Raum]
 		Ein \emph{polnischer Raum} ist ein separabler und vollständig metrisierbarer topologischer Raum.
 	\end{Definition}
+
+	\begin{Bemerkung}
+		Es sei hier anzumerken, dass dies tatsächlich eine rein topologische Eigenschaft ist. Wir fordern für einen polnischen Raum $X$ nämlich nur die Existenz einer Metrik,
+		die die Topologie von $X$ erzeugt und bezüglich der $X$ vollständig ist, möchten uns aber die Flexibilität
+		bewahren, diese Metrik nicht zu fixieren und bei Bedarf zwischen verschiedenen solchen Metriken
+		zu wechseln. Es kann durchaus Metriken geben, die $X$ zwar metrisieren, jedoch nicht vollständig.
+		Beispielsweise ist $\R$ ausgestattet mit der Standardtopologie offensichtlich ein polnischer Raum,
+		denn $\R$ ist separabel und die euklidische Metrik metrisiert $\R$ vollständig. 
+		Allerdings ist $(0, 1)$ als Teilraum von $\R$ mit der euklidischen Metrik zwar separabel, aber nicht vollständig.
+		Da $(0, 1)$ homöomorph zu $\R$ ist, ist $(0, 1)$ aber dennoch ein polnischer Raum.
+	\end{Bemerkung}
+
+	Polnische Räume sind insofern interessant, dass es sich hierbei um eine verhältnismäßig allgemeine und elementare Klasse topologischer Räume handelt, die aber - wie wir in diesem Abschnitt sehen werden - 
+	etwa unter Bildung von $G_\delta$-Teilmengen oder abzählbaren Produkten abgeschlossen ist und mit der sich daher leicht umgehen lässt. Außerdem erlaubt es die Klasse der polnischen Räume in vielen Bereichen, 
+	nützliche und recht allgemeine Resultate zu erhalten sowie Pathologien zu vermeiden. Konkret werden wir insbesondere in Abschnitt~\ref{sec:eigenschaften-der-schwachen-topologie} Beispiele hierfür sehen.
 	
-	Es sei hier anzumerken, dass dies tatsächlich eine rein topologische Eigenschaft ist: Wir fordern für einen polnischen Raum $X$ nur die Existenz einer Metrik,
-	die die Topologie von $X$ erzeugt und bezüglich der $X$ vollständig ist, möchten uns aber die Flexibilität
-	bewahren, diese Metrik nicht zu fixieren und bei Bedarf zwischen verschiedenen solchen Metriken
-	zu wechseln. Es kann durchaus Metriken geben, die $X$ zwar metrisieren, jedoch nicht vollständig.
-	Beispielsweise ist $\R$ ausgestattet mit der Standardtopologie offensichtlich ein polnischer Raum,
-	denn $\R$ ist separabel und die euklidische Metrik metrisiert $\R$ vollständig. 
-	Allerdings ist $(0, 1)$ als Teilraum von $\R$ mit der euklidischen Metrik zwar separabel, aber nicht vollständig.
-	Da $(0, 1)$ homöomorph zu $\R$ ist, ist $(0, 1)$ aber dennoch ein polnischer Raum.
+	Dieser Abschnitt orientiert sich überwiegend an den relevanten Teilen von \cite[Kapitel 4.14]{Simon.2015}. 
 	
-	Im Folgenden lernen wir Eigenschaften und Charakterisierungen polnischer Räume kennen.
-	
-	Der folgende Satz beantwortet uns zunächst, welche Teilmengen eines polnischen Raumes selbst wieder polnisch sind:
+	Zunächst widmen wir uns einer grundlegenden Abgeschlossenheitseigenschaft von polnischen Räumen.
 	
 	\begin{Satz}[Alexandroff]
 		\label{thm:gdeltasubsetsofpolishspaces}
@@ -105,7 +108,7 @@
 	\end{proof}
 	
 	Mit dem \emph{Hilbertwürfel} möchten wir uns nun einen speziellen polnischen Raum ansehen, 
-	der sich später in gewisser Weise als universell für alle polnischen Räume erweisen wird.
+	der sich gleich in gewisser Weise als universell für alle polnischen Räume erweisen wird.
 	
 	\begin{Definition}[Hilbertwürfel]
 		Der \emph{Hilbertwürfel} ist der topologische Raum $H = [0, 1]^\N$ 
@@ -113,7 +116,7 @@
 		aller Projektionen $\fctmap{\pi_n}{H}{[0, 1]}{x}{x_n}, \; n \in \N$.
 	\end{Definition}
 	
-	Einige grundlegende Eigenschaften des Hilbertwürfels fassen wir im folgenden Hilfssatz zusammen.
+	Einige fundamentale Eigenschaften des Hilbertwürfels sind im folgenden Hilfssatz zusammengefasst.
 	
 	\begin{Hilfssatz}
 		\label{lem:hilbertcube}
@@ -151,7 +154,8 @@
 	\end{proof}
 	
 	\begin{Bemerkung}
-		Insbesondere handelt es sich bei $H$ um einen polnischen Raum, denn alle kompakten metrischen Räume sind insbesondere 
+		Insbesondere folgt aus Hilfssatz~\ref{lem:hilbertcube}, dass es sich bei $H$ tatsächlich um einen polnischen Raum handelt, 
+		denn alle kompakten metrischen Räume sind insbesondere 
 		separabel und vollständig und damit auch polnisch.
 	\end{Bemerkung}
 	
@@ -165,7 +169,8 @@
 	\end{Satz}
 	
 	Wir werden den Beweis von Satz~\ref{thm:characterizationpolishspaces} simultan für metrisierbare und 
-	separable bzw. für polnische Räume führen, benötigen hierfür aber zunächst noch einen Hilfssatz.
+	separable bzw. für polnische Räume führen, benötigen hierfür aber zunächst noch einen Hilfssatz, der uns ermöglichen wird, 
+	einen beliebigen separablen und metrischen Raum in den Hilbertwürfel einzubetten.
 	
 	\begin{Hilfssatz}
 		\label{lem:characterizationpolishspaces}
@@ -199,6 +204,9 @@
 		und mit $\varepsilon \to 0$ folgt die Stetigkeit von $\varphi^{-1}$, 
 		womit wir nachgewiesen haben, dass $\varphi$ ein Homöomorphismus auf sein Bild ist. 
 	\end{proof}
+
+	Mit Hilfe von Hilfssatz~\ref{lem:characterizationpolishspaces} können nun die Aussagen von
+	Satz~\ref{thm:characterizationpolishspaces} nachgewiesen werden.
 	
 	\begin{proof}[Beweis von Satz~\ref{thm:characterizationpolishspaces}]
 		Da wir in Hilfssatz~\ref{lem:characterizationpolishspaces} bereits 
@@ -212,6 +220,8 @@
 		Satz~\ref{thm:gdeltasubsetsofpolishspaces} eine $G_\delta$-Teilmenge sein.
 		Ferner folgt aus demselben Satz, dass jede $G_\delta$-Teilmenge von $H$ polnisch ist.
 	\end{proof}
+
+	Insbesondere lässt sich unter Verwendung von Satz~\ref{thm:characterizationpolishspaces} recht mühelos eine weitere Abgeschlossenheitseigenschaft polnischer Räume beweisen.
 	
 	\begin{Folgerung}
 		\label{cor:productsofpolishspaces}
