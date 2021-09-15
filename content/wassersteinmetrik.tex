@@ -276,32 +276,25 @@
 		$\mu_k \xrightarrow{w} \mu, \; k \to \infty$.
 	\end{proof}
 
-	\begin{tikzpicture}[define rgb/.code={\definecolor{mycolor}{RGB}{#1}},
-		rgb color/.style={define rgb={#1},mycolor}]
-		
+	\begin{tikzpicture}
 		
 		\def\startmu{-2}
 		\def\endmu{3}
 		\def\startsigma{1.5}
 		\def\endsigma{0.5}
 		\def\steps{10}
-		\definecolor{clr1}{RGB}{255,0,0}
-		\def\startr{0}
-		\def\startg{156}
-		\def\startb{129}
-		\def\endr{0}
-		\def\endg{0}
-		\def\endb{255}
+		\definecolor{startcolor}{RGB}{0,156,129}
+		\definecolor{endcolor}{RGB}{0,0,255}
 		
 		\begin{axis}[xmax=5, ymax=1, xmin=-5, ymin=0, samples=200]
-			\foreach \t in {0,...,\steps} 
+			\foreach [evaluate=\t as \v using (\t)*100/(\steps)] \t in {0,...,\steps}
 			{
 				\def\mu{\startmu + \t * (\endmu - \startmu) / \steps}
 				\def\sigma{\startsigma + \t * (\endsigma - \startsigma) / \steps}
-				%\def\r{\startr + \t * (\endr - \startr) / \steps}
-				%\def\g{\startg + \t * (\endg - \startg) / \steps}
-				%\def\b{\startb + \t * (\endb - \startb) / \steps}
-				\addplot[rgb color={0, 156, 129}, thick]  {gauss(x, \mu, \sigma)};
+				
+				\edef\temp{\noexpand
+					\addplot[startcolor!\v!endcolor, thick]{gauss(x, \mu, \sigma)};
+				\noexpand}\temp
 			}
 		\end{axis}
 	\end{tikzpicture}
