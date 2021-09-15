@@ -351,7 +351,82 @@
 			\label{Fig:SubRight}
 		\end{subfigure}
 		\caption{Caption of both diagrams.}
-		\label{Fig:Main}
+		\label{Fig:Main1}
+	\end{figure}
+
+	\begin{figure}[H]
+		\centering
+		\begin{subfigure}[t]{0.5\textwidth}
+			\centering
+			\begin{tikzpicture}
+				
+				\definecolor{startcolor}{RGB}{0,156,129}
+				\definecolor{endcolor}{RGB}{0,0,255}
+				
+				\begin{axis}[zmax=1,zmin=0,colormap={kit}{rgb255=(250,250,250) rgb255=(0,109,167)},grid=major,width=0.9\textwidth]
+					\addplot3[color=endcolor,thick,samples y=0,samples=45,domain=-5:5] (x,5,{gauss(x,3,0.5)}) node[above, pos=0.6] {$f_{\nu}$}; 
+					\addplot3[color=startcolor,thick,samples y=0,domain=-5:5] (-5,x,{gauss(x,-2,1.5)}) node[above, pos=0.6] {$f_{\mu}$}; 
+					\addplot3[surf, domain=-5:5,domain y=-5:5] {gauss2d(x, y, 3, -2, 0.5, 1.5, -0.5)};  
+				\end{axis}
+			\end{tikzpicture}
+			\caption{Subcaption of the diagram.}
+			\label{Fig:Topleft}
+		\end{subfigure}%
+		~
+		\begin{subfigure}[t]{0.5\textwidth}
+			\centering
+			\begin{tikzpicture}
+				
+				\definecolor{startcolor}{RGB}{0,156,129}
+				\definecolor{endcolor}{RGB}{0,0,255}
+				
+				\begin{axis}[zmax=1,zmin=0,colormap={kit}{rgb255=(250,250,250) rgb255=(0,109,167)},grid=major,width=0.9\textwidth]
+					\addplot3[color=endcolor,thick,samples y=0,samples=45,domain=-5:5] (x,5,{gauss(x,3,0.5)}) node[above, pos=0.6] {$f_{\nu}$}; 
+					\addplot3[color=startcolor,thick,samples y=0,domain=-5:5] (-5,x,{gauss(x,-2,1.5)}) node[above, pos=0.6] {$f_{\mu}$}; 
+					\addplot3[surf, domain=-5:5,domain y=-5:5] {gauss2d(x, y, 3, -2, 0.5, 1.5, 0)};  
+				\end{axis}
+			\end{tikzpicture}
+			\caption{Subcaption of the diagram.}
+			\label{Fig:TopRight}
+		\end{subfigure}
+	
+		\vspace*{1em}
+		
+		\begin{subfigure}[t]{0.5\textwidth}
+			\centering
+			\begin{tikzpicture}
+				
+				\definecolor{startcolor}{RGB}{0,156,129}
+				\definecolor{endcolor}{RGB}{0,0,255}
+				
+				\begin{axis}[zmax=1,zmin=0,colormap={kit}{rgb255=(250,250,250) rgb255=(0,109,167)},grid=major,width=0.9\textwidth]
+					\addplot3[color=endcolor,thick,samples y=0,samples=45,domain=-5:5] (x,5,{gauss(x,3,0.5)}) node[above, pos=0.6] {$f_{\nu}$}; 
+					\addplot3[color=startcolor,thick,samples y=0,domain=-5:5] (-5,x,{gauss(x,-2,1.5)}) node[above, pos=0.6] {$f_{\mu}$}; 
+					\addplot3[surf, domain=-5:5,domain y=-5:5] {gauss2d(x, y, 3, -2, 0.5, 1.5, 0.5)};  
+				\end{axis}
+			\end{tikzpicture}
+			\caption{Subcaption of the diagram.}
+			\label{Fig:BotLeft}
+		\end{subfigure}%
+		~
+		\begin{subfigure}[t]{0.5\textwidth}
+			\centering
+			\begin{tikzpicture}
+				
+				\definecolor{startcolor}{RGB}{0,156,129}
+				\definecolor{endcolor}{RGB}{0,0,255}
+				
+				\begin{axis}[zmax=1,zmin=0,colormap={kit}{rgb255=(250,250,250) rgb255=(0,109,167)},grid=major,width=0.9\textwidth]
+					\addplot3[color=endcolor,thick,samples y=0,samples=45,domain=-5:5] (x,5,{gauss(x,3,0.5)}) node[above, pos=0.6] {$f_{\nu}$}; 
+					\addplot3[color=startcolor,thick,samples y=0,domain=-5:5] (-5,x,{gauss(x,-2,1.5)}) node[above, pos=0.6] {$f_{\mu}$}; 
+					\addplot3[surf, domain=-5:5,domain y=-5:5] {gauss2d(x, y, 3, -2, 0.5, 1.5, 0.9)};  
+				\end{axis}
+			\end{tikzpicture}
+			\caption{Subcaption of the diagram.}
+			\label{Fig:BotRight}
+		\end{subfigure}
+		\caption{Caption of all diagrams.}
+		\label{Fig:Main2}
 	\end{figure}
 
 	
