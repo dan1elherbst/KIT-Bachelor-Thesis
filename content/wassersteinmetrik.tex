@@ -276,27 +276,74 @@
 		$\mu_k \xrightarrow{w} \mu, \; k \to \infty$.
 	\end{proof}
 
-	\begin{tikzpicture}
-		
-		\def\startmu{-2}
-		\def\endmu{3}
-		\def\startsigma{1.5}
-		\def\endsigma{0.5}
-		\def\steps{10}
-		\definecolor{startcolor}{RGB}{0,156,129}
-		\definecolor{endcolor}{RGB}{0,0,255}
-		
-		\begin{axis}[xmax=5, ymax=1, xmin=-5, ymin=0, samples=200]
-			\foreach [evaluate=\t as \v using (\t)*100/(\steps)] \t in {0,...,\steps}
-			{
-				\def\mu{\startmu + \t * (\endmu - \startmu) / \steps}
-				\def\sigma{\startsigma + \t * (\endsigma - \startsigma) / \steps}
+	\begin{figure}[H]
+		\centering
+		\begin{subfigure}[t]{0.5\textwidth}
+			\centering
+			\begin{tikzpicture}
 				
-				\edef\temp{\noexpand
-					\addplot[startcolor!\v!endcolor, thick]{gauss(x, \mu, \sigma)};
-				\noexpand}\temp
-			}
-		\end{axis}
-	\end{tikzpicture}
+				\def\startmu{-2}
+				\def\endmu{3}
+				\def\startsigma{1.5}
+				\def\endsigma{0.5}
+				\def\steps{10}
+				\definecolor{startcolor}{RGB}{0,156,129}
+				\definecolor{endcolor}{RGB}{0,0,255}
+				
+				\begin{axis}[
+					xmax=5, ymax=1, xmin=-5, ymin=0, samples=200,
+					width=0.9\textwidth
+					]
+					\foreach [evaluate=\t as \v using (\t)*100/(\steps)] \t in {0,...,\steps}
+					{
+						\def\mu{\startmu + \t * (\endmu - \startmu) / \steps}
+						\def\sigma{\startsigma + \t * (\endsigma - \startsigma) / \steps}
+						
+						\edef\temp{\noexpand
+							\addplot[startcolor!\v!endcolor, thick]{gauss(x, \mu, \sigma)};
+							\noexpand}\temp
+					}
+				\end{axis}
+			\end{tikzpicture}
+			\caption{Subcaption of the left diagram.}
+			\label{Fig:SubLeft}
+		\end{subfigure}%
+		~ 
+		\begin{subfigure}[t]{0.5\textwidth}
+			\centering
+			\begin{tikzpicture}
+				
+				\def\startmu{-2}
+				\def\endmu{3}
+				\def\startsigma{1.5}
+				\def\endsigma{0.5}
+				\def\steps{10}
+				\definecolor{startcolor}{RGB}{0,156,129}
+				\definecolor{endcolor}{RGB}{0,0,255}
+				
+				\begin{axis}[
+					xmax=5, ymax=1, xmin=-5, ymin=0, samples=200,
+					width=0.9\textwidth
+					]
+					\foreach [evaluate=\t as \v using (\t)*100/(\steps)] \t in {0,...,\steps}
+					{
+						\def\mu{\startmu + \t * (\endmu - \startmu) / \steps}
+						\def\sigma{\startsigma + \t * (\endsigma - \startsigma) / \steps}
+						
+						\edef\temp{\noexpand
+							\addplot[startcolor!\v!endcolor, thick]{gauss(x, \mu, \sigma)};
+							\noexpand}\temp
+					}
+				\end{axis}
+			\end{tikzpicture}
+			\caption{Subcaption of the right diagram.}
+			\label{Fig:SubRight}
+		\end{subfigure}
+		\caption{Caption of both diagrams.}
+		\label{Fig:Main}
+	\end{figure}
+
+	
+	
 	
 \end{document}
