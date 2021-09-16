@@ -56,13 +56,21 @@
 % \newmdtheoremenv[backgroundcolor=black!3, innertopmargin=-2pt]{Definition}{Definition}[section]
 % \newmdtheoremenv[backgroundcolor=black!3, innertopmargin=-2pt]{Satz}[Definition]{Satz}
 % \newmdtheoremenv[backgroundcolor=black!3, innertopmargin=-2pt]{Hilfssatz}[Definition]{Hilfssatz}
-% \newmdtheoremenv[backgroundcolor=black!3, innertopmargin=-2pt]{Korollar}[Definition]{Korollar}      
+% \newmdtheoremenv[backgroundcolor=black!3, innertopmargin=-2pt]{Korollar}[Definition]{Korollar}    
 
-\newtheorem*{Bemerkung}{Bemerkung}
+\theoremstyle{definition}
 \newtheorem{Definition}{Definition}[section]
+\newtheorem*{Beispiel}{Beispiel}
+
+\theoremstyle{plain}
 \newtheorem{Satz}[Definition]{Satz}
 \newtheorem{Hilfssatz}[Definition]{Hilfssatz}
 \newtheorem{Folgerung}[Definition]{Folgerung}
+
+\theoremstyle{remark}
+\newtheorem*{Bemerkung}{Bemerkung}
+
+
 
 \numberwithin{equation}{section} 
 
@@ -92,6 +100,7 @@
 \newcommand{\N}{\mathbb{N}} % natuerliche
 \newcommand{\X}{\mathcal{X}}
 \newcommand{\Y}{\mathcal{Y}}
+\newcommand{\E}{\mathbb{E}}
 \newcommand{\defby}{\vcentcolon =}
 \newcommand{\Set}[1]{\ensuremath{\left\{\, #1 \,\right\}}}
 \newcommand{\set}[1]{\ensuremath{\left\{#1\right\}}}

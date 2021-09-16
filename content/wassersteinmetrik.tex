@@ -46,7 +46,7 @@
 	Eine Kopplung $\pi \in \Pi(\mu, \nu)$ spezifiziert nun in dem Sinne einen Transportplan zwischen $\mu$ und $\nu$, dass wir für $A \in \mathcal{B}(\X)$ und $B \in \mathcal{B}(\Y)$ die Zahl
 	$\pi(A \times B) \in [0, 1]$ als die Masse interpretieren, die von $A$ nach $B$ transportiert wird. Die Bedingungen an die Marginalverteilungen $\pi(\cdot \times \Y) = \mu$ und $\pi(\X \times \cdot) = \nu$ sichern dann, dass die gesamte Masse von $\mu$ abtransportiert wird und nach dem Transport die spezifizierte Endverteilung der Massen vorliegt.
 	
-	%\subfile{figures/figure2.tex}
+	\subfile{figures/figure2.tex}
 	
 	In den beiden nächsten Hilfssätzen halten wir einige grundlegende Eigenschaften von Kopplungen fest, die sich im weiteren Verlauf als nützlich erweisen werden.
 
@@ -240,7 +240,30 @@
 		impliziert.
 	\end{Bemerkung}
 
-	Auch abgesehen davon, dass es sich bei $W_p$ streng genommen noch um keine Metrik handelt, metrisiert $W_p$ die schwache Konvergenz für jeden polnischen metrischen Raum $(\X, d)$ noch nicht.
+	\begin{Beispiel}[$W_2$-Distanz von Normalverteilungen]
+		Sei $\X \defby \R$ versehen mit der von $\abs{\cdot}$ induzierten Metrik und seien 
+		\[\mu_1 \; \defby \; \mathcal{N}(\lambda_1, \sigma_1^2), \quad \mu_2 \; \defby \; \mathcal{N}(\lambda_2, \sigma_2^2) \; \in \; \Probmeasures{\R}\] 
+		Normalverteilungen mit Erwartungswerten 
+		$\lambda_1,\lambda_2 \in \R$ und Varianzen $\sigma_1^2,\sigma_2^2 \in (0, \infty)$. Wir möchten $W_2(\mu_1, \mu_2)$ berechnen.
+		
+		Sei dazu $\pi \in \Pi(\mu_1, \mu_2)$ beliebig und sei $(Z_1, Z_2)^{\top}$ ein Zufallsvektor, der $\pi$ als Verteilung besitzt. Insbesondere existieren auch derartige Zufallsvariablen $X_1, X_2$ mit Verteilung $\mathcal{N}(0, 1)$, dass
+		\[ Z_1 = \lambda_1 + \sigma_1 X_1 \quad \text{und} \quad Z_2 = \lambda_2 + \sigma_2 X_2 \]
+		gilt. Nun ist 
+		\begin{align*}
+			\measureintx{\R^2}{\abs{x-y}^2}{\pi}{(x, y)} \; &=    \; \E \left[ (Z_1 - Z_2)^2 \right] \; = \; \E \left[ (\lambda_1 + \sigma_1 X_1 - \lambda_2 - \sigma_2 X_2)^2 \right] \\
+			                                                &=    \; \lambda_1^2 + \sigma_1^2 + \lambda_2^2 + \sigma_2^2 - 2 \lambda_1 \lambda_2 - 2 \sigma_1 \sigma_2 \E \left[X_1 X_2\right] \\
+			                                                &\geq \; \left(\lambda_1 - \lambda_2\right)^2 + \left(\sigma_1 - \sigma_2\right)^2
+		\end{align*}
+		mit Gleichheit in der letzten Abschätzung, falls $\E \left[X_1 X_2\right] = 1$, also falls fast sicher $X_1 = X_2$ gilt. Damit ist
+		\[ W_2(\mu_1, \mu_2) \; = \; \left(\inf_{\pi \in \Pi(\mu_1, \mu_2)} \measureintx{\R^2}{\abs{x-y}^2}{\pi}{(x, y)}\right)^{\! 1/2} \; = \; \norm{\begin{pmatrix} \lambda_1 \\ \sigma_1 \end{pmatrix} - \begin{pmatrix} \lambda_2 \\ \sigma_2 \end{pmatrix}}_2 \text{,} \]
+		und die Abbildung
+		\[ \fctmap{\mathcal{N}}{(\R \times (0, \infty), \norm{\cdot}_2)}{(\Probmeasures{\R}, W_2)}{(\lambda, \sigma)}{\mathcal{N}(\lambda, \sigma)} \]
+		ist eine isometrische Einbettung. Dies bedeutet insbesondere, dass die Wahrscheinlichkeitsmaße zu aufeinanderfolgenden Lebesgue-Dichten $f_{\lambda, \sigma}$ in Abbildung~\ref{Fig:SubRight} in $W_2$ äquidistant liegen.
+		
+		\subfile{figures/figure1.tex}
+	\end{Beispiel}
+
+	Auch abgesehen davon, dass es sich bei $W_p$ streng genommen um keine Metrik handelt, metrisiert $W_p$ die schwache Konvergenz für jeden polnischen metrischen Raum $(\X, d)$ noch nicht.
 	In \cite{Villani.2009} wird dies umgangen, indem $\Probmeasures{\X}$ auf eine Teilmenge eingeschränkt wird, auf der $W_p$ lediglich endliche endliche Werte annimmt, und ein leicht abgeändertes Konzept
 	von schwacher Konvergenz in dieser Teilmenge einführt (siehe \cite[Definition 6.4 und 6.8]{Villani.2009}). Wir umgehen diesen zusätzlichen technischen Aufwand, 
 	indem wir ab sofort die Beschränktheit von $d$ annehmen.
@@ -264,7 +287,7 @@
 		Siehe \cite[Bemerkung 6.5]{Villani.2009}.
 	\end{proof}
 
-	Wir sind nun bereit, uns dem zentralen Satz dieses Abschnittes zu widmen.
+	Wir sind nun bereit, uns dem zentralen Satz dieses Abschnitts zu widmen.
 
 	\begin{Satz}
 		\label{thm:wassersteinweakconvergence}
@@ -273,7 +296,7 @@
 	\end{Satz}
 
 	Der Beweis orientiert sich an \cite[Theorem 6.9 und Korollar 6.13]{Villani.2009}, wobei sich der Aufwand durch die Annahme der Beschränktheit von $d$ stellenweise verringert.
-	Außerdem ist noch ein letzter Hilfssatz von Nöten, in dem die obige Dualitätsformel eingeht.
+	Außerdem ist noch ein letzter Hilfssatz von Nöten, in dessen Beweis die obige Dualitätsformel eingeht.
 
 	\begin{Hilfssatz}
 		\label{lem:wassersteincauchyseq}
