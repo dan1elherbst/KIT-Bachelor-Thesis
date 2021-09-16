@@ -5,12 +5,12 @@
 	\section{Wassersteinmetriken und optimaler Transport}
 	
 	Einer unserer zentralen vorigen Erkenntnisse war, dass für einen polnischen Raum $\X$ auch $\Finitemeasures{\X}$ bzw. $\Probmeasures{\X}$ polnisch ist (siehe Satz~\ref{thm:finitemeasurespolish}). 
-	Im zugehörigen Beweis haben wir allerdings explizit gar keine Metrik angegeben, die $\Probmeasures{\X}$ vollständig metrisiert. Analysiert man den Beweis schrittweise, so lässt sich die Metrik $D$,
+	Im zugehörigen Beweis haben wir allerdings explizit gar keine Metrik angegeben, die $\Finitemeasures{\X}$ vollständig metrisiert. Analysiert man den Beweis schrittweise, so lässt sich die Metrik $D$,
 	die uns in Satz~\ref{thm:finitemeasurespolish} zu unserer Erkenntnis verhalf, allerdings rekonstruieren: Es gilt nämlich
 	\[ D(\mu, \nu) \; \defby \; \max_{n \in \N} \frac{\abs{h\left( \measureint{}{f_n}{\mu} \right) - h\left(\measureint{}{f_n}{\nu} \right)}}{2^n}, \quad \mu, \nu \in \Finitemeasures{\X} \]
 	für einen Homöomorphismus $\fct{h}{\R}{(0, 1)}$ und eine dichte Teilmenge $\setcomp{f_n}{n \in \N} \subseteq \Bduniffct{\X}$, die $\indfct_{\X}$ enthält. Dabei muss eine Metrik $d$ auf $\X$ gewählt sein, 
 	bezüglich der $(\X, d)$ totalbeschränkt ist.
-	Offenbar ist diese Metrik kompliziert und unhandlich, denn $\X$ muss etwa selbst mit einer recht speziellen Metrik versehen sein. Zudem ist die Metrik in dem Sinne etwas unintuitiv, dass es völlig unklar bleibt, 
+	Offenbar ist diese Metrik kompliziert und unhandlich, denn $\X$ muss etwa bereits selbst mit einer recht speziellen Metrik versehen sein. Zudem ist die Metrik in dem Sinne etwas unintuitiv, dass es völlig unklar bleibt, 
 	ob und gegebenenfalls wie sich die Geometrie von $(\X, d)$ auf $(\Finitemeasures{\X}, D)$ überträgt.
 	
 	In diesem Abschnitt betrachten wir ausschließlich Wahrscheinlichkeitsmaße und werden uns von rein topologischen zu etwas geometrischeren Überlegungen hinwenden. Damit geht einher, dass in diesem Abschnitt
@@ -21,14 +21,16 @@
 	Erkenntnisse - in erster Linie den Satz von Prokhorov - beim Einsatz in konkreten Anwendungssituationen sehen können. 
 	
 	Zunächst werden wir in Teilabschnitt~\ref{subsec:kopplungen} und \ref{subsec:optimaler-transport} einige grundlegende Denkweisen, Begriffe und Ergebnisse aus der Theorie des optimalen Transports vorstellen,
-	die wir anschließend in Teilabschnitt~\ref{subsec:wassersteinmetriken} verwenden, um die Wassersteinmetriken zu beschreiben. Dieser Abschnitt orientiert sich an \cite[Kapitel 4-6]{Villani.2009}.
+	die wir anschließend in Teilabschnitt~\ref{subsec:wassersteinmetriken} verwenden, um die Wassersteinmetriken zu beschreiben. Dieser Abschnitt orientiert sich überwiegend an \cite[Kapitel 4-6]{Villani.2009}.
 	
 	\subsection{Kopplungen}
 	\label{subsec:kopplungen}
 	
-	Im optimalen Transport modellieren Wahrscheinlichkeitsmaße nicht den Zufall, sondern werden als räumliche Verteilungen von Gütern (oder allgemeiner Masse) angesehen. Die Ausgangssituation können wir uns wie folgt vorstellen:
-	Wir nehmen an, dass wir eine gewisse Menge an Erde aus dem Boden fördern müssen, um diese anschließend an Stellen zu bringen, an denen sie weiterverarbeitet werden kann. Die räumlichen Verteilung vor und
-	nach dem Transport sind hierbei festgelegt und werden jeweils durch (Borel-)Wahrscheinlichkeitsmaße $\mu$ bzw. $\nu$ auf Räumen $\X$ bzw. $\Y$ modelliert.
+	Beim optimalen Transport orientieren wir uns an der Formulierung von Monge, der mit seiner Arbeit \cite{Monge.} das Gebiet begründete.  
+	Die Ausgangssituation in Monges Formulierung können wir uns wie folgt vorstellen (vgl. \cite[Seiten 41 und 42]{Villani.2009}):
+	Wir nehmen an, dass wir eine gewisse Menge an Erde aus dem Boden fördern müssen, um diese anschließend an Stellen zu bringen, an denen sie weiterverarbeitet werden kann. Die räumlichen Verteilungen vor und
+	nach dem Transport sind hierbei festgelegt und werden jeweils durch Wahrscheinlichkeitsmaße $\mu$ bzw. $\nu$ auf Räumen $\X$ bzw. $\Y$ modelliert. 
+	Allgemeiner sollen Wahrscheinlichkeitsmaße in diesem Abschnitt also nicht den Zufall, sondern Verteilungen von Gütern (oder allgemeiner Masse) in einem Raum darstellen.
 	
 	\subfile{figures/figure3.tex}
 	
@@ -44,7 +46,7 @@
 	Eine Kopplung $\pi \in \Pi(\mu, \nu)$ spezifiziert nun in dem Sinne einen Transportplan zwischen $\mu$ und $\nu$, dass wir für $A \in \mathcal{B}(\X)$ und $B \in \mathcal{B}(\Y)$ die Zahl
 	$\pi(A \times B) \in [0, 1]$ als die Masse interpretieren, die von $A$ nach $B$ transportiert wird. Die Bedingungen an die Marginalverteilungen $\pi(\cdot \times \Y) = \mu$ und $\pi(\X \times \cdot) = \nu$ sichern dann, dass die gesamte Masse von $\mu$ abtransportiert wird und nach dem Transport die spezifizierte Endverteilung der Massen vorliegt.
 	
-	\subfile{figures/figure2.tex}
+	%\subfile{figures/figure2.tex}
 	
 	In den beiden nächsten Hilfssätzen halten wir einige grundlegende Eigenschaften von Kopplungen fest, die sich im weiteren Verlauf als nützlich erweisen werden.
 
@@ -59,7 +61,7 @@
 	\end{Hilfssatz}
 
 	\begin{proof}
-		Zunächst möchten wir Aussage (a) zeigen. Fixiere dazu ein beliebiges $\varepsilon > 0 $ und wähle kompakte Teilmengen $K_{\varepsilon/2} \subseteq \X$ sowie $L_{\varepsilon/2} \subseteq \Y$ so, dass $\mu(K_{\varepsilon/2}) \geq 1 - \frac{\varepsilon}{2}$ 
+		Der Beweis von Aussage (a) orientiert sich an \cite[Lemma 4.4]{Villani.2009}. Fixiere ein beliebiges $\varepsilon > 0 $ und wähle kompakte Teilmengen $K_{\varepsilon/2} \subseteq \X$ sowie $L_{\varepsilon/2} \subseteq \Y$ so, dass $\mu(K_{\varepsilon/2}) \geq 1 - \frac{\varepsilon}{2}$ 
 		für alle $\mu \in A$ und $\nu(L_{\varepsilon/2}) \geq 1 - \frac{\varepsilon}{2}$ für alle $\nu \in B$ gilt. Dann ist $K_{\varepsilon/2} \times L_{\varepsilon/2} \subseteq \Probmeasures{\X \times \Y}$ auch kompakt und für jede Kopplung $\pi$ von $\mu$ und $\nu$ gilt
 		\begin{align*}
 			\pi(K_{\varepsilon/2} \times L_{\varepsilon/2}) \; &= \; 1 - \pi(K_{\varepsilon/2}^\mathsf{c} \times \Y \cup \X \times L_{\varepsilon/2}^\mathsf{c}) \\
@@ -96,6 +98,14 @@
 
 	\subsection{Optimaler Transport}
 	\label{subsec:optimaler-transport}
+	
+	Im Allgemeinen wird es sehr viele unterschiedliche Transportpläne zwischen zwei Maßen $\mu$ und $\nu$ geben. Offenbar können wir aber intuitiv bereits sagen, dass manche Transportpläne gewissermaßen
+	\enquote*{besser} als andere sind: Ist etwa $\X$ ein Grundraum und wir betrachten Transportpläne zwischen $\mu \in \Probmeasures{X}$ und sich selbst, so können wir die triviale Kopplung $\pi_1(A \times B) \defby \mu(A \cap B)$ wählen, 
+	die jede Masse einfach genau an ihrem Platz lässt, oder wir können die unabhängige Kopplung $\pi_2(A \times B) \defby \mu(A) \times \mu(B)$ nehmen, bei der die Masse in jedem Punkt \enquote*{gleichmäßig} 
+	verteilt wird. Wenn $\mu$ nicht in einem Punkt konzentiert ist, handelt es sich hierbei um zwei verschiedene Kopplungen, aber natürlich wäre die triviale Kopplung $\pi_1$ zu präferieren, wenn wir den
+	\enquote*{Arbeitsaufwand} minimieren möchten. 
+	
+	In der nächsten Definition führen wir eine Möglichkeit ein, den Aufwand eines Transportplans zu quantifizieren.
 
 	\begin{Definition}[Kosten eines Transportplans]
 		Seien $\X$, $\Y$ topologische Räume, $\mu \in \Probmeasures{\X}$, $\nu \in \Probmeasures{\Y}$ und $\fct{c}{\X \times \Y}{[0, \infty]}$ eine $\mathcal{B}(\X \times \Y)$-messbare Kostenfunktion.
@@ -104,6 +114,11 @@
 		bezeichnen.
 	\end{Definition}
 
+	$c(x, y)$ soll in diesem Fall für $x \in \X$ und $y \in \Y$ den Aufwand angeben, der für den Transport einer Einheitsmasse von $x$ nach $y$ nötig ist. Der Modellierung liegt die Annahme zugrunde, dass 
+	die Kosten, um eine Masse $m$ von $x$ nach $y$ zu transportieren, gerade $m\cdot c(x, y)$ ist.
+	
+	Im Falle stetiger Kostenfunktionen liefert uns der folgende Satz die Existenz eines optimalen Transportplans, der die Kosten über alle möglichen Transportpläne minimiert.
+
 	\begin{Satz}[Existenz eines optimalen Transportplans]
 		\label{thm:existenceoptimaltransportplan}
 		Seien $\X$, $\Y$ polnische Räume, $\mu \in \Probmeasures{\X}$, $\nu \in \Probmeasures{\Y}$ und $\fct{c}{\X \times \Y}{[0, \infty]}$ eine stetige 
@@ -111,6 +126,13 @@
 		\[ C(\hat{\pi}) \; = \; \min_{\pi \in \Pi(\mu, \nu)} C(\pi) \]
 		erfüllt. Wir nennen $\hat{\pi}$ eine \emph{optimale Kopplung} von $\mu$ und $\nu$ oder auch einen \emph{optimalen Transportplan} zwischen $\mu$ und $\nu$.
 	\end{Satz}
+
+	\begin{Bemerkung}
+		Der Beweis folgt \cite[Theorem 4.1 und Lemma 4.3]{Villani.2009}, wo eine allgemeinere Version des Satzes vorgestellt wird, die lediglich die Unterhalbstetigkeit von $c$ fordert 
+		sowie unter gewissen Bedingungen die Negativität von $c$ zulässt. Für unsere Zwecke reicht obige Formulierung allerdings aus.
+	\end{Bemerkung}
+
+	Für den Beweis von Satz~\ref{thm:existenceoptimaltransportplan} ist noch ein Hilfssatz von Nöten.
 
 	\begin{Hilfssatz}
 		\label{lem:lsccost}
