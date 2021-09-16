@@ -2,7 +2,7 @@
 
 \begin{document}
 	
-	\section{Wassersteinmetriken und Optimaler Transport}
+	\section{Wassersteinmetriken und optimaler Transport}
 	
 	Einer unserer zentralen vorigen Erkenntnisse war, dass für einen polnischen Raum $\X$ auch $\Finitemeasures{\X}$ bzw. $\Probmeasures{\X}$ polnisch ist (siehe Satz~\ref{thm:finitemeasurespolish}). 
 	Im zugehörigen Beweis haben wir allerdings explizit gar keine Metrik angegeben, die $\Probmeasures{\X}$ vollständig metrisiert. Analysiert man den Beweis schrittweise, so lässt sich die Metrik $D$,
@@ -17,11 +17,22 @@
 	Polnizität häufig als Eigenschaft metrischer Räume und nicht topologischer Räume angesehen wird. Das bedeutet, dass auf einem polnischen Raum $\X$ immer auch eine Metrik $d$ fixiert ist, der (etwa in der Anwendung)
 	eine besondere Bedeutung zukommt, und die $\X$ vollständig metrisiert. Wir sprechen in diesem Abschnitt dann davon, dass $(\X, d)$ ein \emph{polnischer metrischer Raum} ist.
 	Im folgenden Abschnitt werden wir nun für einen polnischen metrischen Raum $(\X, d)$ eine Klasse geometrisch besonders anschaulicher Metriken auf $\Probmeasures{X}$
-	- die sogenannten \emph{Wassersteinmetriken} - vorstellen, die die schwache Topologie metrisieren.
+	- die sogenannten \emph{Wassersteinmetriken} - vorstellen, die die schwache Topologie metrisieren. Hierbei werden wir an vielen Stellen unsere bisherigen 
+	Erkenntnisse - in erster Linie den Satz von Prokhorov - beim Einsatz in konkreten Anwendungssituationen sehen können. 
 	
-	Wir orientieren uns an \cite{Villani.2009}.
+	Zunächst werden wir in Teilabschnitt~\ref{subsec:kopplungen} und \ref{subsec:optimaler-transport} einige grundlegende Denkweisen, Begriffe und Ergebnisse aus der Theorie des optimalen Transports vorstellen,
+	die wir anschließend in Teilabschnitt~\ref{subsec:wassersteinmetriken} verwenden, um die Wassersteinmetriken zu beschreiben. Dieser Abschnitt orientiert sich an \cite[Kapitel 4-6]{Villani.2009}.
 	
 	\subsection{Kopplungen}
+	\label{subsec:kopplungen}
+	
+	Im optimalen Transport modellieren Wahrscheinlichkeitsmaße nicht den Zufall, sondern werden als räumliche Verteilungen von Gütern (oder allgemeiner Masse) angesehen. Die Ausgangssituation können wir uns wie folgt vorstellen:
+	Wir nehmen an, dass wir eine gewisse Menge an Erde aus dem Boden fördern müssen, um diese anschließend an Stellen zu bringen, an denen sie weiterverarbeitet werden kann. Die räumlichen Verteilung vor und
+	nach dem Transport sind hierbei festgelegt und werden jeweils durch (Borel-)Wahrscheinlichkeitsmaße $\mu$ bzw. $\nu$ auf Räumen $\X$ bzw. $\Y$ modelliert.
+	
+	\subfile{figures/figure3.tex}
+	
+	Wir möchten nun eine Möglichkeit vorstellen, mittels \emph{Kopplungen} einen Transportplan zwischen zwei Masseverteilungen $\mu$ und $\nu$ zu modellieren, der spezifiziert, woher wie viel Masse wohin transportiert werden soll.
 	
 	\begin{Definition}[Kopplung]
 		Seien $\X$, $\Y$ topologische Räume und $A \subseteq \Probmeasures{\X}$, $B \subseteq \Probmeasures{\Y}$. Wir definieren dann
@@ -29,6 +40,13 @@
 		Für $\mu \in \Probmeasures{\X}$ und $\nu \in \Probmeasures{\Y}$ definieren wir außerdem $\Pi(\mu, \nu) \; \defby \; \Pi(\set{\mu}, \set{\nu})$ und nennen die
 		Elemente von $\Pi(\mu, \nu)$ \emph{Kopplungen} von $\mu$ und $\nu$ oder auch \emph{Transportpläne} zwischen $\mu$ und $\nu$.
 	\end{Definition}
+
+	Eine Kopplung $\pi \in \Pi(\mu, \nu)$ spezifiziert nun in dem Sinne einen Transportplan zwischen $\mu$ und $\nu$, dass wir für $A \in \mathcal{B}(\X)$ und $B \in \mathcal{B}(\Y)$ die Zahl
+	$\pi(A \times B) \in [0, 1]$ als die Masse interpretieren, die von $A$ nach $B$ transportiert wird. Die Bedingungen an die Marginalverteilungen $\pi(\cdot \times \Y) = \mu$ und $\pi(\X \times \cdot) = \nu$ sichern dann, dass die gesamte Masse von $\mu$ abtransportiert wird und nach dem Transport die spezifizierte Endverteilung der Massen vorliegt.
+	
+	\subfile{figures/figure2.tex}
+	
+	In den beiden nächsten Hilfssätzen halten wir einige grundlegende Eigenschaften von Kopplungen fest, die sich im weiteren Verlauf als nützlich erweisen werden.
 
 	\begin{Hilfssatz}
 		\label{lem:couplingsproperties}
@@ -77,6 +95,7 @@
 	\end{proof}
 
 	\subsection{Optimaler Transport}
+	\label{subsec:optimaler-transport}
 
 	\begin{Definition}[Kosten eines Transportplans]
 		Seien $\X$, $\Y$ topologische Räume, $\mu \in \Probmeasures{\X}$, $\nu \in \Probmeasures{\Y}$ und $\fct{c}{\X \times \Y}{[0, \infty]}$ eine $\mathcal{B}(\X \times \Y)$-messbare Kostenfunktion.
@@ -131,6 +150,7 @@
 	\end{proof}
 
 	\subsection{Wassersteinmetriken}
+	\label{subsec:wassersteinmetriken}
 
 	\begin{Definition}
 		\label{def:wasserstein}
@@ -201,7 +221,7 @@
 
 	\begin{Satz}
 		\label{thm:wassersteinweakconvergence}
-		Sei $(\X, d)$ ein polnischer metrischer Raum, wobei $d$ eine beschränkte Metrik sei, und sei $p \in [1, \infty)$. Dann wird $\Probmeasures{X}$ vollständig durch $W_p$ metrisiert. 
+		Sei $(\X, d)$ ein polnischer metrischer Raum, wobei $d$ eine beschränkte Metrik sei, und sei $p \in [1, \infty)$. Dann ist $(\Probmeasures{\X}, W_p)$ auch ein polnischer metrischer Raum.
 	\end{Satz}
 
 	\begin{Hilfssatz}
@@ -251,7 +271,9 @@
 	\end{proof}
 
 	\begin{proof}[Beweis von Satz~\ref{thm:wassersteinweakconvergence}]
-		Wir zeigen zunächst, dass $\Probmeasures{X}$ von $W_p$ metrisiert wird. Da wir aus Satz~\ref{thm:finitemeasurespolish} bereits wissen, dass $\Probmeasures{X}$ metrisierbar ist, genügt es, die Äquivalenz
+		Wegen Satz~\ref{thm:finitemeasurespolish} ist lediglich zu beweisen, dass $\Probmeasures{X}$ vollständig durch $W_p$ metrisiert wird. 
+		
+		Zuerst zeigen wir, dass $\Probmeasures{X}$ von $W_p$ metrisiert wird. Es genügt, die Äquivalenz
 		\[ \mu_k \xrightarrow{w} \mu \quad \iff \quad W_p(\mu_k, \mu) \to 0, \quad k \to \infty \]
 		für jede Folge $(\mu_k)_k \in \Probmeasures{X}^\N$ und $\mu \in \Probmeasures{X}$ nachzuweisen.
 		Für beide Richtungen verwenden die elementare Tatsache, dass für $(\mu_k)_k \in \Probmeasures{\X}^\N$ und $\mu \in \Probmeasures{\X}$ die Äquivalenz

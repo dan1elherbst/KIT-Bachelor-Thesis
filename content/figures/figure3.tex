@@ -1,0 +1,58 @@
+\documentclass[../wassersteinmetrik.tex]{subfiles}
+
+\begin{document}
+	
+	\begin{figure}[H]
+		\centering
+		\begin{subfigure}{0.47\textwidth}
+			\centering
+			\begin{tikzpicture}
+
+				\definecolor{startcolor}{RGB}{0,156,129}
+				\definecolor{endcolor}{RGB}{0,0,255}
+				
+				\begin{axis}[
+					xmax=5, ymax=2, xmin=-5, ymin=-2, samples=200,
+					width=0.85\textwidth,
+					height=0.5\textwidth,
+					axis y line=none,
+					axis x line=middle,
+					tick style={draw=none},
+					xticklabels=\empty,
+					x axis line style=-,
+					axis equal
+					]
+					\addplot[startcolor, thick]{- 6 * (gauss(x,-1,1) + gauss(x,1.5,0.7))/2} node[below, pos=0.2] {$f_{\mu}$};
+				\end{axis}
+				
+			\end{tikzpicture}
+		\end{subfigure}%
+		{\Large$\xrightarrow{?}$}%
+		\begin{subfigure}{0.47\textwidth}
+			\centering
+			\begin{tikzpicture}
+				
+				\definecolor{startcolor}{RGB}{0,156,129}
+				\definecolor{endcolor}{RGB}{0,0,255}
+				
+				\begin{axis}[
+					xmax=5, ymax=2, xmin=-5, ymin=-2, samples=200,
+					width=0.85\textwidth,
+					height=0.5\textwidth,
+					axis y line=none,
+					axis x line=middle,
+					tick style={draw=none},
+					xticklabels=\empty,
+					x axis line style=-,
+					axis equal
+					]
+					\addplot[endcolor, thick]{6 * (1/2 * gauss(x,3,0.7) + 3/8 * gauss(x,0,1) + 1/8 * gauss(x,-3,0.3))} node[above, pos=0.4] {$f_{\nu}$};
+				\end{axis}
+				
+			\end{tikzpicture}
+		\end{subfigure}
+		\caption{Mögliche Dichten $f_{\mu}$, $f_{\nu}$ von $\mu$ und $\nu$, die die räumliche Verteilung der Erde bzw. Masse (hier in $\R$) darstellen.}
+		\label{Fig:Main3}
+	\end{figure}
+	
+\end{document}
