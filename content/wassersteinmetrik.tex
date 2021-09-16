@@ -20,7 +20,7 @@
 	- die sogenannten \emph{Wassersteinmetriken} - vorstellen, die die schwache Topologie metrisieren. Hierbei werden wir an vielen Stellen unsere bisherigen 
 	Erkenntnisse - in erster Linie den Satz von Prokhorov - beim Einsatz in konkreten Anwendungssituationen sehen können. 
 	
-	Zunächst werden wir in Teilabschnitt~\ref{subsec:kopplungen} und \ref{subsec:optimaler-transport} einige grundlegende Denkweisen, Begriffe und Ergebnisse aus der Theorie des optimalen Transports vorstellen,
+	Zunächst werden wir in den Teilabschnitten~\ref{subsec:kopplungen} und \ref{subsec:optimaler-transport} einige grundlegende Denkweisen, Begriffe und Ergebnisse aus der Theorie des optimalen Transports vorstellen,
 	die wir anschließend in Teilabschnitt~\ref{subsec:wassersteinmetriken} verwenden, um die Wassersteinmetriken zu beschreiben. Dieser Abschnitt orientiert sich überwiegend an \cite[Kapitel 4-6]{Villani.2009}.
 	
 	\subsection{Kopplungen}
@@ -159,6 +159,9 @@
 		was bedeutet, dass $\hat{\pi}$ ein optimaler Transportplan zwischen $\mu$ und $\nu$ ist. 
 	\end{proof}
 
+	Im nächsten Teilabschnitt werden wir noch das folgende Resultat aus der Theorie des optimalen Transports benötigen, das uns etwa unter gewissen Voraussetzungen liefert, dass schwache Grenzwerte von Folgen optimaler
+	Kopplungen selbst wieder optimal sind. Da der Beweis des Satzes sehr technisch ist und den Umfang dieser Arbeit sprengen würde, zitieren wir ihn lediglich.
+
 	\begin{Satz}
 		\label{thm:optimalplanscompact}
 		Seien $\X$, $\Y$ polnische Räume, sei $\fct{c}{\X \times \Y}{[0, \infty)}$ eine stetige Kostenfunktion und seien $A \subseteq \Probmeasures{\X}$ und $B \subseteq \Probmeasures{\Y}$ kompakte Teilmengen.
@@ -173,6 +176,12 @@
 
 	\subsection{Wassersteinmetriken}
 	\label{subsec:wassersteinmetriken}
+	
+	Mit der Ergebnissen aus den Teilabschnitten~\ref{subsec:kopplungen} und \ref{subsec:optimaler-transport} sind wir nun bereit, die Wassersteinmetriken $W_p$ für $p \in [1, \infty)$ zu definieren. Der wesentliche Gedanke hierbei ist,
+	für einen polnischen metrischen Raum $(\X, d)$ die Distanz zwischen zwei Wahrscheinlichkeitsmaßen $\mu$ und $\nu \in \Probmeasures{\X}$ über die Kosten eines optimalen Transportplans zwischen $\mu$ und
+	$\nu$ zu definieren, wobei die Kostenfunktion eine Potenz von $d$ ist.
+	
+	In diesem Teilabschnitt werden wir mit Satz~\ref{thm:wassersteinweakconvergence} das zentrale Resultat dieses Abschnitts formulieren und beweisen: Unter gewissen Voraussetzungen metrisiert $W_p$ die schwache Topologie und $(\Probmeasures{X}, W_p)$ ist selbst ein polnischer metrischer Raum.
 
 	\begin{Definition}
 		\label{def:wasserstein}
@@ -180,6 +189,8 @@
 		$$ W_p(\mu, \nu) \; \defby \; \left(\inf_{\pi \in \Pi(\mu, \nu)} \measureintx{\X \times \X}{d(x, y)^p}{\pi}{(x, y)}\right)^{\! 1/p} \; \in \; [0, \infty] $$
 		die \emph{$p$-te Wassersteindistanz} zwischen $\mu$ und $\nu$.
 	\end{Definition}
+
+	Zunächst muss nachgewiesen werden, dass die Wassersteinmetrik tatsächlich ihren Namen verdient.
 
 	\begin{Satz}
 		\label{thm:wassersteinismetric}
@@ -210,9 +221,10 @@
 	\begin{Bemerkung}
 		Seien $x_0, y_0 \in \X$. Wegen $\Pi(\delta_{x_0}, \delta_{y_0}) = \set{\delta_{(x_0, y_0)}} \subseteq \Probmeasures{\X \times \X}$ folgt
 		\[ W_p(\delta_{x_0}, \delta_{y_0}) \; = \; \left( \measureintx{\X \times \X}{d(x, y)^p}{\delta_{(x_0, y_0)}}{(x, y)} \right)^{1/p} \; = \; d(x_0, y_0) \text{.} \]
-		Die Einbettung 
+		Die Abbildung 
 		\[ (\X, d) \to (\Probmeasures{\X}, W_p), \quad x \mapsto \delta_x \]
-		ist also isometrisch.
+		ist also eine isometrische Einbettung. Insbesondere ist dies auch vor dem Kontext von Satz~\ref{thm:embeddingdiracmeasures} zu betrachten, wo wir nachgewiesen haben, dass obige Abbildung ein Homöomorphismus auf 
+		ihr Bild ist, sofern $\Probmeasures{X}$ mit der schwachen Topologie versehen ist. Wird die schwache Topologie also tatsächlich von $W_p$ metrisiert, so bietet $W_p$ eine Möglichkeit, die Geometrie von $(\X, d)$ gewissermaßen auch auf $\Probmeasures{X}$ zu übertragen.
 	\end{Bemerkung}
 
 	\begin{Bemerkung}
@@ -228,6 +240,17 @@
 		impliziert.
 	\end{Bemerkung}
 
+	Auch abgesehen davon, dass es sich bei $W_p$ streng genommen noch um keine Metrik handelt, metrisiert $W_p$ die schwache Konvergenz für jeden polnischen metrischen Raum $(\X, d)$ noch nicht.
+	In \cite{Villani.2009} wird dies umgangen, indem $\Probmeasures{\X}$ auf eine Teilmenge eingeschränkt wird, auf der $W_p$ lediglich endliche endliche Werte annimmt, und ein leicht abgeändertes Konzept
+	von schwacher Konvergenz in dieser Teilmenge einführt (siehe \cite[Definition 6.4 und 6.8]{Villani.2009}). Wir umgehen diesen zusätzlichen technischen Aufwand, 
+	indem wir ab sofort die Beschränktheit von $d$ annehmen.
+	In der Praxis lässt sich für einen metrischen Raum $(\X, d)$ immer eine äquivalente, beschränkte Metrik $\tilde{d}$ finden, die für kleine Werte $d$ selbst entspricht. Beispielsweise lässt sich
+	\[ \tilde{d} \; \defby \; \min \left(d, d_{\max}\right) \]
+	für eine gewisse maximale Distanz $d_{\max} \in (0, \infty)$ wählen.
+	
+	Bei der folgenden Dualitätsformel, die wir für den Beweis unseres zentralen Satzes an einer Stelle benötigen werden, handelt es sich wieder um ein Resultat, das wir angesichts des umfangreichen und technischen
+	Beweises lediglich zitieren werden.
+
 	\begin{Satz}[Dualitätsformel von Kantorovich-Rubinstein]
 		\label{thm:kantorovichrubinstein}
 		Sei $(\X, d)$ ein polnischer metrischer Raum, wobei $d$ eine beschränkte Metrik sei. Wir definieren
@@ -241,10 +264,16 @@
 		Siehe \cite[Bemerkung 6.5]{Villani.2009}.
 	\end{proof}
 
+	Wir sind nun bereit, uns dem zentralen Satz dieses Abschnittes zu widmen.
+
 	\begin{Satz}
 		\label{thm:wassersteinweakconvergence}
-		Sei $(\X, d)$ ein polnischer metrischer Raum, wobei $d$ eine beschränkte Metrik sei, und sei $p \in [1, \infty)$. Dann ist $(\Probmeasures{\X}, W_p)$ auch ein polnischer metrischer Raum.
+		Sei $(\X, d)$ ein polnischer metrischer Raum, wobei $d$ eine beschränkte Metrik sei, und sei $p \in [1, \infty)$. Dann metrisiert $W_p$ die schwache
+		Topologie und $(\Probmeasures{\X}, W_p)$ auch ein polnischer metrischer Raum.
 	\end{Satz}
+
+	Der Beweis orientiert sich an \cite[Theorem 6.9 und Korollar 6.13]{Villani.2009}, wobei sich der Aufwand durch die Annahme der Beschränktheit von $d$ stellenweise verringert.
+	Außerdem ist noch ein letzter Hilfssatz von Nöten, in dem die obige Dualitätsformel eingeht.
 
 	\begin{Hilfssatz}
 		\label{lem:wassersteincauchyseq}
@@ -287,7 +316,7 @@
 		Nun können wir analog zu den Beweisen von Satz~\ref{thm:tightness} und Satz~\ref{thm:prokhorov} vorgehen:
 		Wir setzen
 		\[ S_{\varepsilon} \; \defby \; \bigcap_{l \in \N} \bigcup_{i=1}^{m_l} B_{\varepsilon/2^l}(x_i^{(l)}) \quad \text{und} \quad K_{\varepsilon} \defby \overline{S_\varepsilon} \text{.} \]
-		Da $S_{\varepsilon}$ totalbeschränkt ist, ist $K_{\varepsilon}$ kompakt und für alle $k \in \N$ gilt
+		Da $S_{\varepsilon}$ totalbeschränkt ist, ist $K_{\varepsilon}$ kompakt (hier geht wieder die Vollständigkeit von $(\X, d)$ ein) und für alle $k \in \N$ gilt
 		\[ \mu_k(K_{\varepsilon}) \; \geq \; \mu_k(K_{\varepsilon}) \; \geq \; 1 - \varepsilon \text{,} \]
 		also ist $\setcomp{\mu_k}{k \in \N}$ straff.
 	\end{proof}
