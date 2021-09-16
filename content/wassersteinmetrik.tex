@@ -2,7 +2,22 @@
 
 \begin{document}
 	
-	\section{Optimaler Transport und Wassersteinmetriken}
+	\section{Wassersteinmetriken und Optimaler Transport}
+	
+	Einer unserer zentralen vorigen Erkenntnisse war, dass für einen polnischen Raum $\X$ auch $\Finitemeasures{\X}$ bzw. $\Probmeasures{\X}$ polnisch ist (siehe Satz~\ref{thm:finitemeasurespolish}). 
+	Im zugehörigen Beweis haben wir allerdings explizit gar keine Metrik angegeben, die $\Probmeasures{\X}$ vollständig metrisiert. Analysiert man den Beweis schrittweise, so lässt sich die Metrik $D$,
+	die uns in Satz~\ref{thm:finitemeasurespolish} zu unserer Erkenntnis verhalf, allerdings rekonstruieren: Es gilt nämlich
+	\[ D(\mu, \nu) \; \defby \; \max_{n \in \N} \frac{\abs{h\left( \measureint{}{f_n}{\mu} \right) - h\left(\measureint{}{f_n}{\nu} \right)}}{2^n}, \quad \mu, \nu \in \Finitemeasures{\X} \]
+	für einen Homöomorphismus $\fct{h}{\R}{(0, 1)}$ und eine dichte Teilmenge $\setcomp{f_n}{n \in \N} \subseteq \Bduniffct{\X}$, die $\indfct_{\X}$ enthält. Dabei muss eine Metrik $d$ auf $\X$ gewählt sein, 
+	bezüglich der $(\X, d)$ totalbeschränkt ist.
+	Offenbar ist diese Metrik kompliziert und unhandlich, denn $\X$ muss etwa selbst mit einer recht speziellen Metrik versehen sein. Zudem ist die Metrik in dem Sinne etwas unintuitiv, dass es völlig unklar bleibt, 
+	ob und gegebenenfalls wie sich die Geometrie von $(\X, d)$ auf $(\Finitemeasures{\X}, D)$ überträgt.
+	
+	In diesem Abschnitt betrachten wir ausschließlich Wahrscheinlichkeitsmaße und werden uns von rein topologischen zu etwas geometrischeren Überlegungen hinwenden. Damit geht einher, dass in diesem Abschnitt
+	Polnizität häufig als Eigenschaft metrischer Räume und nicht topologischer Räume angesehen wird. Das bedeutet, dass auf einem polnischen Raum $\X$ immer auch eine Metrik $d$ fixiert ist, der (etwa in der Anwendung)
+	eine besondere Bedeutung zukommt, und die $\X$ vollständig metrisiert. Wir sprechen in diesem Abschnitt dann davon, dass $(\X, d)$ ein \emph{polnischer metrischer Raum} ist.
+	Im folgenden Abschnitt werden wir nun für einen polnischen metrischen Raum $(\X, d)$ eine Klasse geometrisch besonders anschaulicher Metriken auf $\Probmeasures{X}$
+	- die sogenannten \emph{Wassersteinmetriken} - vorstellen, die die schwache Topologie metrisieren.
 	
 	Wir orientieren uns an \cite{Villani.2009}.
 	
@@ -186,9 +201,7 @@
 
 	\begin{Satz}
 		\label{thm:wassersteinweakconvergence}
-		Sei $(\X, d)$ ein polnischer metrischer Raum, wobei $d$ eine beschränkte Metrik sei. Dann gilt
-		für jede Folge $(\mu_k)_k \in \Probmeasures{\X}^\N$ und $\mu \in \Probmeasures{\X}$
-		\[ \mu_k \xrightarrow{w} \mu \quad \iff \quad W_p(\mu_k, \mu) \to 0, \quad k \to \infty \text{.} \]
+		Sei $(\X, d)$ ein polnischer metrischer Raum, wobei $d$ eine beschränkte Metrik sei, und sei $p \in [1, \infty)$. Dann wird $\Probmeasures{X}$ vollständig durch $W_p$ metrisiert. 
 	\end{Satz}
 
 	\begin{Hilfssatz}
@@ -238,7 +251,10 @@
 	\end{proof}
 
 	\begin{proof}[Beweis von Satz~\ref{thm:wassersteinweakconvergence}]
-		Für beide Richtungen des Beweises verwenden die elementare Tatsache, dass für $(\mu_k)_k \in \Probmeasures{\X}^\N$ und $\mu \in \Probmeasures{\X}$ die Äquivalenz
+		Wir zeigen zunächst, dass $\Probmeasures{X}$ von $W_p$ metrisiert wird. Da wir aus Satz~\ref{thm:finitemeasurespolish} bereits wissen, dass $\Probmeasures{X}$ metrisierbar ist, genügt es, die Äquivalenz
+		\[ \mu_k \xrightarrow{w} \mu \quad \iff \quad W_p(\mu_k, \mu) \to 0, \quad k \to \infty \]
+		für jede Folge $(\mu_k)_k \in \Probmeasures{X}^\N$ und $\mu \in \Probmeasures{X}$ nachzuweisen.
+		Für beide Richtungen verwenden die elementare Tatsache, dass für $(\mu_k)_k \in \Probmeasures{\X}^\N$ und $\mu \in \Probmeasures{\X}$ die Äquivalenz
 		\[ \begin{matrix}
 			\mu_k \xrightarrow{w} \mu \quad & \iff & \quad \begin{array}{lr}
 				\text{jede Teilfolge} \; (\mu_{k'})_{k'} \; \text{von} \; (\mu_k)_k \; \text{hat} \\
@@ -274,10 +290,14 @@
 		\end{align*}
 		Da dies $\mu'' = \mu$ impliziert, gilt wegen \eqref{6.1} und \eqref{6.2} also
 		$\mu_k \xrightarrow{w} \mu, \; k \to \infty$.
+		
+		Es bleibt zu zeigen, dass $(\Probmeasures{\X}, W_p)$ vollständig ist. Sei dazu $(\mu_k)_k$ eine Cauchyfolge in $\Probmeasures{\X}$ bezüglich $W_p$. Nach Hilfssatz~\ref{lem:wassersteincauchyseq} ist 
+		$\setcomp{\mu_k}{k \in \N}$ straff. Der Satz von Prokhorov liefert nun ein $\mu \in \N$ und eine Teilfolge $(\mu_{k'})_{k'}$ von $(\mu_k)_k$ mit $\mu_{k'} \xrightarrow{w} \mu$ und damit auch
+		$W_p(\mu_{k'}, \mu) \to 0, \; k' \to \infty$. Also ist auch $W_p(\mu_k, \mu) \to 0, \; k \to \infty$ und $(\Probmeasures{\X}, W_p)$ vollständig.
 	\end{proof}
 
-	\subfile{figures/figure1.tex}
+	%\subfile{figures/figure1.tex}
 	
-	\subfile{figures/figure2.tex}
+	%\subfile{figures/figure2.tex}
 	
 \end{document}
