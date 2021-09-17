@@ -1,10 +1,10 @@
-\documentclass[../main/main.tex]{subfiles}
+\documentclass[../thesis/thesis.tex]{subfiles}
 
 \begin{document}
 	
-	\section{Wassersteinmetriken und optimaler Transport}
+	\chapter{Wassersteinmetriken und optimaler Transport}
 	
-	Einer unserer zentralen vorigen Erkenntnisse war, dass für einen polnischen Raum $\X$ auch $\Finitemeasures{\X}$ bzw. $\Probmeasures{\X}$ polnisch ist (siehe Satz~\ref{satz:übertragung_polnizität}). 
+	Eine unserer zentralen vorigen Erkenntnisse war, dass für einen polnischen Raum $\X$ auch $\Finitemeasures{\X}$ bzw. $\Probmeasures{\X}$ polnisch ist (siehe Satz~\ref{satz:übertragung_polnizität}). 
 	Im zugehörigen Beweis haben wir allerdings explizit gar keine Metrik angegeben, die $\Finitemeasures{\X}$ vollständig metrisiert. Analysiert man den Beweis schrittweise, so lässt sich die Metrik $D$,
 	die uns in Satz~\ref{satz:übertragung_polnizität} zu unserer Erkenntnis verhalf, allerdings rekonstruieren: Es gilt nämlich
 	\[ D(\mu, \nu) \; \defby \; \max_{n \in \N} \frac{\abs{h\left( \measureint{}{f_n}{\mu} \right) - h\left(\measureint{}{f_n}{\nu} \right)}}{2^n}, \quad \mu, \nu \in \Finitemeasures{\X} \]
@@ -17,13 +17,13 @@
 	Polnizität häufig als Eigenschaft metrischer Räume und nicht topologischer Räume angesehen wird. Das bedeutet, dass auf einem polnischen Raum $\X$ immer auch eine Metrik $d$ fixiert ist, der (etwa in der Anwendung)
 	eine besondere Bedeutung zukommt, und die $\X$ vollständig metrisiert. Wir sprechen in diesem Abschnitt dann davon, dass $(\X, d)$ ein \emph{polnischer metrischer Raum} ist.
 	Im folgenden Abschnitt werden wir nun für einen polnischen metrischen Raum $(\X, d)$ eine Klasse geometrisch besonders anschaulicher Metriken auf $\Probmeasures{X}$
-	- die sogenannten \emph{Wassersteinmetriken} - vorstellen, die die schwache Topologie metrisieren. Hierbei werden wir an vielen Stellen unsere bisherigen 
-	Erkenntnisse - in erster Linie den Satz von Prokhorov - beim Einsatz in konkreten Anwendungssituationen sehen können. 
+	-- die sogenannten \emph{Wassersteinmetriken} -- vorstellen, die die schwache Topologie metrisieren. Hierbei werden wir an vielen Stellen unsere bisherigen 
+	Erkenntnisse -- in erster Linie den Satz von Prokhorov -- beim Einsatz in konkreten Anwendungssituationen sehen können. 
 	
 	Zunächst werden wir in den Teilabschnitten~\ref{subsec:kopplungen} und \ref{subsec:optimaler_transport} einige grundlegende Denkweisen, Begriffe und Ergebnisse aus der Theorie des optimalen Transports vorstellen,
-	die wir anschließend in Teilabschnitt~\ref{subsec:wassersteinmetriken} verwenden, um die Wassersteinmetriken zu beschreiben. Dieser Abschnitt orientiert sich überwiegend an \cite[Kapitel 4-6]{Villani.2009}.
+	die wir anschließend in Teilabschnitt~\ref{subsec:wassersteinmetriken} verwenden, um die Wassersteinmetriken zu beschreiben. Dieser Abschnitt orientiert sich überwiegend an \cite[Kapitel 4 bis 6]{Villani.2009}.
 	
-	\subsection{Kopplungen}
+	\section{Kopplungen}
 	\label{subsec:kopplungen}
 	
 	Beim optimalen Transport orientieren wir uns an der Formulierung von Monge, der mit seiner Arbeit \cite{Monge.} das Gebiet begründete.  
@@ -61,7 +61,7 @@
 	\end{Hilfssatz}
 
 	\begin{proof}
-		Der Beweis von Aussage (a) orientiert sich an \cite[Lemma 4.4]{Villani.2009}. Fixiere ein beliebiges $\varepsilon > 0 $ und wähle kompakte Teilmengen $K_{\varepsilon/2} \subseteq \X$ sowie $L_{\varepsilon/2} \subseteq \Y$ so, dass $\mu(K_{\varepsilon/2}) \geq 1 - \frac{\varepsilon}{2}$ 
+		Der Beweis von Aussage (a) orientiert sich an \cite[Hilfssatz 4.4]{Villani.2009}. Fixiere ein beliebiges $\varepsilon > 0 $ und wähle kompakte Teilmengen $K_{\varepsilon/2} \subseteq \X$ sowie $L_{\varepsilon/2} \subseteq \Y$ so, dass $\mu(K_{\varepsilon/2}) \geq 1 - \frac{\varepsilon}{2}$ 
 		für alle $\mu \in A$ und $\nu(L_{\varepsilon/2}) \geq 1 - \frac{\varepsilon}{2}$ für alle $\nu \in B$ gilt. Dann ist $K_{\varepsilon/2} \times L_{\varepsilon/2} \subseteq \Probmeasures{\X \times \Y}$ auch kompakt und für jede Kopplung $\pi$ von $\mu$ und $\nu$ gilt
 		\begin{align*}
 			\pi(K_{\varepsilon/2} \times L_{\varepsilon/2}) \; &= \; 1 - \pi(K_{\varepsilon/2}^\mathsf{c} \times \Y \cup \X \times L_{\varepsilon/2}^\mathsf{c}) \\
@@ -96,7 +96,7 @@
 		ist $\pi$ in $\Pi(\mu, \nu)$ enthalten.
 	\end{proof}
 
-	\subsection{Optimaler Transport}
+	\section{Optimaler Transport}
 	\label{subsec:optimaler_transport}
 	
 	Im Allgemeinen wird es sehr viele unterschiedliche Transportpläne zwischen zwei Maßen $\mu$ und $\nu$ geben. Offenbar können wir aber intuitiv bereits sagen, dass manche Transportpläne gewissermaßen
@@ -128,11 +128,11 @@
 	\end{Satz}
 
 	\begin{Bemerkung}
-		Der Beweis folgt \cite[Theorem 4.1 und Lemma 4.3]{Villani.2009}, wo eine allgemeinere Version des Satzes vorgestellt wird, die lediglich die Unterhalbstetigkeit von $c$ fordert 
+		Der Beweis folgt \cite[Satz 4.1 und Hilfssatz 4.3]{Villani.2009}, wo eine allgemeinere Version des Satzes vorgestellt wird, die lediglich die Unterhalbstetigkeit von $c$ fordert 
 		sowie unter gewissen Bedingungen die Negativität von $c$ zulässt. Für unsere Zwecke reicht obige Formulierung allerdings aus.
 	\end{Bemerkung}
 
-	Für den Beweis von Satz~\ref{satz:existenz_optimaler_transportplan} ist noch ein Hilfssatz von Nöten.
+	Für den Beweis von Satz~\ref{satz:existenz_optimaler_transportplan} wird noch ein Hilfssatz benötigt.
 
 	\begin{Hilfssatz}
 		\label{hilfssatz:kostenfunktional_unterhalbstetig}
@@ -174,10 +174,10 @@
 		Siehe \cite[Folgerung 5.21]{Villani.2009}.
 	\end{proof}
 
-	\subsection{Wassersteinmetriken}
+	\section{Wassersteinmetriken}
 	\label{subsec:wassersteinmetriken}
 	
-	Mit der Ergebnissen aus den Teilabschnitten~\ref{subsec:kopplungen} und \ref{subsec:optimaler_transport} sind wir nun bereit, die Wassersteinmetriken $W_p$ für $p \in [1, \infty)$ zu definieren. Der wesentliche Gedanke hierbei ist,
+	Mit den Ergebnissen aus den Teilabschnitten~\ref{subsec:kopplungen} und \ref{subsec:optimaler_transport} sind wir nun bereit, die Wassersteinmetriken $W_p$ für $p \in [1, \infty)$ zu definieren. Der wesentliche Gedanke hierbei ist,
 	für einen polnischen metrischen Raum $(\X, d)$ die Distanz zwischen zwei Wahrscheinlichkeitsmaßen $\mu$ und $\nu \in \Probmeasures{\X}$ über die Kosten eines optimalen Transportplans zwischen $\mu$ und
 	$\nu$ zu definieren, wobei die Kostenfunktion eine Potenz von $d$ ist.
 	
@@ -208,7 +208,7 @@
 		$\mu(B) = \hat{\pi}(B \times \X) = \hat{\pi}(\X \times B) = \nu(B)$, also $\mu = \nu$.
 		
 		Es bleibt die Dreiecksungleichung zu zeigen. Seien dazu $\mu_1, \mu_2, \mu_3 \in \Probmeasures{\X}$ und seien $\hat{\pi}_{1, 2}$ und $\hat{\pi}_{2, 3}$ optimale Kopplungen von
-		$\mu_1$ und $\mu_2$ bzw. $\mu_2$ und $\mu_3$. Nach \cite[S. 23-24]{Villani.2009} gibt es nun ein Wahrscheinlichkeitsmaß $\pi \in \Probmeasures{\X^3}$ mit 
+		$\mu_1$ und $\mu_2$ bzw. $\mu_2$ und $\mu_3$. Nach \cite[Seiten 23 und 24]{Villani.2009} gibt es nun ein Wahrscheinlichkeitsmaß $\pi \in \Probmeasures{\X^3}$ mit 
 		$\pi(\cdot \times \X) = \hat{\pi}_{1, 2}$ und $\pi(\X \times \cdot) = \hat{\pi}_{2, 3}$. Damit gilt
 		\begin{align*}
 			W_p(\mu_1, \mu_3) \; &\leq \; \left(\measureintx{\X \times \X}{d(x, z)^p}{\pi}{(x, y, z)}\right)^{\! 1/p} \\
@@ -255,7 +255,7 @@
 			                                                &\geq \; \left(\lambda_1 - \lambda_2\right)^2 + \left(\sigma_1 - \sigma_2\right)^2
 		\end{align*}
 		mit Gleichheit in der letzten Abschätzung, falls $\E \left[X_1 X_2\right] = 1$, also falls fast sicher $X_1 = X_2$ gilt. Damit ist
-		\[ W_2(\mu_1, \mu_2) \; = \; \left(\inf_{\pi \in \Pi(\mu_1, \mu_2)} \measureintx{\R^2}{\abs{x-y}^2}{\pi}{(x, y)}\right)^{\! 1/2} \; = \; \norm{\begin{pmatrix} \lambda_1 \\ \sigma_1 \end{pmatrix} - \begin{pmatrix} \lambda_2 \\ \sigma_2 \end{pmatrix}}_2 \text{,} \]
+		\[ W_2(\mu_1, \mu_2) \; = \; \left(\inf_{\pi \in \Pi(\mu_1, \mu_2)} \measureintx{\R^2}{\abs{x-y}^2}{\pi}{(x, y)}\right)^{\! 1/2} \; = \; \norm{\begin{pmatrix} \lambda_1 \\ \sigma_1 \end{pmatrix} - \begin{pmatrix} \lambda_2 \\ \sigma_2 \end{pmatrix}}_2 \]
 		und die Abbildung
 		\[ \fctmap{\mathcal{N}}{(\R \times (0, \infty), \norm{\cdot}_2)}{(\Probmeasures{\R}, W_2)}{(\lambda, \sigma)}{\mathcal{N}(\lambda, \sigma)} \]
 		ist eine isometrische Einbettung. Dies bedeutet insbesondere, dass die Wahrscheinlichkeitsmaße zu aufeinanderfolgenden Lebesgue-Dichten $f_{\lambda, \sigma}$ in Abbildung~\ref{Fig:SubRight} in $W_2$ äquidistant liegen.
@@ -264,8 +264,8 @@
 	\end{Beispiel}
 
 	Auch abgesehen davon, dass es sich bei $W_p$ streng genommen um keine Metrik handelt, metrisiert $W_p$ die schwache Konvergenz für jeden polnischen metrischen Raum $(\X, d)$ noch nicht.
-	In \cite{Villani.2009} wird dies umgangen, indem $\Probmeasures{\X}$ auf eine Teilmenge eingeschränkt wird, auf der $W_p$ lediglich endliche endliche Werte annimmt, und ein leicht abgeändertes Konzept
-	von schwacher Konvergenz in dieser Teilmenge einführt (siehe \cite[Definition 6.4 und 6.8]{Villani.2009}). Wir umgehen diesen zusätzlichen technischen Aufwand, 
+	In \cite{Villani.2009} wird dies gelöst, indem $\Probmeasures{\X}$ auf eine Teilmenge eingeschränkt wird, auf der $W_p$ lediglich endliche Werte annimmt, und ein leicht abgeändertes Konzept
+	von schwacher Konvergenz in dieser Teilmenge einführt (siehe \cite[Definitionen 6.4 und 6.8]{Villani.2009}). Wir umgehen diesen zusätzlichen technischen Aufwand, 
 	indem wir ab sofort die Beschränktheit von $d$ annehmen.
 	In der Praxis lässt sich für einen metrischen Raum $(\X, d)$ immer eine äquivalente, beschränkte Metrik $\tilde{d}$ finden, die für kleine Werte $d$ selbst entspricht. Beispielsweise lässt sich
 	\[ \tilde{d} \; \defby \; \min \left(d, d_{\max}\right) \]
@@ -292,11 +292,11 @@
 	\begin{Satz}
 		\label{satz:wassersteinmetrik_schwache_konvergenz}
 		Sei $(\X, d)$ ein polnischer metrischer Raum, wobei $d$ eine beschränkte Metrik sei, und sei $p \in [1, \infty)$. Dann metrisiert $W_p$ die schwache
-		Topologie und $(\Probmeasures{\X}, W_p)$ auch ein polnischer metrischer Raum.
+		Topologie und $(\Probmeasures{\X}, W_p)$ ist auch ein polnischer metrischer Raum.
 	\end{Satz}
 
-	Der Beweis orientiert sich an \cite[Theorem 6.9 und Korollar 6.13]{Villani.2009}, wobei sich der Aufwand durch die Annahme der Beschränktheit von $d$ stellenweise verringert.
-	Außerdem ist noch ein letzter Hilfssatz von Nöten, in dessen Beweis die obige Dualitätsformel eingeht.
+	Der Beweis orientiert sich an \cite[Satz 6.9 und Folgerung 6.13]{Villani.2009}, wobei sich der Aufwand durch die Annahme der Beschränktheit von $d$ stellenweise verringert.
+	Außerdem ist noch ein letzter Hilfssatz vonnöten, in dessen Beweis die obige Dualitätsformel eingeht.
 
 	\begin{Hilfssatz}
 		\label{hilfssatz:wasserstein-cauchyfolgen_straff}
@@ -350,7 +350,7 @@
 		Zuerst zeigen wir, dass $\Probmeasures{X}$ von $W_p$ metrisiert wird. Es genügt, die Äquivalenz
 		\[ \mu_k \xrightarrow{w} \mu \quad \iff \quad W_p(\mu_k, \mu) \to 0, \quad k \to \infty \]
 		für jede Folge $(\mu_k)_k \in \Probmeasures{X}^\N$ und $\mu \in \Probmeasures{X}$ nachzuweisen.
-		Für beide Richtungen verwenden die elementare Tatsache, dass für $(\mu_k)_k \in \Probmeasures{\X}^\N$ und $\mu \in \Probmeasures{\X}$ die Äquivalenz
+		Für beide Richtungen verwenden wir die elementare Tatsache, dass für $(\mu_k)_k \in \Probmeasures{\X}^\N$ und $\mu \in \Probmeasures{\X}$ die Äquivalenz
 		\[ \begin{matrix}
 			\mu_k \xrightarrow{w} \mu \quad & \iff & \quad \begin{array}{lr}
 				\text{jede Teilfolge} \; (\mu_{k'})_{k'} \; \text{von} \; (\mu_k)_k \; \text{hat} \\
@@ -360,7 +360,7 @@
 		gilt.
 		
 		Wir möchten zunächst die Hinrichtung zeigen. Sei dazu $(\mu_k)_k \in \Probmeasures{\X}^\N$ und $\mu \in \Probmeasures{\X}$ mit $\mu_k \xrightarrow{w} \mu$. Sei außerdem $\pi_k \in \Pi(\mu_k, \mu)$ 
-		für jedes $k \in \N$ eine optimale Kopplung von $\mu_k$ und $\mu$. 
+		für jedes $k \in \N$ eine optimale Kopplung von $\mu_k$ mit sich selbst. 
 		Insbesondere sind dann $A \defby \setcomp{\mu_k}{k \in \N} \cup \set{\mu}$ und $B \defby \set{\mu}$ kompakt und Satz~\ref{satz:optimale_transportpläne_kompakt} 
 		liefert, dass 
 		\[ \hat{\Pi}(A, B) \; \defby \; \setcomp{\pi \in \Pi(A, B)}{\pi \; \text{ist eine optimale Kopplung}} \; \subseteq \; \Probmeasures{\X \times \X} \]

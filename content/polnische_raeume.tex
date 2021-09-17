@@ -1,17 +1,17 @@
-\documentclass[../main/main.tex]{subfiles}
+\documentclass[../thesis/thesis.tex]{subfiles}
 
 \begin{document}
 	
-	\section{Polnische Räume}
+	\chapter{Polnische Räume}
 	
-	Im weiteren Verlauf der Arbeit wird insbesondere eine Klasse topologischer Räume besonders wichtig sein: Die der polnischen Räume.
+	Eine Klasse topologischer Räume wird in den späteren Abschnitten dieser Arbeit eine zentrale Rolle spielen: die der polnischen Räume.
 	
 	\begin{Definition}[Polnischer Raum]
 		Ein \emph{polnischer Raum} ist ein separabler und vollständig metrisierbarer topologischer Raum.
 	\end{Definition}
 
 	\begin{Bemerkung}
-		Es sei hier anzumerken, dass dies tatsächlich eine rein topologische Eigenschaft ist. Wir fordern für einen polnischen Raum $\X$ nämlich nur die Existenz einer Metrik,
+		Es sei hier anzumerken, dass Polnizität tatsächlich eine rein topologische Eigenschaft ist. Wir fordern für einen polnischen Raum $\X$ nämlich nur die Existenz einer Metrik,
 		die die Topologie von $\X$ erzeugt und bezüglich der $\X$ vollständig ist, möchten uns aber die Flexibilität
 		bewahren, diese Metrik nicht zu fixieren und bei Bedarf zwischen verschiedenen solchen Metriken
 		zu wechseln. Es kann durchaus Metriken geben, die $\X$ zwar metrisieren, jedoch nicht vollständig.
@@ -21,10 +21,9 @@
 		Da $(0, 1)$ homöomorph zu $\R$ ist, ist $(0, 1)$ aber dennoch ein polnischer Raum.
 	\end{Bemerkung}
 
-	Polnische Räume sind insofern interessant, dass es sich hierbei um eine verhältnismäßig allgemeine und elementare Klasse topologischer Räume handelt, die aber - wie wir in diesem Abschnitt sehen werden - 
-	etwa unter Bildung von $G_\delta$-Teilmengen oder abzählbaren Produkten abgeschlossen ist und mit der sich daher leicht umgehen lässt. Außerdem erlaubt es die Klasse der polnischen Räume in vielen Bereichen, 
+	Polnische Räume sind insofern interessant, dass es sich hierbei um eine verhältnismäßig allgemeine und elementare Klasse topologischer Räume handelt, die -- wie wir in diesem Abschnitt sehen werden -- 
+	etwa unter Bildung von $G_\delta$-Teilmengen oder abzählbaren Produkten abgeschlossen ist und mit der sich daher sehr leicht umgehen lässt. Dennoch erlaubt es die Klasse der polnischen Räume in vielen Bereichen, 
 	nützliche und recht allgemeine Resultate zu erhalten sowie Pathologien zu vermeiden. Konkret werden wir insbesondere in Abschnitt~\ref{sec:eigenschaften_der_schwachen_topologie} Beispiele hierfür sehen.
-	
 	Dieser Abschnitt orientiert sich überwiegend an den relevanten Teilen von \cite[Kapitel 4.14]{Simon.2015}. 
 	
 	Zunächst widmen wir uns einer grundlegenden Abgeschlossenheitseigenschaft von polnischen Räumen.
@@ -238,7 +237,7 @@
 		\[ \prod_{n=1}^{\infty} \X_n \; \cong \; \prod_{n=1}^{\infty} \varphi_n(\X_n) \; \subseteq \; \prod_{n=1}^{\infty} H \; \cong \; H \]
 		und Satz~\ref{satz:universalität_hilbertwürfel} liefert, dass $\prod_{n=1}^{\infty} \X_n$ separabel und metrisierbar ist.
 		
-		Für Teilaufgabe (b) setzen wir zusätzlich alle $\X_n$ als polnisch voraus. Dann ist $\varphi_n(\X_n)$ für jedes $n \in \N$ eine $G_{\delta}$-Teilmenge von $H$, also
+		Für Teilaufgabe (b) setzen wir zusätzlich die Polnizität aller $\X_n$ voraus. Dann ist $\varphi_n(\X_n)$ für jedes $n \in \N$ eine $G_{\delta}$-Teilmenge von $H$, also
 		existieren für alle $k, n \in \N$ derartige offene Mengen $U_n^{(k)} \subseteq H$, dass $\varphi_n(\X_n) = \bigcap_{k \in \N} U_n^{(k)}$ ist. Da nun insbesondere auch
 		\[ V_n^{(k)} \; \defby \; \left( \prod_{m=1}^{n-1} H \times U_n^{(k)} \times \!\!\! \prod_{m=n+1}^{\infty} H \right) \; \subseteq \; \prod_{n=1}^{\infty} H \]
 		für alle $k, n \in \N$ offen ist, folgt
