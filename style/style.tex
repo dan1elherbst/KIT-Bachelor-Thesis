@@ -49,20 +49,16 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Umgebungen
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-	
-% \newmdtheoremenv[backgroundcolor=black!3, innertopmargin=-2pt]{Definition}{Definition}[section]
-% \newmdtheoremenv[backgroundcolor=black!3, innertopmargin=-2pt]{Satz}[Definition]{Satz}
-% \newmdtheoremenv[backgroundcolor=black!3, innertopmargin=-2pt]{Hilfssatz}[Definition]{Hilfssatz}
-% \newmdtheoremenv[backgroundcolor=black!3, innertopmargin=-2pt]{Korollar}[Definition]{Korollar}    
+    
 
 \theoremstyle{definition}
-\newtheorem{Definition}{Definition}[chapter]
+\newmdtheoremenv[backgroundcolor=black!3, innertopmargin=-2pt]{Definition}{Definition}[chapter]
 \newtheorem*{Beispiel}{Beispiel}
 
 \theoremstyle{plain}
-\newtheorem{Satz}[Definition]{Satz}
+\newmdtheoremenv[backgroundcolor=black!3, innertopmargin=-2pt]{Satz}[Definition]{Satz}
 \newtheorem{Hilfssatz}[Definition]{Hilfssatz}
-\newtheorem{Folgerung}[Definition]{Folgerung}
+\newmdtheoremenv[backgroundcolor=black!3, innertopmargin=-2pt]{Folgerung}[Definition]{Folgerung}
 
 \theoremstyle{remark}
 \newtheorem*{Bemerkung}{Bemerkung}
