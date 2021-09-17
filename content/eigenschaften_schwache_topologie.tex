@@ -65,7 +65,7 @@
 	
 	\begin{Satz}
 		\label{satz:übertragung_metrisierbarkeit_separabilität}
-		Sei $\X$ ein metrisierbarer topologischer Raum. Dann ist $\Finitemeasures{\X}$ ist genau dann metrisierbar und separabel, wenn $\X$ separabel ist.
+		Sei $\X$ ein metrisierbarer topologischer Raum. Dann ist $\Finitemeasures{\X}$ genau dann metrisierbar und separabel, wenn $\X$ separabel ist.
 	\end{Satz}
 
 	Für den Beweis benötigen wir zunächst noch ein paar Hilfssätze, die wir im Folgenden vorstellen möchten.
@@ -198,7 +198,7 @@
 		nach dem Darstellungssatz von Riesz-Markov (vgl. \cite[Satz 4.8.8]{Simon.2015}) ein Maß $\mu \in \Finitemeasures{\X}$ mit 
 		\[ l(f) \; = \; \measureint{}{f}{\mu}, \quad f \in \Bduniffct{\X} \text{.} \]
 		Also folgt
-		\[ \lim_{\iota \to \infty} \measureint{}{f_n}{\mu_\iota} \; = \; r_n \; = \; l(f_n) \; = \measureint{}{f_n}{\mu} \text{.} \]
+		\[ \lim_{\iota \to \infty} \measureint{}{f_n}{\mu_\iota} \; = \; r_n \; = \; l(f_n) \; = \measureint{}{f_n}{\mu} \]
 		für alle $n \in \N$. In völliger Analogie zum Beweis von Satz~\ref{satz:übertragung_metrisierbarkeit_separabilität} folgt nun die schwache Konvergenz $\mu_\iota \xrightarrow{w} \mu, \; \iota \to \infty$,
 		die wiederum $T(\mu_\iota) \to T(\mu)$ impliziert. Demnach ist $r = T(\mu) \in T(\Finitemeasures{\X})$ und insgesamt haben wir gezeigt, dass $T(\Finitemeasures{\X}) \subseteq R$ abgeschlossen ist.
 	\end{proof}
@@ -351,7 +351,7 @@
 		Daher folgt 
 		\[\mu(B) 
 		= \sup_{\substack{K \subseteq B \\ K \text{ kompakt}}} \mu(K)\] 
-		und insgesamt $\mu$ ist regulär.
+		und insgesamt ist $\mu$ regulär.
 	\end{proof}
 	
 	Nun können wir den zentralen Satz dieses Teilabschnitts formulieren und beweisen.

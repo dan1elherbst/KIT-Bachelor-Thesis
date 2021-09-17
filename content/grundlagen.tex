@@ -8,7 +8,7 @@
 	die wir im weiteren Verlauf der Arbeit benötigen werden. 
 	In Teilabschnitt~\ref{subsec:topologische_grundlagen} führen wir zunächst zwei grundlegende Konzepte aus der Topologie ein, während wir
 	uns in Teilabschnitt~\ref{subsec:borel-maße_auf_topologischen_räumen} neben der Definition einiger Begriffe mit der 
-	\emph{Regularität} bzw. \emph{schwachen Regularität} eine grundlegende Approximationseigenschaft für Maße auf topologischen Räumen ansehen werden.
+	\emph{Regularität} bzw. \emph{schwachen Regularität} eine grundlegende Approximationseigenschaft von Maßen ansehen werden.
 	
 	\subsection{Topologische Grundlagen}
 	\label{subsec:topologische_grundlagen}
@@ -20,9 +20,8 @@
 	gegebenen Menge können generell dieselben konvergenten Folgen haben (siehe etwa \cite[Beispiel 2.6.1]{Simon.2015}). 
 	Um solche Probleme im Folgenden zu umgehen, führen wir das
 	Konzept des Netzes aus der mengentheoretischen Topologie ein. Netze verallgemeinern Folgen und können in vielerlei Hinsicht die 
-	Eigenschaften eines topologischen Raums besser erfassen.
-	
-	Überwiegend orientieren wir uns in diesem Teilabschnitt an \cite[Kapitel 2.6]{Simon.2015}.
+	Eigenschaften eines topologischen Raums besser erfassen. In diesem Teilabschnitt möchten wir auf einige Grundlagen zu Netzen eingehen,
+	wobei wir uns überwiegend an \cite[Kapitel 2.6]{Simon.2015} orientieren.
 	
 	\begin{Definition}[Gerichtete Menge]
 		\label{def:gerichtete_menge}
@@ -64,7 +63,7 @@
 			\item Eine Funktion $\fct{f}{\X}{\Y}$ ist genau dann stetig, wenn für jedes konvergente Netz $x = (x_\iota)_{\iota \in I}$ in $\X$ 
 			\[ \lim_{\iota \to \infty} f(x_\iota) \; = \; f(\lim_{\iota \to \infty} x_\iota) \]
 			erfüllt ist.
-			\item Zwei Topologien auf $\X$ sind genau dann identisch, wenn alle Netze in $\X$ bezüglich beiden Topologien dasselbe Konvergenzverhalten aufweisen.
+			\item Zwei Topologien auf $\X$ sind genau dann identisch, wenn alle Netze in $\X$ bezüglich beider Topologien dasselbe Konvergenzverhalten aufweisen.
 		\end{enumeratethm}
 	\end{Satz}
 	
@@ -73,7 +72,7 @@
 	\end{proof}
 	
 	\begin{Bemerkung}
-		Auch wenn man in spezielleren Fällen (wie etwa bei metrisierbarem $\X$) problemlos mit Folgen arbeiten kann, sei an dieser Stelle angemerkt, dass im Allgemeinen 
+		Auch wenn man in spezielleren Fällen (wie etwa bei metrisierbarem $\X$) problemlos mit Folgen arbeiten kann, sei an dieser Stelle noch einmal angemerkt, dass im Allgemeinen 
 		keine der drei Aussagen gelten, wenn man \enquote{Netz} durch \enquote{Folge} ersetzt (vgl. \cite[Beispiel 2.6.1]{Simon.2015}).
 	\end{Bemerkung}
 	
@@ -110,7 +109,6 @@
 	Auch wenn es sich hier um einen sehr elementaren Begriff handelt, wird dieser uns an späterer Stelle gerade 
 	in Kombination mit Hilfssatz~\ref{hilfssatz:konvergenz_initialtopologie} häufig ermöglichen, 
 	gewisse Topologien, mit denen wir arbeiten, und deren Konvergenzverhalten in knapper Form auszudrücken. 
-	
 	Der folgende Abschnitt orientiert sich an \cite[Kapitel 2.13]{Aliprantis.2006}.
 	
 	\begin{Definition}[Initialtopologie]
@@ -122,7 +120,7 @@
 
 	\begin{Bemerkung}[Produkttopologie]
 		Sei $A$ eine beliebige Indexmenge und sei für jedes $\alpha \in A$ ein topologischer Raum $\X_\alpha$ gegeben. Die Produkttopologie der $\X_\alpha, \; \alpha \in A$
-		auf dem kartesischen Produkt $\X \defby \prod_{\alpha \in A} \X_\alpha$ ist dann offensichtlich die Initialtopologie der kanonischen Projektionen 
+		auf dem kartesischen Produkt $\X \defby \prod_{\alpha \in A} \X_\alpha$ ist dann die Initialtopologie der kanonischen Projektionen 
 		$\fctmap{\pi_\beta}{\X}{\X_\beta}{x = (x_\alpha)_{\alpha \in A}}{x_\beta}, \; \beta \in A$.
 	\end{Bemerkung}
 	
@@ -149,17 +147,16 @@
 		Man kann sich die Frage stellen, warum wir bei der Definition eines Netzes $(x_\iota)_{\iota \in I}$ fordern, dass die Indexmenge $I$ \emph{gerichtet} ist und etwa nicht lediglich
 		partiell geordnet. Am Ende des vorigen Beweises lässt sich allerdings der Mehrwert, den wir durch Eigenschaft (c) in der Definition einer gerichteten Menge erhalten, sehr gut erkennen: 
 		Wir können ein \enquote*{Maximum} 
-		von endlich vielen $\iota \in I$ zu finden und damit ähnlich zu argumentieren, als würden wir gerade mit Folgen arbeiten.
+		von endlich vielen $\iota \in I$ finden und damit ähnlich argumentieren, als würden wir gerade mit Folgen arbeiten.
 	\end{Bemerkung}
 	
 	\subsection{Borel-Maße auf topologischen Räumen}
 	\label{subsec:borel-maße_auf_topologischen_räumen}
 	
 	Nun wenden wir uns (endlichen) Borel-Maßen auf topologischen bzw. metrischen Räumen zu. Da diese den primären Betrachtungsgegenstand der
-	Arbeit darstellen, möchten wir zunächst einige Begriffe definieren, Schreibweisen festlegen, und - zumindest im Falle von metrischen Räumen - eine im Folgenden sehr 
+	Arbeit darstellen, möchten wir zunächst einige Begriffe definieren, Schreibweisen festlegen, und -- zumindest im Falle von metrischen Räumen -- eine im Folgenden sehr 
 	hilfreiche Eigenschaft dieser Maße, \emph{Schwache Regularität} bzw. \emph{Regularität}, vorstellen.
-	
-	Wieder werden wir uns an den relevanten Teilen von \cite[Kapitel 4.14]{Simon.2015} orientieren.
+	Der Teilabschnitt folgt \cite[Kapitel 4.14]{Simon.2015}.
 	
 	\begin{Definition}[Borel-$\sigma$-Algebra]
 		\label{def:borel-sigma-algebra}
@@ -217,8 +214,7 @@
 	\begin{Bemerkung}
 		Ersetzen wir in der obigen Definition \enquote{abgeschlossen} durch \enquote{kompakt}, 
 		so erhalten wir analog den Begriff der \emph{Regularität}. 
-		
-		Offenbar ist eine abgeschlossene (bzw. offene) Menge schwach regulär von innen (bzw. außen).
+		Außerdem ist eine abgeschlossene (bzw. offene) Menge trivialerweise schwach regulär von innen (bzw. außen).
 	\end{Bemerkung}
 	
 	Im Falle von endlichen Maßen auf metrischen Räumen kann schwache Regularität 
@@ -230,16 +226,12 @@
 	\end{Satz}
 	
 	Für den Beweis des Satzes benötigen wir noch zwei Hilfssätze. 
-	
 	Der erste Hilfssatz behandelt die recht elementare Tatsache, dass sich in metrischen Räumen 
 	abgeschlossene Mengen von außen gewissermaßen \enquote*{beliebig gut} durch offene Mengen approximieren lassen. 
 	Diese Erkenntnis werden wir im weiteren Verlauf der Arbeit noch häufiger benötigen.
-	
 	Der zweite Hilfssatz, den wir vorstellen,
 	wird uns ermöglichen, die schwache Regularität nur auf einem Erzeuger von $\mathcal{B}(\X)$ 
 	zu zeigen. Im endgültigen Beweis des Satzes werden wir dann die abgeschlossenen Mengen als Erzeuger wählen.
-	
-	
 	
 	\begin{Hilfssatz}
 		\label{hilfssatz:offene_mengen}
@@ -273,7 +265,7 @@
 		Für $x \in C^\mathsf{c}$ ist $d(x, C) > 0$ und damit
 		$$f_n(x) = \max (0, 1-n d(x, C))
 		\to 0 \text{,} \quad n \to \infty \text{,}$$
-		womit die Behauptung folgt.
+		womit auch Aussage (d) folgt.
 	\end{proof}
 	
 	\begin{Hilfssatz}
