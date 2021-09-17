@@ -39,7 +39,7 @@
 % \RequirePackage{libertine}
 \RequirePackage{lmodern}
 % Linux Libertine in math mode
-% \RequirePackage[libertine]{newtxmath}
+%\RequirePackage[libertine]{newtxmath}
 
 % grotesque type: Adobe Source Sans Pro
 \RequirePackage[scaled=.92]{sourcesanspro}
