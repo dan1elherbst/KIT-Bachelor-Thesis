@@ -25,7 +25,7 @@
 	Überwiegend orientieren wir uns in diesem Teilabschnitt an \cite[Kapitel 2.6]{Simon.2015}.
 	
 	\begin{Definition}[Gerichtete Menge]
-		\label{def:directedset}
+		\label{def:gerichtete_menge}
 		Sei $I$ eine Menge. Eine Relation $\preceq$ auf $I$ mit
 		\begin{enumeratethm}
 			\item $\forall \iota \in I: \; \iota \preceq \iota$
@@ -56,7 +56,7 @@
 	besser als Folgen erfassen: Tatsächlich lässt sich jede Topologie einzig und allein durch ihre konvergenten Netze charakterisieren.
 	
 	\begin{Satz}
-		\label{thm:netconvergence}
+		\label{satz:netz_konvergenz}
 		Seien $\X$ und $\Y$ topologische Räume. Dann gelten die folgenden Aussagen:
 		\begin{enumeratethm}
 			\item Eine Teilmenge $C \subseteq \X$ ist genau dann abgeschlossen, wenn der Grenzwert $z \in \X$ eines jeden konvergenten Netzes 
@@ -108,13 +108,13 @@
 	
 	Wir möchten nun noch ein weiteres Konzept aus der Topologie, die sogenannte \emph{Initialtopologie} einführen.
 	Auch wenn es sich hier um einen sehr elementaren Begriff handelt, wird dieser uns an späterer Stelle gerade 
-	in Kombination mit Hilfssatz~\ref{lem: convergenceinitialtopology} häufig ermöglichen, 
+	in Kombination mit Hilfssatz~\ref{hilfssatz:konvergenz_initialtopologie} häufig ermöglichen, 
 	gewisse Topologien, mit denen wir arbeiten, und deren Konvergenzverhalten in knapper Form auszudrücken. 
 	
 	Der folgende Abschnitt orientiert sich an \cite[Kapitel 2.13]{Aliprantis.2006}.
 	
 	\begin{Definition}[Initialtopologie]
-		\label{def:initialtopology}
+		\label{def:initialtopologie}
 		Sei $\X$ eine Menge, $A$ eine beliebige Indexmenge und für jedes $\alpha \in A$ sei $\Y_\alpha$ ein topologischer Raum sowie $\fct{f_\alpha}{\X}{\Y_\alpha}$ eine Abbildung.
 		Die Initialtopologie auf $\X$ bezüglich der Abbildungen $f_\alpha, \; \alpha \in A$ ist dann die kleinste Topologie auf $\X$, bezüglich der alle Abbildungen 
 		$f_\alpha, \; \alpha \in A$ stetig sind.
@@ -127,13 +127,13 @@
 	\end{Bemerkung}
 	
 	\begin{Hilfssatz}[Konvergenz bezüglich der Initialtopologie]
-		\label{lem: convergenceinitialtopology}
-		In der Situation von Definition~\ref{def:initialtopology} konvergiert ein Netz $x = (x_\iota)_{\iota \in I}$ in $\X$ genau dann gegen ein $z \in \X$, wenn für alle $\alpha \in A$
+		\label{hilfssatz:konvergenz_initialtopologie}
+		In der Situation von Definition~\ref{def:initialtopologie} konvergiert ein Netz $x = (x_\iota)_{\iota \in I}$ in $\X$ genau dann gegen ein $z \in \X$, wenn für alle $\alpha \in A$
 		die Konvergenz $f_\alpha(x_\iota) \to f_\alpha(z), \; \iota \to \infty$ gilt.
 	\end{Hilfssatz}
 
 	\begin{proof}
-		Wegen Satz~\ref{thm:netconvergence} (b) folgt die Hinrichtung direkt aus der Stetigkeit der Abbildungen $f_\alpha, \; \alpha \in A$.
+		Wegen Satz~\ref{satz:netz_konvergenz} (b) folgt die Hinrichtung direkt aus der Stetigkeit der Abbildungen $f_\alpha, \; \alpha \in A$.
 		
 		Für die Rückrichtung möchten wir zeigen, dass für alle Umgebungen $V$ von $z$ ein derartiges $\iota_0 \in I$ existiert, dass $x_\iota \in V$ für $\iota_0 \preceq \iota$ gilt.
 		Man bemerke zunächst, dass die Menge alle Urbilder von offenen Mengen in $\Y_\alpha$ unter $f_\alpha$ für alle $\alpha \in A$ eine Subbasis der Topologie von $\X$ ist.
@@ -141,7 +141,7 @@
 		\[ \tilde{V} \; \defby \; \bigcap_{i=1}^{n} f_{\alpha_i}^{-1}(U_i) \; \subseteq \; \X \]
 		zu betrachten, wobei $\alpha_1, \dots, \alpha_n \in A$ sind und $U_i$ offene Umgebungen von $f_{\alpha_i}(z)$, $i \in \set{1, \dots, n}$.
 		Sei nun ein solches $\tilde{V}$ gegeben. Dann können wir für $i \in \set{1, \dots, n}$ jeweils ein $\iota_0^{(i)} \in I$ finden, sodass $x_\iota \in f_{\alpha_i}^{-1}(U_i)$ für 
-		$\iota_0^{(i)} \preceq \iota$ gilt. Sukzessive Anwendung von Eigenschaft (c) in Definition~\ref{def:directedset} liefert ein $\iota_0 \in I$ mit 
+		$\iota_0^{(i)} \preceq \iota$ gilt. Sukzessive Anwendung von Eigenschaft (c) in Definition~\ref{def:gerichtete_menge} liefert ein $\iota_0 \in I$ mit 
 		$x_\iota \in \tilde{V}$ für $\iota_0 \preceq \iota$, was schließlich die Konvergenz $x_\iota \to z, \; \iota \to \infty$ bedeutet.
 	\end{proof}
 
@@ -162,7 +162,7 @@
 	Wieder werden wir uns an den relevanten Teilen von \cite[Kapitel 4.14]{Simon.2015} orientieren.
 	
 	\begin{Definition}[Borel-$\sigma$-Algebra]
-		\label{def:borelsigmaalg}
+		\label{def:borel-sigma-algebra}
 		Sei $\X$ ein topologischer Raum mit Topologie $\mathcal{O}$. Dann definieren wir die
 		\emph{Borel-$\sigma$-Algebra} 
 		$$\mathcal{B}(\X) = \mathcal{B} \defby \sigma(\mathcal{O})$$
@@ -170,7 +170,7 @@
 	\end{Definition}
 
 	\begin{Definition}[Borel-Maße]
-		In der Situation von Definition~\ref{def:borelsigmaalg} nennen wir Maße auf $\mathcal{B}(\X)$ \emph{Borel-Maße}. Wir führen außerdem die Schreibweisen
+		In der Situation von Definition~\ref{def:borel-sigma-algebra} nennen wir Maße auf $\mathcal{B}(\X)$ \emph{Borel-Maße}. Wir führen außerdem die Schreibweisen
 		\begin{align*}
 			\Finitemeasures{\X}  \; &\defby \; \setcomp{\fct{\mu}{\mathcal{B}(\X)}{[0,\infty)}}{\mu \; 
 				\text{ist endliches Maß}} \\
@@ -202,7 +202,7 @@
 	um diese anschließend auf ganz $\mathcal{B}(\X)$ auszuweiten. 
 	
 	\begin{Definition}[Schwache Regularität von Maßen]
-		\label{def:regularity}
+		\label{def:schwache_regularität}
 		Sei $\X$ ein topologischer Raum und $\mu$ ein endliches Borel-Maß auf $\X$. 
 		Dann nennen wir $B \in \mathcal{B}(\X)$ \emph{schwach von 
 			innen bzw. von außen regulär}, falls
@@ -225,7 +225,7 @@
 	recht leicht gezeigt werden, wie wir im Folgenden sehen werden.
 	
 	\begin{Satz}
-		\label{thm:weakregularity}
+		\label{satz:schwache_regularität}
 		Ist $(\X, d)$ ein metrischer Raum, so ist jedes endliche Borel-Maß $\mu$ auf $\X$ schwach regulär.
 	\end{Satz}
 	
@@ -242,7 +242,7 @@
 	
 	
 	\begin{Hilfssatz}
-		\label{lem:opensets}
+		\label{hilfssatz:offene_mengen}
 		Sei $(\X, d)$ ein metrischer Raum und $C \subseteq \X$ eine abgeschlossene 
 		Teilmenge. Ferner definieren wir für $n \in \N$
 		$$ A_n \defby \setcomp{y \in \X}{d(y, C) < \frac{1}{n}} \quad \text{und} \quad 
@@ -277,8 +277,8 @@
 	\end{proof}
 	
 	\begin{Hilfssatz}
-		\label{lem:sigmaalg}
-		In der Situation von Definition~\ref{def:regularity} ist
+		\label{hilfssatz:schwach_reguläre_mengen_sigma_algebra}
+		In der Situation von Definition~\ref{def:schwache_regularität} ist
 		$$\mathcal{S} \defby \setcomp{B \in \mathcal{B}(\X)}{B \text{ schwach regulär bzgl. } \mu}$$
 		eine $\sigma$-Algebra.
 	\end{Hilfssatz}
@@ -332,39 +332,39 @@
 		Weil $U$ offen ist, folgt insgesamt die schwache Regularität von $\mu$.
 	\end{proof}
 	
-	Ausgestattet mit den Hilfssätzen \ref{lem:opensets} und \ref{lem:sigmaalg} können wir jetzt zum Beweis von Satz~\ref{thm:weakregularity} 
+	Ausgestattet mit den Hilfssätzen \ref{hilfssatz:offene_mengen} und \ref{hilfssatz:schwach_reguläre_mengen_sigma_algebra} können wir jetzt zum Beweis von Satz~\ref{satz:schwache_regularität} 
 	übergehen.
 	
-	\begin{proof}[Beweis von Satz~\ref{thm:weakregularity}]
+	\begin{proof}[Beweis von Satz~\ref{satz:schwache_regularität}]
 		Es ist nun zu zeigen, dass für jedes endliche Borel-Maß $\mu$ auf $\X$
 		die Menge 
 		$$\mathcal{S} \defby \setcomp{B \in \mathcal{B}(\X)}{B \text{ schwach regulär bzgl. } \mu}$$
 		bereits ganz $\mathcal{B}(\X)$ ist. 
-		Da $\mathcal{S}$ nach Hilfssatz~\ref{lem:sigmaalg} eine 
+		Da $\mathcal{S}$ nach Hilfssatz~\ref{hilfssatz:schwach_reguläre_mengen_sigma_algebra} eine 
 		$\sigma$-Algebra ist und 
 		$\mathcal{B}(\X)$ von den abgeschlossenen Mengen erzeugt wird, genügt es zu zeigen, 
 		dass diese in $\mathcal{S}$ enthalten sind. 
 		
 		Sei $C \in \mathcal{B}(\X)$. Dann ist $C$ sicherlich schwach regulär von innen. 
 		Nun verwenden wir die offenen Mengen $A_n, \; n \in \N$ aus 
-		Hilfssatz~\ref{lem:opensets}. 
+		Hilfssatz~\ref{hilfssatz:offene_mengen}. 
 		Wegen $A_n \convdown C$ und $\mu(\X) < \infty$ folgt mit der 
 		Maßstetigkeit von oben die Konvergenz $\mu(A_n) \convdown \mu(C)$,
 		sodass $C$ auch schwach regulär von außen ist.
 	\end{proof}
 
 	\begin{Bemerkung}
-		Handelt es sich in der Situation von Satz~\ref{thm:weakregularity} bei $\X$ um einen polnischen Raum, 
-		so werden wir zu einem späteren Zeitpunkt (in Folgerung~\ref{kor:polishregular}) noch sehen, dass hier tatsächlich sogar Regularität gilt.
+		Handelt es sich in der Situation von Satz~\ref{satz:schwache_regularität} bei $\X$ um einen polnischen Raum, 
+		so werden wir zu einem späteren Zeitpunkt (in Folgerung~\ref{folgerung:polnischer_raum_reguläre_maße}) noch sehen, dass hier tatsächlich sogar Regularität gilt.
 	\end{Bemerkung}
 	
-	Schließlich möchten wir noch kurz eine direkte Folgerung aus Satz~\ref{thm:weakregularity} vorstellen, die etwas 
+	Schließlich möchten wir noch kurz eine direkte Folgerung aus Satz~\ref{satz:schwache_regularität} vorstellen, die etwas 
 	schwächere hinreichende Bedingungen für die Gleichheit 
 	zweier endlicher Maße auf metrischen Räumen bereitstellt. Im weiteren Verlauf 
 	wird sich dies noch als nützlich erweisen.
 	
 	\begin{Folgerung}
-		\label{cor:measureequality}
+		\label{folgerung:gleichheit_von_maßen}
 		Sei $(\X,d)$ ein metrischer Raum und seien $\mu, \nu \in \Finitemeasures{\X}$. 
 		Dann sind die folgenden Aussagen äquivalent:
 		\begin{equivalentthm}
@@ -381,10 +381,10 @@
 	
 	\begin{proof}
 		Die Implikationen (i) $\Rightarrow$ (ii) $\Rightarrow$ (iii) $\Rightarrow$ (iv) sind klar und (v) 
-		$\Rightarrow$ (i) folgt aus Satz~\ref{thm:weakregularity}.
+		$\Rightarrow$ (i) folgt aus Satz~\ref{satz:schwache_regularität}.
 		
 		(iv) $\Rightarrow$ (v): Gelte (iv) und sei $C \subseteq \X$ abgeschlossen. 
-		Dann gilt für die Funktionen $f_n \in \Bduniffct{\X}$ aus Hilfssatz~\ref{lem:opensets}
+		Dann gilt für die Funktionen $f_n \in \Bduniffct{\X}$ aus Hilfssatz~\ref{hilfssatz:offene_mengen}
 		$$\measureint{}{f_n}{\mu} = \measureint{}{f_n}{\nu}\text{,} \quad n \in \N \text{.}$$
 		Wegen $| f_n | \leq 1$ und $f_n \convdown \indfct_C$ folgt mit dem Satz von Lebesgue 
 		$$\measureint{}{f_n}{\mu} \; \to \; \mu(C) \quad \text{und} \quad \measureint{}{f_n}{\nu} 

@@ -8,19 +8,19 @@
 	mit einer Topologie bzw. einem Konvergenzbegriff versehen, dem der sogenannten \emph{schwachen Konvergenz}. Diese
 	verallgemeinert die aus der Stochastik bekannte \emph{Verteilungskonvergenz} auf allgemeinere Räume als $\R$. 
 	
-	Nachdem in Teilabschnitt~\ref{subsec:Definition} die schwache Topologie und schwache Konvergenz zunächst definiert werden, präsentieren wir in Teilabschnitt~\ref{subsec:BeziehungSchwachStern}
-	eine alternative funktionalanalytische Sichtweise auf diese und charakterisieren die schwache Konvergenz in Satz~\ref{subsec:CharakterisierungenSchwacherKonvergenz} mit dem \emph{Portmanteau-Theorem},
+	Nachdem in Teilabschnitt~\ref{subsec:definition} die schwache Topologie und schwache Konvergenz zunächst definiert werden, präsentieren wir in Teilabschnitt~\ref{subsec:beziehung_schwach-stern-konvergenz}
+	eine alternative funktionalanalytische Sichtweise auf diese und charakterisieren die schwache Konvergenz in Satz~\ref{subsec:charakterisierung_schwache_konvergenz} mit dem \emph{Portmanteau-Theorem},
 	sofern der Grundraum metrisierbar ist.
 	
-	Die grundlegenden Definitionen und Bemerkungen in den Abschnitten \ref{subsec:Definition} und \ref{subsec:BeziehungSchwachStern} folgen 
-	\cite[Abschnitte 1-3]{Varadarajan.1958}, während wir uns beim Beweis von Satz~\ref{thm:portmanteau} in Abschnitt~\ref{subsec:CharakterisierungenSchwacherKonvergenz}
+	Die grundlegenden Definitionen und Bemerkungen in den Abschnitten \ref{subsec:definition} und \ref{subsec:beziehung_schwach-stern-konvergenz} folgen 
+	\cite[Abschnitte 1-3]{Varadarajan.1958}, während wir uns beim Beweis von Satz~\ref{satz:portmanteau} in Abschnitt~\ref{subsec:charakterisierung_schwache_konvergenz}
 	an \cite[Satz 4.14.4]{Simon.2015} orientieren.
 
 	\subsection{Definitionen}
-	\label{subsec:Definition}
+	\label{subsec:definition}
 	
 	\begin{Definition}[Schwache Topologie]
-		\label{def:weaktopology}
+		\label{def:schwache_topologie}
 		Sei $\X$ ein topologischer Raum. Dann ist die \emph{schwache Topologie} auf $\Finitemeasures{\X}$ definiert als die 
 		Initialtopologie bezüglich der Abbildungen
 		\[ \fctmap{I_f}{\Finitemeasures{\X}}{\R}{\mu}{\measureint{}{f}{\mu}}, \quad f \in \Bdcontfct{\X} \text{.} \]
@@ -29,14 +29,14 @@
 	Falls nicht explizit angegeben, sei $\Finitemeasures{\X}$ im Folgenden immer mit der schwachen Topologie versehen.
 
 	\begin{Definition}[Schwache Konvergenz von Maßen]
-		In der Situation von Definition~\ref{def:weaktopology} heißt ein Netz $(\mu_\iota)_{\iota \in I}$ von Maßen in $\Finitemeasures{\X}$ genau dann 
+		In der Situation von Definition~\ref{def:schwache_topologie} heißt ein Netz $(\mu_\iota)_{\iota \in I}$ von Maßen in $\Finitemeasures{\X}$ genau dann 
 		\emph{schwach konvergent} gegen ein Maß $\mu \in \Finitemeasures{\X}$, wenn $\lim_{\iota \to \infty} \mu_\iota = \mu$ bezüglich der schwachen Topologie gilt.
 		In diesem Fall schreiben wir auch
 		\[ \mu_\iota \xrightarrow{w} \mu \text{.} \]
 	\end{Definition}
 
 	\begin{Bemerkung}
-		Aus Hilfssatz~\ref{lem: convergenceinitialtopology} folgt direkt, dass ein Netz $(\mu_\iota)_{\iota \in I}$ in $\Finitemeasures{\X}$ genau dann schwach gegen $\mu \in \Finitemeasures{\X}$
+		Aus Hilfssatz~\ref{hilfssatz:konvergenz_initialtopologie} folgt direkt, dass ein Netz $(\mu_\iota)_{\iota \in I}$ in $\Finitemeasures{\X}$ genau dann schwach gegen $\mu \in \Finitemeasures{\X}$
 		konvergiert, wenn
 		\[ \lim_{\iota \to \infty} \measureint{}{f}{\mu_\iota} \; = \; \measureint{}{f}{\mu} \]
 		für alle $f \in \Bdcontfct{\X}$ gilt.
@@ -46,14 +46,14 @@
 	dann einfach die entsprechende Teilraumtopologie.
 
 	\subsection{Beziehung zur Schwach-*-Konvergenz}
-	\label{subsec:BeziehungSchwachStern}
+	\label{subsec:beziehung_schwach-stern-konvergenz}
 	
 	Angesichts des Namens der \emph{schwachen Konvergenz} bzw. \emph{schwachen Topologie} stellt sich unmittelbar die Frage, ob diese in irgendeiner Beziehung zur schwachen Konvergenz bzw. schwachen Topologie in Banachräumen aus der 
 	Funktionalanalysis steht. Tatsächlich handelt es sich eher um eine Art von Schwach-$\ast$-Konvergenz, wie wir im Folgenden sehen werden. 
 	
 	Sei dazu zunächst $\X$ ein topologischer Raum. Dann ist $(\Bdcontfct{\X}, \norm{\cdot}_\infty)$ ein normierter Vektorraum und wir betrachten nun die Abbildung
 	\[\fctmap{\Phi}{\Finitemeasures{\X}}{C_b(\X)^\ast}{\mu}
-	{\left[\fctmap{l_\mu}{\Bdcontfct{\X}}{\R}{f}{\measureint{}{f}{\mu}}\right]} \text{,} \label{3.1} \tag{3.1}\]
+	{\left[\fctmap{l_\mu}{\Bdcontfct{\X}}{\R}{f}{\measureint{}{f}{\mu}}\right]} \text{,} \label{glg:4.1} \tag{4.1}\]
 	die wegen $\abs{\measureint{}{f}{\mu}} \leq \mu(\X) \norm{f}_\infty$ und $\mu(\X) < \infty$ wohldefiniert ist 
 	und einem endlichen Maß $\mu \in \Finitemeasures{\X}$ ein zugehöriges lineares Funktional aus dem Dualraum $\Bdcontfct{\X}^\ast$ von $\Bdcontfct{\X}$ zuordnet. 
 	Ist $\Bdcontfct{\X}^\ast$ mit der 
@@ -63,27 +63,27 @@
 	Ist $\X$ etwa metrisierbar, so können wir sogar noch eine stärkere Aussage formulieren:
 	
 	\begin{Hilfssatz}
-		Sei $\X$ ein metrisierbarer topologischer Raum. Dann ist die Abbildung $\Phi$ aus \eqref{3.1} ein Homöomorphismus auf sein Bild.
+		Sei $\X$ ein metrisierbarer topologischer Raum. Dann ist die Abbildung $\Phi$ aus \eqref{glg:4.1} ein Homöomorphismus auf sein Bild.
 	\end{Hilfssatz}
 
 	\begin{proof}
-		$\Phi$ ist injektiv, denn für $\mu, \nu \in \Finitemeasures{\X}$ folgt aus $l_\mu = l_\nu$ wegen Folgerung~\ref{cor:measureequality} die Gleichheit $\mu = \nu$. 
-		Da schwache Konvergenz in $\Finitemeasures{\X}$ exakt der Schwach-$\ast$-Konvergenz der jeweiligen Bilder unter $\Phi$ entspricht, liefert Satz~\ref{thm:netconvergence}
+		$\Phi$ ist injektiv, denn für $\mu, \nu \in \Finitemeasures{\X}$ folgt aus $l_\mu = l_\nu$ wegen Folgerung~\ref{folgerung:gleichheit_von_maßen} die Gleichheit $\mu = \nu$. 
+		Da schwache Konvergenz in $\Finitemeasures{\X}$ exakt der Schwach-$\ast$-Konvergenz der jeweiligen Bilder unter $\Phi$ entspricht, liefert Satz~\ref{satz:netz_konvergenz}
 		die Behauptung.
 	\end{proof}
 
 	Unter obigen Voraussetzungen lässt sich $\Finitemeasures{\X}$ also in $\Bdcontfct{\X}^\ast$ einbetten. Mittels dieser Identifikation können nun Aussagen aus der 
 	Funktionalanalysis auch für $\Finitemeasures{\X}$ fruchtbar gemacht werden, indem von topologischen Eigenschaften von
 	$\Bdcontfct{\X}^\ast$ mit der Schwach-$\ast$-Konvergenz auf die entsprechenden Eigenschaften von 
-	$\Finitemeasures{\X}$ geschlossen wird. Konkrete Anwendungen hiervon werden wir bereits in Abschnitt~\ref{sec:eigenschaften-der-schwachen-topologie} sehen.
+	$\Finitemeasures{\X}$ geschlossen wird. Konkrete Anwendungen hiervon werden wir bereits in Abschnitt~\ref{sec:eigenschaften_der_schwachen_topologie} sehen.
 	
 	\subsection{Charakterisierungen schwacher Konvergenz}
-	\label{subsec:CharakterisierungenSchwacherKonvergenz}
+	\label{subsec:charakterisierung_schwache_konvergenz}
 	
 	Im Falle metrisierbarer Grundräume liefert der folgende Satz eine umfassende Charakterisierung der schwachen Konvergenz.
 	
 	\begin{Satz}[Portmanteau]
-		\label{thm:portmanteau}
+		\label{satz:portmanteau}
 		Sei $(\X, d)$ ein metrischer Raum, $(\mu_\iota)_{\iota \in I}$ ein Netz in $\Finitemeasures{\X}$
 		und $\mu \in \Finitemeasures{\X}$. Dann sind die folgenden Aussagen äquivalent:
 		\begin{equivalentthm}
@@ -108,7 +108,7 @@
 		anstelle von Wahrscheinlichkeitsmaßen und Netzen anstelle von Folgen. Die Implikationen \enquote{(i) $\Rightarrow$ (ii) $\Rightarrow$ (iii)} sind klar. 
 		
 		(iii) $\Rightarrow$ (iv): Sei $C \subseteq \X$ abgeschlossen und seien 
-		$f_m, \; m \in \N$ die Funktionen aus Hilfssatz~\ref{lem:opensets}. 
+		$f_m, \; m \in \N$ die Funktionen aus Hilfssatz~\ref{hilfssatz:offene_mengen}. 
 		Diese sind lipschitzstetig und beschränkt.
 		Dann gilt für alle $m \in \N$
 		$$\mu_\iota(C) \; = \; \measureint{}{\indfct_C}{\mu_\iota} \; \leq \; 
@@ -163,7 +163,7 @@
 		Damit können wir für jedes $m \in \N$ Zahlen $c_j^{(m)} \notin S$ mit
 		\[a = c_0^{(m)} < \dots < c_{2m}^{(m)} = 
 		b \text{,} \qquad c_{j+1}^{(m)} - c_j^{(m)} \leq \frac{b-a}{m} 
-		\label{eq:3.2} \tag{3.2}\]
+		\label{glg:4.2} \tag{4.2}\]
 		finden. Wir setzen
 		$$A_j^{(m)} \defby \set{c_j^{(m)} < f \leq c_{j+1}^{(m)}}\text{,}
 		\qquad j \in \set{0,\dots,2m-1} \text{.}$$ 
@@ -177,23 +177,23 @@
 		\[\measureint{}{u_m}{\mu_\iota} \; = \; \sum_{j=0}^{2m-1} c_j^{(m)} \mu_\iota(A_j^{(m)}) 
 		\; \to \; \sum_{j=0}^{2m-1} c_j^{(m)} \mu(A_j^{(m)}) \; = \; 
 		\measureint{}{u_m}{\mu} \text{,} \quad \iota \to \infty \text{.} 
-		\label{eq:3.3} \tag{3.3}\]
-		Außerdem folgen aus \eqref{eq:3.2} die Ungleichungen
+		\label{glg:4.3} \tag{4.3}\]
+		Außerdem folgen aus \eqref{glg:4.2} die Ungleichungen
 		\[\left| \measureint{}{f}{\mu_\iota} - \measureint{}{u_m}{\mu_\iota} \right| \; \leq \; 
 		\frac{b-a}{m} \text{,} \qquad 
 		\left| \measureint{}{f}{\mu} - \measureint{}{u_m}{\mu} \right| \; \leq \; 
-		\frac{b-a}{m} \label{eq:3.4} \tag{3.4}\]
+		\frac{b-a}{m} \label{glg:4.4} \tag{4.4}\]
 		für $\iota \in I$.
-		Mit \eqref{eq:3.4} gilt nun für alle $m \in \N, \; \iota \in I$
+		Mit \eqref{glg:4.4} gilt nun für alle $m \in \N, \; \iota \in I$
 		\begin{align*}
 			\left| \measureint{}{f}{\mu} - \measureint{}{f}{\mu_\iota} \right| \; &\leq \; 
 			\left| \measureint{}{f}{\mu} - \measureint{}{u_m}{\mu} \right| + 
 			\left| \measureint{}{u_m}{\mu} - \measureint{}{u_m}{\mu_\iota} \right| \\ & \qquad + 
 			\left| \measureint{}{u_m}{\mu_\iota} - \measureint{}{f}{\mu_\iota} \right| \\
 			&\leq \; 2 \cdot \frac{b-a}{m} + \left| \measureint{}{u_m}{\mu_\iota} - 
-			\measureint{}{u_m}{\mu} \right| \label{eq:3.5} \tag{3.5}\text{.}
+			\measureint{}{u_m}{\mu} \right| \label{glg:4.5} \tag{4.5}\text{.}
 		\end{align*}
-		\eqref{eq:3.3} und \eqref{eq:3.5} liefern also letztendlich für alle $m$
+		\eqref{glg:4.3} und \eqref{glg:4.5} liefern also letztendlich für alle $m$
 		\begin{align*}
 			\limsup_{\iota \to \infty} \left| \measureint{}{f}{\mu} - 
 			\measureint{}{f}{\mu_\iota} \right|
@@ -211,7 +211,7 @@
 		\[ \lim_{n \to \infty} F_n(x) \; = \; F(x) \]
 		für alle $x \in \R$ gilt, in denen $F$ stetig ist \cite[Definition 6.1]{Henze.2016}. 
 		
-		Tatsächlich ist die Verteilungskonvergenz von $(\mathbb{P}_n)_n$ gegen $\mathbb{P}$ gerade äquivalent zur schwachen Konvergenz $\mathbb{P}_n \xrightarrow{w} \mathbb{P}$. Dies lässt sich analog zur Äquivalenz (i) $\Leftrightarrow$ (vi) in Satz~\ref{thm:portmanteau} beweisen, wobei für den Beweis der Rückrichtung passende Intervalle als $A_j^{(m)}$ verwendet werden müssen.
+		Tatsächlich ist die Verteilungskonvergenz von $(\mathbb{P}_n)_n$ gegen $\mathbb{P}$ gerade äquivalent zur schwachen Konvergenz $\mathbb{P}_n \xrightarrow{w} \mathbb{P}$. Dies lässt sich analog zur Äquivalenz (i) $\Leftrightarrow$ (vi) in Satz~\ref{satz:portmanteau} beweisen, wobei für den Beweis der Rückrichtung passende Intervalle als $A_j^{(m)}$ verwendet werden müssen.
 	\end{Bemerkung}
 	
 \end{document}
