@@ -213,7 +213,6 @@ Abgabetermin: \theeditend
 
 % PDF specific packages
 \RequirePackage[hyphens]{url}
-\RequirePackage[breaklinks]{hyperref}
 \newcommand\setpdf{
     \hypersetup{%
     pdftitle={\thethesistype},%
