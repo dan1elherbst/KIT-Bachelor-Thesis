@@ -13,15 +13,15 @@
 	Offenbar ist diese Metrik kompliziert und unhandlich, denn $\X$ muss etwa bereits selbst mit einer recht speziellen Metrik versehen sein. Zudem ist die Metrik in dem Sinne etwas unintuitiv, dass es völlig unklar bleibt, 
 	ob und gegebenenfalls wie sich die Geometrie von $(\X, d)$ auf $(\Finitemeasures{\X}, D)$ überträgt.
 	
-	In diesem Abschnitt betrachten wir ausschließlich Wahrscheinlichkeitsmaße und werden uns von rein topologischen zu etwas geometrischeren Überlegungen hinwenden. Damit geht einher, dass in diesem Abschnitt
+	In diesem Kapitel betrachten wir ausschließlich Wahrscheinlichkeitsmaße und werden uns von rein topologischen zu etwas geometrischeren Überlegungen hinwenden. Damit geht einher, dass in diesem Kapitel
 	Polnizität häufig als Eigenschaft metrischer Räume und nicht topologischer Räume angesehen wird. Das bedeutet, dass auf einem polnischen Raum $\X$ immer auch eine Metrik $d$ fixiert ist, der (etwa in der Anwendung)
-	eine besondere Bedeutung zukommt, und die $\X$ vollständig metrisiert. Wir sprechen in diesem Abschnitt dann davon, dass $(\X, d)$ ein \emph{polnischer metrischer Raum} ist.
-	Im folgenden Abschnitt werden wir nun für einen polnischen metrischen Raum $(\X, d)$ eine Klasse geometrisch besonders anschaulicher Metriken auf $\Probmeasures{X}$
+	eine besondere Bedeutung zukommt, und die $\X$ vollständig metrisiert. Wir sprechen dann davon, dass $(\X, d)$ ein \emph{polnischer metrischer Raum} ist.
+	Im folgenden Kapitel werden wir nun für einen polnischen metrischen Raum $(\X, d)$ eine Klasse geometrisch besonders anschaulicher Metriken auf $\Probmeasures{X}$
 	-- die sogenannten \emph{Wassersteinmetriken} -- vorstellen, die die schwache Topologie metrisieren. Hierbei werden wir an vielen Stellen unsere bisherigen 
 	Erkenntnisse -- in erster Linie den Satz von Prokhorov -- beim Einsatz in konkreten Anwendungssituationen sehen können. 
 	
-	Zunächst werden wir in den Teilabschnitten~\ref{subsec:kopplungen} und \ref{subsec:optimaler_transport} einige grundlegende Denkweisen, Begriffe und Ergebnisse aus der Theorie des optimalen Transports vorstellen,
-	die wir anschließend in Teilabschnitt~\ref{subsec:wassersteinmetriken} verwenden, um die Wassersteinmetriken zu beschreiben. Dieser Abschnitt orientiert sich überwiegend an \cite[Kapitel 4 bis 6]{Villani.2009}.
+	Zunächst werden wir in den Abschnitten~\ref{subsec:kopplungen} und \ref{subsec:optimaler_transport} einige grundlegende Denkweisen, Begriffe und Ergebnisse aus der Theorie des optimalen Transports vorstellen,
+	die wir anschließend in Abschnitt~\ref{subsec:wassersteinmetriken} verwenden, um die Wassersteinmetriken zu beschreiben. Dieses Kapitel orientiert sich überwiegend an \cite[Kapitel 4 bis 6]{Villani.2009}.
 	
 	\section{Kopplungen}
 	\label{subsec:kopplungen}
@@ -30,7 +30,7 @@
 	Die Ausgangssituation in Monges Formulierung können wir uns wie folgt vorstellen (vgl. \cite[Seiten 41 und 42]{Villani.2009}):
 	Wir nehmen an, dass wir eine gewisse Menge an Erde aus dem Boden fördern müssen, um diese anschließend an Stellen zu bringen, an denen sie weiterverarbeitet werden kann. Die räumlichen Verteilungen vor und
 	nach dem Transport sind hierbei festgelegt und werden jeweils durch Wahrscheinlichkeitsmaße $\mu$ bzw. $\nu$ auf Räumen $\X$ bzw. $\Y$ modelliert. 
-	Allgemeiner sollen Wahrscheinlichkeitsmaße in diesem Abschnitt also nicht den Zufall, sondern Verteilungen von Gütern (oder allgemeiner Masse) in einem Raum darstellen.
+	Allgemeiner sollen Wahrscheinlichkeitsmaße hier also nicht den Zufall, sondern Verteilungen von Gütern (oder allgemeiner Masse) in einem Raum darstellen.
 	
 	\subfile{figures/figure1.tex}
 	
@@ -159,7 +159,7 @@
 		was bedeutet, dass $\hat{\pi}$ ein optimaler Transportplan zwischen $\mu$ und $\nu$ ist. 
 	\end{proof}
 
-	Im nächsten Teilabschnitt werden wir noch das folgende Resultat aus der Theorie des optimalen Transports benötigen, das uns etwa unter gewissen Voraussetzungen liefert, dass schwache Grenzwerte von Folgen optimaler
+	Im nächsten Abschnitt werden wir noch das folgende Resultat aus der Theorie des optimalen Transports benötigen, das uns etwa unter gewissen Voraussetzungen liefert, dass schwache Grenzwerte von Folgen optimaler
 	Kopplungen selbst wieder optimal sind. Da der Beweis des Satzes sehr technisch ist und den Umfang dieser Arbeit sprengen würde, zitieren wir ihn lediglich.
 
 	\begin{Satz}
@@ -177,11 +177,11 @@
 	\section{Wassersteinmetriken}
 	\label{subsec:wassersteinmetriken}
 	
-	Mit den Ergebnissen aus den Teilabschnitten~\ref{subsec:kopplungen} und \ref{subsec:optimaler_transport} sind wir nun bereit, die Wassersteinmetriken $W_p$ für $p \in [1, \infty)$ zu definieren. Der wesentliche Gedanke hierbei ist,
+	Mit den Ergebnissen aus den Abschnitten~\ref{subsec:kopplungen} und \ref{subsec:optimaler_transport} sind wir nun bereit, die Wassersteinmetriken $W_p$ für $p \in [1, \infty)$ zu definieren. Der wesentliche Gedanke hierbei ist,
 	für einen polnischen metrischen Raum $(\X, d)$ die Distanz zwischen zwei Wahrscheinlichkeitsmaßen $\mu$ und $\nu \in \Probmeasures{\X}$ über die Kosten eines optimalen Transportplans zwischen $\mu$ und
 	$\nu$ zu definieren, wobei die Kostenfunktion eine Potenz von $d$ ist.
 	
-	In diesem Teilabschnitt werden wir mit Satz~\ref{satz:wassersteinmetrik_schwache_konvergenz} das zentrale Resultat dieses Abschnitts formulieren und beweisen: Unter gewissen Voraussetzungen metrisiert $W_p$ die schwache Topologie und $(\Probmeasures{X}, W_p)$ ist selbst ein polnischer metrischer Raum.
+	In diesem Abschnitt werden wir mit Satz~\ref{satz:wassersteinmetrik_schwache_konvergenz} das zentrale Resultat dieses Kapitels formulieren und beweisen: Unter gewissen Voraussetzungen metrisiert $W_p$ die schwache Topologie und $(\Probmeasures{X}, W_p)$ ist selbst ein polnischer metrischer Raum.
 
 	\begin{Definition}
 		\label{def:wassersteinmetrik}
@@ -287,7 +287,7 @@
 		Siehe \cite[Bemerkung 6.5]{Villani.2009}.
 	\end{proof}
 
-	Wir sind nun bereit, uns dem zentralen Satz dieses Abschnitts zu widmen.
+	Wir sind nun bereit, uns dem zentralen Satz dieses Kapitels zu widmen.
 
 	\begin{Satz}
 		\label{satz:wassersteinmetrik_schwache_konvergenz}
