@@ -6,7 +6,6 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \usepackage{subfiles}
-\usepackage[margin=1.5in]{geometry}
 
 % deutsche Sprache
 \usepackage[utf8]{inputenc}
@@ -16,7 +15,6 @@
 % Literaturverzeichnis
 \usepackage[backend=biber, style=alphabetic]{biblatex}
 
-\usepackage[pdftex]{graphicx}
 \usepackage{latexsym}
 \usepackage{amsmath,amssymb,amsthm}
 \usepackage{tikz} % \foreach-Befehl
@@ -28,14 +26,12 @@
 \usepackage{dsfont} % indicator function
 \usepackage{mdframed} % framed theorems
 \usepackage{csquotes}
-\usepackage{titlesec} % new page after every section
 \usepackage{tikz}
 \usepackage{pgfplots}
 \usepackage{subcaption}
 \usepackage{float}
 \newcommand{\sectionbreak}{\clearpage}
 \usepackage[margin=1cm]{caption}
-
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -52,20 +48,16 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Umgebungen
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-	
-% \newmdtheoremenv[backgroundcolor=black!3, innertopmargin=-2pt]{Definition}{Definition}[section]
-% \newmdtheoremenv[backgroundcolor=black!3, innertopmargin=-2pt]{Satz}[Definition]{Satz}
-% \newmdtheoremenv[backgroundcolor=black!3, innertopmargin=-2pt]{Hilfssatz}[Definition]{Hilfssatz}
-% \newmdtheoremenv[backgroundcolor=black!3, innertopmargin=-2pt]{Korollar}[Definition]{Korollar}    
+    
 
 \theoremstyle{definition}
-\newtheorem{Definition}{Definition}[section]
+\newmdtheoremenv[backgroundcolor=black!3, innertopmargin=-2pt]{Definition}{Definition}[chapter]
 \newtheorem*{Beispiel}{Beispiel}
 
 \theoremstyle{plain}
-\newtheorem{Satz}[Definition]{Satz}
+\newmdtheoremenv[backgroundcolor=black!3, innertopmargin=-2pt]{Satz}[Definition]{Satz}
 \newtheorem{Hilfssatz}[Definition]{Hilfssatz}
-\newtheorem{Folgerung}[Definition]{Folgerung}
+\newmdtheoremenv[backgroundcolor=black!3, innertopmargin=-2pt]{Folgerung}[Definition]{Folgerung}
 
 \theoremstyle{remark}
 \newtheorem*{Bemerkung}{Bemerkung}
@@ -118,7 +110,7 @@
 \newcommand{\Bduniffct}[1]{U_b(#1)}
 \newcommand{\Bdlipschitzfct}[1]{\mathrm{Lip}_b(#1)}
 \newcommand{\Lipschitzlequnit}[1]{\mathrm{Lip}_1(#1)}
-\newcommand{\measureintx}[4]{\int_{#1} \, #2 \, #3(\mathrm{d}#4)}
+\newcommand{\measureintx}[4]{\int_{#1} \, #2 \, \mathrm{d}#3(#4)}
 \newcommand{\measureint}[3]{\int_{#1} \, #2 \, \mathrm{d}#3}
 \newcommand{\abs}[1]{\left| #1 \right|}
 \newcommand{\absl}[1]{\left| \, #1 \,\right|}

@@ -1,26 +1,26 @@
-\documentclass[../main/main.tex]{subfiles}
+\documentclass[../thesis/thesis.tex]{subfiles}
 
 \begin{document}
 	
-	\section{Eigenschaften der schwachen Topologie}
-	\label{sec:eigenschaften_der_schwachen_topologie}
+	\chapter{Eigenschaften der schwachen Topologie}
+	\label{chap:eigenschaften_der_schwachen_topologie}
 	
-	Nachdem wir im vorigen Abschnitt die schwache Topologie definiert haben, möchten wir uns nun einige Eigenschaften dieser ansehen, wenn man weitere Bedingungen an den Grundraum $\X$ stellt. 
-	In Teilabschnitt~\ref{subsec:einbettung_des_grundraums} wird eine Möglichkeit vorgestellt, den Grundraum $\X$ in $\Finitemeasures{\X}$ einzubetten und in Teilabschnitt~\ref{subsec:beziehung_zu_eigenschaften_des_grundraums} sehen wir, dass sich bestimmte topologische Eigenschaften des Grundraums $\X$ wie 
+	Nachdem wir im vorigen Kapitel die schwache Topologie definiert haben, möchten wir uns nun einige Eigenschaften dieser ansehen, wenn man weitere Bedingungen an den Grundraum $\X$ stellt. 
+	In Abschnitt~\ref{subsec:einbettung_des_grundraums} wird eine Möglichkeit vorgestellt, den Grundraum $\X$ in $\Finitemeasures{\X}$ einzubetten und in Abschnitt~\ref{subsec:beziehung_zu_eigenschaften_des_grundraums} sehen wir, dass sich bestimmte topologische Eigenschaften des Grundraums $\X$ wie 
 	Metrisierbarkeit, Separabilität, Polnizität und Kompaktheit unter gewissen Voraussetzungen auf $\Finitemeasures{\X}$ bzw. $\Probmeasures{\X}$ übertragen.
-	In Teilabschnitt~\ref{subsec:kompaktheit_von_teilmengen} findet sich mit dem \emph{Satz von Prokhorov} eine sehr hilfreiche Charakterisierung der Kompaktheit von Teilmengen von $\Probmeasures{\X}$.
+	In Abschnitt~\ref{subsec:straffheit_prokhorov} findet sich mit dem \emph{Satz von Prokhorov} eine sehr hilfreiche Charakterisierung der Kompaktheit von Teilmengen von $\Probmeasures{\X}$.
 	
-	\subsection{Einbettung des Grundraums}
+	\section{Einbettung des Grundraums}
 	\label{subsec:einbettung_des_grundraums}
 	
 	Sofern der Grundraum $\X$ metrisierbar ist, liefert der folgende Satz eine Möglichkeit, $\X$ in $\Finitemeasures{\X}$ einzubetten. 
-	Wir orientieren uns dabei an \cite[Hilfssätze 3.2 und 3.3]{Varadarajan.1958}.
+	Wir orientieren uns dabei an \cite[Lemma 3.2 und 3.3]{Varadarajan.1958}.
 	
 	\begin{Satz}
 		\label{satz:einbettung_des_grundraums}
 		Sei $\X$ ein metrisierbarer topologischer Raum. Für $x \in \X$ schreiben wir $\delta_x \in \Probmeasures{\X}$ für das Dirac-Maß im Punkt $x$ und definieren
 		\[ \fctmap{\delta}{\X}{\Finitemeasures{\X}}{x}{\delta_x} \text{.} \]
-		Außerdem setzen wir $\Delta \defby \delta(\X) = \setcomp{\delta_x}{x \in \X}$. Dann gelten die folgenden Aussagen:
+		Außerdem setzen wir $\Delta \defby \delta(\X) = \setcomp{\delta_x}{x \in \X}$. Dann gelten die folgenden Aussagen.
 		\begin{enumeratethm}
 			\item $\delta$ ist ein Homöomorphismus zwischen $\X$ und $\Delta$.
 			\item $\Delta \subseteq \Finitemeasures{\X}$ ist sequentiell abgeschlossen.
@@ -28,29 +28,29 @@
 	\end{Satz}
 
 	\begin{proof}
-		Wir beweisen zunächst Aussage (a). Weil $\X$ metrisierbar ist und die einelementigen Mengen $\set{x}, \; x \in \X$ daher in $\mathcal{B}(\X)$ enthalten sind, ist $\delta$ sicherlich injektiv.
+		Wir beweisen zunächst Aussage (a). Weil $\X$ metrisierbar ist und die einelementigen Mengen $\set{x}$ für $x \in \X$ daher in $\mathcal{B}(\X)$ enthalten sind, ist $\delta$ sicherlich injektiv.
 		Wegen Satz~\ref{satz:netz_konvergenz} (b) genügt es also nachzuweisen, dass für jedes Netz $(x_\iota)_{\iota \in I}$ in $\X$ sowie $z \in \X$ die Äquivalenz
 		\[ x_\iota \to z \quad \iff \quad \delta_{x_\iota} \xrightarrow{w} \delta_z, \quad \iota \to \infty \]
 		gilt. 
 		
-		Sei  $(x_\iota)_{\iota \in I}$ ein Netz in $\X$, das gegen $z \in \X$ konvergiert und sei $f \in \Bdcontfct{\X}$. Dann ist
-		\[ \measureint{}{f}{\delta_{x_\iota}} \; = \; f(x_\iota) \; \to \; f(z) = \measureint{}{f}{\delta_{z}}, \quad \iota \to \infty \text{,} \]
-		also konvergiert $\delta_{x_\iota}$ schwach gegen $\delta_z$. Gelte umgekehrt $\delta_{x_\iota} \xrightarrow{w} \delta_z$. Wähle eine Metrik $d$, die $\X$ metrisiert und
-		setze $f \defby \min (1, d(\cdot, z)) \in \Bdcontfct{\X}$. Dann ist 
+		Sei  $(x_\iota)_{\iota \in I}$ ein Netz in $\X$, das gegen $z \in \X$ konvergiert, und sei $f \in \Bdcontfct{\X}$. Dann ist
+		\[ \measureint{}{f}{\delta_{x_\iota}} \; = \; f(x_\iota) \; \to \; f(z) = \measureint{}{f}{\delta_{z}}, \quad \iota \to \infty \text{.} \]
+		Also strebt $\delta_{x_\iota}$ schwach gegen $\delta_z$. Gelte umgekehrt $\delta_{x_\iota} \xrightarrow{w} \delta_z$. Wähle eine Metrik $d$, die $\X$ metrisiert, und
+		setze $f \defby \min (1, d(\cdot, z)) \in \Bdcontfct{\X}$. Dann erhalten wir 
 		\[ \min (1, d(x_\iota, z)) \; = \; \measureint{}{f}{\delta_{x_\iota}} \; \to \; \measureint{}{f}{\delta_{z}} = 0 \text{,} \]
 		was $x_\iota \to z$ nach sich zieht.
 		
 		Nun möchten wir Aussage (b) zeigen. Sei $(x_n)_n \in \X^\N$ und sei $\mu \in \Finitemeasures{\X}$ mit $\delta_{x_n} \xrightarrow{w} \mu$, $n \to \infty$. Zunächst gilt sicherlich $\mu \in \Probmeasures{\X}$.
 		Außerdem muss $(x_n)_n$ eine konvergente Teilfolge besitzen. Ansonsten ist nämlich $S \defby \setcomp{x_n}{n \in \N} \subseteq \X$ eine unendliche und abgeschlossene Teilmenge. Das Portmanteau-Theorem (Satz~\ref{satz:portmanteau}) liefert also für jede unendliche Teilmenge $\tilde{S} \subseteq S$ die Abschätzung
-		\[ 1 \; = \; \limsup_{n \to \infty} \delta_{x_n}(\tilde{S}) \; \leq \; \mu(\tilde{S}) \; \leq \; 1 \text{,} \]
-		was einen Widerspruch darstellt. Also existiert eine Teilfolge $(x_{n_k})_k$ und $x \in \X$ mit $x_{n_k} \to x, \; k \to \infty$. Damit ist aber auch $\delta_{x_{n_k}} \xrightarrow{w} \delta_x$, weshalb mit
+		\[ 1 \; = \; \limsup_{n \to \infty} \delta_{x_n}(\tilde{S}) \; \leq \; \mu(\tilde{S}) \; \leq \; 1 \text{.} \]
+		Das liefert einen Widerspruch zu $\mu(\X) = 1$. Also existieren eine Teilfolge $(x_{n_k})_k$ und $x \in \X$ mit $x_{n_k} \to x, \; k \to \infty$. Damit ist aber auch $\delta_{x_{n_k}} \xrightarrow{w} \delta_x$, weshalb mit
 		Folgerung~\ref{folgerung:gleichheit_von_maßen} die Gleichheit $\mu = \delta_x \in \Delta$ folgt.
 	\end{proof}
 
-	\subsection{Beziehung zu Eigenschaften des Grundraums}
+	\section{Beziehung zu Eigenschaften des Grundraums}
 	\label{subsec:beziehung_zu_eigenschaften_des_grundraums}
 	
-	Als Grundbedingung möchten wir in diesem Teilabschnitt immer die Metrisierbarkeit von $\X$ fordern.
+	Als Grundbedingung möchten wir in diesem Abschnitt immer die Metrisierbarkeit von $\X$ fordern.
 	Unter dieser Voraussetzung werden die folgenden Äquivalenzen unsere zentralen Erkenntnisse sein:
 	\vspace*{0.5em}
 	\begin{itemize}
@@ -76,8 +76,8 @@
 	\end{Hilfssatz}
 
 	\begin{proof}
-		Sicherlich ist $(\Bdcontfct{\X}, \norm{\cdot}_\infty)$ ein normierter Vektorraum. Siehe \cite[Satz 2.1.6]{Simon.2015} für die Vollständigkeit und
-		\cite[Satz 2.3.7]{Simon.2015} für die Separabilität bei kompaktem $\X$.
+		Sicherlich ist $(\Bdcontfct{\X}, \norm{\cdot}_\infty)$ ein normierter Vektorraum. 
+		Die Vollständigkeit wird in Theorem 2.1.6 von \cite{Simon.2015} gezeigt und die Separabilität im kompakten Fall in Theorem 2.3.7.
 	\end{proof}
 	
 	\begin{Hilfssatz}
@@ -90,28 +90,27 @@
 		Jedes $f \in \Bduniffct{\X}$ besitzt eine eindeutige Fortsetzung $\tilde{f} \in \Bdcontfct{\tilde{\X}}$ mit $\norm{f}_\infty = \norm{\tilde{f}}_\infty$. Damit wird über die Zuordnung
 		\[ \fctmap{E}{\Bduniffct{\X}}{\Bdcontfct{\tilde{\X}}}{f}{\tilde{f}} \]
 		eine isometrische Einbettung von $\Bduniffct{\X}$ nach $\Bdcontfct{\tilde{\X}}$ definiert. 
-		Wegen $\Bdcontfct{\tilde{\X}} = \Bduniffct{\tilde{\X}}$ (vgl. \cite[Satz 2.4.1]{Simon.2015}) ist $\restr{g}{\X} \in \Bduniffct{\X}$ für alle $g \in \Bdcontfct{\tilde{\X}}$ und damit
-		auch $g = E(\restr{g}{\X})$. Also ist $E$ surjektiv und damit eine Isometrie zwischen $\Bduniffct{\X}$ und $\Bdcontfct{\tilde{\X}}$. Hilfssatz~\ref{hilfssatz:beschränkte_stetige_funktionen_banachraum} liefert nun die Behauptung.
+		Wegen $\Bdcontfct{\tilde{\X}} = \Bduniffct{\tilde{\X}}$ (vgl. \cite[Theorem 2.4.1]{Simon.2015}) liegt $\restr{g}{\X}$ in $\Bduniffct{\X}$ für alle $g \in \Bdcontfct{\tilde{\X}}$ und damit ist
+		auch $g = E(\restr{g}{\X})$. Also ist $E$ surjektiv und somit eine Isometrie zwischen $\Bduniffct{\X}$ und $\Bdcontfct{\tilde{\X}}$. Hilfssatz~\ref{hilfssatz:beschränkte_stetige_funktionen_banachraum} liefert nun die Behauptung.
 	\end{proof}
 	
 	\begin{Hilfssatz}
 		\label{hilfssatz:einbettungsraum_R}
-		Sei $R \defby \R^\N$ ausgestattet mit der Produkttopologie von $\R$, also mit der Initialtopologie der Projektionen $\fctmap{\pi_k}{R}{\R}{x = (x_n)_n}{x_k}, \; k \in \N$. Dann ist $R$ 
+		Sei $R \defby \R^\N$ ausgestattet mit der Produkttopologie von $\R$, also mit der Initialtopologie der Projektionen $\fctmap{\pi_k}{R}{\R}{x = (x_n)_n}{x_k}$ für $k \in \N$. Dann ist $R$ 
 		polnisch.
 	\end{Hilfssatz}
 	
 	\begin{proof}
-		\[R \; \cong \; (0, 1)^\N \; = \; \bigcap_{n \in \N}  \left( \prod_{k=1}^{n} (0, 1) \times \prod_{k=n+1}^{\infty} [0,1] \right) \]
-		ist homöomorph zu einer $G_\delta$-Teilmenge des Hilbertwürfels $H$, worauf mit Satz~\ref{satz:universalität_hilbertwürfel} unmittelbar die Behauptung folgt.
+		Aufgrund der Polnizität von $\R$ folgt die Behauptung unmittelbar aus Folgerung~\ref{folgerung:produkte_polnische_räume}.
 	\end{proof}
 
 	Ausgestattet mit den obigen Hilfssätzen können wir nun zum Beweis von Satz~\ref{satz:übertragung_metrisierbarkeit_separabilität} übergehen. Im Wesentlichen werden wir eine Einbettung von $\Finitemeasures{\X}$ nach $R$ konstruieren, die uns direkt die Behauptung liefert.
 	
 	\begin{proof}[Beweis von Satz~\ref{satz:übertragung_metrisierbarkeit_separabilität}]
-		Für die Hinrichtung fixieren wir auf $\X$ eine Metrik $d$, die $\X$ metrisiert. 
+		Wir zeigen zunächst, dass $\Finitemeasures{X}$ für separables $\X$ metrisierbar und separabel ist. Dazu fixieren wir auf $\X$ eine Metrik $d$, die $\X$ metrisiert. 
 		Nach Hilfsssatz~\ref{hilfssatz:einbettung_hilbertwürfel} existiert dann ein Homöomorphismus $\fct{\varphi}{\X}{H}$ von
 		$\X$ auf eine Teilmenge $\varphi(\X)$ des Hilbertwürfels $H$. Wir wählen nun die Metrik $\rho$ aus Hilfssatz~\ref{hilfssatz:hilbertwürfel} auf $H$. Aufgrund der Kompaktheit von $H$ ist
-		$(H, \rho)$ totalbeschränkt und damit auch jede Teilmenge von $H$. Also können wir über $\rho$ eine Metrik $\tilde{d}$ auf $\X$ einführen, sodass $\X$ von $\tilde{d}$ 
+		$(H, \rho)$ totalbeschränkt und damit auch jede Teilmenge von $H$. Also können wir über $\rho$ so eine Metrik $\tilde{d}$ auf $\X$ einführen, dass $\X$ von $\tilde{d}$ 
 		metrisiert wird und $(\X, \tilde{d})$ totalbeschränkt ist. Im Folgenden sei auf $\X$ diese Metrik fixiert. Hilfssatz~\ref{hilfssatz:beschränkte_glm_stetige_funktionen_banachraum} liefert uns, dass 
 		$(\Bduniffct{\X}, \norm{\cdot}_\infty)$ ein separabler Banachraum ist. Sei nun $\mathcal{D} \defby \setcomp{f_n}{n \in \N} \subseteq \Bduniffct{\X}$ eine abzählbare dichte Teilmenge, 
 		die wir so wählen, dass $f_1 = \indfct_\X$ ist.
@@ -122,25 +121,25 @@
 		
 		Wir zeigen zunächst die Injektivität. Seien dazu $\mu, \nu \in \Finitemeasures{\X}$ mit $T(\mu) = T(\nu)$. 
 		Sei außerdem $g \in \Bduniffct{\X}$. Dann gibt es eine Folge $(g_n)_n \in \mathcal{D}^\N$ mit $\norm{g - g_n}_\infty \to 0, \; n \to \infty$, was auch 
-		\[ \measureint{}{g_n}{\mu} \to \measureint{}{g}{\mu} \quad \text{und} \quad \measureint{}{g_n}{\nu} \to \measureint{}{g}{\nu}, \quad n \to \infty \]
+		\[ \measureint{}{g_n}{\mu} \to \measureint{}{g}{\mu} \quad \text{und} \quad \measureint{}{g_n}{\nu} \to \measureint{}{g}{\nu}, \quad n \to \infty \text{,} \]
 		impliziert. Da aber $\measureint{}{g_n}{\mu} = \measureint{}{g_n}{\nu}$ für alle $n \in \N$ gilt, folgt auch $\measureint{}{g}{\mu} = \measureint{}{g}{\nu}$.
 		Folgerung~\ref{folgerung:gleichheit_von_maßen} liefert nun die Gleichheit $\mu = \nu$.
 		
-		Um den Beweis der Hinrichtung abzuschließen, genügt es wegen Satz~\ref{satz:netz_konvergenz} zu beweisen, dass für jedes Netz $(\mu_\iota)_{\iota \in I}$ in $\Finitemeasures{\X}$ und $\mu \in \Finitemeasures{\X}$ die
+		Um den Beweis dieser Implikation abzuschließen, genügt es wegen Satz~\ref{satz:netz_konvergenz} zu beweisen, dass für jedes Netz $(\mu_\iota)_{\iota \in I}$ in $\Finitemeasures{\X}$ und $\mu \in \Finitemeasures{\X}$ die
 		Äquivalenz
-		\[ \mu_\iota \xrightarrow{w} \mu \quad \iff \quad T(\mu_\iota) \to T(\mu), \quad \iota \to \infty  \]
-		gilt.
+		\[ \mu_\iota \xrightarrow{w} \mu \quad \iff \quad T(\mu_\iota) \to T(\mu)  \]
+		für $\iota \to \infty$ gilt.
 		
-		Gelte $\mu_\iota \xrightarrow{w} \mu$, was nach Satz~\ref{satz:portmanteau} äquivalent dazu ist, dass $\lim_{\iota \to \infty} \measureint{}{f}{\mu_\iota} = \measureint{}{f}{\mu}$ für alle 
+		Es gelte $\mu_\iota \xrightarrow{w} \mu$, was nach Satz~\ref{satz:portmanteau} äquivalent dazu ist, dass $\lim_{\iota \to \infty} \measureint{}{f}{\mu_\iota} = \measureint{}{f}{\mu}$ für alle 
 		$f \in \Bduniffct{\X}$ ist. Offenbar impliziert dies die Konvergenz $T(\mu_\iota) \to T(\mu), \; \iota \to \infty$.
 		
 		Sei nun umgekehrt $T(\mu_\iota) \to T(\mu), \; \iota \to \infty$, was gleichbedeutend damit ist, dass 
 		\[ \lim_{\iota \to \infty} \measureint{}{f_n}{\mu_\iota} = \measureint{}{f_n}{\mu} \label{glg:5.1} \tag{5.1} \] 
 		für alle $n \in \N$ gilt.
 		Wegen $f_1 = \indfct_\X$ gilt auch
-		\[ \mu_\iota(\X) \; = \; \measureint{}{\indfct_\X}{\mu_\iota} \; \to \; \measureint{}{\indfct_\X}{\mu} \; = \; \mu(\X), \quad \iota \to \infty \]
-		und damit können wir eine Konstante $C < \infty$ und ein $\iota_0 \in I$ finden, sodass $\mu_\iota(\X) \leq C$ für alle $\iota_0 \preceq \iota$ ist.
-		Sei $g \in \Bduniffct{\X}$ fest aber beliebig. Dann gibt es eine Folge $(g_n)_n \in \mathcal{D}^\N$ mit $\norm{g - g_n}_\infty \to 0, \; n \to \infty$ und für jedes $n \in \N$, $\iota_0 \preceq \iota$ folgt
+		\[ \mu_\iota(\X) \; = \; \measureint{}{\indfct_\X}{\mu_\iota} \; \to \; \measureint{}{\indfct_\X}{\mu} \; = \; \mu(\X), \quad \iota \to \infty \text{,} \]
+		und damit können wir so eine Konstante $C < \infty$ und ein $\iota_0 \in I$ finden, dass $\mu_\iota(\X) \leq C$ für alle $\iota_0 \preceq \iota$ ist.
+		Sei $g \in \Bduniffct{\X}$ fest aber beliebig. Dann gibt es eine Folge $(g_n)_n \in \mathcal{D}^\N$ mit $\norm{g - g_n}_\infty \to 0$, $n \to \infty$. Für alle $n \in \N$ und $\iota_0 \preceq \iota$ folgt
 		\begin{align*}
 			\left| \measureint{}{g}{\mu_\iota} - \measureint{}{g}{\mu} \right| \; &\leq \; 
 			\left| \measureint{}{g}{\mu_\iota} - \measureint{}{g_n}{\mu_\iota} \right| + 
@@ -148,25 +147,25 @@
 			& \qquad + 
 			\left| \measureint{}{g_n}{\mu} - \measureint{}{g}{\mu} \right| \\
 			&\leq \; 2 C \norm{g - g_n}_\infty + \left| \measureint{}{g_n}{\mu_\iota} - 
-			\measureint{}{g_n}{\mu} \right| \text{,}
+			\measureint{}{g_n}{\mu} \right| \text{.}
 		\end{align*}
-		was schließlich mit \eqref{glg:5.1} auf
+		Mit \eqref{glg:5.1} folgern wir
 		\[ \limsup_{\iota \to \infty} \left| \measureint{}{g}{\mu_\iota} - \measureint{}{g}{\mu} \right| \; \leq \; 2 C \norm{g - g_n}_\infty \; \to \; 0, \quad n \to \infty \]
-		führt. Damit gilt 
+		und damit 
 		\[ \measureint{}{g}{\mu_\iota} \; \to \; \measureint{}{g}{\mu}, \quad \iota \to \infty \]
-		für alle $g \in \Bduniffct{\X}$, was nach Satz~\ref{satz:portmanteau} die schwache Konvergenz $\mu_\iota \xrightarrow{w} \mu, \; \iota \to \infty$ impliziert.
+		für alle $g \in \Bduniffct{\X}$. Satz~\ref{satz:portmanteau} liefert nun die schwache Konvergenz $\mu_\iota \xrightarrow{w} \mu$, $\iota \to \infty$.
 		
 		Die Rückrichtung folgt direkt aus Satz~\ref{satz:einbettung_des_grundraums}, da die Metrisierbarkeit und Separabilität von $\Finitemeasures{\X}$ direkt auch die Separabilität von $\X \cong \Delta \subseteq \Finitemeasures{\X}$ nach sich zieht.
 	\end{proof}
 
-	Wir werden uns nun der zweiten Aussage vom Beginn dieses Teilabschnitts widmen. 
+	Wir werden uns nun der zweiten Aussage vom Beginn dieses Abschnitts widmen. 
 	
 	\begin{Satz}
 		\label{satz:übertragung_polnizität}
 		Sei $\X$ ein metrisierbarer topologischer Raum. Dann ist $\Finitemeasures{\X}$ genau dann polnisch, wenn $\X$ polnisch ist.
 	\end{Satz}
 	
-	Für die Hinrichtung zeigen wir in einem Hilfssatz zunächst den wichtigen Spezialfall, dass der Grundraum $\X$ kompakt ist und weiten dies anschließend auf die Klasse aller polnischen Räume aus.
+	In einem Hilfssatz zeigen wir zunächst den wichtigen Spezialfall, dass der Grundraum $\X$ kompakt ist. Dieses Ergebnis weiten wir anschließend auf die Klasse aller polnischen Räume aus.
 
 	\begin{Hilfssatz}
 		\label{hilfssatz:übertragung_polnizität_kompakter_grundraum}
@@ -176,7 +175,7 @@
 	\begin{proof}
 		Wir wählen zunächst eine Metrik $d$, die $\X$ vollständig metrisiert. Da $\X$ insbesondere separabel ist, können wir zunächst genau wie 
 		im Beweis von Satz~\ref{satz:übertragung_metrisierbarkeit_separabilität} verfahren
-		(abgesehen davon, dass wir anstelle von $\tilde{d}$ direkt mit $d$ arbeiten). Es sei außerdem angemerkt, dass nach \cite[Satz 2.4.1]{Simon.2015} aus der Kompaktheit von $\X$ die Gleichheit $\Bdcontfct{\X} = \Bduniffct{\X}$ folgt. Da $\Bdcontfct{\X}$ nach Hilfssatz~\ref{hilfssatz:beschränkte_stetige_funktionen_banachraum} separabel ist, existieren abzählbare dichte Teilmengen $\mathcal{D}_1 \subseteq \Bdcontfct{\X}$ und $\mathcal{D}_2 \subseteq \setcomp{f \in \Bdcontfct{\X}}{f \geq 0}$. Setzen wir 
+		(abgesehen davon, dass wir anstelle von $\tilde{d}$ direkt mit $d$ arbeiten). Es sei außerdem angemerkt, dass nach \cite[Theorem 2.4.1]{Simon.2015} aus der Kompaktheit von $\X$ die Gleichheit $\Bdcontfct{\X} = \Bduniffct{\X}$ folgt. Da $\Bdcontfct{\X}$ nach Hilfssatz~\ref{hilfssatz:beschränkte_stetige_funktionen_banachraum} separabel ist, existieren abzählbare dichte Teilmengen $\mathcal{D}_1 \subseteq \Bdcontfct{\X}$ und $\mathcal{D}_2 \subseteq \setcomp{f \in \Bdcontfct{\X}}{f \geq 0}$. Setzen wir 
 		\[ \mathcal{D} \; \defby \; \setcomp{f_n}{n \in \N} \; \defby \; \set{\indfct_\X} \cup \mathcal{D}_1 \cup \mathcal{D}_2 \text{,} \] 
 		so erhalten wir also wieder die Abbildung
 		\[ \fctmap{T}{\Finitemeasures{\X}}{R}{\mu}{\left( \measureint{}{f_n}{\mu} \right)_{\! n}} \text{,} \]
@@ -185,17 +184,17 @@
 		Nun möchten wir nachweisen, dass $T(\Finitemeasures{\X}) \subseteq R$ abgeschlossen ist, was uns sofort die Behauptung liefert, denn $R$ ist nach Hilfssatz~\ref{hilfssatz:einbettungsraum_R} selbst polnisch.
 		
 		Wir verwenden die Charakterisierung von Abgeschlossenheit 
-		durch Netze aus Satz~\ref{satz:netz_konvergenz} (a). Ist $(\mu_\iota)_{\iota \in I}$ ein Netz in $\Finitemeasures{\X}$ mit $T(\mu_\iota) \to r, \; \iota \to \infty$
-		für ein $r = (r_n)_n \in R$, so müssen wir zeigen, dass $r$ in $T(\Finitemeasures{\X})$ enthalten ist. Sicherlich gilt
+		durch Netze aus Satz~\ref{satz:netz_konvergenz} (a). Sei $(\mu_\iota)_{\iota \in I}$ ein Netz in $\Finitemeasures{\X}$ mit $T(\mu_\iota) \to r$, $\iota \to \infty$,
+		für ein $r = (r_n)_n \in R$. Wir müssen zeigen, dass $r$ in $T(\Finitemeasures{\X})$ enthalten ist. Sicherlich gilt
 		$r_n = \lim_{\iota \to \infty} \measureint{}{f_n}{\mu_\iota}$ für alle $n \in \N$ und analog zum Beweis von Satz~\ref{satz:übertragung_metrisierbarkeit_separabilität} 
 		können wir wieder eine Konstante $C < \infty$ und ein $\iota_0 \in I$ finden, sodass $\mu_\iota(\X) \leq C$ für alle $\iota_0 \preceq \iota$ ist.
 		
 		Wir setzen nun $A \defby \mathrm{span}_\R \, \mathcal{D}$, was ein dichter Untervektorraum von $\Bdcontfct{\X}$ ist. Auf $A$ definieren wir
 		\[ \fctmap{l}{A}{\R}{f}{\lim_{\iota \to \infty} \measureint{}{f}{\mu_\iota}} \text{.} \]
-		Offenbar ist $l$ wohndefiniert und linear. Da $l(f) \leq C \norm{f}_\infty$ für alle $f \in \Bdcontfct{\X}$ gilt, folgt $l \in A^\ast$. Nach dem Satz von Hahn-Banach (vgl. \cite[Folgerung 5.5.2]{Simon.2015})
+		Offenbar ist $l$ wohndefiniert und linear. Da $l(f) \leq C \norm{f}_\infty$ für alle $f \in \Bdcontfct{\X}$ gilt, folgt $l \in A^\ast$. Nach dem Satz von Hahn-Banach (vgl. \cite[Corollary 5.5.2]{Simon.2015})
 		existiert nun eine (eindeutige) Fortsetzung von $l$ auf ganz $\Bdcontfct{\X}$, die wir ab jetzt $l$ nennen. Es ist $l \in \Bdcontfct{\X}^\ast$ 
 		mit $\norm{l}_{\Bdcontfct{\X}^\ast} = \norm{l}_{A^\ast}$. Offenbar gilt $l(f) \geq 0$ für alle $f \in \Bdcontfct{\X}$ mit $f \geq 0$ und damit gibt es 
-		nach dem Darstellungssatz von Riesz-Markov (vgl. \cite[Satz 4.8.8]{Simon.2015}) ein Maß $\mu \in \Finitemeasures{\X}$ mit 
+		nach dem Darstellungssatz von Riesz-Markov (vgl. \cite[Theorem 4.8.8]{Simon.2015}) ein Maß $\mu \in \Finitemeasures{\X}$ mit 
 		\[ l(f) \; = \; \measureint{}{f}{\mu}, \quad f \in \Bduniffct{\X} \text{.} \]
 		Also folgt
 		\[ \lim_{\iota \to \infty} \measureint{}{f_n}{\mu_\iota} \; = \; r_n \; = \; l(f_n) \; = \measureint{}{f_n}{\mu} \]
@@ -206,18 +205,17 @@
 	Mit Hilfe von Hilfssatz~\ref{hilfssatz:übertragung_polnizität_kompakter_grundraum} kann jetzt der Beweis von Satz~\ref{satz:übertragung_polnizität} geführt werden.
 
 	\begin{proof}[Beweis von Satz~\ref{satz:übertragung_polnizität}]
-		Wir widmen uns zunächst der Hinrichtung des Beweises. Analog zum Beweis von Satz~\ref{satz:übertragung_metrisierbarkeit_separabilität} fixieren wir auf 
+		Wir zeigen zuerst, dass für polnisches $\X$ auch $\Finitemeasures{X}$ polnisch ist. Analog zum Beweis von Satz~\ref{satz:übertragung_metrisierbarkeit_separabilität} fixieren wir auf 
 		$\X$ eine Metrik $\tilde{d}$, bezüglich der $\X$ totalbeschränkt ist und
-		bezeichnen die Vervollständigung von $\X$ bezüglich dieser Metrik mit $\tilde{\X}$. $\tilde{\X}$ ist als kompakter metrischer Raum polnisch, weshalb $\X \subseteq \tilde{\X}$
+		bezeichnen die Vervollständigung von $\X$ bezüglich dieser Metrik mit $\tilde{\X}$. Als kompakter metrischer Raum ist $\tilde{\X}$ polnisch, weshalb $\X \subseteq \tilde{\X}$
 		nach Satz~\ref{satz:alexandroff} eine $G_\delta$-Teilmenge ist. Indem wir ein Maß $\mu \in \Finitemeasures{\X}$ mittels 
-		$\mu(B) \defby \mu(B \cap \X), \; B \in \mathcal{B}(\tilde{\X})$ auf $\tilde{\X}$ fortsetzen, können wir $\Finitemeasures{\X}$ als Teilmenge von $\Finitemeasures{\tilde{\X}}$
-		auffassen (in diesem Fall entspricht die Teilraumtopologie von $\Finitemeasures{\X} \subseteq \Finitemeasures{\tilde{\X}}$ tatsächlich der schwachen Topologie von $\Finitemeasures{\X}$). Weil $\Finitemeasures{\tilde{\X}}$ nach 
+		$\mu(B) \defby \mu(B \cap \X)$ für $B \in \mathcal{B}(\tilde{\X})$ auf $\tilde{\X}$ fortsetzen, können wir $\Finitemeasures{\X}$ als Teilmenge von $\Finitemeasures{\tilde{\X}}$
+		auffassen. In diesem Fall entspricht die Teilraumtopologie von $\Finitemeasures{\X} \subseteq \Finitemeasures{\tilde{\X}}$ tatsächlich der schwachen Topologie von $\Finitemeasures{\X}$. Weil $\Finitemeasures{\tilde{\X}}$ nach 
 		Hilfssatz~\ref{hilfssatz:übertragung_polnizität_kompakter_grundraum} polnisch ist, genügt es also nach Satz~\ref{satz:alexandroff} zu zeigen, 
 		dass $\Finitemeasures{\X} \subseteq \Finitemeasures{\tilde{\X}}$ eine $G_\delta$-Teilmenge ist.
 		
-		Da $\X \subseteq \tilde{\X}$ eine $G_\delta$-Teilmenge ist, existieren offene Mengen $U_k \subseteq \tilde{\X}, \; k \in \N$ so, dass 
-		$\X \; = \; \bigcap_{k \in \N} U_k$
-		gilt. Insbesondere ist damit auch
+		Da $\X \subseteq \tilde{\X}$ eine $G_\delta$-Teilmenge ist, existieren offene Mengen $U_k \subseteq \tilde{\X}$ für $k \in \N$ mit 
+		$\X \; = \; \bigcap_{k \in \N} U_k$. Insbesondere ist damit auch
 		$\Finitemeasures{\X} \; = \; \bigcap_{k \in \N} \Finitemeasures{U_k}$.
 		Für $k, r \in \N$ setzen wir nun
 		\[ V_{k, r} \; \defby \; \setcomp{\mu \in \Finitemeasures{\tilde{\X}}}{\mu(U_k^{\mathsf{c}}) < \frac{1}{r}} \text{.} \]
@@ -238,7 +236,7 @@
 
 	\begin{Bemerkung}
 		Satz~\ref{satz:übertragung_metrisierbarkeit_separabilität} und Satz~\ref{satz:übertragung_polnizität} gelten auch, wenn man $\Finitemeasures{\X}$ durch $\Probmeasures{\X}$ ersetzt 
-		(für Satz~\ref{satz:übertragung_polnizität} folgt die Hinrichtung dann etwa aus der Abgeschlossenheit von $\Probmeasures{\X} \subseteq \Finitemeasures{\X}$).
+		(für Satz~\ref{satz:übertragung_polnizität} wird dann etwa die Abgeschlossenheit von $\Probmeasures{\X} \subseteq \Finitemeasures{\X}$ benötigt).
 	\end{Bemerkung}
 
 	Abschließend soll noch die dritte der zu Beginn formulierten Äquivalenzen gezeigt werden.
@@ -251,16 +249,16 @@
 	\begin{proof}
 		Im Wesentlichen stellen wir den Beweis von Proposition 5.3 in \cite{vanGaans.200203} vor.
 		
-		Für die Hinrichtung sei $\X$ zunächst kompakt. Dann ist $\X$ insbesondere separabel und damit ist $\Probmeasures{\X}$ 
+		Sei $\X$ zunächst kompakt. Dann ist $\X$ insbesondere separabel und damit ist $\Probmeasures{\X}$ 
 		nach Satz~\ref{satz:übertragung_metrisierbarkeit_separabilität} metrisierbar.
 		Außerdem setzen wir
 		\[ A \; \defby \; \setcomp{l \in \Bdcontfct{\X}^\ast}{\norm{l}_{\Bdcontfct{\X}^\ast} \leq 1, \; l(\indfct_{\X}) = 1, \; 
 			\forall f \in \Bdcontfct{\X} \text{ mit } f \geq 0 : l(f) \geq 0}\]
 		und analog zu \eqref{glg:4.1}
 		\[ \fctmap{\Phi}{\Probmeasures{\X}}{A}{\mu}{\left[\fctmap{l_\mu}{\Bdcontfct{\X}}{\R}{f}{\measureint{}{f}{\mu}}\right]} \text{.} \]
-		Der Darstellungssatz von Riesz-Markov (vgl. \cite[Satz 4.8.8]{Simon.2015}) liefert die Bijektivität von $\Phi$, also ist $\Phi$ ein 
+		Der Darstellungssatz von Riesz-Markov (vgl. \cite[Theorem 4.8.8]{Simon.2015}) liefert die Bijektivität von $\Phi$, also ist $\Phi$ ein 
 		Homöomorphismus zwischen $\Probmeasures{\X}$ und $A \subseteq \Bdcontfct{\X}^\ast$ 
-		mit der Schwach-$\ast$-Topologie. Mit dem Satz von Banach-Alaoglu (\cite[Satz 5.8.1]{Simon.2015}) folgt nun, dass $A$ als abgeschlossene Teilmenge des Kompaktums 
+		mit der Schwach-$\ast$-Topologie. Mit dem Satz von Banach-Alaoglu (\cite[Theorem 5.8.1]{Simon.2015}) folgt nun, dass $A$ als abgeschlossene Teilmenge des Kompaktums 
 		$\setcomp{l \in C_b(\X)^\ast}{\norm{l}_{\Bdcontfct{\X}^\ast} \leq 1}$ selbst kompakt bezüglich der Schwach-$\ast$-Topologie ist, 
 		was schließlich die Kompaktheit von $\Probmeasures{\X}$ nach sich zieht.
 		
@@ -272,12 +270,11 @@
 	in diesem Fall vollständig durch konvergente Folgen charakterisiert wird. Wir müssen im weiteren Verlauf (bei metrisierbarem und separablem $\X$) also nicht mehr mit dem Konzept des Netzes arbeiten, das wir zu Beginn eingeführt haben. Stattdessen
 	können wir einfach immer Folgen verwenden, um Stetigkeit, Abgeschlossenheit, etc. nachzuweisen.
 
-	\subsection{Kompaktheit von Teilmengen}
-	\label{subsec:kompaktheit_von_teilmengen}
+	\section{Straffheit und der Satz von Prokhorov}
+	\label{subsec:straffheit_prokhorov}
 	
 	Das zentrale Resultat dieses Abschnitts stellt der \emph{Satz von Prokhorov} (Satz~\ref{satz:prokhorov}) dar, der für einen polnischen Raum $\X$ eine einfache Charakterisierung der Kompaktheit von Teilmengen von $\Probmeasures{\X}$ bereitstellt. Hierfür werden wir zunächst das Konzept der \emph{Straffheit} einführen, das auch in der Formulierung des Satzes von Prokhorov enthalten ist.
-	
-	Wir orientieren uns im folgenden Abschnitt an \cite[Kapitel 4.14]{Simon.2015}.
+	Wir orientieren uns an \cite[Section 4.14]{Simon.2015}.
 	
 	\begin{Definition}
 		Sei $\X$ ein polnischer Raum und $\mu \in \Finitemeasures{\X}$. Dann nennen wir 
@@ -285,7 +282,6 @@
 		$K_\varepsilon \subseteq \X$ gibt mit 
 		\[ \mu(K_\varepsilon) \geq \mu(\X)  - \varepsilon \]
 		für alle $\mu \in A$.
-		
 		Ferner heißt ein Maß $\mu \in \Finitemeasures{\X}$ \emph{straff}, falls $\set{\mu}$ straff ist.
 	\end{Definition}
 	
@@ -310,7 +306,7 @@
 		\; \defby \; \bigcap_{k \in \N} \left( \bigcup_{m=1}^{M_k} B_{1/k}(x_m) \right) 
 		\quad \text{und} \quad K_\varepsilon \defby \overline{S_\varepsilon} \text{.} \]
 		Offenbar ist $S_\varepsilon$ totalbeschränkt und damit ist $K_\varepsilon = \overline{S_\varepsilon}$ 
-		kompakt (dies wird etwa in \cite[Satz 2.3.8]{Simon.2015} bewiesen, 
+		kompakt (letzteres wird etwa in \cite[Theorem 2.3.8]{Simon.2015} bewiesen, 
 		hier geht die Vollständigkeit von $(\X, d)$ ein).
 		Außerdem berechnen wir
 		\begin{align*}
@@ -341,9 +337,8 @@
 		gilt. Sei nun $\varepsilon > 0$. Dann gibt es eine abgeschlossene Teilmenge 
 		$C \subseteq B \subseteq \X$ mit $\mu(B \setminus C) < \varepsilon$. 
 		Außerdem gibt es nach Satz~\ref{satz:straffheit} eine kompakte Menge 
-		$\tilde{K} \subseteq \X$ mit $\mu(\tilde{K}) \geq 1 - \varepsilon$. Setzen 
-		wir nun $K \defby \tilde{K} \cap C$, so ist $K$ ebenfalls kompakt und 
-		$K \subseteq B$ mit 
+		$\tilde{K} \subseteq \X$ mit $\mu(\tilde{K}) \geq 1 - \varepsilon$. Wir setzen nun $K \defby \tilde{K} \cap C$. Dann ist $K$ ebenfalls kompakt und 
+		erfüllt $K \subseteq B$ mit 
 		\[ \mu(B \setminus K) 
 		\; = \; \mu((B \setminus C) \cap (B \setminus \tilde{K})) 
 		\; \leq \; \mu(B \setminus C) + \mu(K^{\ast \mathsf{c}}) 
@@ -354,20 +349,20 @@
 		und insgesamt ist $\mu$ regulär.
 	\end{proof}
 	
-	Nun können wir den zentralen Satz dieses Teilabschnitts formulieren und beweisen.
+	Nun können wir den zentralen Satz dieses Abschnitts formulieren und beweisen.
 	
 	\begin{Satz}[Prokhorov]
 		\label{satz:prokhorov}
-		Sei $\X$ ein polnischer Raum und $A \subseteq \Probmeasures{\X}$. Dann sind folgende Aussagen äquivalent:
-		\begin{equivalentthm}
-			\item $A$ ist straff.
-			\item $\overline{A} \subseteq \Probmeasures{\X}$ ist kompakt.
-		\end{equivalentthm}
+		Sei $\X$ ein metrisierbarer topologischer Raum und $A \subseteq \Probmeasures{\X}$. Dann gelten die folgenden Aussagen.
+		\begin{enumeratethm}
+			\item Ist $\X$ separabel und $A \subseteq \Probmeasures{X}$ straff, so ist $\overline{A} \subseteq \Probmeasures{\X}$ kompakt.
+			\item Ist $\X$ polnisch und $\overline{A} \subseteq \Probmeasures{\X}$ kompakt, so ist $A \subseteq \Probmeasures{X}$ straff.
+		\end{enumeratethm}
 	\end{Satz}
 	
 	\begin{proof}
-		Sei zunächst $A \subseteq \Probmeasures{\X}$ straff. Wir möchten nun beweisen, dass $\overline{A}$ 
-		kompakt ist, was wegen der Metrisierbarkeit von $\Probmeasures{\X}$ (siehe Satz~\ref{satz:übertragung_metrisierbarkeit_separabilität} bzw. Satz~\ref{satz:übertragung_polnizität}) äquivalent dazu ist,
+		Sei zunächst $\X$ separabel und $A \subseteq \Probmeasures{\X}$ straff. Wir möchten nun beweisen, dass $\overline{A}$ 
+		kompakt ist, was wegen der Metrisierbarkeit von $\Probmeasures{\X}$ (siehe Satz~\ref{satz:übertragung_metrisierbarkeit_separabilität}) äquivalent dazu ist,
 		dass jede Folge $(\mu_n)_n \in A^\N$ eine schwach konvergente Teilfolge besitzt. 
 		
 		Aufgrund der Straffheit von $A$ gibt es für jedes $m \in \N$ ein Kompaktum $K^{(m)} \subseteq \X$, 
@@ -381,7 +376,7 @@
 		In Analogie zu Satz~\ref{satz:übertragung_kompaktheit} lässt sich einsehen, dass 
 		\[ \Unitmeasures{K^{(m)}} \; \defby \; \setcomp{\fct{\mu}{\mathcal{B}(K^{(m)})}{[0,1]}}{\mu \; 
 			\text{ist endliches Maß und } \mu(K^{(m)}) \leq 1} \]
-		für alle $m \in \N$ kompakt bezüglich der schwachen Topologie ist. Damit existiert ein Maß 
+		für jedes $m \in \N$ kompakt bezüglich der schwachen Topologie ist. Damit existiert ein Maß 
 		$\nu^{(1)} \in \Unitmeasures{K^{(1)}}$ und eine Teilfolge $(\mu_{n_j}^{(1)})_j$ von $(\mu_n)_n$ mit
 		\[ \restr{\mu_{n_j}^{(1)}}{K^{(1)}} \; \xrightarrow{w} \; \nu^{(1)} \text{.} \]
 		Auf dieselbe Art und Weise lassen für alle $m\geq 2$ sukzessive Maße 
@@ -392,22 +387,21 @@
 		$(\mu_{n_j})_j$ von $(\mu_n)_n$, die
 		\[ \restr{\mu_{n_j}}{K^{(m)}} \; \xrightarrow{w} \; \nu^{(m)}, \quad j \to \infty \]
 		für alle $m \in \N$ erfüllt.
-		
-		Außerdem können die Maße $\nu^{(m)}, \; m \in \N$ via 
-		$\nu^{(m)}(B) \defby \nu^{(m)}(B \cap K^{(m)}), \; B \in \mathcal{B}(\X)$ einfach auf $\X$ fortgesetzt werden. 
+		Außerdem können die Maße $\nu^{(m)}$, $m \in \N$, via 
+		$\nu^{(m)}(B) \defby \nu^{(m)}(B \cap K^{(m)})$ für $B \in \mathcal{B}(\X)$ einfach auf $\X$ fortgesetzt werden. 
 		Mit dieser Konvention können wir nun beweisen, dass die Maße
-		$\nu^{(m)}, \; m \in \N$ in dem Sinne monoton wachsen, dass 
+		$\nu^{(m)}$, $m \in \N$, in dem Sinne monoton wachsen, dass 
 		\[ \nu^{(m)}(B) \leq \nu^{(m+1)}(B) \label{glg:5.4} \tag{5.4} \]
 		für alle $B \in \mathcal{B}(\X)$ und $m \in \N$ gilt.
 		
 		Wegen schwacher Regularität (vgl. Satz~\ref{satz:schwache_regularität}) genügt es, die Ungleichung \eqref{glg:5.4} 
 		für abgeschlossene Mengen zu zeigen. Sei also $m \in \N$ fixiert, $C \subseteq \X$ abgeschlossen 
-		und seien $\fct{f_k}{\X}{\R}, \; k \in \N$ die gleichmäßig stetigen, beschränkten Funktionen aus 
+		und seien $\fct{f_k}{\X}{\R}$, $k \in \N$ die lipschitzstetigen, beschränkten Funktionen aus 
 		Hilfssatz~\ref{hilfssatz:offene_mengen} (wobei irgendeine Metrik auf $\X$, die $\X$ metrisiert, fixiert sei). Unter Ausnutzung von \eqref{glg:5.3} folgt nun 
 		\[ \measureint{K^{(m)}}{f_k}{\mu_{n_j}} \; \leq \; \measureint{K^{(m+1)}}{f_k}{\mu_{n_j}} \]
 		für alle $k, j \in \N$. Wegen 
 		\[ \measureint{K^{(m)}}{f_k}{\mu_{n_j}} \to \ \measureint{}{f_k}{\nu^{(m)}} \quad \text{und} 
-		\quad \measureint{K^{(m+1)}}{f_k}{\mu_{n_j}} \to \ \measureint{}{f_k}{\nu^{(m+1)}}, \quad j \to \infty \]
+		\quad \measureint{K^{(m+1)}}{f_k}{\mu_{n_j}} \to \ \measureint{}{f_k}{\nu^{(m+1)}}, \quad j \to \infty \text{,} \]
 		ist damit auch 
 		\[ \measureint{}{f_k}{\nu^{(m)}} \; \leq \; \measureint{}{f_k}{\nu^{(m+1)}} \]
 		für alle $k \in \N$, was wiederum aufgrund der Konvergenz $f_k \convdown \indfct_C$ und dem Satz von Lebesgue Ungleichung 
@@ -417,18 +411,18 @@
 		\[ \fctmap{\nu}{\mathcal{B}(\X)}{[0, 1]}{B}{\sup_{m \in \N} \nu^{(m)}(B)} \]
 		ein Wahrscheinlichkeitsmaß auf $\X$ definiert wird, gegen das $(\mu_{n_j})_j$ schwach konvergiert.
 		
-		Zunächst verifizieren wir, dass $\nu$ ein Wahrscheinlichkeitsmaß ist. $\nu(\emptyset) = 0$ ist klar. 
+		Zunächst verifizieren wir, dass $\nu$ ein Wahrscheinlichkeitsmaß ist. Die Bedingung $\nu(\emptyset) = 0$ ist klar. 
 		Weil $\nu^{(m)}$ in $\Unitmeasures{K^{(m)}}$ liegt und wir \eqref{glg:5.2} angenommen haben, gilt 
 		\[\nu^{(m)}(\X) = \nu^{(m)}(K^{(m)}) \in [1 - \frac{1}{m+1}, 1]\] 
 		für alle $m \in \N$ und damit $\nu(\X) = 1$. Für die $\sigma$-Additivität seien 
-		$B_k \in \mathcal{B}(\X), \; k \in \N$ paarweise disjunkt. Dann gilt
+		$B_k \in \mathcal{B}(\X)$, $k \in \N$, paarweise disjunkt. Dann gilt
 		\begin{align*}
 			\nu \left( \bigcupdot_{k \in \N} B_k \right) \; &= \; \sup_{m \in \N} \; \nu^{(m)} \left( \bigcupdot_{k \in \N} B_k \right) 
 			\; = \; \sup_{m \in \N} \; \sum_{k=1}^{\infty} \nu^{(m)}(B_k) \\
-			&\stackrel{\eqref{glg:5.4}}{=} \; \sum_{k=1}^{\infty} \; \sup_{m \in \N} \nu^{(m)}(B_k) 
+			&= \; \sum_{k=1}^{\infty} \; \sup_{m \in \N} \nu^{(m)}(B_k) 
 			\; = \; \sum_{k=1}^{\infty} \nu(B_k) \text{,}
 		\end{align*}
-		wobei in der vorletzten Gleichung der Satz von Beppo Levi verwendet wurde. 
+		wobei in der vorletzten Gleichung \eqref{glg:5.4} und der Satz von Beppo Levi verwendet wurden. 
 		Insgesamt haben wir also $\nu \in \Probmeasures{\X}$ nachgewiesen.
 		
 		Jetzt bleibt lediglich zu zeigen, dass $(\mu_{n_j})_j$ tatsächlich schwach gegen $\nu$ konvergiert. 
@@ -442,9 +436,9 @@
 			&\leq \; \lim_{m \to \infty} \left( \nu^{(m)}(C) + \frac{1}{m+1} \right) 
 			\; = \; \nu(C) \text{,}
 		\end{align*}
-		was den Beweis der Hinrichtung von Satz~\ref{satz:prokhorov} abschließt.
+		was den Beweis von (a) abschließt.
 		
-		Für die Rückrichtung sei nun $\overline{A}$ kompakt. Außerdem sei $d$ eine Metrik, die $\X$ vollständig metrisiert 
+		Sei nun $\X$ polnisch und $\overline{A}$ kompakt. Außerdem sei $d$ eine Metrik, die $\X$ vollständig metrisiert 
 		und $\mathcal{D} \defby \setcomp{x_n}{n \in \N} \subseteq \X$ eine abzählbare dichte Teilmenge.
 		
 		Wir behaupten, dass für alle $\delta > 0$ ein solches $M_\delta \in \N$ existiert, dass
@@ -466,20 +460,19 @@
 		\[ \mu(\X) \; \leq \; 1 - \delta \; < \; 1 \text{,} \]
 		was einen Widerspruch dazu darstellt, dass es sich bei $\mu$ um ein 
 		Wahrscheinlichkeitsmaß auf $\X$ handelt. Also muss unsere Behauptung in \eqref{glg:5.5} tatsächlich gelten.
-		
 		Sei nun ein $\varepsilon > 0$ gegeben. Wir setzen 
 		\[ S_\varepsilon 
 		\; \defby \; \bigcap_{k \in \N} \bigcup_{m=1}^{M_{\varepsilon / 2^k}} 
 		B_{\varepsilon / 2^k}(x_m) \]
 		und verfahren nun ähnlich wie im Beweis von Satz~\ref{satz:straffheit}: Offensichtlich ist $S_\varepsilon$ total beschränkt und damit auch 
-		$ K_\varepsilon \defby \overline{S_\varepsilon}$ kompakt (vgl. \cite[Satz 2.3.8]{Simon.2015}). 
+		$ K_\varepsilon \defby \overline{S_\varepsilon}$ kompakt (vgl. \cite[Theorem 2.3.8]{Simon.2015}). 
 		Außerdem gilt für alle $\mu \in A$
 		\[
 		\mu(K_\varepsilon) \; \geq \; \mu(S_\varepsilon) \; = \; \mu\left(\bigcap_{k \in \N} \bigcup_{m=1}^{M_{\varepsilon / 2^k}} 
 		B_{\varepsilon / 2^k}(x_m)\right)
 		\; \geq \; 1 - \sum_{k=1}^{\infty} \frac{\varepsilon}{2^k} \; = \; 1 - \varepsilon
 		\]
-		und damit ist $A$ straff.
+		und damit ist $A$ straff. Also folgt auch Aussage (b).
 	\end{proof}
 	
 \end{document}

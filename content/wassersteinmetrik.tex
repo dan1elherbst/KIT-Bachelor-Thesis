@@ -1,43 +1,44 @@
-\documentclass[../main/main.tex]{subfiles}
+\documentclass[../thesis/thesis.tex]{subfiles}
 
 \begin{document}
 	
-	\section{Wassersteinmetriken und optimaler Transport}
+	\chapter{Wassersteinmetriken und optimaler Transport}
+	\label{chap:wassersteinmetriken}
 	
 	Eine unserer zentralen vorigen Erkenntnisse war, dass für einen polnischen Raum $\X$ auch $\Finitemeasures{\X}$ bzw. $\Probmeasures{\X}$ polnisch ist (siehe Satz~\ref{satz:übertragung_polnizität}). 
 	Im zugehörigen Beweis haben wir allerdings explizit gar keine Metrik angegeben, die $\Finitemeasures{\X}$ vollständig metrisiert. Analysiert man den Beweis schrittweise, so lässt sich die Metrik $D$,
 	die uns in Satz~\ref{satz:übertragung_polnizität} zu unserer Erkenntnis verhalf, allerdings rekonstruieren: Es gilt nämlich
-	\[ D(\mu, \nu) \; \defby \; \max_{n \in \N} \frac{\abs{h\left( \measureint{}{f_n}{\mu} \right) - h\left(\measureint{}{f_n}{\nu} \right)}}{2^n}, \quad \mu, \nu \in \Finitemeasures{\X} \]
+	\[ D(\mu, \nu) \; \defby \; \max_{n \in \N} \frac{\abs{h\left( \measureint{}{f_n}{\mu} \right) - h\left(\measureint{}{f_n}{\nu} \right)}}{2^n}, \quad \mu, \nu \in \Finitemeasures{\X} \text{,} \]
 	für einen Homöomorphismus $\fct{h}{\R}{(0, 1)}$ und eine dichte Teilmenge $\setcomp{f_n}{n \in \N} \subseteq \Bduniffct{\X}$, die $\indfct_{\X}$ enthält. Dabei muss eine Metrik $d$ auf $\X$ gewählt sein, 
 	bezüglich der $(\X, d)$ totalbeschränkt ist.
 	Offenbar ist diese Metrik kompliziert und unhandlich, denn $\X$ muss etwa bereits selbst mit einer recht speziellen Metrik versehen sein. Zudem ist die Metrik in dem Sinne etwas unintuitiv, dass es völlig unklar bleibt, 
 	ob und gegebenenfalls wie sich die Geometrie von $(\X, d)$ auf $(\Finitemeasures{\X}, D)$ überträgt.
 	
-	In diesem Abschnitt betrachten wir ausschließlich Wahrscheinlichkeitsmaße und werden uns von rein topologischen zu etwas geometrischeren Überlegungen hinwenden. Damit geht einher, dass in diesem Abschnitt
+	In diesem Kapitel betrachten wir ausschließlich Wahrscheinlichkeitsmaße und werden uns von rein topologischen zu etwas geometrischeren Überlegungen hinwenden. Damit geht einher, dass in diesem Kapitel
 	Polnizität häufig als Eigenschaft metrischer Räume und nicht topologischer Räume angesehen wird. Das bedeutet, dass auf einem polnischen Raum $\X$ immer auch eine Metrik $d$ fixiert ist, der (etwa in der Anwendung)
-	eine besondere Bedeutung zukommt, und die $\X$ vollständig metrisiert. Wir sprechen in diesem Abschnitt dann davon, dass $(\X, d)$ ein \emph{polnischer metrischer Raum} ist.
-	Im folgenden Abschnitt werden wir nun für einen polnischen metrischen Raum $(\X, d)$ eine Klasse geometrisch besonders anschaulicher Metriken auf $\Probmeasures{X}$
+	eine besondere Bedeutung zukommt, und die $\X$ vollständig metrisiert. Wir sprechen dann davon, dass $(\X, d)$ ein \emph{polnischer metrischer Raum} ist.
+	Im folgenden Kapitel werden wir nun für einen polnischen metrischen Raum $(\X, d)$ eine Klasse geometrisch besonders anschaulicher Metriken auf $\Probmeasures{X}$
 	-- die sogenannten \emph{Wassersteinmetriken} -- vorstellen, die die schwache Topologie metrisieren. Hierbei werden wir an vielen Stellen unsere bisherigen 
 	Erkenntnisse -- in erster Linie den Satz von Prokhorov -- beim Einsatz in konkreten Anwendungssituationen sehen können. 
 	
-	Zunächst werden wir in den Teilabschnitten~\ref{subsec:kopplungen} und \ref{subsec:optimaler_transport} einige grundlegende Denkweisen, Begriffe und Ergebnisse aus der Theorie des optimalen Transports vorstellen,
-	die wir anschließend in Teilabschnitt~\ref{subsec:wassersteinmetriken} verwenden, um die Wassersteinmetriken zu beschreiben. Dieser Abschnitt orientiert sich überwiegend an \cite[Kapitel 4 bis 6]{Villani.2009}.
+	Zunächst werden wir in den Abschnitten~\ref{subsec:kopplungen} und \ref{subsec:optimaler_transport} einige grundlegende Denkweisen, Begriffe und Ergebnisse aus der Theorie des optimalen Transports vorstellen,
+	die wir anschließend in Abschnitt~\ref{subsec:wassersteinmetriken} verwenden, um die Wassersteinmetriken zu beschreiben. Dieses Kapitel orientiert sich überwiegend an \cite[Chapter 4-6]{Villani.2009}.
 	
-	\subsection{Kopplungen}
+	\section{Kopplungen}
 	\label{subsec:kopplungen}
 	
 	Beim optimalen Transport orientieren wir uns an der Formulierung von Monge, der mit seiner Arbeit \cite{Monge.} das Gebiet begründete.  
-	Die Ausgangssituation in Monges Formulierung können wir uns wie folgt vorstellen (vgl. \cite[Seiten 41 und 42]{Villani.2009}):
+	Die Ausgangssituation in Monges Formulierung können wir uns wie folgt vorstellen (vgl. \cite[S. 41-42]{Villani.2009}):
 	Wir nehmen an, dass wir eine gewisse Menge an Erde aus dem Boden fördern müssen, um diese anschließend an Stellen zu bringen, an denen sie weiterverarbeitet werden kann. Die räumlichen Verteilungen vor und
 	nach dem Transport sind hierbei festgelegt und werden jeweils durch Wahrscheinlichkeitsmaße $\mu$ bzw. $\nu$ auf Räumen $\X$ bzw. $\Y$ modelliert. 
-	Allgemeiner sollen Wahrscheinlichkeitsmaße in diesem Abschnitt also nicht den Zufall, sondern Verteilungen von Gütern (oder allgemeiner Masse) in einem Raum darstellen.
+	Allgemeiner sollen Wahrscheinlichkeitsmaße hier also nicht den Zufall, sondern Verteilungen von Gütern (oder allgemeiner Masse) in einem Raum darstellen.
 	
 	\subfile{figures/figure1.tex}
 	
 	Wir möchten nun eine Möglichkeit vorstellen, mittels \emph{Kopplungen} einen Transportplan zwischen zwei Masseverteilungen $\mu$ und $\nu$ zu modellieren, der spezifiziert, woher wie viel Masse wohin transportiert werden soll.
 	
 	\begin{Definition}[Kopplung]
-		Seien $\X$, $\Y$ topologische Räume und $A \subseteq \Probmeasures{\X}$, $B \subseteq \Probmeasures{\Y}$. Wir definieren dann
+		Seien $\X$ und $\Y$ topologische Räume sowie $A \subseteq \Probmeasures{\X}$ und $B \subseteq \Probmeasures{\Y}$. Wir definieren dann
 		\[ \Pi(A, B) \; \defby \; \setcomp{\pi \in \Probmeasures{\X \times \Y}}{\pi(\cdot \times \Y) \in A \quad \text{und} \quad \pi(\X \times \cdot) \in B} \text{.}\]
 		Für $\mu \in \Probmeasures{\X}$ und $\nu \in \Probmeasures{\Y}$ definieren wir außerdem $\Pi(\mu, \nu) \; \defby \; \Pi(\set{\mu}, \set{\nu})$ und nennen die
 		Elemente von $\Pi(\mu, \nu)$ \emph{Kopplungen} von $\mu$ und $\nu$ oder auch \emph{Transportpläne} zwischen $\mu$ und $\nu$.
@@ -61,10 +62,10 @@
 	\end{Hilfssatz}
 
 	\begin{proof}
-		Der Beweis von Aussage (a) orientiert sich an \cite[Hilfssatz 4.4]{Villani.2009}. Fixiere ein beliebiges $\varepsilon > 0 $ und wähle kompakte Teilmengen $K_{\varepsilon/2} \subseteq \X$ sowie $L_{\varepsilon/2} \subseteq \Y$ so, dass $\mu(K_{\varepsilon/2}) \geq 1 - \frac{\varepsilon}{2}$ 
-		für alle $\mu \in A$ und $\nu(L_{\varepsilon/2}) \geq 1 - \frac{\varepsilon}{2}$ für alle $\nu \in B$ gilt. Dann ist $K_{\varepsilon/2} \times L_{\varepsilon/2} \subseteq \Probmeasures{\X \times \Y}$ auch kompakt und für jede Kopplung $\pi$ von $\mu$ und $\nu$ gilt
+		Der Beweis von Aussage (a) orientiert sich an \cite[Lemma 4.4]{Villani.2009}. Fixiere ein beliebiges $\varepsilon > 0 $ und wähle kompakte Teilmengen $K_{\varepsilon/2} \subseteq \X$ sowie $L_{\varepsilon/2} \subseteq \Y$ so, dass $\mu(K_{\varepsilon/2}) \geq 1 - \frac{\varepsilon}{2}$ 
+		für alle $\mu \in A$ und $\nu(L_{\varepsilon/2}) \geq 1 - \frac{\varepsilon}{2}$ für alle $\nu \in B$ gilt. Dann ist $K_{\varepsilon/2} \times L_{\varepsilon/2} \subseteq \X \times \Y$ auch kompakt und für jede Kopplung $\pi$ von $\mu$ und $\nu$ gilt
 		\begin{align*}
-			\pi(K_{\varepsilon/2} \times L_{\varepsilon/2}) \; &= \; 1 - \pi(K_{\varepsilon/2}^\mathsf{c} \times \Y \cup \X \times L_{\varepsilon/2}^\mathsf{c}) \\
+			\pi(K_{\varepsilon/2} \times L_{\varepsilon/2}) \; &= \; 1 - \pi \left( \left(K_{\varepsilon/2}^\mathsf{c} \times \Y \right) \cup \left(\X \times L_{\varepsilon/2}^\mathsf{c} \right)\right) \\
 			&\geq \; 1 - \mu(K_{\varepsilon/2}^\mathsf{c}) - \nu(L_{\varepsilon/2}^\mathsf{c}) \; \geq \; 1 - \varepsilon \text{,}
 		\end{align*}
 		also ist auch $\Pi(A, B) \subseteq \Probmeasures{\X \times \Y}$ straff.
@@ -82,9 +83,9 @@
 
 	\begin{Hilfssatz}
 		\label{hilfssatz:konvergenz_kopplungen}
-		Seien $\X$, $\Y$ metrisierbare topologische Räume und seien $(\mu_k)_k \in \Probmeasures{\X}^\N$, $\mu \in \Probmeasures{\X}$, $(\nu_k)_k \in \Probmeasures{\Y}^\N$ und $\nu \in \Probmeasures{\Y}$ mit
+		Seien $\X$ und $\Y$ metrisierbare topologische Räume sowie $(\mu_k)_k \in \Probmeasures{\X}^\N$, $\mu \in \Probmeasures{\X}$, $(\nu_k)_k \in \Probmeasures{\Y}^\N$ und $\nu \in \Probmeasures{\Y}$ mit
 		\[ \mu_k \xrightarrow{w} \mu \quad \text{und} \quad \nu_k \xrightarrow{w} \nu, \quad k \to \infty \text{.} \]
-		Sei außerdem $\pi_k \in \Pi(\mu_k, \nu_k)$ für alle $k \in \N$ und $\pi \in \Probmeasures{\X \times \Y}$ so, dass
+		Seien außerdem $\pi_k \in \Pi(\mu_k, \nu_k)$ für alle $k \in \N$ und $\pi \in \Probmeasures{\X \times \Y}$ so, dass
 		\[ \pi_k \xrightarrow{w} \pi, \quad k \to \infty \text{.} \]
 		Dann ist $\pi \in \Pi(\mu, \nu)$.
 	\end{Hilfssatz}
@@ -96,39 +97,38 @@
 		ist $\pi$ in $\Pi(\mu, \nu)$ enthalten.
 	\end{proof}
 
-	\subsection{Optimaler Transport}
+	\section{Optimaler Transport}
 	\label{subsec:optimaler_transport}
 	
 	Im Allgemeinen wird es sehr viele unterschiedliche Transportpläne zwischen zwei Maßen $\mu$ und $\nu$ geben. Offenbar können wir aber intuitiv bereits sagen, dass manche Transportpläne gewissermaßen
 	\enquote*{besser} als andere sind: Ist etwa $\X$ ein Grundraum und wir betrachten Transportpläne zwischen $\mu \in \Probmeasures{X}$ und sich selbst, so können wir die triviale Kopplung $\pi_1(A \times B) \defby \mu(A \cap B)$ wählen, 
-	die jede Masse einfach genau an ihrem Platz lässt, oder wir können die unabhängige Kopplung $\pi_2(A \times B) \defby \mu(A) \times \mu(B)$ nehmen, bei der die Masse in jedem Punkt \enquote*{gleichmäßig} 
+	die jede Masse einfach genau an ihrem Platz lässt, oder wir können die unabhängige Kopplung $\pi_2(A \times B) \defby \mu(A) \mu(B)$ nehmen, bei der die Masse in jedem Punkt \enquote*{gleichmäßig} 
 	verteilt wird. Wenn $\mu$ nicht in einem Punkt konzentiert ist, handelt es sich hierbei um zwei verschiedene Kopplungen, aber natürlich wäre die triviale Kopplung $\pi_1$ zu präferieren, wenn wir den
 	\enquote*{Arbeitsaufwand} minimieren möchten. 
 	
 	In der nächsten Definition führen wir eine Möglichkeit ein, den Aufwand eines Transportplans zu quantifizieren.
 
 	\begin{Definition}[Kosten eines Transportplans]
-		Seien $\X$, $\Y$ topologische Räume, $\mu \in \Probmeasures{\X}$, $\nu \in \Probmeasures{\Y}$ und $\fct{c}{\X \times \Y}{[0, \infty]}$ eine $\mathcal{B}(\X \times \Y)$-messbare Kostenfunktion.
-		Die Kosten von $\pi \in \Pi(\mu, \nu)$ möchten wir dann mit
-		\[ C(\pi) \; \defby \; \measureint{}{c}{\pi} \; = \; \measureintx{\X \times \Y}{c(x, y)}{\pi}{(x, y)} \in \; [0, \infty] \]
-		bezeichnen.
+		Seien $\X$ und $\Y$ topologische Räume, $\mu \in \Probmeasures{\X}$, $\nu \in \Probmeasures{\Y}$ und $\fct{c}{\X \times \Y}{[0, \infty]}$ eine $\mathcal{B}(\X \times \Y)$-messbare Kostenfunktion.
+		Die \emph{Kosten} von $\pi \in \Pi(\mu, \nu)$ sind dann
+		\[ C(\pi) \; \defby \; \measureint{}{c}{\pi} \; = \; \measureintx{\X \times \Y}{c(x, y)}{\pi}{x, y} \in \; [0, \infty] \text{.} \]
 	\end{Definition}
 
-	$c(x, y)$ soll in diesem Fall für $x \in \X$ und $y \in \Y$ den Aufwand angeben, der für den Transport einer Einheitsmasse von $x$ nach $y$ nötig ist. Der Modellierung liegt die Annahme zugrunde, dass 
+	Die Zahl $c(x, y)$ soll in diesem Fall für $x \in \X$ und $y \in \Y$ den Aufwand angeben, der für den Transport einer Einheitsmasse von $x$ nach $y$ nötig ist. Der Modellierung liegt die Annahme zugrunde, dass 
 	die Kosten, um eine Masse $m$ von $x$ nach $y$ zu transportieren, gerade $m\cdot c(x, y)$ ist.
 	
 	Im Falle stetiger Kostenfunktionen liefert uns der folgende Satz die Existenz eines optimalen Transportplans, der die Kosten über alle möglichen Transportpläne minimiert.
 
 	\begin{Satz}[Existenz eines optimalen Transportplans]
 		\label{satz:existenz_optimaler_transportplan}
-		Seien $\X$, $\Y$ polnische Räume, $\mu \in \Probmeasures{\X}$, $\nu \in \Probmeasures{\Y}$ und $\fct{c}{\X \times \Y}{[0, \infty]}$ eine stetige 
+		Seien $\X$ und $\Y$ polnische Räume, $\mu \in \Probmeasures{\X}$, $\nu \in \Probmeasures{\Y}$ und $\fct{c}{\X \times \Y}{[0, \infty]}$ eine stetige 
 		Kostenfunktion. Dann existiert eine Kopplung $\hat{\pi}$ von $\mu$ und $\nu$, die 
 		\[ C(\hat{\pi}) \; = \; \min_{\pi \in \Pi(\mu, \nu)} C(\pi) \]
 		erfüllt. Wir nennen $\hat{\pi}$ eine \emph{optimale Kopplung} von $\mu$ und $\nu$ oder auch einen \emph{optimalen Transportplan} zwischen $\mu$ und $\nu$.
 	\end{Satz}
 
 	\begin{Bemerkung}
-		Der Beweis folgt \cite[Satz 4.1 und Hilfssatz 4.3]{Villani.2009}, wo eine allgemeinere Version des Satzes vorgestellt wird, die lediglich die Unterhalbstetigkeit von $c$ fordert 
+		Die obige Aussage ist ein Spezialfall von Theorem 4.1 in \cite{Villani.2009}, wo eine allgemeinere Version des Satzes vorgestellt wird, die lediglich die Unterhalbstetigkeit von $c$ fordert 
 		sowie unter gewissen Bedingungen die Negativität von $c$ zulässt. Für unsere Zwecke reicht obige Formulierung allerdings aus.
 	\end{Bemerkung}
 
@@ -145,8 +145,7 @@
 		$\measureint{}{c_l}{\pi_k} \; \leq \; \measureint{}{c}{\pi_k}$ für alle $k, l \in \N$ und damit auch 
 		\[ \measureint{}{c_l}{\pi} \; = \; \lim_{k \to \infty} \measureint{}{c_l}{\pi_k} \; \leq \; \liminf_{k \to \infty} \measureint{}{c}{\pi_k} \]
 		für alle $l \in \N$. Der Satz von Beppo Levi liefert also
-		\[ \measureint{}{c}{\pi} \; = \; \lim_{l \to \infty} \measureint{}{c_l}{\pi} \; \leq \; \liminf_{k \to \infty} \measureint{}{c}{\pi_k} \]
-		und es folgt die Behauptung.
+		\[ \measureint{}{c}{\pi} \; = \; \lim_{l \to \infty} \measureint{}{c_l}{\pi} \; \leq \; \liminf_{k \to \infty} \measureint{}{c}{\pi_k} \text{.} \qedhere \]
 	\end{proof}
 
 	\begin{proof}[Beweis von Satz~\ref{satz:existenz_optimaler_transportplan}]
@@ -159,34 +158,34 @@
 		was bedeutet, dass $\hat{\pi}$ ein optimaler Transportplan zwischen $\mu$ und $\nu$ ist. 
 	\end{proof}
 
-	Im nächsten Teilabschnitt werden wir noch das folgende Resultat aus der Theorie des optimalen Transports benötigen, das uns etwa unter gewissen Voraussetzungen liefert, dass schwache Grenzwerte von Folgen optimaler
+	Im nächsten Abschnitt werden wir noch das folgende Resultat aus der Theorie des optimalen Transports benötigen, das uns etwa unter gewissen Voraussetzungen liefert, dass schwache Grenzwerte von Folgen optimaler
 	Kopplungen selbst wieder optimal sind. Da der Beweis des Satzes sehr technisch ist und den Umfang dieser Arbeit sprengen würde, zitieren wir ihn lediglich.
 
 	\begin{Satz}
 		\label{satz:optimale_transportpläne_kompakt}
-		Seien $\X$, $\Y$ polnische Räume, sei $\fct{c}{\X \times \Y}{[0, \infty)}$ eine stetige Kostenfunktion und seien $A \subseteq \Probmeasures{\X}$ und $B \subseteq \Probmeasures{\Y}$ kompakte Teilmengen.
+		Seien $\X$ und $\Y$ polnische Räume, $\fct{c}{\X \times \Y}{[0, \infty)}$ eine stetige Kostenfunktion und seien $A \subseteq \Probmeasures{\X}$ und $B \subseteq \Probmeasures{\Y}$ kompakte Teilmengen.
 		Dann ist 
 		\[ \hat{\Pi}(A, B) \; \defby \; \setcomp{\pi \in \Pi(A, B)}{\pi \; \text{ist eine optimale Kopplung}} \; \subseteq \; \Probmeasures{\X \times \Y} \]
 		kompakt.
 	\end{Satz}
 
 	\begin{proof}
-		Siehe \cite[Folgerung 5.21]{Villani.2009}.
+		Siehe \cite[Corollary 5.21]{Villani.2009}.
 	\end{proof}
 
-	\subsection{Wassersteinmetriken}
+	\section{Wassersteinmetriken}
 	\label{subsec:wassersteinmetriken}
 	
-	Mit den Ergebnissen aus den Teilabschnitten~\ref{subsec:kopplungen} und \ref{subsec:optimaler_transport} sind wir nun bereit, die Wassersteinmetriken $W_p$ für $p \in [1, \infty)$ zu definieren. Der wesentliche Gedanke hierbei ist,
+	Mit den Ergebnissen aus den Abschnitten~\ref{subsec:kopplungen} und \ref{subsec:optimaler_transport} sind wir nun bereit, die Wassersteinmetriken $W_p$ für $p \in [1, \infty)$ zu definieren. Der wesentliche Gedanke hierbei ist,
 	für einen polnischen metrischen Raum $(\X, d)$ die Distanz zwischen zwei Wahrscheinlichkeitsmaßen $\mu$ und $\nu \in \Probmeasures{\X}$ über die Kosten eines optimalen Transportplans zwischen $\mu$ und
 	$\nu$ zu definieren, wobei die Kostenfunktion eine Potenz von $d$ ist.
 	
-	In diesem Teilabschnitt werden wir mit Satz~\ref{satz:wassersteinmetrik_schwache_konvergenz} das zentrale Resultat dieses Abschnitts formulieren und beweisen: Unter gewissen Voraussetzungen metrisiert $W_p$ die schwache Topologie und $(\Probmeasures{X}, W_p)$ ist selbst ein polnischer metrischer Raum.
+	In diesem Abschnitt werden wir mit Satz~\ref{satz:wassersteinmetrik_schwache_konvergenz} das zentrale Resultat dieses Kapitels formulieren und beweisen: Unter gewissen Voraussetzungen metrisiert $W_p$ die schwache Topologie und $(\Probmeasures{X}, W_p)$ ist selbst ein polnischer metrischer Raum.
 
 	\begin{Definition}
 		\label{def:wassersteinmetrik}
 		Sei $(\X, d)$ ein polnischer metrischer Raum, sei $p \in [1, \infty)$ und seien $\mu, \nu \in \Probmeasures{\X}$. Dann nennen wir
-		$$ W_p(\mu, \nu) \; \defby \; \left(\inf_{\pi \in \Pi(\mu, \nu)} \measureintx{\X \times \X}{d(x, y)^p}{\pi}{(x, y)}\right)^{\! 1/p} \; \in \; [0, \infty] $$
+		$$ W_p(\mu, \nu) \; \defby \; \left(\inf_{\pi \in \Pi(\mu, \nu)} \measureintx{\X \times \X}{d(x, y)^p}{\pi}{x, y}\right)^{\! 1/p} \; \in \; [0, \infty] $$
 		die \emph{$p$-te Wassersteindistanz} zwischen $\mu$ und $\nu$.
 	\end{Definition}
 
@@ -201,18 +200,18 @@
 		Offensichtlich ist $W_p$ symmetrisch.
 		
 		Für die positive Definitheit seien $\mu, \nu \in \Probmeasures{\X}$ mit $W_p(\mu, \nu) = 0$. Dann ist
-		\[ W_p(\mu, \nu)^p \; = \inf_{\pi \in \Pi(\mu, \nu)} \measureintx{\X \times \X}{d(x, y)^p}{\pi}{(x, y)} \; = \; 0 \]
+		\[ W_p(\mu, \nu)^p \; = \inf_{\pi \in \Pi(\mu, \nu)} \measureintx{\X \times \X}{d(x, y)^p}{\pi}{x, y} \; = \; 0 \]
 		und da die Zuordnung $(x, y) \mapsto d(x, y)$ stetig ist, existiert nach Satz~\ref{satz:existenz_optimaler_transportplan} eine Kopplung $\hat{\pi} \in \Pi(\mu, \nu)$ mit
-		\[ \measureintx{\X \times \X}{d(x, y)^p}{\hat{\pi}}{(x, y)} \; = \; 0 \text{.} \]
+		\[ \measureintx{\X \times \X}{d(x, y)^p}{\hat{\pi}}{x, y} \; = \; 0 \text{.} \]
 		Damit folgt $\hat{\pi}(\setcomp{(x, x)}{x \in \X}) = \hat{\pi}(\set{d(x, y)^p = 0}) = 1$ und für jedes $B \in \mathcal{B}(\X)$ gilt
 		$\mu(B) = \hat{\pi}(B \times \X) = \hat{\pi}(\X \times B) = \nu(B)$, also $\mu = \nu$.
 		
 		Es bleibt die Dreiecksungleichung zu zeigen. Seien dazu $\mu_1, \mu_2, \mu_3 \in \Probmeasures{\X}$ und seien $\hat{\pi}_{1, 2}$ und $\hat{\pi}_{2, 3}$ optimale Kopplungen von
-		$\mu_1$ und $\mu_2$ bzw. $\mu_2$ und $\mu_3$. Nach \cite[Seiten 23 und 24]{Villani.2009} gibt es nun ein Wahrscheinlichkeitsmaß $\pi \in \Probmeasures{\X^3}$ mit 
+		$\mu_1$ und $\mu_2$ bzw. $\mu_2$ und $\mu_3$. Nach \cite[S. 11-12]{Villani.2009} gibt es nun ein Wahrscheinlichkeitsmaß $\pi \in \Probmeasures{\X^3}$ mit 
 		$\pi(\cdot \times \X) = \hat{\pi}_{1, 2}$ und $\pi(\X \times \cdot) = \hat{\pi}_{2, 3}$. Damit gilt
 		\begin{align*}
-			W_p(\mu_1, \mu_3) \; &\leq \; \left(\measureintx{\X \times \X}{d(x, z)^p}{\pi}{(x, y, z)}\right)^{\! 1/p} \\
-			                     &\leq \; \left(\measureintx{\X \times \X}{d(x, y)^p}{\pi}{(x, y, z)}\right)^{\! 1/p} + \left(\measureintx{\X \times \X}{d(y, z)^p}{\pi}{(x, y, z)}\right)^{\! 1/p} \\
+			W_p(\mu_1, \mu_3) \; &\leq \; \left(\measureintx{\X^3}{d(x, z)^p}{\pi}{x, y, z}\right)^{\! 1/p} \\
+			                     &\leq \; \left(\measureintx{\X^3}{d(x, y)^p}{\pi}{x, y, z}\right)^{\! 1/p} + \left(\measureintx{\X^3}{d(y, z)^p}{\pi}{x, y, z}\right)^{\! 1/p} \\
 			                     &=    \; W_p(\mu_1, \mu_2) + W_p(\mu_2, \mu_3) \text{,}
 		\end{align*}
 		wobei wir bei der zweiten Abschätzung die Minkowski-Ungleichung anwenden.
@@ -220,7 +219,7 @@
 
 	\begin{Bemerkung}
 		Seien $x_0, y_0 \in \X$. Wegen $\Pi(\delta_{x_0}, \delta_{y_0}) = \set{\delta_{(x_0, y_0)}} \subseteq \Probmeasures{\X \times \X}$ folgt
-		\[ W_p(\delta_{x_0}, \delta_{y_0}) \; = \; \left( \measureintx{\X \times \X}{d(x, y)^p}{\delta_{(x_0, y_0)}}{(x, y)} \right)^{1/p} \; = \; d(x_0, y_0) \text{.} \]
+		\[ W_p(\delta_{x_0}, \delta_{y_0}) \; = \; \left( \measureintx{\X \times \X}{d(x, y)^p}{\delta_{(x_0, y_0)}}{x, y} \right)^{1/p} \; = \; d(x_0, y_0) \text{.} \]
 		Die Abbildung 
 		\[ (\X, d) \to (\Probmeasures{\X}, W_p), \quad x \mapsto \delta_x \]
 		ist also eine isometrische Einbettung. Insbesondere ist dies auch vor dem Kontext von Satz~\ref{satz:einbettung_des_grundraums} zu betrachten, wo wir nachgewiesen haben, dass obige Abbildung ein Homöomorphismus auf 
@@ -228,15 +227,15 @@
 	\end{Bemerkung}
 
 	\begin{Bemerkung}
-		Seien $\pi \in \Probmeasures{\X \times \X}$, $1 \leq p \leq q < \infty$ und $r \in [1, \infty]$ so, dass $\frac{1}{q/p} + \frac{1}{r} = 1$. Eine Anwendung der Hölder-Ungleichung liefert dann
+		Seien $\pi \in \Probmeasures{\X \times \X}$, $1 \leq p \leq q < \infty$ und $r \in [1, \infty]$ mit $\frac{1}{q/p} + \frac{1}{r} = 1$. Eine Anwendung der Hölder-Ungleichung liefert dann
 		\begin{align*}
-			\measureintx{\X \times \X}{d(x, y)^p}{\pi}{(x, y)} \; &\leq \; \left( \measureintx{\X \times \X}{(d(x, y)^p)^{q/p}}{\pi}{(x, y)} \right)^{p/q} \left( \measureintx{\X \times \X}{}{\pi}{(x, y)} \right)^{1/r} \\
-			                                                    &=    \; \left( \measureintx{\X \times \X}{d(x, y)^q}{\pi}{(x, y)} \right)^{p/q} \text{,}
+			\measureintx{\X \times \X}{d(x, y)^p}{\pi}{x, y} \; &\leq \; \left( \measureintx{\X \times \X}{(d(x, y)^p)^{q/p}}{\pi}{x, y} \right)^{p/q} \left( \measureintx{\X \times \X}{}{\pi}{x, y} \right)^{1/r} \\
+			                                                    &=    \; \left( \measureintx{\X \times \X}{d(x, y)^q}{\pi}{x, y} \right)^{p/q} \text{,}
 		\end{align*}
 		was
-		\[ \left( \measureintx{\X \times \X}{d(x, y)^p}{\pi}{(x, y)} \right)^{1/p} \; \leq \; \left( \measureintx{\X \times \X}{d(x, y)^q}{\pi}{(x, y)} \right)^{1/q} \]
+		\[ \left( \measureintx{\X \times \X}{d(x, y)^p}{\pi}{x, y} \right)^{1/p} \; \leq \; \left( \measureintx{\X \times \X}{d(x, y)^q}{\pi}{x, y} \right)^{1/q} \]
 		und damit
-		\[ W_p(\mu, \nu) \; \leq \; W_q(\mu, \nu), \quad \mu, \nu \in \Probmeasures{\X \times \X} \]
+		\[ W_p(\mu, \nu) \; \leq \; W_q(\mu, \nu), \quad \mu, \nu \in \Probmeasures{\X \times \X} \text{,} \]
 		impliziert.
 	\end{Bemerkung}
 
@@ -246,16 +245,16 @@
 		Normalverteilungen mit Erwartungswerten 
 		$\lambda_1,\lambda_2 \in \R$ und Varianzen $\sigma_1^2,\sigma_2^2 \in (0, \infty)$. Wir möchten $W_2(\mu_1, \mu_2)$ berechnen.
 		
-		Sei dazu $\pi \in \Pi(\mu_1, \mu_2)$ beliebig und sei $(Z_1, Z_2)^{\top}$ ein Zufallsvektor, der $\pi$ als Verteilung besitzt. Insbesondere existieren auch derartige Zufallsvariablen $X_1, X_2$ mit Verteilung $\mathcal{N}(0, 1)$, dass
+		Sei dazu $\pi \in \Pi(\mu_1, \mu_2)$ beliebig und sei $(Z_1, Z_2)^{\top}$ ein Zufallsvektor, der $\pi$ als Verteilung besitzt. Insbesondere existieren auch derartige Zufallsvariablen $X_1$ und $X_2$ mit Verteilung $\mathcal{N}(0, 1)$, dass
 		\[ Z_1 = \lambda_1 + \sigma_1 X_1 \quad \text{und} \quad Z_2 = \lambda_2 + \sigma_2 X_2 \]
 		gilt. Nun ist 
 		\begin{align*}
-			\measureintx{\R^2}{\abs{x-y}^2}{\pi}{(x, y)} \; &=    \; \E \left[ (Z_1 - Z_2)^2 \right] \; = \; \E \left[ (\lambda_1 + \sigma_1 X_1 - \lambda_2 - \sigma_2 X_2)^2 \right] \\
+			\measureintx{\R^2}{\abs{x-y}^2}{\pi}{x, y} \; &=    \; \E \left[ (Z_1 - Z_2)^2 \right] \; = \; \E \left[ (\lambda_1 + \sigma_1 X_1 - \lambda_2 - \sigma_2 X_2)^2 \right] \\
 			                                                &=    \; \lambda_1^2 + \sigma_1^2 + \lambda_2^2 + \sigma_2^2 - 2 \lambda_1 \lambda_2 - 2 \sigma_1 \sigma_2 \E \left[X_1 X_2\right] \\
 			                                                &\geq \; \left(\lambda_1 - \lambda_2\right)^2 + \left(\sigma_1 - \sigma_2\right)^2
 		\end{align*}
 		mit Gleichheit in der letzten Abschätzung, falls $\E \left[X_1 X_2\right] = 1$, also falls fast sicher $X_1 = X_2$ gilt. Damit ist
-		\[ W_2(\mu_1, \mu_2) \; = \; \left(\inf_{\pi \in \Pi(\mu_1, \mu_2)} \measureintx{\R^2}{\abs{x-y}^2}{\pi}{(x, y)}\right)^{\! 1/2} \; = \; \norm{\begin{pmatrix} \lambda_1 \\ \sigma_1 \end{pmatrix} - \begin{pmatrix} \lambda_2 \\ \sigma_2 \end{pmatrix}}_2 \]
+		\[ W_2(\mu_1, \mu_2) \; = \; \left(\inf_{\pi \in \Pi(\mu_1, \mu_2)} \measureintx{\R^2}{\abs{x-y}^2}{\pi}{x, y}\right)^{\! 1/2} \; = \; \norm{\begin{pmatrix} \lambda_1 \\ \sigma_1 \end{pmatrix} - \begin{pmatrix} \lambda_2 \\ \sigma_2 \end{pmatrix}}_2 \]
 		und die Abbildung
 		\[ \fctmap{\mathcal{N}}{(\R \times (0, \infty), \norm{\cdot}_2)}{(\Probmeasures{\R}, W_2)}{(\lambda, \sigma)}{\mathcal{N}(\lambda, \sigma)} \]
 		ist eine isometrische Einbettung. Dies bedeutet insbesondere, dass die Wahrscheinlichkeitsmaße zu aufeinanderfolgenden Lebesgue-Dichten $f_{\lambda, \sigma}$ in Abbildung~\ref{Fig:SubRight} in $W_2$ äquidistant liegen.
@@ -265,9 +264,9 @@
 
 	Auch abgesehen davon, dass es sich bei $W_p$ streng genommen um keine Metrik handelt, metrisiert $W_p$ die schwache Konvergenz für jeden polnischen metrischen Raum $(\X, d)$ noch nicht.
 	In \cite{Villani.2009} wird dies gelöst, indem $\Probmeasures{\X}$ auf eine Teilmenge eingeschränkt wird, auf der $W_p$ lediglich endliche Werte annimmt, und ein leicht abgeändertes Konzept
-	von schwacher Konvergenz in dieser Teilmenge einführt (siehe \cite[Definitionen 6.4 und 6.8]{Villani.2009}). Wir umgehen diesen zusätzlichen technischen Aufwand, 
+	von schwacher Konvergenz in dieser Teilmenge einführt (siehe \cite[Definition 6.4 und 6.8]{Villani.2009}). Wir umgehen diesen zusätzlichen technischen Aufwand, 
 	indem wir ab sofort die Beschränktheit von $d$ annehmen.
-	In der Praxis lässt sich für einen metrischen Raum $(\X, d)$ immer eine äquivalente, beschränkte Metrik $\tilde{d}$ finden, die für kleine Werte $d$ selbst entspricht. Beispielsweise lässt sich
+	In der Praxis lässt sich für einen metrischen Raum $(\X, d)$ immer eine beschränkte Metrik $\tilde{d}$ finden, die für kleine Werte $d$ selbst entspricht und damit insbesondere auch dieselbe Topologie wie $d$ induziert. Beispielsweise kann man
 	\[ \tilde{d} \; \defby \; \min \left(d, d_{\max}\right) \]
 	für eine gewisse maximale Distanz $d_{\max} \in (0, \infty)$ wählen.
 	
@@ -276,18 +275,18 @@
 
 	\begin{Satz}[Dualitätsformel von Kantorovich-Rubinstein]
 		\label{satz:dualitätsformel_von_kantorovich_rubinstein}
-		Sei $(\X, d)$ ein polnischer metrischer Raum, wobei $d$ eine beschränkte Metrik sei. Wir definieren
-		\[ \Lipschitzlequnit{\X} \; \defby \; \setcomp{\fct{f}{\X}{\R}}{f \; \text{ist }1\text{-lipschitzstetig} } \text{.} \]
+		Sei $(\X, d)$ ein polnischer metrischer Raum mit beschränkter Metrik $d$. Wir definieren
+		\[ \Lipschitzlequnit{\X} \; \defby \; \setcomp{\fct{f}{\X}{\R}}{f \; \text{ist lipschitzstetig mit Konstante} \; \leq 1 } \text{.} \]
 		
 		Dann gilt für jedes Paar $\mu, \nu \in \Probmeasures{\X}$ von Wahrscheinlichkeitsmaßen
 		\[ W_1(\mu, \nu) \; = \; \sup_{f \in \Lipschitzlequnit{\X}} \left( \measureint{}{f}{\mu} - \measureint{}{f}{\nu} \right) \text{.} \]
 	\end{Satz}
 
 	\begin{proof}
-		Siehe \cite[Bemerkung 6.5]{Villani.2009}.
+		Siehe \cite[Remark 6.5]{Villani.2009}.
 	\end{proof}
 
-	Wir sind nun bereit, uns dem zentralen Satz dieses Abschnitts zu widmen.
+	Wir sind nun bereit, uns dem zentralen Satz dieses Kapitels zu widmen.
 
 	\begin{Satz}
 		\label{satz:wassersteinmetrik_schwache_konvergenz}
@@ -295,7 +294,7 @@
 		Topologie und $(\Probmeasures{\X}, W_p)$ ist auch ein polnischer metrischer Raum.
 	\end{Satz}
 
-	Der Beweis orientiert sich an \cite[Satz 6.9 und Folgerung 6.13]{Villani.2009}, wobei sich der Aufwand durch die Annahme der Beschränktheit von $d$ stellenweise verringert.
+	Der Beweis orientiert sich an \cite[Theorem 6.9 und Corollary 6.13]{Villani.2009}, wobei sich der Aufwand durch die Annahme der Beschränktheit von $d$ stellenweise verringert.
 	Außerdem ist noch ein letzter Hilfssatz vonnöten, in dessen Beweis die obige Dualitätsformel eingeht.
 
 	\begin{Hilfssatz}
@@ -314,16 +313,16 @@
 		für alle $k \geq n$ gilt. Offenbar können wir damit insbesondere auch für jedes $k \in \N$ ein $j \in \set{1, \dots, n}$ mit
 		$W_1(\mu_j, \mu_k) < \varepsilon^2$ finden. Wegen Satz~\ref{satz:straffheit} ist $\set{\mu_1, \dots, \mu_n}$ straff, also existiert ein Kompaktum
 		$K \subseteq \X$ so, dass
-		\[ \mu_j(K) \; \geq \; 1 - \varepsilon, \quad j \in \set{1, \dots, n} \]
+		\[ \mu_j(K) \; \geq \; 1 - \varepsilon, \quad j \in \set{1, \dots, n} \text{,} \]
 		gilt. Da $K$ kompakt ist, existieren endlich viele $x_1, \dots, x_m \in \X$ mit 
 		$K \subseteq U \defby \bigcup_{i=1}^{m} B_{\varepsilon}(x_i)$.
 		Außerdem schreiben wir im Folgenden 
 		\[ U_{\varepsilon} \; \defby \; \bigcup_{i=1}^{m} B_{2\varepsilon}(x_i) \; \supseteq \; \setcomp{x \in \X}{d(x, U) < \varepsilon} \] 
 		und setzen 
 		\[ \fctmap{\varphi}{\X}{\R}{x}{\max \left( 1-\frac{d(x, U)}{\varepsilon}, 0 \right)} \text{.} \]
-		Offensichtlich ist $\indfct_U \leq \varphi \leq \indfct_{U_\varepsilon}$ und $\varphi$ ist $1/\varepsilon$-lipschitzstetig.
+		Offensichtlich ist $\indfct_U \leq \varphi \leq \indfct_{U_\varepsilon}$ und $\varphi$ ist lipschitzstetig mit Konstante $1/\varepsilon$.
 		
-		Für  $k \in \N$ sei nun $j \in \set{1, \dots, n}$ mit $W_1(\mu_j, \mu_k) < \varepsilon^2$. Da $\varepsilon\varphi$ $1$-lipschitzstetig ist, liefert die 
+		Für  $k \in \N$ sei nun $j \in \set{1, \dots, n}$ mit $W_1(\mu_j, \mu_k) < \varepsilon^2$. Da $\varepsilon\varphi$ lipschitzstetig mit Konstante $1$ ist, liefert die 
 		Dualitätsformel von Kantorovich-Rubinstein (Satz~\ref{satz:dualitätsformel_von_kantorovich_rubinstein})
 		\[ W_1(\mu_j, \mu_k) \; \geq \; \varepsilon \left( \measureint{}{\varphi}{\mu_k} - \measureint{}{\varphi}{\mu_j} \right) \text{.} \]
 		Also können wir abschätzen:
@@ -333,23 +332,23 @@
 			                                                                              &\geq \; \mu_j(K) - \frac{W_1(\mu_j, \mu_k)}{\varepsilon} \; \geq \; 1 - \varepsilon - \frac{W_1(\mu_j, \mu_k)}{\varepsilon} \\
 			                                                                              &\geq \; 1 - \varepsilon - \frac{\varepsilon^2}{\varepsilon} \; = \; 1 - 2\varepsilon \text{.}
 		\end{align*}
-		Da wir zu Beginn $\varepsilon > 0$ beliebig gewählt haben, können wir die gesamte Argumentation analog für $\varepsilon/2^{(l+1)}, \; l \in \N$ führen und erhalten damit für jedes $l \in \N$ 
+		Da wir zu Beginn $\varepsilon > 0$ beliebig gewählt haben, können wir die gesamte Argumentation auch für $\varepsilon/2^{(l+1)}$ mit $l \in \N$ führen und erhalten damit für jedes $l \in \N$ 
 		eine endliche Menge $\set{x_1^{(l)}, \dots, x_{m_l}^{(l)}} \subseteq \X$ mit
 		\[ \mu_k \left( \bigcup_{i=1}^{m_l} B_{\varepsilon/2^l}(x_i^{(l)}) \right) \; \geq \; 1 - \frac{\varepsilon}{2^l}, \quad k \in \N \text{.} \]
-		Nun können wir analog zu den Beweisen von Satz~\ref{satz:straffheit} und Satz~\ref{satz:prokhorov} vorgehen:
+		Nun können wir wie in den Beweisen von Satz~\ref{satz:straffheit} und Satz~\ref{satz:prokhorov} vorgehen.
 		Wir setzen
 		\[ S_{\varepsilon} \; \defby \; \bigcap_{l \in \N} \bigcup_{i=1}^{m_l} B_{\varepsilon/2^l}(x_i^{(l)}) \quad \text{und} \quad K_{\varepsilon} \defby \overline{S_\varepsilon} \text{.} \]
 		Da $S_{\varepsilon}$ totalbeschränkt ist, ist $K_{\varepsilon}$ kompakt (hier geht wieder die Vollständigkeit von $(\X, d)$ ein) und für alle $k \in \N$ gilt
-		\[ \mu_k(K_{\varepsilon}) \; \geq \; \mu_k(K_{\varepsilon}) \; \geq \; 1 - \varepsilon \text{,} \]
-		also ist $\setcomp{\mu_k}{k \in \N}$ straff.
+		\[ \mu_k(K_{\varepsilon}) \; \geq \; \mu_k(S_{\varepsilon}) \; \geq \; 1 - \varepsilon \text{.} \]
+		Also ist $\setcomp{\mu_k}{k \in \N}$ straff.
 	\end{proof}
 
 	\begin{proof}[Beweis von Satz~\ref{satz:wassersteinmetrik_schwache_konvergenz}]
-		Wegen Satz~\ref{satz:übertragung_polnizität} ist lediglich zu beweisen, dass $\Probmeasures{X}$ vollständig durch $W_p$ metrisiert wird. 
+		Wegen Satz~\ref{satz:übertragung_polnizität} ist lediglich zu beweisen, dass $\Probmeasures{\X}$ vollständig durch $W_p$ metrisiert wird. 
 		
-		Zuerst zeigen wir, dass $\Probmeasures{X}$ von $W_p$ metrisiert wird. Es genügt, die Äquivalenz
-		\[ \mu_k \xrightarrow{w} \mu \quad \iff \quad W_p(\mu_k, \mu) \to 0, \quad k \to \infty \]
-		für jede Folge $(\mu_k)_k \in \Probmeasures{X}^\N$ und $\mu \in \Probmeasures{X}$ nachzuweisen.
+		Zuerst zeigen wir, dass $\Probmeasures{\X}$ von $W_p$ metrisiert wird. Es genügt, die Äquivalenz
+		\[ \mu_k \xrightarrow{w} \mu \quad \iff \quad W_p(\mu_k, \mu) \to 0, \quad k \to \infty \text{,} \]
+		für jede Folge $(\mu_k)_k \in \Probmeasures{\X}^\N$ und $\mu \in \Probmeasures{\X}$ nachzuweisen.
 		Für beide Richtungen verwenden wir die elementare Tatsache, dass für $(\mu_k)_k \in \Probmeasures{\X}^\N$ und $\mu \in \Probmeasures{\X}$ die Äquivalenz
 		\[ \begin{matrix}
 			\mu_k \xrightarrow{w} \mu \quad & \iff & \quad \begin{array}{lr}
@@ -360,29 +359,27 @@
 		gilt.
 		
 		Wir möchten zunächst die Hinrichtung zeigen. Sei dazu $(\mu_k)_k \in \Probmeasures{\X}^\N$ und $\mu \in \Probmeasures{\X}$ mit $\mu_k \xrightarrow{w} \mu$. Sei außerdem $\pi_k \in \Pi(\mu_k, \mu)$ 
-		für jedes $k \in \N$ eine optimale Kopplung von $\mu_k$ mit sich selbst. 
-		Insbesondere sind dann $A \defby \setcomp{\mu_k}{k \in \N} \cup \set{\mu}$ und $B \defby \set{\mu}$ kompakt und Satz~\ref{satz:optimale_transportpläne_kompakt} 
-		liefert, dass 
-		\[ \hat{\Pi}(A, B) \; \defby \; \setcomp{\pi \in \Pi(A, B)}{\pi \; \text{ist eine optimale Kopplung}} \; \subseteq \; \Probmeasures{\X \times \X} \]
-		kompakt ist. 
+		für jedes $k \in \N$ eine optimale Kopplung von $\mu_k$ mit $\mu$. 
+		Da $A \defby \setcomp{\mu_k}{k \in \N} \cup \set{\mu}$ und $B \defby \set{\mu}$ kompakt sind, liefert Satz~\ref{satz:optimale_transportpläne_kompakt} die Kompaktheit von
+		\[ \hat{\Pi}(A, B) \; \defby \; \setcomp{\pi \in \Pi(A, B)}{\pi \; \text{ist eine optimale Kopplung}} \; \subseteq \; \Probmeasures{\X \times \X} \text{.} \]
 		Sei $(\pi_{k'})_{k'}$ nun eine Teilfolge von $(\pi_k)_k$. Da $\pi_k$ für jedes $k \in \N$ in $\hat{\Pi}(A, B)$ liegt, hat $(\pi_{k'})_{k'}$ eine Teilfolge $(\pi_{k''})_{k''}$, 
 		die schwach gegen ein $\pi' \in \hat{\Pi}(A, B)$ konvergiert. Wegen Hilfssatz~\ref{hilfssatz:konvergenz_kopplungen} muss $\pi'$ eine optimale Kopplung von $\mu$ und $\mu$ sein, also
-		\[ \measureintx{\X \times \X}{d(x, y)^p}{\pi'}{(x, y)} \; = \; W_p(\mu, \mu)^p \; = \; 0 \text{.} \]
+		\[ \measureintx{\X \times \X}{d(x, y)^p}{\pi'}{x, y} \; = \; W_p(\mu, \mu)^p \; = \; 0 \text{.} \]
 		Daher gilt $\pi'(\setcomp{(x, x)}{x \in \X}) = 1$ und für alle $A, B \in \mathcal{B}(\X)$ folgt $\pi'(A \times B) = \mu(A \cap B)$, weshalb $\pi'$ einfach die 
 		triviale Kopplung $\pi$ von $\mu$ und $\mu$ ist. Weil $\setcomp{\pi_k}{k \in \N} \subseteq \hat{\Pi}(A, B)$ gilt, ist $\overline{\setcomp{\pi_k}{k \in \N}}$ kompakt und $\setcomp{\pi_k}{k \in \N}$ damit nach
-		dem Satz von Prokhorov (Satz~\ref{satz:prokhorov}) straff. Insgesamt impliziert \eqref{glg:6.1} nun also die schwache Konvergenz
+		dem Satz von Prokhorov (Satz~\ref{satz:prokhorov}) straff. Insgesamt erhalten wir also die schwache Konvergenz
 		\[ \pi_k \xrightarrow{w} \pi, \quad k \to \infty \text{.} \] 
-		Da die Zuordnung $(x, y) \mapsto d(x, y)^p$ wegen der Beschränktheit von $d$ aber in $\Bdcontfct{\X \times \X}$ enthalten ist, folgt 
-		\[ W_p(\mu_k, \mu)^p \; = \; \measureintx{\X \times \X}{d(x, y)^p}{\pi_k}{(x, y)} \; \to \; \measureintx{\X \times \X}{d(x, y)^p}{\pi}{(x, y)} \; = \; 0, \quad k \to \infty \text{,} \]
+		Weiter ist die Zuordnung $(x, y) \mapsto d(x, y)^p$ wegen der Beschränktheit von $d$ aber in $\Bdcontfct{\X \times \X}$ enthalten. Damit folgt 
+		\[ W_p(\mu_k, \mu)^p \; = \; \measureintx{\X \times \X}{d(x, y)^p}{\pi_k}{x, y} \; \to \; \measureintx{\X \times \X}{d(x, y)^p}{\pi}{x, y} \; = \; 0, \quad k \to \infty \text{,} \]
 		also auch $W_p(\mu_k, \mu) \to 0$.
 		
 		Für die Rückrichtung sei nun $(\mu_k)_k \in \Probmeasures{\X}^\N$ und $\mu \in \Probmeasures{\X}$ so, dass $W_p(\mu_k, \mu) \to 0$. Nach Hilfssatz~\ref{hilfssatz:wasserstein-cauchyfolgen_straff} ist $\setcomp{\mu_k}{k \in \N}$ dann straff, nach dem Satz von Prokhorov ist $\overline{\setcomp{\mu_k}{k \in \N}}$ also kompakt. Sei $(\mu_{k'})_{k'}$ nun eine Teilfolge von $(\mu_k)_k$. Dann existiert eine derartige Teilfolge $(\mu_{k''})_{k''}$ von $(\mu_{k'})_{k'}$ und ein Wahrscheinlichkeitsmaß $\mu'' \in \Probmeasures{\X}$, dass
 		\[ \mu_{k''} \xrightarrow{w} \mu'', \quad k'' \to \infty \text{.} \label{glg:6.2} \tag{6.2} \]
-		Für $k'' \in \N$ sei $\pi_{k''}$ eine optimale Kopplung von $\mu_{k''}$ und $\mu$. Da $\setcomp{\pi_{k''}}{k'' \in \N}$ nach Hilfssatz~\ref{hilfssatz:eigenschaften_kopplungen} straff ist, liefert der Satz von Prokhorov die Existenz einer Teilfolge $(\pi_{k'''})_{k'''}$ von $(\pi_{k''})_{k''}$, die schwach gegen ein $\pi''' \in \Probmeasures{\X \times \X}$ konvergiert. Nach Hilfssatz~\ref{hilfssatz:konvergenz_kopplungen} ist $\pi'''$ eine Kopplung von $\mu''$ und $\mu$. Durch eine Anwendung von Hilfssatz~\ref{hilfssatz:kostenfunktional_unterhalbstetig} können wir wie folgt abschätzen:
+		Für $k'' \in \N$ sei $\pi_{k''}$ eine optimale Kopplung von $\mu_{k''}$ und $\mu$. Da $\setcomp{\pi_{k''}}{k'' \in \N}$ nach Hilfssatz~\ref{hilfssatz:eigenschaften_kopplungen} straff ist, liefert der Satz von Prokhorov die Existenz einer Teilfolge $(\pi_{k'''})_{k'''}$ von $(\pi_{k''})_{k''}$, die schwach gegen ein $\pi''' \in \Probmeasures{\X \times \X}$ konvergiert. Nach Hilfssatz~\ref{hilfssatz:konvergenz_kopplungen} ist $\pi'''$ eine Kopplung von $\mu''$ und $\mu$. Mit Hilfssatz~\ref{hilfssatz:kostenfunktional_unterhalbstetig} erhalten wir
 		\begin{align*}
-			W_p(\mu'', \mu)^p \; &= \; \inf_{\pi \in \Pi(\mu'', \mu)} \measureintx{\X \times \X}{d(x, y)^p}{\pi}{(x, y)} \\
-			                \; &\leq \; \measureintx{\X \times \X}{d(x, y)^p}{\pi'''}{(x, y)} \\
-			                \; &\leq \; \liminf_{k''' \to \infty} \measureintx{\X \times \X}{d(x, y)^p}{\pi_{k'''}}{(x, y)} \; = \; \liminf_{k''' \to \infty} \, W_p( \mu_{k'''}, \mu)^p \; = \; 0 \text{.}
+			W_p(\mu'', \mu)^p \; &= \; \inf_{\pi \in \Pi(\mu'', \mu)} \measureintx{\X \times \X}{d(x, y)^p}{\pi}{x, y} \\
+			                \; &\leq \; \measureintx{\X \times \X}{d(x, y)^p}{\pi'''}{x, y} \\
+			                \; &\leq \; \liminf_{k''' \to \infty} \measureintx{\X \times \X}{d(x, y)^p}{\pi_{k'''}}{x, y} \; = \; \liminf_{k''' \to \infty} \, W_p( \mu_{k'''}, \mu)^p \; = \; 0 \text{.}
 		\end{align*}
 		Da dies $\mu'' = \mu$ impliziert, gilt wegen \eqref{glg:6.1} und \eqref{glg:6.2} also
 		$\mu_k \xrightarrow{w} \mu, \; k \to \infty$.
