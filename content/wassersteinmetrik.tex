@@ -38,8 +38,8 @@
 	Wir möchten nun eine Möglichkeit vorstellen, mittels \emph{Kopplungen} einen Transportplan zwischen zwei Masseverteilungen $\mu$ und $\nu$ zu modellieren, der spezifiziert, woher wie viel Masse wohin transportiert werden soll.
 	
 	\begin{Definition}[Kopplung]
-		Seien $\X$ und $\Y$ topologische Räume sowie $A \subseteq \Probmeasures{\X}$ und $B \subseteq \Probmeasures{\Y}$. Wir definieren dann
-		\[ \Pi(A, B) \; \defby \; \setcomp{\pi \in \Probmeasures{\X \times \Y}}{\pi(\cdot \times \Y) \in A \quad \text{und} \quad \pi(\X \times \cdot) \in B} \text{.}\]
+		Seien $\X$ und $\Y$ topologische Räume sowie $M \subseteq \Probmeasures{\X}$ und $N \subseteq \Probmeasures{\Y}$. Wir definieren dann
+		\[ \Pi(M, N) \; \defby \; \setcomp{\pi \in \Probmeasures{\X \times \Y}}{\pi(\cdot \times \Y) \in M \quad \text{und} \quad \pi(\X \times \cdot) \in N} \text{.}\]
 		Für $\mu \in \Probmeasures{\X}$ und $\nu \in \Probmeasures{\Y}$ definieren wir außerdem $\Pi(\mu, \nu) \; \defby \; \Pi(\set{\mu}, \set{\nu})$ und nennen die
 		Elemente von $\Pi(\mu, \nu)$ \emph{Kopplungen} von $\mu$ und $\nu$ oder auch \emph{Transportpläne} zwischen $\mu$ und $\nu$.
 	\end{Definition}
@@ -53,30 +53,30 @@
 
 	\begin{Hilfssatz}
 		\label{hilfssatz:eigenschaften_kopplungen}
-		Seien $\X$, $\Y$ polnische Räume und $A \subseteq \Probmeasures{\X}$ sowie $B \subseteq \Probmeasures{\Y}$. Dann gelten die folgenden Implikationen:
+		Seien $\X$, $\Y$ polnische Räume und $M \subseteq \Probmeasures{\X}$ sowie $N \subseteq \Probmeasures{\Y}$. Dann gelten die folgenden Implikationen:
 		\begin{enumeratethm}
-			\item Sind $A$ und $B$ straff, so ist auch $\Pi(A, B) \subseteq \Probmeasures{\X \times \Y}$ straff.
-			\item Sind $A$ und $B$ abgeschlossen, so ist auch $\Pi(A, B) \subseteq \Probmeasures{\X \times \Y}$ abgeschlossen.
-			\item Sind $A$ und $B$ kompakt, so ist auch $\Pi(A, B) \subseteq \Probmeasures{\X \times \Y}$ kompakt.
+			\item Sind $M$ und $N$ straff, so ist auch $\Pi(M, N) \subseteq \Probmeasures{\X \times \Y}$ straff.
+			\item Sind $M$ und $N$ abgeschlossen, so ist auch $\Pi(M, N) \subseteq \Probmeasures{\X \times \Y}$ abgeschlossen.
+			\item Sind $M$ und $N$ kompakt, so ist auch $\Pi(M, N) \subseteq \Probmeasures{\X \times \Y}$ kompakt.
 		\end{enumeratethm}
 	\end{Hilfssatz}
 
 	\begin{proof}
 		Der Beweis von Aussage (a) orientiert sich an \cite[Lemma 4.4]{Villani.2009}. Fixiere ein beliebiges $\varepsilon > 0 $ und wähle kompakte Teilmengen $K_{\varepsilon/2} \subseteq \X$ sowie $L_{\varepsilon/2} \subseteq \Y$ so, dass $\mu(K_{\varepsilon/2}) \geq 1 - \frac{\varepsilon}{2}$ 
-		für alle $\mu \in A$ und $\nu(L_{\varepsilon/2}) \geq 1 - \frac{\varepsilon}{2}$ für alle $\nu \in B$ gilt. Dann ist $K_{\varepsilon/2} \times L_{\varepsilon/2} \subseteq \X \times \Y$ auch kompakt und für jede Kopplung $\pi$ von $\mu$ und $\nu$ gilt
+		für alle $\mu \in M$ und $\nu(L_{\varepsilon/2}) \geq 1 - \frac{\varepsilon}{2}$ für alle $\nu \in N$ gilt. Dann ist $K_{\varepsilon/2} \times L_{\varepsilon/2} \subseteq \X \times \Y$ auch kompakt und für jede Kopplung $\pi$ von $\mu$ und $\nu$ gilt
 		\begin{align*}
 			\pi(K_{\varepsilon/2} \times L_{\varepsilon/2}) \; &= \; 1 - \pi \left( \left(K_{\varepsilon/2}^\mathsf{c} \times \Y \right) \cup \left(\X \times L_{\varepsilon/2}^\mathsf{c} \right)\right) \\
 			&\geq \; 1 - \mu(K_{\varepsilon/2}^\mathsf{c}) - \nu(L_{\varepsilon/2}^\mathsf{c}) \; \geq \; 1 - \varepsilon \text{,}
 		\end{align*}
-		also ist auch $\Pi(A, B) \subseteq \Probmeasures{\X \times \Y}$ straff.
+		also ist auch $\Pi(M, N) \subseteq \Probmeasures{\X \times \Y}$ straff.
 		
 		Da mit $\X$ und $\Y$ auch $\X \times \Y$ polnisch ist (siehe Folgerung~\ref{folgerung:produkte_polnische_räume}), können wir für Aussage (b) mit der Charakterisierung von Abgeschlossenheit durch Folgen arbeiten.
-		Seien also $A$ und $B$ abgeschlossen und sei $(\pi_k)_k \in \Pi(A, B)^\N$ eine schwach konvergente Folge mit Grenzwert $\pi \in \Probmeasures{\X \times \Y}$.
+		Seien also $M$ und $N$ abgeschlossen und sei $(\pi_k)_k \in \Pi(M, N)^\N$ eine schwach konvergente Folge mit Grenzwert $\pi \in \Probmeasures{\X \times \Y}$.
 		Dann ist für alle abgeschlossenen Teilmengen $C \subseteq \X$ auch $C \times \Y \subseteq \X \times \Y$ abgeschlossen und das Portmanteau-Theorem (Satz~\ref{satz:portmanteau}) liefert
 		\[ \limsup_{k \to \infty} \, \pi_k(C \times \Y) \; \leq \; \pi(C \times \Y) \text{.} \]
-		Damit konvergiert $(\pi_k(\cdot \times \Y))_k \in A^\N$ wiederum nach dem Portmanteau-Theorem schwach gegen $\pi(\cdot \times \Y)$ und die Abgeschlossenheit 
-		von $A \subseteq \Probmeasures{\X}$ liefert, dass $\pi(\cdot \times \Y)$ in $A$
-		enthalten ist. Analog folgt $\pi(\X \times \cdot) \in B$, also ist insgesamt $\pi \in \Pi(A, B)$. Daher ist $\Pi(A, B)$ abgeschlossen.
+		Damit konvergiert $(\pi_k(\cdot \times \Y))_k \in M^\N$ wiederum nach dem Portmanteau-Theorem schwach gegen $\pi(\cdot \times \Y)$ und die Abgeschlossenheit 
+		von $M \subseteq \Probmeasures{\X}$ liefert, dass $\pi(\cdot \times \Y)$ in $M$
+		enthalten ist. Analog folgt $\pi(\X \times \cdot) \in N$, also ist insgesamt $\pi \in \Pi(M, N)$. Daher ist $\Pi(M, N)$ abgeschlossen.
 		
 		Durch eine Anwendung des Satzes von Prokhorov (Satz~\ref{satz:prokhorov}) können wir aus (a) und (b) unmittelbar auch Aussage (c) folgern, denn dieser liefert, dass sowohl in $\Probmeasures{\X}$ und $\Probmeasures{\Y}$ als auch in $\Probmeasures{\X \times \Y}$ kompakte Teilmengen gerade den Teilmengen entsprechen, die straff und abgeschlossen sind.
 	\end{proof}
@@ -103,7 +103,7 @@
 	Im Allgemeinen wird es sehr viele unterschiedliche Transportpläne zwischen zwei Maßen $\mu$ und $\nu$ geben. Offenbar können wir aber intuitiv bereits sagen, dass manche Transportpläne gewissermaßen
 	\enquote*{besser} als andere sind: Ist etwa $\X$ ein Grundraum und wir betrachten Transportpläne zwischen $\mu \in \Probmeasures{X}$ und sich selbst, so können wir die triviale Kopplung $\pi_1(A \times B) \defby \mu(A \cap B)$ wählen, 
 	die jede Masse einfach genau an ihrem Platz lässt, oder wir können die unabhängige Kopplung $\pi_2(A \times B) \defby \mu(A) \mu(B)$ nehmen, bei der die Masse in jedem Punkt \enquote*{gleichmäßig} 
-	verteilt wird. Wenn $\mu$ nicht in einem Punkt konzentiert ist, handelt es sich hierbei um zwei verschiedene Kopplungen, aber natürlich wäre die triviale Kopplung $\pi_1$ zu präferieren, wenn wir den
+	verteilt wird. Wenn $\mu$ nicht in einem Punkt konzentriert ist, handelt es sich hierbei um zwei verschiedene Kopplungen, aber natürlich wäre die triviale Kopplung $\pi_1$ zu präferieren, wenn wir den
 	\enquote*{Arbeitsaufwand} minimieren möchten. 
 	
 	In der nächsten Definition führen wir eine Möglichkeit ein, den Aufwand eines Transportplans zu quantifizieren.
@@ -115,7 +115,7 @@
 	\end{Definition}
 
 	Die Zahl $c(x, y)$ soll in diesem Fall für $x \in \X$ und $y \in \Y$ den Aufwand angeben, der für den Transport einer Einheitsmasse von $x$ nach $y$ nötig ist. Der Modellierung liegt die Annahme zugrunde, dass 
-	die Kosten, um eine Masse $m$ von $x$ nach $y$ zu transportieren, gerade $m\cdot c(x, y)$ ist.
+	die Kosten, um eine Masse $m$ von $x$ nach $y$ zu transportieren, gerade $m\cdot c(x, y)$ sind.
 	
 	Im Falle stetiger Kostenfunktionen liefert uns der folgende Satz die Existenz eines optimalen Transportplans, der die Kosten über alle möglichen Transportpläne minimiert.
 
@@ -163,9 +163,9 @@
 
 	\begin{Satz}
 		\label{satz:optimale_transportpläne_kompakt}
-		Seien $\X$ und $\Y$ polnische Räume, $\fct{c}{\X \times \Y}{[0, \infty)}$ eine stetige Kostenfunktion und seien $A \subseteq \Probmeasures{\X}$ und $B \subseteq \Probmeasures{\Y}$ kompakte Teilmengen.
+		Seien $\X$ und $\Y$ polnische Räume, $\fct{c}{\X \times \Y}{[0, \infty)}$ eine stetige Kostenfunktion und seien $M \subseteq \Probmeasures{\X}$ und $N \subseteq \Probmeasures{\Y}$ kompakte Teilmengen.
 		Dann ist 
-		\[ \hat{\Pi}(A, B) \; \defby \; \setcomp{\pi \in \Pi(A, B)}{\pi \; \text{ist eine optimale Kopplung}} \; \subseteq \; \Probmeasures{\X \times \Y} \]
+		\[ \hat{\Pi}(M, N) \; \defby \; \setcomp{\pi \in \Pi(M, N)}{\pi \; \text{ist eine optimale Kopplung}} \; \subseteq \; \Probmeasures{\X \times \Y} \]
 		kompakt.
 	\end{Satz}
 
@@ -360,13 +360,13 @@
 		
 		Wir möchten zunächst die Hinrichtung zeigen. Sei dazu $(\mu_k)_k \in \Probmeasures{\X}^\N$ und $\mu \in \Probmeasures{\X}$ mit $\mu_k \xrightarrow{w} \mu$. Sei außerdem $\pi_k \in \Pi(\mu_k, \mu)$ 
 		für jedes $k \in \N$ eine optimale Kopplung von $\mu_k$ mit $\mu$. 
-		Da $A \defby \setcomp{\mu_k}{k \in \N} \cup \set{\mu}$ und $B \defby \set{\mu}$ kompakt sind, liefert Satz~\ref{satz:optimale_transportpläne_kompakt} die Kompaktheit von
-		\[ \hat{\Pi}(A, B) \; \defby \; \setcomp{\pi \in \Pi(A, B)}{\pi \; \text{ist eine optimale Kopplung}} \; \subseteq \; \Probmeasures{\X \times \X} \text{.} \]
-		Sei $(\pi_{k'})_{k'}$ nun eine Teilfolge von $(\pi_k)_k$. Da $\pi_k$ für jedes $k \in \N$ in $\hat{\Pi}(A, B)$ liegt, hat $(\pi_{k'})_{k'}$ eine Teilfolge $(\pi_{k''})_{k''}$, 
-		die schwach gegen ein $\pi' \in \hat{\Pi}(A, B)$ konvergiert. Wegen Hilfssatz~\ref{hilfssatz:konvergenz_kopplungen} muss $\pi'$ eine optimale Kopplung von $\mu$ und $\mu$ sein, also
+		Da $M \defby \setcomp{\mu_k}{k \in \N} \cup \set{\mu}$ und $N \defby \set{\mu}$ kompakt sind, liefert Satz~\ref{satz:optimale_transportpläne_kompakt} die Kompaktheit von
+		\[ \hat{\Pi}(M, N) \; \defby \; \setcomp{\pi \in \Pi(M, N)}{\pi \; \text{ist eine optimale Kopplung}} \; \subseteq \; \Probmeasures{\X \times \X} \text{.} \]
+		Sei $(\pi_{k'})_{k'}$ nun eine Teilfolge von $(\pi_k)_k$. Da $\pi_k$ für jedes $k \in \N$ in $\hat{\Pi}(M, N)$ liegt, hat $(\pi_{k'})_{k'}$ eine Teilfolge $(\pi_{k''})_{k''}$, 
+		die schwach gegen ein $\pi' \in \hat{\Pi}(M, N)$ konvergiert. Wegen Hilfssatz~\ref{hilfssatz:konvergenz_kopplungen} muss $\pi'$ eine optimale Kopplung von $\mu$ und $\mu$ sein, also
 		\[ \measureintx{\X \times \X}{d(x, y)^p}{\pi'}{x, y} \; = \; W_p(\mu, \mu)^p \; = \; 0 \text{.} \]
 		Daher gilt $\pi'(\setcomp{(x, x)}{x \in \X}) = 1$ und für alle $A, B \in \mathcal{B}(\X)$ folgt $\pi'(A \times B) = \mu(A \cap B)$, weshalb $\pi'$ einfach die 
-		triviale Kopplung $\pi$ von $\mu$ und $\mu$ ist. Weil $\setcomp{\pi_k}{k \in \N} \subseteq \hat{\Pi}(A, B)$ gilt, ist $\overline{\setcomp{\pi_k}{k \in \N}}$ kompakt und $\setcomp{\pi_k}{k \in \N}$ damit nach
+		triviale Kopplung $\pi$ von $\mu$ und $\mu$ ist. Weil $\setcomp{\pi_k}{k \in \N} \subseteq \hat{\Pi}(M, N)$ gilt, ist $\overline{\setcomp{\pi_k}{k \in \N}}$ kompakt und $\setcomp{\pi_k}{k \in \N}$ damit nach
 		dem Satz von Prokhorov (Satz~\ref{satz:prokhorov}) straff. Insgesamt erhalten wir also die schwache Konvergenz
 		\[ \pi_k \xrightarrow{w} \pi, \quad k \to \infty \text{.} \] 
 		Weiter ist die Zuordnung $(x, y) \mapsto d(x, y)^p$ wegen der Beschränktheit von $d$ aber in $\Bdcontfct{\X \times \X}$ enthalten. Damit folgt 

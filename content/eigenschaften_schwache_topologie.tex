@@ -189,11 +189,11 @@
 		$r_n = \lim_{\iota \to \infty} \measureint{}{f_n}{\mu_\iota}$ für alle $n \in \N$ und analog zum Beweis von Satz~\ref{satz:übertragung_metrisierbarkeit_separabilität} 
 		können wir wieder eine Konstante $C < \infty$ und ein $\iota_0 \in I$ finden, sodass $\mu_\iota(\X) \leq C$ für alle $\iota_0 \preceq \iota$ ist.
 		
-		Wir setzen nun $A \defby \mathrm{span}_\R \, \mathcal{D}$, was ein dichter Untervektorraum von $\Bdcontfct{\X}$ ist. Auf $A$ definieren wir
-		\[ \fctmap{l}{A}{\R}{f}{\lim_{\iota \to \infty} \measureint{}{f}{\mu_\iota}} \text{.} \]
-		Offenbar ist $l$ wohndefiniert und linear. Da $l(f) \leq C \norm{f}_\infty$ für alle $f \in \Bdcontfct{\X}$ gilt, folgt $l \in A^\ast$. Nach dem Satz von Hahn-Banach (vgl. \cite[Corollary 5.5.2]{Simon.2015})
+		Wir setzen nun $V \defby \mathrm{span}_\R \, \mathcal{D}$, was ein dichter Untervektorraum von $\Bdcontfct{\X}$ ist. Auf $V$ definieren wir
+		\[ \fctmap{l}{V}{\R}{f}{\lim_{\iota \to \infty} \measureint{}{f}{\mu_\iota}} \text{.} \]
+		Offenbar ist $l$ wohndefiniert und linear. Da $l(f) \leq C \norm{f}_\infty$ für alle $f \in \Bdcontfct{\X}$ gilt, folgt $l \in V^\ast$. Nach dem Satz von Hahn-Banach (vgl. \cite[Corollary 5.5.2]{Simon.2015})
 		existiert nun eine (eindeutige) Fortsetzung von $l$ auf ganz $\Bdcontfct{\X}$, die wir ab jetzt $l$ nennen. Es ist $l \in \Bdcontfct{\X}^\ast$ 
-		mit $\norm{l}_{\Bdcontfct{\X}^\ast} = \norm{l}_{A^\ast}$. Offenbar gilt $l(f) \geq 0$ für alle $f \in \Bdcontfct{\X}$ mit $f \geq 0$ und damit gibt es 
+		mit $\norm{l}_{\Bdcontfct{\X}^\ast} = \norm{l}_{V^\ast}$. Offenbar gilt $l(f) \geq 0$ für alle $f \in \Bdcontfct{\X}$ mit $f \geq 0$ und damit gibt es 
 		nach dem Darstellungssatz von Riesz-Markov (vgl. \cite[Theorem 4.8.8]{Simon.2015}) ein Maß $\mu \in \Finitemeasures{\X}$ mit 
 		\[ l(f) \; = \; \measureint{}{f}{\mu}, \quad f \in \Bduniffct{\X} \text{.} \]
 		Also folgt
@@ -252,13 +252,13 @@
 		Sei $\X$ zunächst kompakt. Dann ist $\X$ insbesondere separabel und damit ist $\Probmeasures{\X}$ 
 		nach Satz~\ref{satz:übertragung_metrisierbarkeit_separabilität} metrisierbar.
 		Außerdem setzen wir
-		\[ A \; \defby \; \setcomp{l \in \Bdcontfct{\X}^\ast}{\norm{l}_{\Bdcontfct{\X}^\ast} \leq 1, \; l(\indfct_{\X}) = 1, \; 
+		\[ K \; \defby \; \setcomp{l \in \Bdcontfct{\X}^\ast}{\norm{l}_{\Bdcontfct{\X}^\ast} \leq 1, \; l(\indfct_{\X}) = 1, \; 
 			\forall f \in \Bdcontfct{\X} \text{ mit } f \geq 0 : l(f) \geq 0}\]
 		und analog zu \eqref{glg:4.1}
-		\[ \fctmap{\Phi}{\Probmeasures{\X}}{A}{\mu}{\left[\fctmap{l_\mu}{\Bdcontfct{\X}}{\R}{f}{\measureint{}{f}{\mu}}\right]} \text{.} \]
+		\[ \fctmap{\Phi}{\Probmeasures{\X}}{K}{\mu}{\left[\fctmap{l_\mu}{\Bdcontfct{\X}}{\R}{f}{\measureint{}{f}{\mu}}\right]} \text{.} \]
 		Der Darstellungssatz von Riesz-Markov (vgl. \cite[Theorem 4.8.8]{Simon.2015}) liefert die Bijektivität von $\Phi$, also ist $\Phi$ ein 
-		Homöomorphismus zwischen $\Probmeasures{\X}$ und $A \subseteq \Bdcontfct{\X}^\ast$ 
-		mit der Schwach-$\ast$-Topologie. Mit dem Satz von Banach-Alaoglu (\cite[Theorem 5.8.1]{Simon.2015}) folgt nun, dass $A$ als abgeschlossene Teilmenge des Kompaktums 
+		Homöomorphismus zwischen $\Probmeasures{\X}$ und $K \subseteq \Bdcontfct{\X}^\ast$ 
+		mit der Schwach-$\ast$-Topologie. Mit dem Satz von Banach-Alaoglu (\cite[Theorem 5.8.1]{Simon.2015}) folgt nun, dass $K$ als abgeschlossene Teilmenge des Kompaktums 
 		$\setcomp{l \in C_b(\X)^\ast}{\norm{l}_{\Bdcontfct{\X}^\ast} \leq 1}$ selbst kompakt bezüglich der Schwach-$\ast$-Topologie ist, 
 		was schließlich die Kompaktheit von $\Probmeasures{\X}$ nach sich zieht.
 		
@@ -278,10 +278,10 @@
 	
 	\begin{Definition}
 		Sei $\X$ ein polnischer Raum und $\mu \in \Finitemeasures{\X}$. Dann nennen wir 
-		eine Teilmenge $A \subseteq \Finitemeasures{\X}$ \emph{straff}, falls es für jedes $\varepsilon > 0$ eine kompakte Teilmenge
+		eine Teilmenge $M \subseteq \Finitemeasures{\X}$ \emph{straff}, falls es für jedes $\varepsilon > 0$ eine kompakte Teilmenge
 		$K_\varepsilon \subseteq \X$ gibt mit 
 		\[ \mu(K_\varepsilon) \geq \mu(\X)  - \varepsilon \]
-		für alle $\mu \in A$.
+		für alle $\mu \in M$.
 		Ferner heißt ein Maß $\mu \in \Finitemeasures{\X}$ \emph{straff}, falls $\set{\mu}$ straff ist.
 	\end{Definition}
 	
@@ -353,32 +353,32 @@
 	
 	\begin{Satz}[Prokhorov]
 		\label{satz:prokhorov}
-		Sei $\X$ ein metrisierbarer topologischer Raum und $A \subseteq \Probmeasures{\X}$. Dann gelten die folgenden Aussagen.
+		Sei $\X$ ein metrisierbarer topologischer Raum und $M \subseteq \Probmeasures{\X}$. Dann gelten die folgenden Aussagen.
 		\begin{enumeratethm}
-			\item Ist $\X$ separabel und $A \subseteq \Probmeasures{X}$ straff, so ist $\overline{A} \subseteq \Probmeasures{\X}$ kompakt.
-			\item Ist $\X$ polnisch und $\overline{A} \subseteq \Probmeasures{\X}$ kompakt, so ist $A \subseteq \Probmeasures{X}$ straff.
+			\item Ist $\X$ separabel und $M \subseteq \Probmeasures{X}$ straff, so ist $\overline{M} \subseteq \Probmeasures{\X}$ kompakt.
+			\item Ist $\X$ polnisch und $\overline{M} \subseteq \Probmeasures{\X}$ kompakt, so ist $M \subseteq \Probmeasures{X}$ straff.
 		\end{enumeratethm}
 	\end{Satz}
 
 	\begin{Bemerkung}
-		Meistens wird Satz~\ref{satz:prokhorov} in der folgenden Form verwendet: Ist $\X$ polnisch und $A \subseteq \Probmeasures{\X}$, so gilt
-		\[ A \text{ ist straff} \quad \iff \quad \overline{A} \text{ ist kompakt} \text{.} \]
+		Meistens wird Satz~\ref{satz:prokhorov} in der folgenden Form verwendet: Ist $\X$ polnisch und $M \subseteq \Probmeasures{\X}$, so gilt
+		\[ M \text{ ist straff} \quad \iff \quad \overline{M} \text{ ist kompakt} \text{.} \]
 		Dies ist gerade die hilfreiche Charakterisierung kompakter Teilmengen von $\Probmeasures{X}$, die wir bereits angekündigt haben.
 	\end{Bemerkung}
 	
 	\begin{proof}
-		Sei zunächst $\X$ separabel und $A \subseteq \Probmeasures{\X}$ straff. Wir möchten nun beweisen, dass $\overline{A}$ 
+		Sei zunächst $\X$ separabel und $M \subseteq \Probmeasures{\X}$ straff. Wir möchten nun beweisen, dass $\overline{M}$ 
 		kompakt ist, was wegen der Metrisierbarkeit von $\Probmeasures{\X}$ (siehe Satz~\ref{satz:übertragung_metrisierbarkeit_separabilität}) äquivalent dazu ist,
-		dass jede Folge $(\mu_n)_n \in A^\N$ eine schwach konvergente Teilfolge besitzt. 
+		dass jede Folge $(\mu_n)_n \in M^\N$ eine schwach konvergente Teilfolge besitzt. 
 		
-		Aufgrund der Straffheit von $A$ gibt es für jedes $m \in \N$ ein Kompaktum $K^{(m)} \subseteq \X$, 
+		Aufgrund der Straffheit von $M$ gibt es für jedes $m \in \N$ ein Kompaktum $K^{(m)} \subseteq \X$, 
 		das für alle $n \in \N$
 		\[ \mu_n(K^{(m)}) \geq 1 - \frac{1}{m+1} \label{glg:5.2} \tag{5.2} \]
 		erfüllt. Ohne Einschränkung dürfen wir außerdem annehmen, dass 
 		\[ K^{(m)} \subseteq K^{(m+1)} \label{glg:5.3} \tag{5.3} \] 
 		für alle $m \in \N$ gilt.
 		
-		Sei nun also $(\mu_n)_n \in A^\N$.
+		Sei nun also $(\mu_n)_n \in M^\N$.
 		In Analogie zu Satz~\ref{satz:übertragung_kompaktheit} lässt sich einsehen, dass 
 		\[ \Unitmeasures{K^{(m)}} \; \defby \; \setcomp{\fct{\mu}{\mathcal{B}(K^{(m)})}{[0,1]}}{\mu \; 
 			\text{ist endliches Maß und } \mu(K^{(m)}) \leq 1} \]
@@ -444,17 +444,17 @@
 		\end{align*}
 		was den Beweis von (a) abschließt.
 		
-		Sei nun $\X$ polnisch und $\overline{A}$ kompakt. Außerdem sei $d$ eine Metrik, die $\X$ vollständig metrisiert 
+		Sei nun $\X$ polnisch und $\overline{M}$ kompakt. Außerdem sei $d$ eine Metrik, die $\X$ vollständig metrisiert 
 		und $\mathcal{D} \defby \setcomp{x_n}{n \in \N} \subseteq \X$ eine abzählbare dichte Teilmenge.
 		
 		Wir behaupten, dass für alle $\delta > 0$ ein solches $M_\delta \in \N$ existiert, dass
 		\[ \mu(\bigcup_{m=1}^{M_\delta} B_\delta(x_m)) \; > \; 1 - \delta \label{glg:5.5} \tag{5.5} \]
-		für alle $\mu \in A$ gilt. Denn falls es kein derartiges $M_\delta$ gibt, so lässt sich ein $\delta > 0$ finden, für das
-		für alle $M \in \N$ ein $\mu_M \in A$ existiert mit
+		für alle $\mu \in M$ gilt. Denn falls es kein derartiges $M_\delta$ gibt, so lässt sich ein $\delta > 0$ finden, für das
+		für alle $M \in \N$ ein $\mu_M \in M$ existiert mit
 		\[ \mu_M(\bigcup_{m=1}^{M} B_\delta(x_m)) \; \leq \; 1 - \delta \text{.} \]
 		Insbesondere bedeutet das natürlich auch, dass wir für alle $M \in \N$ und $N \geq M$ 
 		\[ \mu_N(\bigcup_{m=1}^{M} B_\delta(x_m)) \; \leq \; 1 - \delta \]
-		abschätzen dürfen. Aufgrund der Kompaktheit von $\overline{A}$ gibt es eine Teilfolge $(\mu_{N_j})_j$ von $(\mu_N)_N$, 
+		abschätzen dürfen. Aufgrund der Kompaktheit von $\overline{M}$ gibt es eine Teilfolge $(\mu_{N_j})_j$ von $(\mu_N)_N$, 
 		die einen schwachen Grenzwert $\mu \in \Probmeasures{\X}$ besitzt. Fixiere nun ein $M \in \N$. 
 		Dann ist $\bigcup_{m=1}^{M} B_\delta(x_m)$
 		offen und daher liefert Charakterisierung (v) des Portmanteau-Theorems (Satz~\ref{satz:portmanteau})
@@ -472,13 +472,13 @@
 		B_{\varepsilon / 2^k}(x_m) \]
 		und verfahren nun ähnlich wie im Beweis von Satz~\ref{satz:straffheit}: Offensichtlich ist $S_\varepsilon$ total beschränkt und damit auch 
 		$ K_\varepsilon \defby \overline{S_\varepsilon}$ kompakt (vgl. \cite[Theorem 2.3.8]{Simon.2015}). 
-		Außerdem gilt für alle $\mu \in A$
+		Außerdem gilt für alle $\mu \in M$
 		\[
 		\mu(K_\varepsilon) \; \geq \; \mu(S_\varepsilon) \; = \; \mu\left(\bigcap_{k \in \N} \bigcup_{m=1}^{M_{\varepsilon / 2^k}} 
 		B_{\varepsilon / 2^k}(x_m)\right)
 		\; \geq \; 1 - \sum_{k=1}^{\infty} \frac{\varepsilon}{2^k} \; = \; 1 - \varepsilon
 		\]
-		und damit ist $A$ straff. Also folgt auch Aussage (b).
+		und damit ist $M$ straff. Also folgt auch Aussage (b).
 	\end{proof}
 	
 \end{document}
