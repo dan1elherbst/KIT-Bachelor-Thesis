@@ -269,24 +269,8 @@
 	In der Praxis lässt sich für einen metrischen Raum $(\X, d)$ immer eine beschränkte Metrik $\tilde{d}$ finden, die für kleine Werte $d$ selbst entspricht und damit insbesondere auch dieselbe Topologie wie $d$ induziert. Beispielsweise kann man
 	\[ \tilde{d} \; \defby \; \min \left(d, d_{\max}\right) \]
 	für eine gewisse maximale Distanz $d_{\max} \in (0, \infty)$ wählen.
-	
-	Bei der folgenden Dualitätsformel, die wir für den Beweis unseres zentralen Satzes an einer Stelle benötigen werden, handelt es sich wieder um ein Resultat, das wir angesichts des umfangreichen und technischen
-	Beweises lediglich zitieren werden.
 
-	\begin{Satz}[Dualitätsformel von Kantorovich-Rubinstein]
-		\label{satz:dualitätsformel_von_kantorovich_rubinstein}
-		Sei $(\X, d)$ ein polnischer metrischer Raum mit beschränkter Metrik $d$. Wir definieren
-		\[ \Lipschitzlequnit{\X} \; \defby \; \setcomp{\fct{f}{\X}{\R}}{f \; \text{ist lipschitzstetig mit Konstante} \; \leq 1 } \text{.} \]
-		
-		Dann gilt für jedes Paar $\mu, \nu \in \Probmeasures{\X}$ von Wahrscheinlichkeitsmaßen
-		\[ W_1(\mu, \nu) \; = \; \sup_{f \in \Lipschitzlequnit{\X}} \left( \measureint{}{f}{\mu} - \measureint{}{f}{\nu} \right) \text{.} \]
-	\end{Satz}
-
-	\begin{proof}
-		Siehe \cite[Remark 6.5]{Villani.2009}.
-	\end{proof}
-
-	Wir sind nun bereit, uns dem zentralen Satz dieses Kapitels zu widmen.
+	Nun sind wir bereit, uns dem zentralen Satz dieses Kapitels zu widmen.
 
 	\begin{Satz}
 		\label{satz:wassersteinmetrik_schwache_konvergenz}
@@ -295,7 +279,35 @@
 	\end{Satz}
 
 	Der Beweis orientiert sich an \cite[Theorem 6.9 und Corollary 6.13]{Villani.2009}, wobei sich der Aufwand durch die Annahme der Beschränktheit von $d$ stellenweise verringert.
-	Außerdem ist noch ein letzter Hilfssatz vonnöten, in dessen Beweis die obige Dualitätsformel eingeht.
+	Außerdem sind noch zwei letzte Hilfssätze vonnöten.
+	
+	\begin{Hilfssatz}
+		\label{hilfssatz:dualitätsformel_von_kantorovich_rubinstein}
+		Sei $(\X, d)$ ein polnischer metrischer Raum mit beschränkter Metrik $d$. Wir definieren
+		\[ \Lipschitzlequnit{\X} \; \defby \; \setcomp{\fct{f}{\X}{\R}}{f \; \text{ist lipschitzstetig mit Konstante} \; \leq 1 } \text{.} \]
+		
+		Dann gilt für jedes Paar $\mu, \nu \in \Probmeasures{\X}$ von Wahrscheinlichkeitsmaßen und jedes $f \in \Lipschitzlequnit{\X}$
+		\[ \measureint{}{f}{\mu} - \measureint{}{f}{\nu} \; \leq \; W_1(\mu, \nu) \text{.} \]
+	\end{Hilfssatz}
+
+	\begin{proof}
+		Wegen $f \in \Lipschitzlequnit{\X}$ ist $\abs{f(x) - f(y)} \leq d(x, y)$ für alle $x, y \in \X$ und damit erhalten wir für jede Kopplung $\pi \in \Pi(\mu, \nu)$
+		\begin{align*}
+			\measureint{}{f}{\mu} - \measureint{}{f}{\nu} \; \leq \; \left| \measureint{}{f}{\mu} - \measureint{}{f}{\nu} \right|
+			                                               \; &= \; \left| \measureintx{\X \times \X}{f(x)}{\pi}{x, y} - \measureintx{\X \times \X}{f(y)}{\pi}{x, y} \right| \\
+			                                                 &\leq \; \measureintx{\X \times \X}{\abs{f(x)-f(y)}}{\pi}{x, y} \\
+			                                                 &\leq \; \measureintx{\X \times \X}{d(x, y)}{\pi}{x, y} \text{,}
+		\end{align*}
+		also auch insgesamt
+		\[ \measureint{}{f}{\mu} - \measureint{}{f}{\nu} \; \leq \; \inf_{\pi \in \Pi(\mu, \nu)} \measureintx{\X \times \X}{d(x, y)}{\pi}{x, y} \; = \; W_1(\mu, \nu) \text{.} \qedhere \]
+	\end{proof}
+
+	\begin{Bemerkung}
+		Tatsächlich gilt in der Situation von Hilfssatz~\ref{hilfssatz:dualitätsformel_von_kantorovich_rubinstein} sogar die \emph{Dualitätsformel von Kantorovich-Rubinstein}:
+		\[ W_1(\mu, \nu) \; = \; \sup_{f \in \Lipschitzlequnit{\X}} \left( \measureint{}{f}{\mu} - \measureint{}{f}{\nu} \right) \text{.} \]
+		Da der Beweis allerdings recht umfangreich ist und uns für Satz~\ref{satz:wassersteinmetrik_schwache_konvergenz} die Aussage des obigen Hilfssatzes ausreicht, 
+		möchten wir an dieser Stelle lediglich auf \cite[Remark 6.5]{Villani.2009} verweisen.
+	\end{Bemerkung}
 
 	\begin{Hilfssatz}
 		\label{hilfssatz:wasserstein-cauchyfolgen_straff}
@@ -322,8 +334,7 @@
 		\[ \fctmap{\varphi}{\X}{\R}{x}{\max \left( 1-\frac{d(x, U)}{\varepsilon}, 0 \right)} \text{.} \]
 		Offensichtlich ist $\indfct_U \leq \varphi \leq \indfct_{U_\varepsilon}$ und $\varphi$ ist lipschitzstetig mit Konstante $1/\varepsilon$.
 		
-		Für  $k \in \N$ sei nun $j \in \set{1, \dots, n}$ mit $W_1(\mu_j, \mu_k) < \varepsilon^2$. Da $\varepsilon\varphi$ lipschitzstetig mit Konstante $1$ ist, liefert die 
-		Dualitätsformel von Kantorovich-Rubinstein (Satz~\ref{satz:dualitätsformel_von_kantorovich_rubinstein})
+		Für  $k \in \N$ sei nun $j \in \set{1, \dots, n}$ mit $W_1(\mu_j, \mu_k) < \varepsilon^2$. Da $\varepsilon\varphi$ lipschitzstetig mit Konstante $1$ ist, liefert Hilfssatz~\ref{hilfssatz:dualitätsformel_von_kantorovich_rubinstein}
 		\[ W_1(\mu_j, \mu_k) \; \geq \; \varepsilon \left( \measureint{}{\varphi}{\mu_k} - \measureint{}{\varphi}{\mu_j} \right) \text{.} \]
 		Also können wir abschätzen:
 		\begin{align*}
@@ -358,7 +369,7 @@
 		\end{matrix} \]
 		gilt.
 		
-		Wir möchten zunächst die Hinrichtung zeigen. Sei dazu $(\mu_k)_k \in \Probmeasures{\X}^\N$ und $\mu \in \Probmeasures{\X}$ mit $\mu_k \xrightarrow{w} \mu$. Sei außerdem $\pi_k \in \Pi(\mu_k, \mu)$ 
+		Wir möchten zuerst zeigen, dass aus schwacher Konvergenz die Konvergenz bezüglich $W_p$ folgt. Sei dazu $(\mu_k)_k \in \Probmeasures{\X}^\N$ und $\mu \in \Probmeasures{\X}$ mit $\mu_k \xrightarrow{w} \mu$. Sei außerdem $\pi_k \in \Pi(\mu_k, \mu)$ 
 		für jedes $k \in \N$ eine optimale Kopplung von $\mu_k$ mit $\mu$. 
 		Da $M \defby \setcomp{\mu_k}{k \in \N} \cup \set{\mu}$ und $N \defby \set{\mu}$ kompakt sind, liefert Satz~\ref{satz:optimale_transportpläne_kompakt} die Kompaktheit von
 		\[ \hat{\Pi}(M, N) \; \defby \; \setcomp{\pi \in \Pi(M, N)}{\pi \; \text{ist eine optimale Kopplung}} \; \subseteq \; \Probmeasures{\X \times \X} \text{.} \]
