@@ -18,18 +18,18 @@
 	
 	Im Allgemeinen beschreiben Folgen und deren Konvergenz die Eigenschaften eines topologischen Raums nur unzureichend:
 	Beispielsweise ist Folgenstetigkeit nicht notwendigerweise äquivalent zu Stetigkeit und zwei unterschiedliche Topologien auf einer 
-	gegebenen Menge können generell dieselben konvergenten Folgen haben (siehe etwa \cite[Beispiel 2.6.1]{Simon.2015}). 
+	gegebenen Menge können generell dieselben konvergenten Folgen haben (siehe etwa \cite[Example 2.6.1]{Simon.2015}). 
 	Um solche Probleme im Folgenden zu umgehen, führen wir das
 	Konzept des Netzes aus der mengentheoretischen Topologie ein. Netze verallgemeinern Folgen und können in vielerlei Hinsicht die 
 	Eigenschaften eines topologischen Raums besser erfassen. In diesem Teilabschnitt möchten wir auf einige Grundlagen zu Netzen eingehen,
-	wobei wir uns überwiegend an \cite[Kapitel 2.6]{Simon.2015} orientieren.
+	wobei wir uns überwiegend an \cite[Section 2.6]{Simon.2015} orientieren.
 	
 	\begin{Definition}[Gerichtete Menge]
 		\label{def:gerichtete_menge}
 		Sei $I$ eine Menge. Eine Relation $\preceq$ auf $I$ mit
 		\begin{enumeratethm}
-			\item $\forall \iota \in I: \; \iota \preceq \iota$
-			\item $\forall \iota, \kappa, \lambda \in I: \; \iota \preceq \kappa$ und $\kappa \preceq \lambda$ impliziert $\iota \preceq \lambda$
+			\item $\forall \iota \in I: \; \iota \preceq \iota$,
+			\item $\forall \iota, \kappa, \lambda \in I: \; \iota \preceq \kappa$ und $\kappa \preceq \lambda$ impliziert $\iota \preceq \lambda$,
 			\item $\forall \iota, \kappa \in I: \; \exists \lambda \in I: \; \iota \preceq \lambda$ und $\kappa \preceq \lambda$
 		\end{enumeratethm}
 		heißt \emph{gerichtet}. In diesem Fall nennen wir das Paar $(I, \preceq)$ auch eine \emph{gerichtete Menge}.
@@ -57,7 +57,7 @@
 	
 	\begin{Satz}
 		\label{satz:netz_konvergenz}
-		Seien $\X$ und $\Y$ topologische Räume. Dann gelten die folgenden Aussagen:
+		Seien $\X$ und $\Y$ topologische Räume. Dann gelten die folgenden Aussagen.
 		\begin{enumeratethm}
 			\item Eine Teilmenge $C \subseteq \X$ ist genau dann abgeschlossen, wenn der Grenzwert $z \in \X$ eines jeden konvergenten Netzes 
 			$x = (x_\iota)_{\iota \in I}$ in $\X$ bereits in $C$ liegt.
@@ -69,7 +69,7 @@
 	\end{Satz}
 	
 	\begin{proof}
-		Siehe \cite[Satz 2.6.3]{Simon.2015}.
+		Siehe \cite[Theorem 2.6.3]{Simon.2015}.
 	\end{proof}
 	
 	\begin{Bemerkung}
@@ -78,7 +78,7 @@
 	\end{Bemerkung}
 	
 	Für reelle Netze können wir in Analogie zu Folgen auch den Limes Superior bzw. Inferior von Netzen definieren. Hierfür orientieren wir uns an
-	\cite[Kapitel 2.1 und Aufgabe 2.55]{Megginson.1998} und \cite[Kapitel 2.4]{Aliprantis.2006}.
+	\cite[Section 2.1 und Exercise 2.55]{Megginson.1998} und \cite[Section 2.4]{Aliprantis.2006}.
 	
 	\begin{Definition}[Limes Superior und Inferior von Netzen]
 		Sei $x = (x_\iota)_{\iota \in I}$ ein Netz in $\R$. Dann definieren wir 
@@ -99,8 +99,8 @@
 			\liminf_{\iota \to \infty} \, (x_\iota + y_\iota) \; &\geq \; \liminf_{\iota \to \infty} x_\iota + \liminf_{\iota \to \infty} y_\iota \text{,}
 		\end{align*}
 		sofern die Summen jeweils definiert sind und
-		mit Gleichheit, falls eines der beiden Netze konvergiert (vgl. \cite[Aufgabe 2.55 (e)]{Megginson.1998}).
-		Nach \cite[Aufgabe 2.55 (i)]{Megginson.1998} ist für ein konvergentes Netz $x = (x_\iota)_{\iota \in I}$ in $\R$ ebenfalls
+		mit Gleichheit, falls eines der beiden Netze konvergiert (vgl. \cite[Exercise 2.55 (e)]{Megginson.1998}).
+		Nach \cite[Exercise 2.55 (i)]{Megginson.1998} ist für ein konvergentes Netz $x = (x_\iota)_{\iota \in I}$ in $\R$ ebenfalls
 		\[ \lim_{\iota \to \infty} x_\iota \; = \; \limsup_{\iota \to \infty} x_\iota \; = \; \liminf_{\iota \to \infty} x_\iota \text{.} \]
 	\end{Bemerkung}
 	
@@ -110,29 +110,30 @@
 	Auch wenn es sich hier um einen sehr elementaren Begriff handelt, wird dieser uns an späterer Stelle gerade 
 	in Kombination mit Satz~\ref{satz:konvergenz_initialtopologie} häufig ermöglichen, 
 	gewisse Topologien, mit denen wir arbeiten, und deren Konvergenzverhalten in knapper Form auszudrücken. 
-	Der folgende Teilabschnitt orientiert sich an \cite[Kapitel 2.13]{Aliprantis.2006}.
+	Der folgende Teilabschnitt orientiert sich an \cite[Section 2.13]{Aliprantis.2006}.
 	
 	\begin{Definition}[Initialtopologie]
 		\label{def:initialtopologie}
 		Sei $\X$ eine Menge, $A$ eine beliebige Indexmenge und für jedes $\alpha \in A$ sei $\Y_\alpha$ ein topologischer Raum sowie $\fct{f_\alpha}{\X}{\Y_\alpha}$ eine Abbildung.
-		Die Initialtopologie auf $\X$ bezüglich der Abbildungen $f_\alpha, \; \alpha \in A$ ist dann die kleinste Topologie auf $\X$, bezüglich der alle Abbildungen 
-		$f_\alpha, \; \alpha \in A$ stetig sind.
+		Die Initialtopologie auf $\X$ bezüglich der Abbildungen $f_\alpha$, $\alpha \in A$, ist dann die kleinste Topologie auf $\X$, bezüglich der alle Abbildungen 
+		$f_\alpha$, $\alpha \in A$, stetig sind.
 	\end{Definition}
 
 	\begin{Bemerkung}[Produkttopologie]
 		Sei $A$ eine beliebige Indexmenge und sei für jedes $\alpha \in A$ ein topologischer Raum $\X_\alpha$ gegeben. Die Produkttopologie der $\X_\alpha, \; \alpha \in A$
 		auf dem kartesischen Produkt $\X \defby \prod_{\alpha \in A} \X_\alpha$ ist dann die Initialtopologie der kanonischen Projektionen 
-		$\fctmap{\pi_\beta}{\X}{\X_\beta}{x = (x_\alpha)_{\alpha \in A}}{x_\beta}, \; \beta \in A$.
+		$\fctmap{\pi_\beta}{\X}{\X_\beta}{x = (x_\alpha)_{\alpha \in A}}{x_\beta}$ für $\beta \in A$.
 	\end{Bemerkung}
 	
 	\begin{Satz}[Konvergenz bezüglich der Initialtopologie]
 		\label{satz:konvergenz_initialtopologie}
-		In der Situation von Definition~\ref{def:initialtopologie} konvergiert ein Netz $x = (x_\iota)_{\iota \in I}$ in $\X$ genau dann gegen ein $z \in \X$, wenn für alle $\alpha \in A$
-		die Konvergenz $f_\alpha(x_\iota) \to f_\alpha(z), \; \iota \to \infty$ gilt.
+		In der Situation von Definition~\ref{def:initialtopologie} konvergiert ein Netz $x = (x_{\iota})_{\iota \in I}$ in $\X$ genau dann gegen ein $z \in \X$, wenn für alle $\alpha \in A$
+		die Konvergenz $f_\alpha(x_\iota) \to f_\alpha(z)$, $\iota \to \infty$, gilt.
 	\end{Satz}
 
 	\begin{proof}
-		Wegen Satz~\ref{satz:netz_konvergenz} (b) folgt die Hinrichtung direkt aus der Stetigkeit der Abbildungen $f_\alpha, \; \alpha \in A$.
+		Aus der Stetigkeit der Abbildungen $f_\alpha$, $\alpha \in A$, folgt wegen Satz~\ref{satz:netz_konvergenz} (b) direkt, dass $x_{\iota} \to z$ die Konvergenzen 
+		$f_\alpha(x_\iota) \to f_\alpha(z)$, $\iota \to \infty$ für alle $\alpha \in A$ impliziert.
 		
 		Für die Rückrichtung möchten wir zeigen, dass für alle Umgebungen $V$ von $z$ ein derartiges $\iota_0 \in I$ existiert, dass $x_\iota \in V$ für $\iota_0 \preceq \iota$ gilt.
 		Man bemerke zunächst, dass die Menge alle Urbilder von offenen Mengen in $\Y_\alpha$ unter $f_\alpha$ für alle $\alpha \in A$ eine Subbasis der Topologie von $\X$ ist.
@@ -141,7 +142,7 @@
 		zu betrachten, wobei $\alpha_1, \dots, \alpha_n \in A$ sind und $U_i$ offene Umgebungen von $f_{\alpha_i}(z)$, $i \in \set{1, \dots, n}$.
 		Sei nun ein solches $\tilde{V}$ gegeben. Dann können wir für $i \in \set{1, \dots, n}$ jeweils ein $\iota_0^{(i)} \in I$ finden, sodass $x_\iota \in f_{\alpha_i}^{-1}(U_i)$ für 
 		$\iota_0^{(i)} \preceq \iota$ gilt. Sukzessive Anwendung von Eigenschaft (c) in Definition~\ref{def:gerichtete_menge} liefert ein $\iota_0 \in I$ mit 
-		$x_\iota \in \tilde{V}$ für $\iota_0 \preceq \iota$, was schließlich die Konvergenz $x_\iota \to z, \; \iota \to \infty$ bedeutet.
+		$x_\iota \in \tilde{V}$ für $\iota_0 \preceq \iota$, was schließlich die Konvergenz $x_\iota \to z$, $\iota \to \infty$, bedeutet.
 	\end{proof}
 
 	\begin{Bemerkung}
@@ -157,7 +158,7 @@
 	Nun wenden wir uns (endlichen) Borel-Maßen auf topologischen bzw. metrischen Räumen zu. Da diese den primären Betrachtungsgegenstand der
 	Arbeit darstellen, möchten wir zunächst einige Begriffe definieren, Schreibweisen festlegen, und -- zumindest im Falle von metrischen Räumen -- eine im Folgenden sehr 
 	hilfreiche Eigenschaft dieser Maße, \emph{Schwache Regularität} bzw. \emph{Regularität}, vorstellen.
-	Der Abschnitt folgt \cite[Kapitel 4.14]{Simon.2015}.
+	Der Abschnitt folgt \cite[Section 4.14]{Simon.2015}.
 	
 	\begin{Definition}[Borel-$\sigma$-Algebra]
 		\label{def:borel-sigma-algebra}
@@ -171,7 +172,7 @@
 		In der Situation von Definition~\ref{def:borel-sigma-algebra} nennen wir Maße auf $\mathcal{B}(\X)$ \emph{Borel-Maße}. Wir führen außerdem die Schreibweisen
 		\begin{align*}
 			\Finitemeasures{\X}  \; &\defby \; \setcomp{\fct{\mu}{\mathcal{B}(\X)}{[0,\infty)}}{\mu \; 
-				\text{ist endliches Maß}} \\
+				\text{ist endliches Maß}} \text{,} \\
 			\Probmeasures{\X} \; &\defby \; \setcomp{\fct{\mu}{\mathcal{B}(\X)}{[0,1]}}{\mu \; 
 				\text{ist Wahrscheinlichkeitsmaß}}
 		\end{align*}
@@ -278,7 +279,7 @@
 	
 	\begin{proof}
 		Wir stellen eine Anpassung des Beweises von 
-		\cite[Hilfssatz 4.5.5]{Simon.2015} vor, wo die entsprechende Aussage mit \enquote{regulär} 
+		\cite[Lemma 4.5.5]{Simon.2015} vor, wo die entsprechende Aussage mit \enquote{regulär} 
 		anstelle \enquote{schwach regulär} für kompakte $\X$ bewiesen wird.
 		
 		Offensichtlich liegen $\emptyset$ und $\X$ in $\mathcal{S}$. Sei 
@@ -338,8 +339,8 @@
 		$\mathcal{B}(\X)$ von den abgeschlossenen Mengen erzeugt wird, genügt es zu zeigen, 
 		dass diese in $\mathcal{S}$ enthalten sind. 
 		
-		Sei $C \in \mathcal{B}(\X)$. Dann ist $C$ sicherlich schwach regulär von innen. 
-		Nun verwenden wir die offenen Mengen $A_n, \; n \in \N$ aus 
+		Sei $C \in \mathcal{B}(\X)$ abgeschlossen. Dann ist $C$ sicherlich schwach regulär von innen. 
+		Nun verwenden wir die offenen Mengen $A_n$, $n \in \N$, aus 
 		Hilfssatz~\ref{hilfssatz:offene_mengen}. 
 		Wegen $A_n \convdown C$ und $\mu(\X) < \infty$ folgt mit der 
 		Maßstetigkeit von oben die Konvergenz $\mu(A_n) \convdown \mu(C)$,
@@ -359,7 +360,7 @@
 	\begin{Folgerung}
 		\label{folgerung:gleichheit_von_maßen}
 		Sei $(\X,d)$ ein metrischer Raum und seien $\mu, \nu \in \Finitemeasures{\X}$. 
-		Dann sind die folgenden Aussagen äquivalent:
+		Dann sind die folgenden Aussagen äquivalent.
 		\begin{equivalentthm}
 			\item $\mu = \nu$.
 			\item Für alle $f \in \Bdcontfct{\X}$ ist
@@ -376,7 +377,7 @@
 		Die Implikationen (i) $\Rightarrow$ (ii) $\Rightarrow$ (iii) $\Rightarrow$ (iv) sind klar und (v) 
 		$\Rightarrow$ (i) folgt aus Satz~\ref{satz:schwache_regularität}.
 		
-		(iv) $\Rightarrow$ (v): Gelte (iv) und sei $C \subseteq \X$ abgeschlossen. 
+		(iv) $\Rightarrow$ (v): Es gelte (iv) und sei $C \subseteq \X$ abgeschlossen. 
 		Dann gilt für die Funktionen $f_n \in \Bduniffct{\X}$ aus Hilfssatz~\ref{hilfssatz:offene_mengen}
 		$$\measureint{}{f_n}{\mu} = \measureint{}{f_n}{\nu}\text{,} \quad n \in \N \text{.}$$
 		Wegen $| f_n | \leq 1$ und $f_n \convdown \indfct_C$ folgt mit dem Satz von Lebesgue 

@@ -14,14 +14,15 @@
 	sofern der Grundraum metrisierbar ist.
 	
 	Die grundlegenden Definitionen und Bemerkungen sowie Abschnitt~\ref{subsec:beziehung_schwach-stern-konvergenz} folgen 
-	\cite[Abschnitte 1 bis 3]{Varadarajan.1958}, während wir uns beim Beweis von Satz~\ref{satz:portmanteau} in Abschnitt~\ref{subsec:charakterisierung_schwache_konvergenz}
-	an \cite[Satz 4.14.4]{Simon.2015} orientieren.
+	\cite[Section 1-3]{Varadarajan.1958}, während wir uns beim Beweis von Satz~\ref{satz:portmanteau} in Abschnitt~\ref{subsec:charakterisierung_schwache_konvergenz}
+	an \cite[Theorem 4.14.4]{Simon.2015} orientieren.
 	
 	\begin{Definition}[Schwache Topologie]
 		\label{def:schwache_topologie}
-		Sei $\X$ ein topologischer Raum. Dann ist die \emph{schwache Topologie} auf $\Finitemeasures{\X}$ definiert als die 
+		Sei $\X$ ein topologischer Raum. Dann ist die \emph{schwache Topologie} auf $\Finitemeasures{\X}$ als die 
 		Initialtopologie bezüglich der Abbildungen
-		\[ \fctmap{I_f}{\Finitemeasures{\X}}{\R}{\mu}{\measureint{}{f}{\mu}}, \quad f \in \Bdcontfct{\X} \text{.} \]
+		\[ \fctmap{I_f}{\Finitemeasures{\X}}{\R}{\mu}{\measureint{}{f}{\mu}}, \quad f \in \Bdcontfct{\X} \text{,} \]
+		definiert.
 	\end{Definition}
 
 	Falls nicht explizit angegeben, sei $\Finitemeasures{\X}$ im Folgenden immer mit der schwachen Topologie versehen.
@@ -49,7 +50,7 @@
 	Angesichts des Namens der \emph{schwachen Konvergenz} bzw. \emph{schwachen Topologie} stellt sich unmittelbar die Frage, ob diese in irgendeiner Beziehung zur schwachen Konvergenz bzw. schwachen Topologie in Banachräumen aus der 
 	Funktionalanalysis steht. Tatsächlich handelt es sich eher um eine Art von Schwach-$\ast$-Konvergenz, wie wir im Folgenden sehen werden. 
 	
-	Sei dazu zunächst $\X$ ein topologischer Raum. Dann ist $(\Bdcontfct{\X}, \norm{\cdot}_\infty)$ ein normierter Vektorraum und wir betrachten nun die Abbildung
+	Sei dazu zunächst $\X$ ein topologischer Raum. Dann ist $(\Bdcontfct{\X}, \norm{\cdot}_\infty)$ ein normierter Vektorraum. Wir betrachten nun die Abbildung
 	\[\fctmap{\Phi}{\Finitemeasures{\X}}{C_b(\X)^\ast}{\mu}
 	{\left[\fctmap{l_\mu}{\Bdcontfct{\X}}{\R}{f}{\measureint{}{f}{\mu}}\right]} \text{,} \label{glg:4.1} \tag{4.1}\]
 	die wegen $\abs{\measureint{}{f}{\mu}} \leq \mu(\X) \norm{f}_\infty$ und $\mu(\X) < \infty$ wohldefiniert ist 
@@ -58,7 +59,7 @@
 	Schwach-$\ast$-Topologie ausgestattet, so entspricht schwache Konvergenz in $\Finitemeasures{\X}$ trivialerweise der 
 	Schwach-$\ast$-Konvergenz der jeweiligen Bilder unter $\Phi$.
 	
-	Ist $\X$ etwa metrisierbar, so können wir sogar noch eine stärkere Aussage formulieren:
+	Ist $\X$ etwa metrisierbar, so können wir sogar noch eine stärkere Aussage formulieren.
 	
 	\begin{Hilfssatz}
 		Sei $\X$ ein metrisierbarer topologischer Raum. Dann ist die Abbildung $\Phi$ aus \eqref{glg:4.1} ein Homöomorphismus auf sein Bild.
@@ -83,7 +84,7 @@
 	\begin{Satz}[Portmanteau]
 		\label{satz:portmanteau}
 		Sei $(\X, d)$ ein metrischer Raum, $(\mu_\iota)_{\iota \in I}$ ein Netz in $\Finitemeasures{\X}$
-		und $\mu \in \Finitemeasures{\X}$. Dann sind die folgenden Aussagen äquivalent:
+		und $\mu \in \Finitemeasures{\X}$. Dann sind die folgenden Aussagen äquivalent.
 		\begin{equivalentthm}
 			\item $\mu_\iota \xrightarrow{w} \mu$.
 			\item Für alle $f \in \Bduniffct{\X}$ gilt $\lim_{\iota \to \infty} \measureint{}{f}{\mu_\iota} = \measureint{}{f}{\mu}$.
@@ -102,11 +103,11 @@
 	\end{Satz}
 	
 	\begin{proof}
-		Wir präsentieren hier eine Verallgemeinerung des Beweises von Satz 4.14.4 in \cite[Kapitel 4.14]{Simon.2015} mit endlichen Maßen 
+		Wir präsentieren hier eine Verallgemeinerung des Beweises von Theorem 4.14.4 in \cite[Section 4.14]{Simon.2015} mit endlichen Maßen 
 		anstelle von Wahrscheinlichkeitsmaßen und Netzen anstelle von Folgen. Die Implikationen \enquote{(i) $\Rightarrow$ (ii) $\Rightarrow$ (iii)} sind klar. 
 		
 		(iii) $\Rightarrow$ (iv): Sei $C \subseteq \X$ abgeschlossen und seien 
-		$f_m, \; m \in \N$ die Funktionen aus Hilfssatz~\ref{hilfssatz:offene_mengen}. 
+		$f_m$, $m \in \N$, die Funktionen aus Hilfssatz~\ref{hilfssatz:offene_mengen}. 
 		Diese sind lipschitzstetig und beschränkt.
 		Dann gilt für alle $m \in \N$
 		$$\mu_\iota(C) \; = \; \measureint{}{\indfct_C}{\mu_\iota} \; \leq \; 
@@ -168,10 +169,10 @@
 		Die Stetigkeit von $f$ impliziert 
 		$\partial A_j^{(m)} \subseteq \set{f = c_j^{(m)}} \cup \set{f = c_{j+1}^{(m)}}$, 
 		woraus sich 
-		$$\mu(\partial A_j^{(m)}) = 0 \text{,} \qquad j \in \set{0,\dots,2m-1}$$
+		$$\mu(\partial A_j^{(m)}) = 0 \text{,} \qquad j \in \set{0,\dots,2m-1} \text{,}$$
 		ergibt. Für $m \in \N$ schreiben wir
-		$$u_m \defby \sum_{j=0}^{2m-1} c_j^{(m)} \indfct_{A_j^{(m)}}$$
-		und Aussage (v) führt dann auf
+		$$u_m \defby \sum_{j=0}^{2m-1} c_j^{(m)} \indfct_{A_j^{(m)}} \text{.}$$
+		Aussage (v) führt dann auf
 		\[\measureint{}{u_m}{\mu_\iota} \; = \; \sum_{j=0}^{2m-1} c_j^{(m)} \mu_\iota(A_j^{(m)}) 
 		\; \to \; \sum_{j=0}^{2m-1} c_j^{(m)} \mu(A_j^{(m)}) \; = \; 
 		\measureint{}{u_m}{\mu} \text{,} \quad \iota \to \infty \text{.} 
@@ -205,7 +206,7 @@
 	\end{proof}
 
 	\begin{Bemerkung}[Verteilungskonvergenz]
-		Betrachte den Fall $\X := \R$. Sei nun $(\mathbb{P}_n)_n \in \Probmeasures{\R}^\N$,  $\mathbb{P} \in \Probmeasures{\R}$ und seien $\fctmap{F_n}{\R}{[0, 1]}{x}{\mathbb{P}_n((-\infty, x])}$, $\fctmap{F}{\R}{[0, 1]}{x}{\mathbb{P}((-\infty, x])}$ die zugehörigen Verteilungsfunktionen. In der Stochastik spricht man davon, dass $(\mathbb{P}_n)_n$ in Verteilung gegen $\mathbb{P}$ konvergiert, falls 
+		Betrachte den Fall $\X := \R$. Seien nun $(\mathbb{P}_n)_n \in \Probmeasures{\R}^\N$ und $\mathbb{P} \in \Probmeasures{\R}$ sowie $\fctmap{F_n}{\R}{[0, 1]}{x}{\mathbb{P}_n((-\infty, x])}$ bzw. $\fctmap{F}{\R}{[0, 1]}{x}{\mathbb{P}((-\infty, x])}$ die zugehörigen Verteilungsfunktionen. In der Stochastik spricht man davon, dass $(\mathbb{P}_n)_n$ in Verteilung gegen $\mathbb{P}$ konvergiert, falls 
 		\[ \lim_{n \to \infty} F_n(x) \; = \; F(x) \]
 		für alle $x \in \R$ gilt, in denen $F$ stetig ist \cite[Definition 6.1]{Henze.2016}. 
 		
