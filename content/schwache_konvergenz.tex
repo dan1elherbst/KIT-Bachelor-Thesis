@@ -48,7 +48,7 @@
 	\label{subsec:beziehung_schwach-stern-konvergenz}
 	
 	Angesichts des Namens der \emph{schwachen Konvergenz} bzw. \emph{schwachen Topologie} stellt sich unmittelbar die Frage, ob diese in irgendeiner Beziehung zur schwachen Konvergenz bzw. schwachen Topologie in Banachräumen aus der 
-	Funktionalanalysis steht. Tatsächlich handelt es sich eher um eine Art von Schwach-$\ast$-Konvergenz, wie wir im Folgenden sehen werden. 
+	Funktionalanalysis steht.
 	
 	Sei dazu zunächst $\X$ ein topologischer Raum. Dann ist $(\Bdcontfct{\X}, \norm{\cdot}_\infty)$ ein normierter Vektorraum. Wir betrachten nun die Abbildung
 	\[\fctmap{\Phi}{\Finitemeasures{\X}}{C_b(\X)^\ast}{\mu}
@@ -75,6 +75,34 @@
 	Funktionalanalysis auch für $\Finitemeasures{\X}$ fruchtbar gemacht werden, indem von topologischen Eigenschaften von
 	$\Bdcontfct{\X}^\ast$ mit der Schwach-$\ast$-Konvergenz auf die entsprechenden Eigenschaften von 
 	$\Finitemeasures{\X}$ geschlossen wird. Konkrete Anwendungen hiervon werden wir bereits in Kapitel~\ref{chap:eigenschaften_der_schwachen_topologie} sehen.
+	
+	Wie der folgende Hilfssatz zeigt, ist $\Bdcontfct{\X}$ für metrisierbares $\X$ in den meisten Fällen nicht reflexiv, also entspricht schwache Konvergenz von Maßen
+	in der Regel tatsächlich nicht der schwachen Konvergenz im Sinne der Funktionalanalysis unter Identifikation via $\Phi$, sondern der Schwach-$\ast$-Konvergenz.
+	
+	\begin{Hilfssatz}
+		Sei $(\X, d)$ ein metrischer Raum. Dann ist $(\Bdcontfct{\X}, \norm{\cdot}_{\infty})$ genau dann reflexiv, wenn $\X$ endlich ist.
+	\end{Hilfssatz}
+
+	\begin{proof}
+		Die Idee für den Beweis entstammt \cite{Martin.2019}.
+		
+		Für endliches $\X$ ist $\Bdcontfct{\X}$ endlichdimensional, also insbesondere auch reflexiv. 
+		Es bleibt zu zeigen, dass $\Bdcontfct{\X}$ für unendliches $\X$ nicht reflexiv ist. Seien dazu $x_n \in \X$ für $n \in \N$ paarweise verschieden und setze
+		$\fctmap{\delta_n}{\Bdcontfct{\X}}{\R}{f}{f(x_n)}$, $n \in \N$. Dann gilt sicherlich $\delta_n \in \Bdcontfct{\X}^\ast$ und $\norm{\delta_n}_{\Bdcontfct{\X}^\ast} = 1$ für alle $n \in \N$.
+		Wir definieren
+		\[ \fctmap{\Psi}{\ell^1}{\Bdcontfct{\X}^\ast}{(a_n)_n}{\sum_{n=1}^{\infty} a_n \delta_n} \]
+		und möchten zeigen, dass es sich hierbei um eine isometrische Einbettung handelt. Fixiere eine Folge $a = (a_n)_n \in \ell^1$. Für $f \in \Bdcontfct{\X}$ ist sicherlich
+		\[ \left| \Psi(f) \right| \; = \; \left| \sum_{n=1}^{\infty} a_n \delta_n(f) \right| \; = \; \left| \sum_{n=1}^{\infty} a_n f(x_n) \right| \; \leq \; \norm{a}_1 \norm{f}_{\infty} \text{,} \]
+		also $\norm{\Psi}_{\Bdcontfct{\X}^\ast} \leq \norm{a}_1$. Für $k \in \N$ sei nun 
+		\[\delta_k \defby \min_{1 \leq n < m \leq k} d(x_n, x_m)\] 
+		sowie
+		\[ f_k \; \defby \; \sum_{n=1}^{k} \sgn(a_n) \max \left( 1 - \frac{2}{\delta_k} d(x_n, \cdot), 0 \right) \; \in \; \Bdcontfct{\X} \text{.} \]
+		Dann ist $\norm{f_k}_{\infty} \leq 1$ und $f_k(x_n) = \sgn(a_n)$ für alle $k \in \N$, $n \in \set{1,\dots,k}$. Weiter gilt
+		\[ \big| \Psi(f_k) - \norm{a}_1 \big| \; \leq \; \sum_{n=k+1}^{\infty} \big| a_n f_k(x_n) - \abs{a_n} \big| 
+		\; \leq \; 2 \sum_{n=k+1}^{\infty} \abs{a_n} \; \to \; 0, \quad k \to \infty \text{,} \]
+		und demnach folgt $\norm{\Psi}_{\Bdcontfct{\X}^\ast} = \norm{a}_1$. Die Abbildung $\Psi$ ist also tatsächlich eine isometrische Einbettung. Weil $\Bdcontfct{\X}^\ast$ daher mit $\ell^1$ einen nicht reflexiven
+		abgeschlossenen Teilraum enthält, kann $\Bdcontfct{\X}^\ast$ und damit auch $\Bdcontfct{\X}$ nicht reflexiv sein.
+	\end{proof}
 	
 	\section{Charakterisierungen schwacher Konvergenz}
 	\label{subsec:charakterisierung_schwache_konvergenz}

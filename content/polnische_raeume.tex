@@ -62,14 +62,17 @@
 		ist $(x_k)_k$ dann auch bezüglich $d$ eine Cauchyfolge und die 
 		Vollständigkeit von $(\X, d)$ liefert die Existenz eines Grenzwertes 
 		$x \in \X$. Wir nehmen $x \notin A$ an. Dann gibt es ein $m \in \N$ mit 
-		$x \in C_m$. Damit ist aber für alle $k \in \N$
-		$$\sup_{l \geq k} \tilde{d}(x_k, x_l) \; \geq \; \sup_{l \geq k} 
-		\, \sum_{n=1}^{\infty} \min \left(
-		\frac{1}{2^n}, \left| \frac{1}{d(x_k, C_n)} -
-		\frac{1}{d(x_l, C_n)} \right|
-		\right) \; \geq \; \frac{1}{2^m} \; > \; 0 \text{,}$$
-		was der Tatsache widerspricht, dass $(x_k)_k$ eine Cauchyfolge 
-		bezüglich $\tilde{d}$ ist. Also muss $x \in A$ gelten. 
+		$x \in C_m$. Dann gilt aber $d(x_l, C_m) \to 0$, $l \to \infty$, und damit für alle $k \in \N$
+		$$ \left| \frac{1}{d(x_k, C_m)} -
+		\frac{1}{d(x_l, C_m)} \right| \; \to \; \infty, \quad l \to \infty \text{,} $$
+		was
+		\begin{align*}
+			\sup_{l \geq k} \tilde{d}(x_k, x_l) \; &\geq \; \sup_{l \geq k} \, \sum_{n=1}^{\infty} \min \left(\frac{1}{2^n}, \left| \frac{1}{d(x_k, C_n)} -\frac{1}{d(x_l, C_n)} \right|\right) \\
+			                                       &\geq \; \sup_{l \geq k} \, \min \left(\frac{1}{2^m}, \left| \frac{1}{d(x_k, C_m)} -\frac{1}{d(x_l, C_m)} \right|\right) \\
+												   &\geq \; \frac{1}{2^m} \; > \; 0
+		\end{align*}
+		nach sich zieht. Dies widerspricht der Tatsache, dass $(x_k)_k$ eine Cauchyfolge 
+		bezüglich $\tilde{d}$ ist, also muss $x \in A$ gelten. 
 		Aus der Stetigkeit von $x \mapsto d(x, C_n)$ folgt mit dem 
 		Satz von Lebesgue unmittelbar die Konvergenz 
 		$\tilde{d}(x_k, x) \to 0$ für $k \to \infty$,
@@ -102,9 +105,11 @@
 		Ferner existiert wegen $z \in \overline{A}$ eine Folge $(y_k)_k \in A^\N$ 
 		mit $y_k \to z$, wobei wir zusätzlich
 		$y_k \in \bigcap_{j=1}^{k} V_{j, m_j}$
-		fordern. Weil damit nach \eqref{glg:3.1} auch für alle $k \in \N$
-		\[y_k \in \bigcap_{j=1}^{k} B_{1/j}(x_{m_j})\]
-		gilt, ist $(y_k)_k$ eine Cauchyfolge bezüglich $d'$. Aufgrund der Vollständigkeit von 
+		fordern. Nach \eqref{glg:3.1} gilt damit auch für alle $k \in \N$
+		\[y_k \in \bigcap_{j=1}^{k} B_{1/j}(x_{m_j}) \text{.} \]
+		Für $k$, $l \in \N$ mit $k \leq l$ ist also $y_k$, $y_l \in B_{1/k}(x_{m_k})$ und damit $d'(y_k, y_l) \leq 2/k$, weshalb 
+		\[ \limsup_{k \to \infty} \, \sup_{l \geq k} d'(y_k, y_l) \; = \; 0 \]
+		gilt. Demnach ist $(y_k)_k$ eine Cauchyfolge bezüglich $d'$. Aufgrund der Vollständigkeit von 
 		$(A, d')$ gibt es also ein $y \in A$ mit $y_k \to y$, was 
 		$z = y \in A$ und damit \enquote{$\supseteq$} 
 		in \eqref{glg:3.2} impliziert.
