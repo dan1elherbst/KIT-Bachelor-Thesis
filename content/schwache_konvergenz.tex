@@ -7,11 +7,10 @@
 	
 	In diesem Kapitel werden wir endliche Borel-Maße auf topologischen Räumen selbst
 	mit einer Topologie bzw. einem Konvergenzbegriff versehen, dem der sogenannten \emph{schwachen Konvergenz}. Diese
-	verallgemeinert die aus der Stochastik bekannte \emph{Verteilungskonvergenz} auf allgemeinere Räume als $\R$. 
+	verallgemeinert -- wie wir an späterer Stelle noch sehen werden -- die aus der Stochastik bekannte \emph{Verteilungskonvergenz} auf allgemeinere Räume als $\R$. 
 	
 	Nachdem wir die schwache Topologie und schwache Konvergenz zunächst definieren, präsentieren wir in Abschnitt~\ref{subsec:beziehung_schwach-stern-konvergenz}
-	eine alternative funktionalanalytische Sichtweise auf diese und charakterisieren die schwache Konvergenz in Satz~\ref{subsec:charakterisierung_schwache_konvergenz} mit dem \emph{Portmanteau-Theorem},
-	sofern der Grundraum metrisierbar ist.
+	eine alternative funktionalanalytische Sichtweise auf diese und charakterisieren die schwache Konvergenz in Abschnitt~\ref{subsec:charakterisierung_schwache_konvergenz} mit dem \emph{Portmanteau-Theorem} (Satz~\ref{satz:portmanteau}), sofern der Grundraum metrisierbar ist.
 	
 	Die grundlegenden Definitionen und Bemerkungen sowie Abschnitt~\ref{subsec:beziehung_schwach-stern-konvergenz} folgen 
 	\cite[Section 1--3]{Varadarajan.1958}, während wir uns beim Beweis von Satz~\ref{satz:portmanteau} in Abschnitt~\ref{subsec:charakterisierung_schwache_konvergenz}
@@ -31,7 +30,7 @@
 		In der Situation von Definition~\ref{def:schwache_topologie} heißt ein Netz $(\mu_\iota)_{\iota \in I}$ von Maßen in $\Finitemeasures{\X}$ genau dann 
 		\emph{schwach konvergent} gegen ein Maß $\mu \in \Finitemeasures{\X}$, wenn $\lim_{\iota \to \infty} \mu_\iota = \mu$ bezüglich der schwachen Topologie gilt.
 		In diesem Fall schreiben wir auch
-		\[ \mu_\iota \xrightarrow{w} \mu \text{.} \]
+		\[ \mu_\iota \xrightarrow{w} \mu, \quad \iota \to \infty \text{.} \]
 	\end{Definition}
 
 	\begin{Bemerkung}
@@ -47,8 +46,8 @@
 	\section{Beziehung zur Schwach-*-Konvergenz}
 	\label{subsec:beziehung_schwach-stern-konvergenz}
 	
-	Angesichts des Namens der \emph{schwachen Konvergenz} bzw. \emph{schwachen Topologie} stellt sich unmittelbar die Frage, ob diese in irgendeiner Beziehung zur schwachen Konvergenz bzw. schwachen Topologie in Banachräumen aus der 
-	Funktionalanalysis steht.
+	Angesichts des Namens der \emph{schwachen Konvergenz} bzw. \emph{schwachen Topologie} stellt sich unmittelbar die Frage, 
+	ob irgendein Zusammenhang zur schwachen Konvergenz bzw. schwachen Topologie in normierten Räumen aus der Funktionalanalysis besteht.
 	
 	Sei dazu zunächst $\X$ ein topologischer Raum. Dann ist $(\Bdcontfct{\X}, \norm{\cdot}_\infty)$ ein normierter Vektorraum. Wir betrachten nun die Abbildung
 	\[\fctmap{\Phi}{\Finitemeasures{\X}}{C_b(\X)^\ast}{\mu}
@@ -77,7 +76,7 @@
 	$\Finitemeasures{\X}$ geschlossen wird. Konkrete Anwendungen hiervon werden wir bereits in Kapitel~\ref{chap:eigenschaften_der_schwachen_topologie} sehen.
 	
 	Wie die folgende Proposition zeigt, ist $\Bdcontfct{\X}$ für metrisierbares $\X$ in den meisten Fällen nicht reflexiv, also entspricht schwache Konvergenz von Maßen
-	in der Regel tatsächlich nicht der schwachen Konvergenz im Sinne der Funktionalanalysis unter Identifikation via $\Phi$, sondern der Schwach-$\ast$-Konvergenz.
+	in der Regel tatsächlich nicht der schwachen Konvergenz im Sinne der Funktionalanalysis unter Identifikation via $\Phi$, sondern lediglich der Schwach-$\ast$-Konvergenz.
 	
 	\begin{Proposition}
 		Sei $(\X, d)$ ein metrischer Raum. Dann ist $(\Bdcontfct{\X}, \norm{\cdot}_{\infty})$ genau dann reflexiv, wenn $\X$ endlich ist.
@@ -92,15 +91,15 @@
 		Wir definieren
 		\[ \fctmap{\Psi}{\ell^1}{\Bdcontfct{\X}^\ast}{(a_n)_n}{\sum_{n=1}^{\infty} a_n \delta_n} \]
 		und möchten zeigen, dass es sich hierbei um eine isometrische Einbettung handelt. Fixiere eine Folge $a = (a_n)_n \in \ell^1$. Für $f \in \Bdcontfct{\X}$ ist sicherlich
-		\[ \left| \Psi(f) \right| \; = \; \left| \sum_{n=1}^{\infty} a_n \delta_n(f) \right| \; = \; \left| \sum_{n=1}^{\infty} a_n f(x_n) \right| \; \leq \; \norm{a}_1 \norm{f}_{\infty} \text{,} \]
-		also $\norm{\Psi}_{\Bdcontfct{\X}^\ast} \leq \norm{a}_1$. Für $k \in \N$ sei nun 
+		\[ \left| \Psi(a)(f) \right| \; = \; \left| \sum_{n=1}^{\infty} a_n \delta_n(f) \right| \; = \; \left| \sum_{n=1}^{\infty} a_n f(x_n) \right| \; \leq \; \norm{a}_1 \norm{f}_{\infty} \text{,} \]
+		also $\norm{\Psi(a)}_{\Bdcontfct{\X}^\ast} \leq \norm{a}_1$. Für $k \in \N$ sei nun 
 		\[\delta_k \defby \min_{1 \leq n < m \leq k} d(x_n, x_m)\] 
 		sowie
 		\[ f_k \; \defby \; \sum_{n=1}^{k} \sgn(a_n) \max \left( 1 - \frac{2}{\delta_k} d(x_n, \cdot), 0 \right) \; \in \; \Bdcontfct{\X} \text{.} \]
 		Dann ist $\norm{f_k}_{\infty} \leq 1$ und $f_k(x_n) = \sgn(a_n)$ für alle $k \in \N$, $n \in \set{1,\dots,k}$. Weiter gilt
-		\[ \big| \Psi(f_k) - \norm{a}_1 \big| \; \leq \; \sum_{n=k+1}^{\infty} \big| a_n f_k(x_n) - \abs{a_n} \big| 
+		\[ \big| \Psi(a)(f_k) - \norm{a}_1 \big| \; \leq \; \sum_{n=k+1}^{\infty} \big| a_n f_k(x_n) - \abs{a_n} \big| 
 		\; \leq \; 2 \sum_{n=k+1}^{\infty} \abs{a_n} \; \to \; 0, \quad k \to \infty \text{,} \]
-		und demnach folgt $\norm{\Psi}_{\Bdcontfct{\X}^\ast} = \norm{a}_1$. Die Abbildung $\Psi$ ist also tatsächlich eine isometrische Einbettung. Weil $\Bdcontfct{\X}^\ast$ daher mit $\ell^1$ einen nicht reflexiven
+		und demnach folgt $\norm{\Psi(a)}_{\Bdcontfct{\X}^\ast} = \norm{a}_1$. Die Abbildung $\Psi$ ist also tatsächlich eine isometrische Einbettung. Weil $\Bdcontfct{\X}^\ast$ daher mit $\ell^1$ einen nicht reflexiven
 		abgeschlossenen Teilraum enthält, kann $\Bdcontfct{\X}^\ast$ und damit auch $\Bdcontfct{\X}$ nicht reflexiv sein.
 	\end{proof}
 	
@@ -131,7 +130,7 @@
 	\end{Satz}
 	
 	\begin{proof}
-		Wir präsentieren hier eine Verallgemeinerung des Beweises von Theorem 4.14.4 in \cite[Section 4.14]{Simon.2015} mit endlichen Maßen 
+		Der Beweis ist eine Verallgemeinerung des Beweises von Theorem~4.14.4 in \cite{Simon.2015} mit endlichen Maßen 
 		anstelle von Wahrscheinlichkeitsmaßen und Netzen anstelle von Folgen. Die Implikationen \enquote{(i) $\Rightarrow$ (ii) $\Rightarrow$ (iii)} sind klar. 
 		
 		(iii) $\Rightarrow$ (iv): Sei $C \subseteq \X$ abgeschlossen und seien 
@@ -217,16 +216,16 @@
 			\left| \measureint{}{f}{\mu} - \measureint{}{u_m}{\mu} \right| + 
 			\left| \measureint{}{u_m}{\mu} - \measureint{}{u_m}{\mu_\iota} \right| \\ & \qquad + 
 			\left| \measureint{}{u_m}{\mu_\iota} - \measureint{}{f}{\mu_\iota} \right| \\
-			&\leq \; 2 \cdot \frac{b-a}{m} + \left| \measureint{}{u_m}{\mu_\iota} - 
-			\measureint{}{u_m}{\mu} \right| \label{glg:4.5} \tag{4.5}\text{.}
+			&\leq \; 2 \cdot \frac{b-a}{m} + \left| \measureint{}{u_m}{\mu} - 
+			\measureint{}{u_m}{\mu_\iota} \right| \label{glg:4.5} \tag{4.5}\text{.}
 		\end{align*}
 		\eqref{glg:4.3} und \eqref{glg:4.5} liefern also letztendlich für alle $m$
 		\begin{align*}
 			\limsup_{\iota \to \infty} \left| \measureint{}{f}{\mu} - 
 			\measureint{}{f}{\mu_\iota} \right|
 			\; &\leq \; 2 \cdot \frac{b-a}{m} + 
-			\limsup_{\iota \to \infty} \left| \measureint{}{u_m}{\mu_\iota} - 
-			\measureint{}{u_m}{\mu} \right| \\
+			\limsup_{\iota \to \infty} \left| \measureint{}{u_m}{\mu} - 
+			\measureint{}{u_m}{\mu_\iota} \right| \\
 			&= \; 2 \cdot \frac{b-a}{m} \; \to \; 0 \text{,} 
 			\quad m \to \infty \text{,}
 		\end{align*}
@@ -238,7 +237,7 @@
 		\[ \lim_{n \to \infty} F_n(x) \; = \; F(x) \]
 		für alle $x \in \R$ gilt, in denen $F$ stetig ist \cite[Definition 6.1]{Henze.2016}. 
 		
-		Tatsächlich ist die Verteilungskonvergenz von $(\mathbb{P}_n)_n$ gegen $\mathbb{P}$ gerade äquivalent zur schwachen Konvergenz $\mathbb{P}_n \xrightarrow{w} \mathbb{P}$. Dies lässt sich analog zur Äquivalenz (i) $\Leftrightarrow$ (vi) in Satz~\ref{satz:portmanteau} beweisen, wobei für den Beweis der Rückrichtung passende Intervalle als $A_j^{(m)}$ verwendet werden müssen.
+		Tatsächlich ist die Verteilungskonvergenz von $(\mathbb{P}_n)_n$ gegen $\mathbb{P}$ gerade äquivalent zur schwachen Konvergenz $\mathbb{P}_n \xrightarrow{w} \mathbb{P}$. Dies lässt sich analog zur Äquivalenz (i) $\Leftrightarrow$ (vi) in Satz~\ref{satz:portmanteau} einsehen, wobei für den Beweis der Rückrichtung passende Intervalle als $A_j^{(m)}$ verwendet werden müssen.
 	\end{Bemerkung}
 	
 \end{document}
