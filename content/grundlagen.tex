@@ -20,7 +20,7 @@
 	Beispielsweise ist Folgenstetigkeit nicht notwendigerweise äquivalent zu Stetigkeit und zwei unterschiedliche Topologien auf einer 
 	gegebenen Menge können generell dieselben konvergenten Folgen haben (siehe etwa \cite[Example 2.6.1]{Simon.2015}). 
 	Um solche Probleme im Folgenden zu umgehen, führen wir das
-	Konzept des Netzes aus der mengentheoretischen Topologie ein. Netze verallgemeinern Folgen und können in vielerlei Hinsicht die 
+	Konzept des Netzes ein. Netze verallgemeinern Folgen und können in vielerlei Hinsicht die 
 	Eigenschaften eines topologischen Raums besser erfassen. In diesem Teilabschnitt möchten wir auf einige Grundlagen zu Netzen eingehen,
 	wobei wir uns überwiegend an \cite[Section 2.6]{Simon.2015} orientieren.
 	
@@ -52,21 +52,21 @@
 		dann auch mit dem von uns bekannten Konvergenzbegriff von Folgen in topologischen Räumen überein.
 	\end{Bemerkung}
 	
-	Mit dem folgenden Satz konkretisieren wir unsere zu Beginn dieses Teilabschnitts getroffene Aussage, dass Netze die Eigenschaften topologischer Räume
+	Mit der folgenden Proposition konkretisieren wir unsere zu Beginn dieses Teilabschnitts getroffene Aussage, dass Netze die Eigenschaften topologischer Räume
 	besser als Folgen erfassen: Tatsächlich lässt sich jede Topologie einzig und allein durch ihre konvergenten Netze charakterisieren.
 	
-	\begin{Satz}
-		\label{satz:netz_konvergenz}
+	\begin{Proposition}
+		\label{proposition:netz_konvergenz}
 		Seien $\X$ und $\Y$ topologische Räume. Dann gelten die folgenden Aussagen.
 		\begin{enumeratethm}
 			\item Eine Teilmenge $C \subseteq \X$ ist genau dann abgeschlossen, wenn der Grenzwert $z \in \X$ eines jeden konvergenten Netzes 
-			$x = (x_\iota)_{\iota \in I}$ in $\X$ bereits in $C$ liegt.
+			$x = (x_\iota)_{\iota \in I}$ in $C$ ebenfalls in $C$ liegt.
 			\item Eine Funktion $\fct{f}{\X}{\Y}$ ist genau dann stetig, wenn für jedes konvergente Netz $x = (x_\iota)_{\iota \in I}$ in $\X$ 
 			\[ \lim_{\iota \to \infty} f(x_\iota) \; = \; f(\lim_{\iota \to \infty} x_\iota) \]
 			erfüllt ist.
 			\item Zwei Topologien auf $\X$ sind genau dann identisch, wenn alle Netze in $\X$ bezüglich beider Topologien dasselbe Konvergenzverhalten aufweisen.
 		\end{enumeratethm}
-	\end{Satz}
+	\end{Proposition}
 	
 	\begin{proof}
 		Siehe \cite[Theorem 2.6.3]{Simon.2015}.
@@ -108,7 +108,7 @@
 	
 	Wir möchten nun noch ein weiteres Konzept aus der Topologie, die sogenannte \emph{Initialtopologie} einführen.
 	Auch wenn es sich hier um einen sehr elementaren Begriff handelt, wird dieser uns an späterer Stelle gerade 
-	in Kombination mit Satz~\ref{satz:konvergenz_initialtopologie} häufig ermöglichen, 
+	in Kombination mit Proposition~\ref{proposition:konvergenz_initialtopologie} häufig ermöglichen, 
 	gewisse Topologien, mit denen wir arbeiten, und deren Konvergenzverhalten in knapper Form auszudrücken. 
 	Der folgende Teilabschnitt orientiert sich an \cite[Section 2.13]{Aliprantis.2006}.
 	
@@ -125,30 +125,30 @@
 		$\fctmap{\pi_\beta}{\X}{\X_\beta}{x = (x_\alpha)_{\alpha \in A}}{x_\beta}$ für $\beta \in A$.
 	\end{Bemerkung}
 	
-	\begin{Satz}[Konvergenz bezüglich der Initialtopologie]
-		\label{satz:konvergenz_initialtopologie}
+	\begin{Proposition}[Konvergenz bezüglich der Initialtopologie]
+		\label{proposition:konvergenz_initialtopologie}
 		In der Situation von Definition~\ref{def:initialtopologie} konvergiert ein Netz $x = (x_{\iota})_{\iota \in I}$ in $\X$ genau dann gegen ein $z \in \X$, wenn für alle $\alpha \in A$
 		die Konvergenz $f_\alpha(x_\iota) \to f_\alpha(z)$, $\iota \to \infty$, gilt.
-	\end{Satz}
+	\end{Proposition}
 
 	\begin{proof}
-		Aus der Stetigkeit der Abbildungen $f_\alpha$, $\alpha \in A$, folgt wegen Satz~\ref{satz:netz_konvergenz} (b) direkt, dass $x_{\iota} \to z$ die Konvergenzen 
+		Aus der Stetigkeit der Abbildungen $f_\alpha$, $\alpha \in A$, folgt wegen Proposition~\ref{proposition:netz_konvergenz} (b) direkt, dass $x_{\iota} \to z$ die Konvergenzen 
 		$f_\alpha(x_\iota) \to f_\alpha(z)$, $\iota \to \infty$ für alle $\alpha \in A$ impliziert.
 		
 		Für die Rückrichtung möchten wir zeigen, dass für alle Umgebungen $V$ von $z$ ein derartiges $\iota_0 \in I$ existiert, dass $x_\iota \in V$ für $\iota_0 \preceq \iota$ gilt.
 		Man bemerke zunächst, dass die Menge alle Urbilder von offenen Mengen in $\Y_\alpha$ unter $f_\alpha$ für alle $\alpha \in A$ eine Subbasis der Topologie von $\X$ ist.
-		Daher genügt es, Mengen der Form
+		Daher genügt es, Umgebungen der Form
 		\[ \tilde{V} \; \defby \; \bigcap_{i=1}^{n} f_{\alpha_i}^{-1}(U_i) \; \subseteq \; \X \]
 		zu betrachten, wobei $\alpha_1, \dots, \alpha_n \in A$ sind und $U_i$ offene Umgebungen von $f_{\alpha_i}(z)$, $i \in \set{1, \dots, n}$.
-		Sei nun ein solches $\tilde{V}$ gegeben. Dann können wir für $i \in \set{1, \dots, n}$ jeweils ein $\iota_0^{(i)} \in I$ finden, sodass $x_\iota \in f_{\alpha_i}^{-1}(U_i)$ für 
+		Sei nun ein solches $\tilde{V}$ gegeben. Dann können wir für $i \in \set{1, \dots, n}$ jeweils so ein $\iota_0^{(i)} \in I$ finden, dass $x_\iota \in f_{\alpha_i}^{-1}(U_i)$ für 
 		$\iota_0^{(i)} \preceq \iota$ gilt. Sukzessive Anwendung von Eigenschaft (c) in Definition~\ref{def:gerichtete_menge} liefert ein $\iota_0 \in I$ mit 
-		$x_\iota \in \tilde{V}$ für $\iota_0 \preceq \iota$, was schließlich die Konvergenz $x_\iota \to z$, $\iota \to \infty$, bedeutet.
+		$x_\iota \in \tilde{V}$ für $\iota_0 \preceq \iota$, was schließlich die Konvergenz $x_\iota \to z$, $\iota \to \infty$, impliziert.
 	\end{proof}
 
 	\begin{Bemerkung}
 		Man kann sich die Frage stellen, warum wir bei der Definition eines Netzes $(x_\iota)_{\iota \in I}$ fordern, dass die Indexmenge $I$ \emph{gerichtet} ist und etwa nicht lediglich
 		partiell geordnet. Am Ende des vorigen Beweises lässt sich allerdings der Mehrwert, den wir durch Eigenschaft (c) in der Definition einer gerichteten Menge erhalten, sehr gut erkennen: 
-		Wir können ein \enquote*{Maximum} 
+		Wir können ein \enquote{Maximum} 
 		von endlich vielen $\iota \in I$ finden und damit ähnlich argumentieren, als würden wir gerade mit Folgen arbeiten.
 	\end{Bemerkung}
 	
@@ -197,7 +197,7 @@
 	
 	Wie angekündigt werden wir uns im Folgenden mit der \emph{(schwachen) Regularität} von endlichen Borel-Maßen auseinandersetzen. 
 	Hierbei handelt es sich um eine Approximationseigenschaft, die es uns etwa erlaubt, gewisse Aussagen 
-	zunächst für abgeschlossene bzw. kompakte und für offene Mengen (die gewissermaßen \enquote*{strukturierter} als lediglich messbare Mengen sind) zu zeigen, 
+	zunächst für abgeschlossene bzw. kompakte und für offene Mengen (die gewissermaßen \enquote{strukturierter} als lediglich messbare Mengen sind) zu zeigen, 
 	um diese anschließend auf ganz $\mathcal{B}(\X)$ auszuweiten. 
 	
 	\begin{Definition}[Schwache Regularität von Maßen]
@@ -229,7 +229,7 @@
 	
 	Für den Beweis des Satzes benötigen wir noch zwei Hilfssätze. 
 	Der erste Hilfssatz behandelt die recht elementare Tatsache, dass sich in metrischen Räumen 
-	abgeschlossene Mengen von außen gewissermaßen \enquote*{beliebig gut} durch offene Mengen approximieren lassen. 
+	abgeschlossene Mengen von außen gewissermaßen \enquote{beliebig gut} durch offene Mengen approximieren lassen. 
 	Diese Erkenntnis werden wir im weiteren Verlauf der Arbeit noch häufiger benötigen.
 	Der zweite Hilfssatz, den wir vorstellen,
 	wird uns ermöglichen, die schwache Regularität nur auf einem Erzeuger von $\mathcal{B}(\X)$ 
@@ -239,30 +239,27 @@
 		\label{hilfssatz:offene_mengen}
 		Sei $(\X, d)$ ein metrischer Raum und $C \subseteq \X$ eine abgeschlossene 
 		Teilmenge. Ferner definieren wir für $n \in \N$
-		$$ A_n \defby \setcomp{y \in \X}{d(y, C) < \frac{1}{n}} \quad \text{und} \quad 
+		$$ U_n \defby \setcomp{y \in \X}{d(y, C) < \frac{1}{n}} \quad \text{und} \quad 
 		\fctmap{f_n}{\X}{\R}{x}{\max (0, 1-n d(x, C))} \text{,}$$
 		wobei wir $d(y, C) \defby \inf_{x \in C} d(y, x)$ setzen.
 		Dann gilt:
 		\begin{enumeratethm}
-			\item $A_n$ ist offen für alle $n \in \N$.
-			\item $C = \bigcap_{n \in \N} A_n$, insbesondere ist $C$ also eine $G_\delta$-Menge.
-			\item Für alle $n$ ist $\restr{f_n}{A_n^\mathsf{c}} = 0$ und $f_n$ ist lipschitzstetig.
+			\item $U_n$ ist offen für alle $n \in \N$.
+			\item $C = \bigcap_{n \in \N} U_n$, insbesondere ist $C$ also eine $G_\delta$-Menge.
+			\item Für alle $n$ ist $\restr{f_n}{U_n^\mathsf{c}} = 0$ und $f_n$ ist lipschitzstetig.
 			\item $f_n \convdown \indfct_C$.
 		\end{enumeratethm}
 	\end{Hilfssatz}
 	
 	\begin{proof}
 		Aussage (a) folgt aus der Stetigkeit von $y \mapsto d(y, C)$.
-		
 		Weiter ist $C \subseteq A_n$ für alle $n \in \N$ und damit 
 		$C \subseteq \bigcap_{n \in \N} A_n$. 
 		Umgekehrt gibt es für ein beliebiges $y \in \bigcap_{n \in \N} A_n$
 		eine Folge $(x_n)_n \in C^\N$ mit $x_n \rightarrow y$. 
 		Wegen der Abgeschlossenheit von $C$ liegt $y$ damit in $C$, sodass (b) gezeigt ist.
-		
 		Aussage (c) ist klar ($f_n$ ist als Komposition 
 		lipschitzstetiger Funktionen selbst lipschitzstetig).
-		
 		Schließlich fällt $f_n$ und für $x \in C$ gilt $f_n(x) = 1$. 
 		Für $x \in C^\mathsf{c}$ ist $d(x, C) > 0$ und damit
 		$$f_n(x) = \max (0, 1-n d(x, C))
@@ -279,24 +276,24 @@
 	
 	\begin{proof}
 		Wir stellen eine Anpassung des Beweises von 
-		\cite[Hilfssatz 4.5.5]{Simon.2015} vor, wo die entsprechende Aussage mit \enquote{regulär} 
-		anstelle \enquote{schwach regulär} für kompakte $\X$ bewiesen wird.
+		\cite[Lemma 4.5.5]{Simon.2015} vor, wo die entsprechende Aussage mit \enquote{regulär} 
+		anstelle \enquote{schwach regulär} für kompaktes $\X$ bewiesen wird. Im folgenden Beweis sei $\mathcal{O}$ die Topologie von $\X$.
 		
 		Offensichtlich liegen $\emptyset$ und $\X$ in $\mathcal{S}$. Sei 
 		$B \in \mathcal{S}$ und damit schwach regulär 
 		von innen und von außen. Wegen $\mu(\X) < \infty$ gilt dann
-		$$\mu(B^\mathsf{c}) 
+		\[ \mu(B^\mathsf{c}) 
 		\, = \, \mu(\X) - \mu(B) 
 		\, = \, \mu(\X) - \sup_{\substack{C \subseteq B \\ C^\mathsf{c} \in \mathcal{O}}} \mu(C) 
 		\, = \, \inf_{\substack{C \subseteq B \\ C^\mathsf{c} \in \mathcal{O}}} (\mu(\X) - \mu(C))
-		\, = \, \inf_{\substack{U \supseteq B^\mathsf{c} \\ U \in \mathcal{O}}} \mu(U)$$
+		\, = \, \inf_{\substack{U \supseteq B^\mathsf{c} \\ U \in \mathcal{O}}} \mu(U) \]
 		sowie analog
-		$$\mu(B^\mathsf{c}) 
+		\[ \mu(B^\mathsf{c}) 
 		\, = \, \mu(\X) - \mu(B) 
 		\, = \, \mu(\X) - \inf_{\substack{U \supseteq B \\ U \in \mathcal{O}}} \mu(C)
 		\, = \, \sup_{\substack{U \supseteq B \\ U \in \mathcal{O}}} (\mu(\X) - \mu(U))
 		\, = \, \sup_{\substack{C \subseteq B^\mathsf{c} \\ C^\mathsf{c} \in 
-				\mathcal{O}}} \mu(U) \text{.}$$
+				\mathcal{O}}} \mu(U) \text{.} \]
 		Also ist auch $B^\mathsf{c}$ schwach regulär. 
 		
 		Es bleibt nun zu zeigen, dass für $(B_n)_n \in \mathcal{S}^\N$ auch $B \defby 
@@ -306,7 +303,7 @@
 		$C_n \subseteq B_n$ mit $\mu(B_n) - \mu(C_n) < \frac{\varepsilon}{3^n}$.
 		Wir wählen nun $N$ so groß, dass $\mu\left( B \setminus \bigcup_{n=1}^N B_n \right) 
 		< \frac{\varepsilon}{2}$ ist (was wegen $\mu(B) < \infty$ immer geht). 
-		Für die abgeschlossene Menge $C := \bigcup_{n=1}^N C_k$ gilt dann die Ungleichung 
+		Für die abgeschlossene Menge $C := \bigcup_{n=1}^N C_n$, $C \subseteq B$, gilt dann die Ungleichung 
 		\begin{align*}
 			\mu(B) - \mu(C) = \mu(B\setminus C) \; &=
 			\; \mu\left( \left( B \setminus \bigcup_{n=1}^N B_n \right) \; \cup \; 
@@ -320,7 +317,7 @@
 		
 		Ferner existieren für alle $n$ offene Mengen $U_n \supseteq B_n$ 
 		mit $\mu(U_n) - \mu(B_n) < \frac{\varepsilon}{2^n}$. Wir setzen 
-		$U := \bigcup_{n \in \N} U_n$ und berechnen  
+		$U := \bigcup_{n \in \N} U_n$, $B \subseteq U$, und berechnen  
 		$$\mu(U) - \mu(B) \; \leq \; \sum_{n=1}^\infty \mu(U_n \setminus B) \; \leq \; 
 		\sum_{n=1}^\infty \mu(U_n \setminus B_n) \; < \; \varepsilon \text{.}$$
 		Weil $U$ offen ist, folgt insgesamt die schwache Regularität von $\mu$.
@@ -340,10 +337,10 @@
 		dass diese in $\mathcal{S}$ enthalten sind. 
 		
 		Sei $C \in \mathcal{B}(\X)$ abgeschlossen. Dann ist $C$ sicherlich schwach regulär von innen. 
-		Nun verwenden wir die offenen Mengen $A_n$, $n \in \N$, aus 
+		Nun verwenden wir die offenen Mengen $U_n$, $n \in \N$, aus 
 		Hilfssatz~\ref{hilfssatz:offene_mengen}. 
-		Wegen $A_n \convdown C$ und $\mu(\X) < \infty$ folgt mit der 
-		Maßstetigkeit von oben die Konvergenz $\mu(A_n) \convdown \mu(C)$,
+		Wegen $U_n \convdown C$ und $\mu(\X) < \infty$ folgt mit der 
+		Maßstetigkeit von oben die Konvergenz $\mu(U_n) \convdown \mu(C)$,
 		sodass $C$ auch schwach regulär von außen ist.
 	\end{proof}
 
@@ -378,7 +375,7 @@
 		$\Rightarrow$ (i) folgt aus Satz~\ref{satz:schwache_regularität}.
 		
 		(iv) $\Rightarrow$ (v): Es gelte (iv) und sei $C \subseteq \X$ abgeschlossen. 
-		Dann gilt für die Funktionen $f_n \in \Bduniffct{\X}$ aus Hilfssatz~\ref{hilfssatz:offene_mengen}
+		Dann gilt für die Funktionen $f_n \in \Bdlipschitzfct{\X}$ aus Hilfssatz~\ref{hilfssatz:offene_mengen}
 		$$\measureint{}{f_n}{\mu} = \measureint{}{f_n}{\nu}\text{,} \quad n \in \N \text{.}$$
 		Wegen $| f_n | \leq 1$ und $f_n \convdown \indfct_C$ folgt mit dem Satz von Lebesgue 
 		$$\measureint{}{f_n}{\mu} \; \to \; \mu(C) \quad \text{und} \quad \measureint{}{f_n}{\nu} 
