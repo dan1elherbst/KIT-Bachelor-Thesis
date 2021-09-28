@@ -39,7 +39,7 @@
 	
 	\begin{proof}
 		Wir zeigen zunächst, dass jede $G_\delta$-Teilmenge von $\X$ polnisch ist und orientieren uns dabei an \cite[Theorem 7]{JordanBell.2014}. Der Beweis, den wir anschließend für 
-		die Rückrichtung angeben, ist eine Anpassung des Beweises von Theorem 4.14.6 aus \cite[Section 4.14]{Simon.2015}.
+		die Rückrichtung angeben, ist eine Anpassung des Beweises von Theorem 4.14.6 aus \cite{Simon.2015}.
 		
 		Sei $A \subseteq \X$ eine $G_\delta$-Teilmenge und seien 
 		$U_n \subseteq \X$, $n \in \N$, offene Mengen mit 
@@ -62,14 +62,14 @@
 		ist $(x_k)_k$ dann auch bezüglich $d$ eine Cauchyfolge und die 
 		Vollständigkeit von $(\X, d)$ liefert die Existenz eines Grenzwertes 
 		$x \in \X$. Wir nehmen $x \notin A$ an. Dann gibt es ein $m \in \N$ mit 
-		$x \in C_m$. Dann gilt aber $d(x_l, C_m) \to 0$, $l \to \infty$, und damit für alle $k \in \N$
+		$x \in C_m$. Damit gilt $d(x_l, C_m) \to 0$, $l \to \infty$, und
 		$$ \left| \frac{1}{d(x_k, C_m)} -
-		\frac{1}{d(x_l, C_m)} \right| \; \to \; \infty, \quad l \to \infty \text{,} $$
-		was
+		\frac{1}{d(x_l, C_m)} \right| \; \to \; \infty, \quad l \to \infty$$
+		für alle $k \in \N$, was
 		\begin{align*}
 			\sup_{l \geq k} \tilde{d}(x_k, x_l) \; &\geq \; \sup_{l \geq k} \, \sum_{n=1}^{\infty} \min \left(\frac{1}{2^n}, \left| \frac{1}{d(x_k, C_n)} -\frac{1}{d(x_l, C_n)} \right|\right) \\
 			                                       &\geq \; \sup_{l \geq k} \, \min \left(\frac{1}{2^m}, \left| \frac{1}{d(x_k, C_m)} -\frac{1}{d(x_l, C_m)} \right|\right) \\
-												   &\geq \; \frac{1}{2^m} \; > \; 0
+			                                       &=    \; \frac{1}{2^m} \; > \; 0
 		\end{align*}
 		nach sich zieht. Dies widerspricht der Tatsache, dass $(x_k)_k$ eine Cauchyfolge 
 		bezüglich $\tilde{d}$ ist, also muss $x \in A$ gelten. 
@@ -80,7 +80,7 @@
 		polnischer Raum.
 		
 		Nun beweisen wir noch die Rückrichtung. Sei dazu $A \subseteq \X$ eine derartige Teilmenge, dass
-		$A$ bezüglich der Teilraumtopologie selbst polnisch ist und sei $\setcomp{x_m}{m \in \N} \subseteq X$ eine abzählbare dichte Teilmenge. 
+		$A$ bezüglich der Teilraumtopologie selbst polnisch ist und sei $\setcomp{x_m}{m \in \N} \subseteq \X$ eine abzählbare dichte Teilmenge. 
 		$d'$ metrisiere im Folgenden 
 		$A$ vollständig.
 		Sicherlich ist $B_{1/k}(x_m) \subseteq A$ für alle 
@@ -117,7 +117,7 @@
 
 	\section{Universalitätseigenschaft des Hilbertwürfels}
 	
-	Mit dem \emph{Hilbertwürfel} möchten wir uns nun einen speziellen polnischen Raum ansehen, 
+	Mit dem \emph{Hilbertwürfel} möchten wir uns einen speziellen polnischen Raum ansehen, 
 	der sich gleich in gewisser Weise als universell für alle polnischen Räume erweisen wird.
 	
 	\begin{Definition}[Hilbertwürfel]
@@ -246,7 +246,7 @@
 		Wir zeigen zunächst Aussage (a). Seien alle $\X_n$ separabel und metrisierbar. Nach Satz~\ref{satz:universalität_hilbertwürfel} bzw. 
 		Hilfssatz~\ref{hilfssatz:einbettung_hilbertwürfel} existieren dann Einbettungen $\fct{\varphi_n}{\X_n}{H}$, $n \in \N$. Nun ist aber 
 		\[ \prod_{n=1}^{\infty} \X_n \; \cong \; \prod_{n=1}^{\infty} \varphi_n(\X_n) \; \subseteq \; \prod_{n=1}^{\infty} H \; \cong \; H \]
-		und Satz~\ref{satz:universalität_hilbertwürfel} liefert, dass $\prod_{n=1}^{\infty} \X_n$ separabel und metrisierbar ist.
+		(denn Teilraum- und Produkttopologie kommutieren) und Satz~\ref{satz:universalität_hilbertwürfel} liefert, dass $\prod_{n=1}^{\infty} \X_n$ separabel und metrisierbar ist.
 		
 		Für Aussage (b) setzen wir zusätzlich die Polnizität aller $\X_n$ voraus. Dann ist $\varphi_n(\X_n)$ für jedes $n \in \N$ eine $G_{\delta}$-Teilmenge von $H$, also
 		existieren für alle $k$, $n \in \N$ derartige offene Mengen $U_n^{(k)} \subseteq H$, dass $\varphi_n(\X_n) = \bigcap_{k \in \N} U_n^{(k)}$ ist. Da nun insbesondere auch
