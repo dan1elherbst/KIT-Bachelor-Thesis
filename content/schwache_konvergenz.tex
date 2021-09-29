@@ -89,7 +89,7 @@
 		Es bleibt zu zeigen, dass $\Bdcontfct{\X}$ für unendliches $\X$ nicht reflexiv ist. Seien dazu $x_n \in \X$ für $n \in \N$ paarweise verschieden und setze
 		$\fctmap{\delta_n}{\Bdcontfct{\X}}{\R}{f}{f(x_n)}$, $n \in \N$. Dann gilt sicherlich $\delta_n \in \Bdcontfct{\X}^\ast$ und $\norm{\delta_n}_{\Bdcontfct{\X}^\ast} = 1$ für alle $n \in \N$.
 		Wir definieren
-		\[ \fctmap{\Psi}{\ell^1}{\Bdcontfct{\X}^\ast}{(a_n)_n}{\sum_{n=1}^{\infty} a_n \delta_n} \]
+		\[ \fctmap{\Psi}{\ell^1}{\Bdcontfct{\X}^\ast}{(a_n)_n}{\sum_{n=1}^{\infty} a_n \delta_n} \text{,} \]
 		und möchten zeigen, dass es sich hierbei um eine isometrische Einbettung handelt. Fixiere eine Folge $a = (a_n)_n \in \ell^1$. Für $f \in \Bdcontfct{\X}$ ist sicherlich
 		\[ \left| \Psi(a)(f) \right| \; = \; \left| \sum_{n=1}^{\infty} a_n \delta_n(f) \right| \; = \; \left| \sum_{n=1}^{\infty} a_n f(x_n) \right| \; \leq \; \norm{a}_1 \norm{f}_{\infty} \text{,} \]
 		also $\norm{\Psi(a)}_{\Bdcontfct{\X}^\ast} \leq \norm{a}_1$. Für $k \in \N$ sei nun 
@@ -233,7 +233,7 @@
 	\end{proof}
 
 	\begin{Bemerkung}[Verteilungskonvergenz]
-		Betrachte den Fall $\X := \R$. Seien nun $(\mathbb{P}_n)_n \in \Probmeasures{\R}^\N$ und $\mathbb{P} \in \Probmeasures{\R}$ sowie $\fctmap{F_n}{\R}{[0, 1]}{x}{\mathbb{P}_n((-\infty, x])}$ bzw. $\fctmap{F}{\R}{[0, 1]}{x}{\mathbb{P}((-\infty, x])}$ die zugehörigen Verteilungsfunktionen. In der Stochastik spricht man davon, dass $(\mathbb{P}_n)_n$ in Verteilung gegen $\mathbb{P}$ konvergiert, falls 
+		Betrachte den Fall $\X := \R$. Seien nun $(\mathbb{P}_n)_n \in \Probmeasures{\R}^\N$ und $\mathbb{P} \in \Probmeasures{\R}$ sowie $\fctmap{F_n}{\R}{[0, 1]}{x}{\mathbb{P}_n((-\infty, x])}$, bzw. $\fctmap{F}{\R}{[0, 1]}{x}{\mathbb{P}((-\infty, x])}$, die zugehörigen Verteilungsfunktionen. In der Stochastik spricht man davon, dass $(\mathbb{P}_n)_n$ in Verteilung gegen $\mathbb{P}$ konvergiert, falls 
 		\[ \lim_{n \to \infty} F_n(x) \; = \; F(x) \]
 		für alle $x \in \R$ gilt, in denen $F$ stetig ist \cite[Definition 6.1]{Henze.2016}. 
 		

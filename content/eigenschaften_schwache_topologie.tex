@@ -30,12 +30,12 @@
 	\begin{proof}
 		Wir beweisen zunächst Aussage (a). Weil $\X$ metrisierbar ist und die einelementigen Mengen $\set{x}$ für $x \in \X$ daher in $\mathcal{B}(\X)$ enthalten sind, ist $\delta$ sicherlich injektiv.
 		Wegen Proposition~\ref{proposition:netz_konvergenz} (b) genügt es also nachzuweisen, dass für jedes Netz $(x_\iota)_{\iota \in I}$ in $\X$ sowie $z \in \X$ die Äquivalenz
-		\[ x_\iota \to z \quad \iff \quad \delta_{x_\iota} \xrightarrow{w} \delta_z, \quad \iota \to \infty \]
-		gilt. 
+		\[ x_\iota \to z \quad \iff \quad \delta_{x_\iota} \xrightarrow{w} \delta_z \]
+		für $\iota \to \infty$ gilt. 
 		
 		Sei  $(x_\iota)_{\iota \in I}$ ein Netz in $\X$, das gegen $z \in \X$ konvergiert, und sei $f \in \Bdcontfct{\X}$. Dann ist
-		\[ \measureint{}{f}{\delta_{x_\iota}} \; = \; f(x_\iota) \; \to \; f(z) = \measureint{}{f}{\delta_{z}}, \quad \iota \to \infty \text{.} \]
-		Also strebt $\delta_{x_\iota}$ schwach gegen $\delta_z$. Gelte umgekehrt $\delta_{x_\iota} \xrightarrow{w} \delta_z$. Wähle eine Metrik $d$, die $\X$ metrisiert, und
+		\[ \measureint{}{f}{\delta_{x_\iota}} \; = \; f(x_\iota) \; \to \; f(z) = \measureint{}{f}{\delta_{z}}, \quad \iota \to \infty \text{,} \]
+		also strebt $\delta_{x_\iota}$ schwach gegen $\delta_z$. Gelte umgekehrt $\delta_{x_\iota} \xrightarrow{w} \delta_z$. Wähle eine Metrik $d$, die $\X$ metrisiert, und
 		setze $f \defby \min (1, d(\cdot, z)) \in \Bdcontfct{\X}$. Dann erhalten wir 
 		\[ \min (1, d(x_\iota, z)) \; = \; \measureint{}{f}{\delta_{x_\iota}} \; \to \; \measureint{}{f}{\delta_{z}} = 0 \text{,} \]
 		was $x_\iota \to z$ nach sich zieht.
@@ -88,7 +88,7 @@
 	\begin{proof}
 		Sei $\tilde{\X}$ die Vervollständigung von $\X$. Diese ist kompakt und damit ist $\Bdcontfct{\tilde{\X}}$ nach Hilfssatz~\ref{hilfssatz:beschränkte_stetige_funktionen_banachraum} ein separabler Banachraum.
 		Jedes $f \in \Bduniffct{\X}$ besitzt eine eindeutige Fortsetzung $\tilde{f} \in \Bdcontfct{\tilde{\X}}$ mit $\norm{f}_\infty = \norm{\tilde{f}}_\infty$. Damit wird über die Zuordnung
-		\[ \fctmap{E}{\Bduniffct{\X}}{\Bdcontfct{\tilde{\X}}}{f}{\tilde{f}} \]
+		\[ \fctmap{E}{\Bduniffct{\X}}{\Bdcontfct{\tilde{\X}}}{f}{\tilde{f}} \text{,} \]
 		eine isometrische Einbettung von $\Bduniffct{\X}$ nach $\Bdcontfct{\tilde{\X}}$ definiert. 
 		Wegen $\Bdcontfct{\tilde{\X}} = \Bduniffct{\tilde{\X}}$ (vgl. \cite[Theorem 2.4.1]{Simon.2015}) liegt $\restr{g}{\X}$ in $\Bduniffct{\X}$ für alle $g \in \Bdcontfct{\tilde{\X}}$ und damit ist
 		auch $g = E(\restr{g}{\X})$. Also ist $E$ surjektiv und somit eine Isometrie zwischen $\Bduniffct{\X}$ und $\Bdcontfct{\tilde{\X}}$. Hilfssatz~\ref{hilfssatz:beschränkte_stetige_funktionen_banachraum} liefert nun die Behauptung.
@@ -96,7 +96,7 @@
 	
 	\begin{Hilfssatz}
 		\label{hilfssatz:einbettungsraum_R}
-		Sei $R \defby \R^\N$ ausgestattet mit der Produkttopologie von $\R$, also mit der Initialtopologie der Projektionen $\fctmap{\pi_k}{R}{\R}{x = (x_n)_n}{x_k}$ für $k \in \N$. Dann ist $R$ 
+		Sei $R \defby \R^\N$ ausgestattet mit der Produkttopologie von $\R$, also mit der Initialtopologie der Projektionen $\fctmap{\pi_k}{R}{\R}{x = (x_n)_n}{x_k}$, für $k \in \N$. Dann ist $R$ 
 		polnisch.
 	\end{Hilfssatz}
 	
@@ -107,8 +107,8 @@
 	Ausgestattet mit den obigen Hilfssätzen können wir nun zum Beweis von Satz~\ref{satz:übertragung_metrisierbarkeit_separabilität} übergehen. Im Wesentlichen werden wir eine Einbettung von $\Finitemeasures{\X}$ nach $R$ konstruieren, die uns direkt die Behauptung liefert.
 	
 	\begin{proof}[Beweis von Satz~\ref{satz:übertragung_metrisierbarkeit_separabilität}]
-		Wir zeigen zunächst, dass $\Finitemeasures{X}$ für separables $\X$ metrisierbar und separabel ist. Dazu fixieren wir auf $\X$ eine Metrik $d$, die $\X$ metrisiert. 
-		Nach Hilfsssatz~\ref{hilfssatz:einbettung_hilbertwürfel} existiert dann ein Homöomorphismus $\fct{\varphi}{\X}{H}$ von
+		Wir zeigen zunächst, dass $\Finitemeasures{\X}$ für separables $\X$ metrisierbar und separabel ist. Dazu fixieren wir auf $\X$ eine Metrik $d$, die $\X$ metrisiert. 
+		Nach Hilfssatz~\ref{hilfssatz:einbettung_hilbertwürfel} existiert dann ein Homöomorphismus $\fct{\varphi}{\X}{H}$ von
 		$\X$ auf eine Teilmenge $\varphi(\X)$ des Hilbertwürfels $H$. Wir wählen nun die Metrik $\rho$ aus Proposition~\ref{proposition:hilbertwürfel} auf $H$. Aufgrund der Kompaktheit von $H$ ist
 		$(H, \rho)$ totalbeschränkt und damit auch jede Teilmenge von $H$. Also können wir über $\rho$ so eine Metrik $\tilde{d}$ auf $\X$ einführen, dass $\X$ von $\tilde{d}$ 
 		metrisiert wird und $(\X, \tilde{d})$ totalbeschränkt ist. Im Folgenden sei auf $\X$ diese Metrik fixiert. Hilfssatz~\ref{hilfssatz:beschränkte_glm_stetige_funktionen_banachraum} liefert uns, dass 
@@ -116,7 +116,7 @@
 		die wir so wählen, dass $f_1 = \indfct_\X$ ist.
 		
 		Wir setzen
-		\[ \fctmap{T}{\Finitemeasures{\X}}{R}{\mu}{\left( \measureint{}{f_n}{\mu} \right)_{\! n}} \]
+		\[ \fctmap{T}{\Finitemeasures{\X}}{R}{\mu}{\left( \measureint{}{f_n}{\mu} \right)_{\! n}} \text{,} \]
 		und möchten nachweisen, dass $T$ ein Homöomorphismus auf sein Bild ist. Da $R$ nach Hilfssatz~\ref{hilfssatz:einbettungsraum_R} separabel und metrisierbar ist, übertragen sich diese Eigenschaften dann auch auf $\Finitemeasures{\X}$.
 		
 		Wir zeigen zunächst die Injektivität. Seien dazu $\mu$, $\nu \in \Finitemeasures{\X}$ mit $T(\mu) = T(\nu)$. 
@@ -130,7 +130,7 @@
 		\[ \mu_\iota \xrightarrow{w} \mu \quad \iff \quad T(\mu_\iota) \to T(\mu)  \]
 		für $\iota \to \infty$ gilt.
 		
-		Es gelte $\mu_\iota \xrightarrow{w} \mu$, was nach Satz~\ref{satz:portmanteau} äquivalent dazu ist, dass $\lim_{\iota \to \infty} \measureint{}{f}{\mu_\iota} = \measureint{}{f}{\mu}$ für alle 
+		Es gelte zuerst $\mu_\iota \xrightarrow{w} \mu$, was nach Satz~\ref{satz:portmanteau} äquivalent dazu ist, dass $\lim_{\iota \to \infty} \measureint{}{f}{\mu_\iota} = \measureint{}{f}{\mu}$ für alle 
 		$f \in \Bduniffct{\X}$ ist. Offenbar impliziert dies die Konvergenz $T(\mu_\iota) \to T(\mu)$, $\iota \to \infty$.
 		
 		Sei nun umgekehrt $T(\mu_\iota) \to T(\mu)$, $\iota \to \infty$, was gleichbedeutend damit ist, dass 
@@ -193,16 +193,15 @@
 		\[ \fctmap{l}{V}{\R}{f}{\lim_{\iota \to \infty} \measureint{}{f}{\mu_\iota}} \text{.} \]
 		Offenbar ist $l$ wohndefiniert und linear. Da $l(f) \leq C \norm{f}_\infty$ für alle $f \in \Bdcontfct{\X}$ gilt, folgt $l \in V^\ast$. Nach dem Satz von Hahn-Banach (vgl. \cite[Corollary 5.5.2]{Simon.2015})
 		existiert nun eine (eindeutige) Fortsetzung von $l$ auf ganz $\Bdcontfct{\X}$, die wir ab jetzt $l$ nennen. Es ist $l \in \Bdcontfct{\X}^\ast$ 
-		mit $\norm{l}_{\Bdcontfct{\X}^\ast} = \norm{l}_{V^\ast}$. Offenbar gilt $l(f) \geq 0$ für alle $f \in \Bdcontfct{\X}$ mit $f \geq 0$ und damit gibt es 
+		mit $\norm{l}_{\Bdcontfct{\X}^\ast} = \norm{\restr{l}{V}}_{V^\ast}$. Offenbar gilt $l(f) \geq 0$ für alle $f \in \Bdcontfct{\X}$ mit $f \geq 0$ und damit gibt es 
 		nach dem Darstellungssatz von Riesz-Markov (vgl. \cite[Theorem 4.8.8]{Simon.2015}) ein Maß $\mu \in \Finitemeasures{\X}$ mit 
 		\[ l(f) \; = \; \measureint{}{f}{\mu}, \quad f \in \Bdcontfct{\X} \text{.} \]
 		Also folgt
 		\[ \lim_{\iota \to \infty} \measureint{}{f_n}{\mu_\iota} \; = \; r_n \; = \; l(f_n) \; = \measureint{}{f_n}{\mu} \]
-		für alle $n \in \N$. In völliger Analogie zum Beweis von Satz~\ref{satz:übertragung_metrisierbarkeit_separabilität} folgt nun die schwache Konvergenz $\mu_\iota \xrightarrow{w} \mu$, $\iota \to \infty$,
-		die wiederum $T(\mu_\iota) \to T(\mu)$ impliziert. Demnach ist $r = T(\mu) \in T(\Finitemeasures{\X})$ und insgesamt haben wir gezeigt, dass $T(\Finitemeasures{\X}) \subseteq R$ abgeschlossen ist.
+		für alle $n \in \N$ und damit $T(\mu_\iota) \to T(\mu)$, $\iota \to \infty$. Demnach ist $r = T(\mu) \in T(\Finitemeasures{\X})$ und insgesamt haben wir gezeigt, dass $T(\Finitemeasures{\X}) \subseteq R$ abgeschlossen ist.
 	\end{proof}
 
-	Mit Hilfe von Hilfssatz~\ref{hilfssatz:übertragung_polnizität_kompakter_grundraum} kann jetzt der Beweis von Satz~\ref{satz:übertragung_polnizität} geführt werden.
+	Unter Verwendung von Hilfssatz~\ref{hilfssatz:übertragung_polnizität_kompakter_grundraum} kann jetzt der Beweis von Satz~\ref{satz:übertragung_polnizität} geführt werden.
 
 	\begin{proof}[Beweis von Satz~\ref{satz:übertragung_polnizität}]
 		Wir zeigen zuerst, dass für polnisches $\X$ auch $\Finitemeasures{\X}$ polnisch ist. Analog zum Beweis von Satz~\ref{satz:übertragung_metrisierbarkeit_separabilität} fixieren wir auf 
@@ -227,7 +226,7 @@
 		Fixiere $k$, $r \in \N$. Sei nun $(\mu_\iota)_{\iota \in I}$ ein Netz in $C_{k, r}$, das schwach gegen ein $\mu \in \Finitemeasures{\tilde{\X}}$ konvergiert.
 		Dann ist $\mu_\iota(U_k^{\mathsf{c}}) \geq \frac{1}{r}$ für alle $\iota \in I$ und damit nach dem Portmanteau-Theorem (Satz~\ref{satz:portmanteau} (iv))
 		\[ \mu(U_k^{\mathsf{c}}) \; \geq \; \limsup_{\iota \to \infty} \mu_\iota(U_k^{\mathsf{c}}) \; \geq \; \frac{1}{r} \text{,} \]
-		was $\mu \in C_{k, r}$ impliziert. Daher ist $C_{k, r}$ für alle $k$, $r \in \N$ abgeschlossen und der Beweis vollständig.
+		was $\mu \in C_{k, r}$ impliziert. Daher ist $C_{k, r}$ für alle $k$, $r \in \N$ abgeschlossen und $\Finitemeasures{\X}$ also als $G_{\delta}$-Teilmenge von $\Finitemeasures{\tilde{\X}}$ selbst polnisch.
 		
 		Die Rückrichtung folgt wieder unmittelbar aus Satz~\ref{satz:einbettung_des_grundraums}: Sei $\Finitemeasures{\X}$ polnisch, 
 		so können wir $\X \cong \Delta \subseteq \Finitemeasures{\X}$ betrachten. Weil $\Delta$ wegen der Metrisierbarkeit von $\Finitemeasures{\X}$ nun auch abgeschlossen und damit nach 
@@ -414,7 +413,7 @@
 		\eqref{glg:5.4} impliziert.
 		
 		Schlussendlich möchten wir nun nachweisen, dass durch
-		\[ \fctmap{\nu}{\mathcal{B}(\X)}{[0, 1]}{B}{\sup_{m \in \N} \nu^{(m)}(B)} \]
+		\[ \fctmap{\nu}{\mathcal{B}(\X)}{[0, 1]}{B}{\sup_{m \in \N} \nu^{(m)}(B)} \text{,} \]
 		ein Wahrscheinlichkeitsmaß auf $\X$ definiert wird, gegen das $(\mu_{n_j})_j$ schwach konvergiert.
 		
 		Zunächst verifizieren wir, dass $\nu$ ein Wahrscheinlichkeitsmaß ist. Die Bedingung $\nu(\emptyset) = 0$ ist klar. 
