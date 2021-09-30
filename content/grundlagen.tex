@@ -227,16 +227,16 @@
 		Ist $(\X, d)$ ein metrischer Raum, so ist jedes endliche Borel-Maß $\mu$ auf $\X$ schwach regulär.
 	\end{Satz}
 	
-	Für den Beweis des Satzes benötigen wir noch zwei Hilfssätze. 
-	Der erste Hilfssatz behandelt die recht elementare Tatsache, dass sich in metrischen Räumen 
+	Für den Beweis des Satzes benötigen wir noch zwei Hilfsaussagen. 
+	Die folgende Proposition behandelt die recht elementare Tatsache, dass sich in metrischen Räumen 
 	abgeschlossene Mengen von außen gewissermaßen \enquote{beliebig gut} durch offene Mengen approximieren lassen. 
 	Diese Erkenntnis werden wir im weiteren Verlauf der Arbeit noch häufiger benötigen.
-	Der zweite Hilfssatz, den wir vorstellen,
+	Der anschließende Hilfssatz, den wir vorstellen,
 	wird uns ermöglichen, die schwache Regularität nur auf einem Erzeuger von $\mathcal{B}(\X)$ 
 	zu zeigen. Im endgültigen Beweis des Satzes werden wir dann die abgeschlossenen Mengen als Erzeuger wählen.
 	
-	\begin{Hilfssatz}
-		\label{hilfssatz:offene_mengen}
+	\begin{Proposition}
+		\label{proposition:offene_mengen}
 		Sei $(\X, d)$ ein metrischer Raum und $C \subseteq \X$ eine abgeschlossene 
 		Teilmenge. Ferner definieren wir für $n \in \N$
 		$$ U_n \defby \setcomp{y \in \X}{d(y, C) < \frac{1}{n}} \quad \text{und} \quad 
@@ -249,7 +249,7 @@
 			\item Für alle $n$ ist $\restr{f_n}{U_n^\mathsf{c}} = 0$ und $f_n$ ist lipschitzstetig.
 			\item $f_n \convdown \indfct_C$.
 		\end{enumeratethm}
-	\end{Hilfssatz}
+	\end{Proposition}
 	
 	\begin{proof}
 		Aussage (a) folgt aus der Stetigkeit von $y \mapsto d(y, C)$.
@@ -323,7 +323,7 @@
 		Weil $U$ offen ist, folgt insgesamt die schwache Regularität von $\mu$.
 	\end{proof}
 	
-	Ausgestattet mit den Hilfssätzen \ref{hilfssatz:offene_mengen} und \ref{hilfssatz:schwach_reguläre_mengen_sigma_algebra} können wir jetzt zum Beweis von Satz~\ref{satz:schwache_regularität} 
+	Ausgestattet mit Proposition~\ref{proposition:offene_mengen} und Hilfssatz~\ref{hilfssatz:schwach_reguläre_mengen_sigma_algebra} können wir jetzt zum Beweis von Satz~\ref{satz:schwache_regularität} 
 	übergehen.
 	
 	\begin{proof}[Beweis von Satz~\ref{satz:schwache_regularität}]
@@ -338,7 +338,7 @@
 		
 		Sei $C \in \mathcal{B}(\X)$ abgeschlossen. Dann ist $C$ sicherlich schwach regulär von innen. 
 		Nun verwenden wir die offenen Mengen $U_n$, $n \in \N$, aus 
-		Hilfssatz~\ref{hilfssatz:offene_mengen}. 
+		Proposition~\ref{proposition:offene_mengen}. 
 		Wegen $U_n \convdown C$ und $\mu(\X) < \infty$ folgt mit der 
 		Maßstetigkeit von oben die Konvergenz $\mu(U_n) \convdown \mu(C)$,
 		sodass $C$ auch schwach regulär von außen ist.
@@ -375,7 +375,7 @@
 		$\Rightarrow$ (i) folgt aus Satz~\ref{satz:schwache_regularität}.
 		
 		(iv) $\Rightarrow$ (v): Es gelte (iv) und sei $C \subseteq \X$ abgeschlossen. 
-		Dann gilt für die Funktionen $f_n \in \Bdlipschitzfct{\X}$ aus Hilfssatz~\ref{hilfssatz:offene_mengen}
+		Dann gilt für die Funktionen $f_n \in \Bdlipschitzfct{\X}$ aus Proposition~\ref{proposition:offene_mengen}
 		$$\measureint{}{f_n}{\mu} = \measureint{}{f_n}{\nu}\text{,} \quad n \in \N \text{.}$$
 		Wegen $| f_n | \leq 1$ und $f_n \convdown \indfct_C$ folgt mit dem Satz von Lebesgue 
 		$$\measureint{}{f_n}{\mu} \; \to \; \mu(C) \quad \text{und} \quad \measureint{}{f_n}{\nu} 
