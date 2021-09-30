@@ -64,7 +64,7 @@
 		$x \in \X$. Wir nehmen $x \notin A$ an. Dann gibt es ein $m \in \N$ mit 
 		$x \in C_m$. Damit gilt $d(x_l, C_m) \to 0$, $l \to \infty$, und
 		$$ \left| \frac{1}{d(x_k, C_m)} -
-		\frac{1}{d(x_l, C_m)} \right| \; \to \; \infty, \quad l \to \infty$$
+		\frac{1}{d(x_l, C_m)} \right| \; \to \; \infty, \quad l \to \infty,$$
 		für alle $k \in \N$, was
 		\begin{align*}
 			\sup_{l \geq k} \tilde{d}(x_k, x_l) \; &\geq \; \sup_{l \geq k} \, \sum_{n=1}^{\infty} \min \left(\frac{1}{2^n}, \left| \frac{1}{d(x_k, C_n)} -\frac{1}{d(x_l, C_n)} \right|\right) \\
@@ -187,7 +187,7 @@
 		Sei $(\X, d)$ ein separabler metrischer Raum und sei 
 		$\mathcal{D} \defby \setcomp{x_n}{n \in \N} \subseteq \X$ eine abzählbare 
 		dichte Teilmenge. Außerdem setzen wir
-		\[\fctmap{\varphi}{\X}{H}{x}{\left(\min (1, d(x, x_n)) \right)_n} \text{.} \label{glg:3.4} \tag{3.4}\]
+		\[\fctmap{\varphi}{\X}{H}{x}{\big(\min (1, d(x, x_n)) \big)_n} \text{.} \label{glg:3.4} \tag{3.4}\]
 		Dann ist $\varphi$ ein Homöomorphismus zwischen $\X$ und $\varphi(\X)$.
 	\end{Hilfssatz}
 	
@@ -246,7 +246,7 @@
 		Wir zeigen zunächst Aussage (a). Seien alle $\X_n$ separabel und metrisierbar. Nach Satz~\ref{satz:universalität_hilbertwürfel} bzw. 
 		Hilfssatz~\ref{hilfssatz:einbettung_hilbertwürfel} existieren dann Einbettungen $\fct{\varphi_n}{\X_n}{H}$, $n \in \N$. Nun ist aber 
 		\[ \prod_{n=1}^{\infty} \X_n \; \cong \; \prod_{n=1}^{\infty} \varphi_n(\X_n) \; \subseteq \; \prod_{n=1}^{\infty} H \; \cong \; H \]
-		(denn Teilraum- und Produkttopologie kommutieren) und Satz~\ref{satz:universalität_hilbertwürfel} liefert, dass $\prod_{n=1}^{\infty} \X_n$ separabel und metrisierbar ist.
+		(denn Teilraum- und Produkttopologie \enquote{kommutieren}) und Satz~\ref{satz:universalität_hilbertwürfel} liefert, dass $\prod_{n=1}^{\infty} \X_n$ separabel und metrisierbar ist.
 		
 		Für Aussage (b) setzen wir zusätzlich die Polnizität aller $\X_n$ voraus. Dann ist $\varphi_n(\X_n)$ für jedes $n \in \N$ eine $G_{\delta}$-Teilmenge von $H$, also
 		existieren für alle $k, n \in \N$ derartige offene Mengen $U_n^{(k)} \subseteq H$, dass $\varphi_n(\X_n) = \bigcap_{k \in \N} U_n^{(k)}$ ist. Da nun insbesondere auch

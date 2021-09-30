@@ -120,7 +120,7 @@
 		und möchten nachweisen, dass $T$ ein Homöomorphismus auf sein Bild ist. Da $R$ nach Hilfssatz~\ref{hilfssatz:einbettungsraum_R} separabel und metrisierbar ist, übertragen sich diese Eigenschaften dann auch auf $\Finitemeasures{\X}$.
 		
 		Wir zeigen zunächst die Injektivität. Seien dazu $\mu, \nu \in \Finitemeasures{\X}$ mit $T(\mu) = T(\nu)$. 
-		Sei außerdem $g \in \Bduniffct{\X}$. Dann gibt es eine Folge $(g_k)_k \in \mathcal{D}^\N$ mit $\norm{g - g_k}_\infty \to 0$, $n \to \infty$, was auch 
+		Sei außerdem $g \in \Bduniffct{\X}$. Dann gibt es eine Folge $(g_k)_k \in \mathcal{D}^\N$ mit $\norm{g - g_k}_\infty \to 0$, $k \to \infty$, was auch 
 		\[ \measureint{}{g_k}{\mu} \to \measureint{}{g}{\mu} \quad \text{und} \quad \measureint{}{g_k}{\nu} \to \measureint{}{g}{\nu}, \quad k \to \infty \text{,} \]
 		impliziert. Da aber $\measureint{}{g_k}{\mu} = \measureint{}{g_k}{\nu}$ für alle $k \in \N$ gilt, folgt auch $\measureint{}{g}{\mu} = \measureint{}{g}{\nu}$.
 		Folgerung~\ref{folgerung:gleichheit_von_maßen} liefert nun die Gleichheit $\mu = \nu$.
@@ -150,9 +150,9 @@
 			\measureint{}{g_k}{\mu} \right| \text{.}
 		\end{align*}
 		Mit \eqref{glg:5.1} folgern wir
-		\[ \limsup_{\iota \to \infty} \left| \measureint{}{g}{\mu_\iota} - \measureint{}{g}{\mu} \right| \; \leq \; 2 C \norm{g - g_k}_\infty \; \to \; 0, \quad k \to \infty \]
+		\[ \limsup_{\iota \to \infty} \left| \measureint{}{g}{\mu_\iota} - \measureint{}{g}{\mu} \right| \; \leq \; 2 C \norm{g - g_k}_\infty \; \to \; 0, \quad k \to \infty, \]
 		und damit 
-		\[ \measureint{}{g}{\mu_\iota} \; \to \; \measureint{}{g}{\mu}, \quad \iota \to \infty \]
+		\[ \measureint{}{g}{\mu_\iota} \; \to \; \measureint{}{g}{\mu}, \quad \iota \to \infty, \]
 		für alle $g \in \Bduniffct{\X}$. Satz~\ref{satz:portmanteau} liefert nun die schwache Konvergenz $\mu_\iota \xrightarrow{w} \mu$, $\iota \to \infty$.
 		
 		Die Rückrichtung folgt direkt aus Satz~\ref{satz:einbettung_des_grundraums}, da die Metrisierbarkeit und Separabilität von $\Finitemeasures{\X}$ direkt auch die Separabilität von $\X \cong \Delta \subseteq \Finitemeasures{\X}$ nach sich zieht.
