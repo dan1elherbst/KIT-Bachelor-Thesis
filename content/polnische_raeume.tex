@@ -50,7 +50,7 @@
 		selbst separabel ist, genügt es, die vollständige Metrisierbarkeit 
 		von $A$ zu beweisen.
 		
-		Für $x$, $y \in A$ definieren wir
+		Für $x, y \in A$ definieren wir
 		\[\tilde{d}(x, y) \; \defby \; d(x, y) + \sum_{n=1}^{\infty} \min \left(
 		\frac{1}{2^n}, \left| \frac{1}{d(x, C_n)} - \frac{1}{d(y, C_n)} \right|
 		\right) \text{.}\]
@@ -107,7 +107,7 @@
 		$y_k \in \bigcap_{j=1}^{k} V_{j, m_j}$
 		fordern. Nach \eqref{glg:3.1} gilt damit auch für alle $k \in \N$
 		\[y_k \in \bigcap_{j=1}^{k} B_{1/j}(x_{m_j}) \text{.} \]
-		Für $k$, $l \in \N$ mit $k \leq l$ ist also $y_k$, $y_l \in B_{1/k}(x_{m_k})$ und damit $d'(y_k, y_l) \leq 2/k$, weshalb 
+		Für $k, l \in \N$ mit $k \leq l$ ist also $y_k$, $y_l \in B_{1/k}(x_{m_k})$ und damit $d'(y_k, y_l) \leq 2/k$, weshalb 
 		\[ \lim_{k \to \infty} \, \sup_{l \geq k} d'(y_k, y_l) \; = \; 0 \]
 		gilt. Demnach ist $(y_k)_k$ eine Cauchyfolge bezüglich $d'$. Aufgrund der Vollständigkeit von 
 		$(A, d')$ gibt es also ein $y \in A$ mit $y_k \to y$, was 
@@ -249,9 +249,9 @@
 		(denn Teilraum- und Produkttopologie kommutieren) und Satz~\ref{satz:universalität_hilbertwürfel} liefert, dass $\prod_{n=1}^{\infty} \X_n$ separabel und metrisierbar ist.
 		
 		Für Aussage (b) setzen wir zusätzlich die Polnizität aller $\X_n$ voraus. Dann ist $\varphi_n(\X_n)$ für jedes $n \in \N$ eine $G_{\delta}$-Teilmenge von $H$, also
-		existieren für alle $k$, $n \in \N$ derartige offene Mengen $U_n^{(k)} \subseteq H$, dass $\varphi_n(\X_n) = \bigcap_{k \in \N} U_n^{(k)}$ ist. Da nun insbesondere auch
+		existieren für alle $k, n \in \N$ derartige offene Mengen $U_n^{(k)} \subseteq H$, dass $\varphi_n(\X_n) = \bigcap_{k \in \N} U_n^{(k)}$ ist. Da nun insbesondere auch
 		\[ V_n^{(k)} \; \defby \; \left( \prod_{m=1}^{n-1} H \times U_n^{(k)} \times \!\!\! \prod_{m=n+1}^{\infty} H \right) \; \subseteq \; \prod_{n=1}^{\infty} H \]
-		für alle $k$, $n \in \N$ offen ist, folgt
+		für alle $k, n \in \N$ offen ist, folgt
 		\[ \prod_{n=1}^{\infty} \X_n \; \cong \; \prod_{n=1}^{\infty} \bigcap_{k \in \N} U_n^{(k)} \; = \; \bigcap_{n \in \N} \bigcap_{k \in \N} V_n^{(k)} \; \subseteq \; \prod_{n=1}^{\infty} H \; \cong \; H \text{.} \]
 		Also ist $\prod_{n=1}^{\infty} \X_n$ homöomorph zu einer $G_{\delta}$-Teilmenge von $H$ und damit nach Satz~\ref{satz:universalität_hilbertwürfel} polnisch.
 	\end{proof}

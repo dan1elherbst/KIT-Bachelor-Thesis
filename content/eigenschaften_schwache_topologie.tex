@@ -119,7 +119,7 @@
 		\[ \fctmap{T}{\Finitemeasures{\X}}{R}{\mu}{\left( \measureint{}{f_n}{\mu} \right)_{\! n}} \text{,} \]
 		und möchten nachweisen, dass $T$ ein Homöomorphismus auf sein Bild ist. Da $R$ nach Hilfssatz~\ref{hilfssatz:einbettungsraum_R} separabel und metrisierbar ist, übertragen sich diese Eigenschaften dann auch auf $\Finitemeasures{\X}$.
 		
-		Wir zeigen zunächst die Injektivität. Seien dazu $\mu$, $\nu \in \Finitemeasures{\X}$ mit $T(\mu) = T(\nu)$. 
+		Wir zeigen zunächst die Injektivität. Seien dazu $\mu, \nu \in \Finitemeasures{\X}$ mit $T(\mu) = T(\nu)$. 
 		Sei außerdem $g \in \Bduniffct{\X}$. Dann gibt es eine Folge $(g_k)_k \in \mathcal{D}^\N$ mit $\norm{g - g_k}_\infty \to 0$, $n \to \infty$, was auch 
 		\[ \measureint{}{g_k}{\mu} \to \measureint{}{g}{\mu} \quad \text{und} \quad \measureint{}{g_k}{\nu} \to \measureint{}{g}{\nu}, \quad k \to \infty \text{,} \]
 		impliziert. Da aber $\measureint{}{g_k}{\mu} = \measureint{}{g_k}{\nu}$ für alle $k \in \N$ gilt, folgt auch $\measureint{}{g}{\mu} = \measureint{}{g}{\nu}$.
@@ -216,17 +216,17 @@
 		Da $\X \subseteq \tilde{\X}$ eine $G_\delta$-Teilmenge ist, existieren offene Mengen $U_k \subseteq \tilde{\X}$ für $k \in \N$ mit 
 		$\X \; = \; \bigcap_{k \in \N} U_k$. Insbesondere ist damit auch
 		$\Finitemeasures{\X} \; = \; \bigcap_{k \in \N} \Finitemeasures{U_k}$.
-		Für $k$, $r \in \N$ setzen wir nun
+		Für $k, r \in \N$ setzen wir nun
 		\[ V_{k, r} \; \defby \; \setcomp{\mu \in \Finitemeasures{\tilde{\X}}}{\mu(U_k^{\mathsf{c}}) < \frac{1}{r}} \text{.} \]
 		Mit diesen Mengen folgt dann $\Finitemeasures{U_k} = \bigcap_{r \in \N} V_{k, r}$ für alle $k \in \N$ und insbesondere auch
 		\[ \Finitemeasures{\X} \; = \; \bigcap_{k \in \N} \bigcap_{r \in \N} V_{k, r} \text{.} \]
-		Es genügt also zu beweisen, dass $V_{k, r}$ für alle $k$, $r \in \N$ offen ist, was äquivalent zur Abgeschlossenheit von 
+		Es genügt also zu beweisen, dass $V_{k, r}$ für alle $k, r \in \N$ offen ist, was äquivalent zur Abgeschlossenheit von 
 		\[C_{k, r} \; \defby \; V_{k, r}^{\mathsf{c}} \; = \; \setcomp{\mu \in \Finitemeasures{\tilde{\X}}}{\mu(U_k^{\mathsf{c}}) \geq \frac{1}{r}} \] 
-		für alle $k$, $r \in \N$ ist. Wir verwenden hierfür die Charakterisierung abgeschlossener Mengen durch Netze aus Proposition~\ref{proposition:netz_konvergenz} (a).
-		Fixiere $k$, $r \in \N$. Sei nun $(\mu_\iota)_{\iota \in I}$ ein Netz in $C_{k, r}$, das schwach gegen ein $\mu \in \Finitemeasures{\tilde{\X}}$ konvergiert.
+		für alle $k, r \in \N$ ist. Wir verwenden hierfür die Charakterisierung abgeschlossener Mengen durch Netze aus Proposition~\ref{proposition:netz_konvergenz} (a).
+		Fixiere $k, r \in \N$. Sei nun $(\mu_\iota)_{\iota \in I}$ ein Netz in $C_{k, r}$, das schwach gegen ein $\mu \in \Finitemeasures{\tilde{\X}}$ konvergiert.
 		Dann ist $\mu_\iota(U_k^{\mathsf{c}}) \geq \frac{1}{r}$ für alle $\iota \in I$ und damit nach dem Portmanteau-Theorem (Satz~\ref{satz:portmanteau} (iv))
 		\[ \mu(U_k^{\mathsf{c}}) \; \geq \; \limsup_{\iota \to \infty} \mu_\iota(U_k^{\mathsf{c}}) \; \geq \; \frac{1}{r} \text{,} \]
-		was $\mu \in C_{k, r}$ impliziert. Daher ist $C_{k, r}$ für alle $k$, $r \in \N$ abgeschlossen und $\Finitemeasures{\X}$ also als $G_{\delta}$-Teilmenge von $\Finitemeasures{\tilde{\X}}$ selbst polnisch.
+		was $\mu \in C_{k, r}$ impliziert. Daher ist $C_{k, r}$ für alle $k, r \in \N$ abgeschlossen und $\Finitemeasures{\X}$ also als $G_{\delta}$-Teilmenge von $\Finitemeasures{\tilde{\X}}$ selbst polnisch.
 		
 		Die Rückrichtung folgt wieder unmittelbar aus Satz~\ref{satz:einbettung_des_grundraums}: Sei $\Finitemeasures{\X}$ polnisch, 
 		so können wir $\X \cong \Delta \subseteq \Finitemeasures{\X}$ betrachten. Weil $\Delta$ wegen der Metrisierbarkeit von $\Finitemeasures{\X}$ nun auch abgeschlossen und damit nach 
@@ -435,7 +435,7 @@
 		Hierfür möchten wir die Charakterisierung (iv) des Portmanteau-Theorems (Satz~\ref{satz:portmanteau}) verwenden.
 		Sei dazu $C \subseteq \X$ abgeschlossen. Zunächst liefert ebendieser Satz für alle $m \in \N$ die 
 		Abschätzung $\limsup_{j \to \infty} \mu_{n_j}(C \cap K^{(m)}) \leq \nu^{(m)}(C)$ und wegen \eqref{glg:5.2} ist 
-		zudem $\mu_{n_j}(C \cap K^{(m) \mathsf{c}}) \leq  \frac{1}{m+1}$ für alle $j$, $m \in \N$. Insgesamt folgt daraus 
+		zudem $\mu_{n_j}(C \cap K^{(m) \mathsf{c}}) \leq  \frac{1}{m+1}$ für alle $j, m \in \N$. Insgesamt folgt daraus 
 		\begin{align*}
 			\limsup_{j \to \infty} \mu_{n_j}(C) \; &=    \; \lim_{m \to \infty} \limsup_{j \to \infty} 
 			\left( \mu_{n_j}(C \cap K^{(m)}) + \mu_{n_j}(C \cap K^{(m) \mathsf{c}}) \right) \\

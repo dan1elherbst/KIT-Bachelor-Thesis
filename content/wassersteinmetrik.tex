@@ -143,7 +143,7 @@
 
 	\begin{proof}
 		Setzen wir $c_l \defby \min(c, l) \in \Bdcontfct{\X}$ für alle $l \in \N$, so gilt $c_l \uparrow c$ punktweise. Sei nun $(\pi_k)_k \in \Probmeasures{\X \times \Y}^\N$ mit $\pi_k \xrightarrow{w} \pi \in \Probmeasures{\X \times \Y}$ eine schwach konvergente Folge. Dann gilt
-		$\measureint{}{c_l}{\pi_k} \; \leq \; \measureint{}{c}{\pi_k}$ für alle $k$, $l \in \N$ und damit auch 
+		$\measureint{}{c_l}{\pi_k} \; \leq \; \measureint{}{c}{\pi_k}$ für alle $k, l \in \N$ und damit auch 
 		\[ \measureint{}{c_l}{\pi} \; = \; \lim_{k \to \infty} \measureint{}{c_l}{\pi_k} \; \leq \; \liminf_{k \to \infty} \measureint{}{c}{\pi_k} \]
 		für alle $l \in \N$. Der Satz von Beppo Levi liefert also
 		\[ \measureint{}{c}{\pi} \; = \; \lim_{l \to \infty} \measureint{}{c_l}{\pi} \; \leq \; \liminf_{k \to \infty} \measureint{}{c}{\pi_k} \text{.} \qedhere \]
@@ -187,7 +187,7 @@
 
 	\begin{Definition}
 		\label{def:wassersteinmetrik}
-		Sei $(\X, d)$ ein polnischer metrischer Raum, sei $p \in [1, \infty)$ und seien $\mu$, $\nu \in \Probmeasures{\X}$. Dann nennen wir
+		Sei $(\X, d)$ ein polnischer metrischer Raum, sei $p \in [1, \infty)$ und seien $\mu, \nu \in \Probmeasures{\X}$. Dann nennen wir
 		$$ W_p(\mu, \nu) \; \defby \; \left(\inf_{\pi \in \Pi(\mu, \nu)} \measureintx{\X \times \X}{d(x, y)^p}{\pi}{x, y}\right)^{\! 1/p} \; \in \; [0, \infty] $$
 		die \emph{$p$-te Wassersteindistanz} zwischen $\mu$ und $\nu$.
 	\end{Definition}
@@ -202,14 +202,14 @@
 	\begin{proof}
 		Offensichtlich ist $W_p$ symmetrisch.
 		
-		Für die positive Definitheit seien $\mu$, $\nu \in \Probmeasures{\X}$ mit $W_p(\mu, \nu) = 0$. Dann ist
+		Für die positive Definitheit seien $\mu, \nu \in \Probmeasures{\X}$ mit $W_p(\mu, \nu) = 0$. Dann ist
 		\[ W_p(\mu, \nu)^p \; = \inf_{\pi \in \Pi(\mu, \nu)} \measureintx{\X \times \X}{d(x, y)^p}{\pi}{x, y} \; = \; 0 \]
 		und da die Zuordnung $(x, y) \mapsto d(x, y)^p$ stetig ist, existiert nach Satz~\ref{satz:existenz_optimaler_transportplan} eine Kopplung $\hat{\pi} \in \Pi(\mu, \nu)$ mit
 		\[ \measureintx{\X \times \X}{d(x, y)^p}{\hat{\pi}}{x, y} \; = \; 0 \text{.} \]
 		Damit folgt $\hat{\pi}(\setcomp{(x, x)}{x \in \X}) = \hat{\pi}(\set{d(x, y)^p = 0}) = 1$ und für jedes $B \in \mathcal{B}(\X)$ gilt
 		$\mu(B) = \hat{\pi}(B \times \X) = \hat{\pi}(\X \times B) = \nu(B)$, also $\mu = \nu$.
 		
-		Es bleibt die Dreiecksungleichung zu zeigen. Seien dazu $\mu_1$, $\mu_2$, $\mu_3 \in \Probmeasures{\X}$ und seien $\hat{\pi}_{1, 2}$ und $\hat{\pi}_{2, 3}$ optimale Kopplungen von
+		Es bleibt die Dreiecksungleichung zu zeigen. Seien dazu $\mu_1, \mu_2, \mu_3 \in \Probmeasures{\X}$ und seien $\hat{\pi}_{1, 2}$ und $\hat{\pi}_{2, 3}$ optimale Kopplungen von
 		$\mu_1$ und $\mu_2$ bzw. $\mu_2$ und $\mu_3$. Nach \cite[S. 11--12]{Villani.2009} gibt es nun ein Wahrscheinlichkeitsmaß $\pi \in \Probmeasures{\X^3}$ mit 
 		$\pi(\cdot \times \X) = \hat{\pi}_{1, 2}$ und $\pi(\X \times \cdot) = \hat{\pi}_{2, 3}$. Damit gilt
 		\begin{align*}
@@ -221,7 +221,7 @@
 	\end{proof}
 
 	\begin{Bemerkung}
-		Seien $x_0$, $y_0 \in \X$. Wegen $\Pi(\delta_{x_0}, \delta_{y_0}) = \set{\delta_{(x_0, y_0)}} \subseteq \Probmeasures{\X \times \X}$ folgt
+		Seien $x_0, y_0 \in \X$. Wegen $\Pi(\delta_{x_0}, \delta_{y_0}) = \set{\delta_{(x_0, y_0)}} \subseteq \Probmeasures{\X \times \X}$ folgt
 		\[ W_p(\delta_{x_0}, \delta_{y_0}) \; = \; \left( \measureintx{\X \times \X}{d(x, y)^p}{\delta_{(x_0, y_0)}}{x, y} \right)^{1/p} \; = \; d(x_0, y_0) \text{.} \]
 		Die Abbildung 
 		\[ (\X, d) \to (\Probmeasures{\X}, W_p), \quad x \mapsto \delta_x \]
@@ -289,7 +289,7 @@
 		Sei $(\X, d)$ ein polnischer metrischer Raum mit beschränkter Metrik $d$. Wir definieren
 		\[ \Lipschitzlequnit{\X} \; \defby \; \setcomp{\fct{f}{\X}{\R}}{f \; \text{ist lipschitzstetig mit Konstante} \; \leq 1 } \text{.} \]
 		
-		Dann gilt für jedes Paar $\mu$, $\nu \in \Probmeasures{\X}$ von Wahrscheinlichkeitsmaßen und jedes $f \in \Lipschitzlequnit{\X}$
+		Dann gilt für jedes Paar $\mu, \nu \in \Probmeasures{\X}$ von Wahrscheinlichkeitsmaßen und jedes $f \in \Lipschitzlequnit{\X}$
 		\[ \measureint{}{f}{\mu} - \measureint{}{f}{\nu} \; \leq \; W_1(\mu, \nu) \text{.} \]
 	\end{Hilfssatz}
 
@@ -379,7 +379,7 @@
 		Sei $(\pi_{k'})_{k'}$ nun eine Teilfolge von $(\pi_k)_k$. Da $\pi_k$ für jedes $k \in \N$ in $\hat{\Pi}(M, N)$ liegt, hat $(\pi_{k'})_{k'}$ eine Teilfolge $(\pi_{k''})_{k''}$, 
 		die schwach gegen ein $\pi'' \in \hat{\Pi}(M, N)$ konvergiert. Wegen Proposition~\ref{proposition:konvergenz_kopplungen} muss $\pi''$ eine optimale Kopplung von $\mu$ und $\mu$ sein, also
 		\[ \measureintx{\X \times \X}{d(x, y)^p}{\pi''}{x, y} \; = \; W_p(\mu, \mu)^p \; = \; 0 \text{.} \]
-		Daher gilt $\pi''(\setcomp{(x, x)}{x \in \X}) = 1$ und für alle $A$, $B \in \mathcal{B}(\X)$ folgt $\pi''(A \times B) = \mu(A \cap B)$, weshalb $\pi''$ einfach die 
+		Daher gilt $\pi''(\setcomp{(x, x)}{x \in \X}) = 1$ und für alle $A, B \in \mathcal{B}(\X)$ folgt $\pi''(A \times B) = \mu(A \cap B)$, weshalb $\pi''$ einfach die 
 		triviale Kopplung $\pi$ von $\mu$ und $\mu$ ist. Insgesamt erhalten wir wegen \eqref{glg:6.1} also die schwache Konvergenz
 		\[ \pi_k \xrightarrow{w} \pi, \quad k \to \infty \text{.} \] 
 		Weiter ist die Zuordnung $(x, y) \mapsto d(x, y)^p$ wegen der Beschränktheit von $d$ aber in $\Bdcontfct{\X \times \X}$ enthalten. Damit folgt 
