@@ -334,14 +334,14 @@
 		\quad \text{bzw.} \quad \mu(B) = \inf_{\substack{U \supseteq B \\ U \text{ offen}}} 
 		\mu(U)\]
 		gilt. Sei nun $\varepsilon > 0$. Dann gibt es eine abgeschlossene Teilmenge 
-		$C \subseteq B \subseteq \X$ mit $\mu(B \setminus C) < \varepsilon$. 
+		$C \subseteq B \subseteq \X$ mit $\mu(B \setminus C) < \varepsilon/2$. 
 		Außerdem gibt es nach Satz~\ref{satz:straffheit} eine kompakte Menge 
-		$\tilde{K} \subseteq \X$ mit $\mu(\tilde{K}) \geq 1 - \varepsilon$. Wir setzen nun $K \defby \tilde{K} \cap C$. Dann ist $K$ ebenfalls kompakt und 
+		$\tilde{K} \subseteq \X$ mit $\mu(\tilde{K}) \geq 1 - \varepsilon/2$. Wir setzen nun $K \defby \tilde{K} \cap C$. Dann ist $K$ ebenfalls kompakt und 
 		erfüllt $K \subseteq B$ mit 
 		\[ \mu(B \setminus K) 
 		\; = \; \mu((B \setminus C) \cup (B \setminus \tilde{K})) 
 		\; \leq \; \mu(B \setminus C) + \mu(\tilde{K}^{\mathsf{c}}) 
-		\; \leq \; 2 \varepsilon \text{.} \]
+		\; \leq \; \varepsilon \text{.} \]
 		Daher folgt 
 		\[\mu(B) 
 		= \sup_{\substack{K \subseteq B \\ K \text{ kompakt}}} \mu(K)\] 
@@ -355,7 +355,7 @@
 		Sei $\X$ ein metrisierbarer topologischer Raum und $M \subseteq \Probmeasures{\X}$. Dann gelten die folgenden Aussagen.
 		\begin{enumeratethm}
 			\item Ist $\X$ separabel und $M \subseteq \Probmeasures{\X}$ straff, so ist $\overline{M} \subseteq \Probmeasures{\X}$ kompakt.
-			\item Ist $\X$ polnisch und $\overline{M} \subseteq \Probmeasures{\X}$ kompakt, so ist $M \subseteq \Probmeasures{X}$ straff.
+			\item Ist $\X$ polnisch und $\overline{M} \subseteq \Probmeasures{\X}$ kompakt, so ist $M \subseteq \Probmeasures{\X}$ straff.
 		\end{enumeratethm}
 	\end{Satz}
 
@@ -395,7 +395,7 @@
 		für alle $m \in \N$ erfüllt.
 		Außerdem können die Maße $\nu^{(m)}$, $m \in \N$, via 
 		$\nu^{(m)}(B) \defby \nu^{(m)}(B \cap K^{(m)})$ für $B \in \mathcal{B}(\X)$ einfach auf $\X$ fortgesetzt werden. 
-		Mit dieser Konvention können wir nun beweisen, dass die Maße
+		Mit dieser Konvention möchten wir nun beweisen, dass die Maße
 		$\nu^{(m)}$, $m \in \N$, in dem Sinne monoton wachsen, dass 
 		\[ \nu^{(m)}(B) \leq \nu^{(m+1)}(B) \label{glg:5.4} \tag{5.4} \]
 		für alle $B \in \mathcal{B}(\X)$ und $m \in \N$ gilt.
@@ -413,7 +413,7 @@
 		für alle $k \in \N$, was wiederum aufgrund der Konvergenz $f_k \convdown \indfct_C$ und dem Satz von Lebesgue Ungleichung 
 		\eqref{glg:5.4} impliziert.
 		
-		Schlussendlich möchten wir nun nachweisen, dass durch
+		Schlussendlich möchten wir nachweisen, dass durch
 		\[ \fctmap{\nu}{\mathcal{B}(\X)}{[0, 1]}{B}{\sup_{m \in \N} \nu^{(m)}(B)} \text{,} \]
 		ein Wahrscheinlichkeitsmaß auf $\X$ definiert wird, gegen das $(\mu_{n_j})_j$ schwach konvergiert.
 		
@@ -448,18 +448,18 @@
 		und $\mathcal{D} \defby \setcomp{x_n}{n \in \N} \subseteq \X$ eine abzählbare dichte Teilmenge.
 		
 		Wir behaupten, dass für alle $\delta > 0$ ein solches $m_\delta \in \N$ existiert, dass
-		\[ \mu(\bigcup_{n=1}^{m_\delta} B_\delta(x_n)) \; > \; 1 - \delta \label{glg:5.5} \tag{5.5} \]
+		\[ \mu \left(\bigcup_{n=1}^{m_\delta} B_\delta(x_n) \right) \; > \; 1 - \delta \label{glg:5.5} \tag{5.5} \]
 		für alle $\mu \in M$ gilt. Denn falls es kein derartiges $m_\delta$ gibt, so lässt sich ein $\delta > 0$ finden, für das
 		für alle $m \in \N$ ein $\mu_m \in M$ existiert mit
-		\[ \mu_m(\bigcup_{n=1}^{m} B_\delta(x_n)) \; \leq \; 1 - \delta \text{.} \]
+		\[ \mu_m \left(\bigcup_{n=1}^{m} B_\delta(x_n) \right) \; \leq \; 1 - \delta \text{.} \]
 		Insbesondere bedeutet das natürlich auch, dass wir für alle $m \in \N$ und $k \geq m$ 
-		\[ \mu_k(\bigcup_{n=1}^{m} B_\delta(x_n)) \; \leq \; 1 - \delta \]
+		\[ \mu_k \left(\bigcup_{n=1}^{m} B_\delta(x_n) \right) \; \leq \; 1 - \delta \]
 		abschätzen dürfen. Aufgrund der Kompaktheit von $\overline{M}$ gibt es eine Teilfolge $(\mu_{k_j})_j$ von $(\mu_k)_k$, 
 		die einen schwachen Grenzwert $\mu \in \Probmeasures{\X}$ besitzt. Fixiere nun ein $m \in \N$. 
 		Dann ist $\bigcup_{n=1}^{m} B_\delta(x_n)$
-		offen und daher liefert Charakterisierung (v) des Portmanteau-Theorems (Satz~\ref{satz:portmanteau})
-		\[ \mu(\bigcup_{n=1}^{m} B_\delta(x_n)) 
-		\; \leq \; \liminf_{j \to \infty} \mu_{k_j}(\bigcup_{n=1}^{m} B_\delta(x_n)) 
+		offen und Charakterisierung (v) des Portmanteau-Theorems (Satz~\ref{satz:portmanteau}) liefert
+		\[ \mu \left(\bigcup_{n=1}^{m} B_\delta(x_n) \right) 
+		\; \leq \; \liminf_{j \to \infty} \mu_{k_j} \left(\bigcup_{n=1}^{m} B_\delta(x_n) \right) 
 		\; \leq \; 1 - \delta \text{.} \label{glg:5.6} \tag{5.6} \]
 		Wegen $\bigcup_{n=1}^{\infty} B_\delta(x_n) = \X$ und Maßstetigkeit von unten 
 		folgt aus \eqref{glg:5.6} unmittelbar 
@@ -470,7 +470,7 @@
 		\[ S_\varepsilon 
 		\; \defby \; \bigcap_{l \in \N} \bigcup_{n=1}^{m_{\varepsilon / 2^l}} 
 		B_{\varepsilon / 2^l}(x_n) \]
-		und verfahren nun ähnlich wie im Beweis von Satz~\ref{satz:straffheit}: Offensichtlich ist $S_\varepsilon$ total beschränkt und damit auch 
+		und verfahren nun ähnlich wie im Beweis von Satz~\ref{satz:straffheit}: Offensichtlich ist $S_\varepsilon$ totalbeschränkt und damit auch 
 		$ K_\varepsilon \defby \overline{S_\varepsilon}$ kompakt (vgl. \cite[Theorem 2.3.8]{Simon.2015}). 
 		Außerdem gilt für alle $\mu \in M$
 		\[
