@@ -27,7 +27,7 @@
 	\section{Kopplungen}
 	\label{subsec:kopplungen}
 	
-	Für die Motivation des optimalen Transports orientieren wir uns an der Arbeit \cite{Monge.1781}, mit der Gaspard Monge im Jahr 1781 das Gebiet begründete.  
+	Wir motivieren das optimale Transportproblem ähnlich wie Gaspard Monge, der mit seiner Arbeit \cite{Monge.1781} im Jahr 1781 das Gebiet begründete.  
 	Die Ausgangssituation in Monges Formulierung können wir uns wie folgt vorstellen (vgl. \cite[S. 29--30]{Villani.2009}):
 	Wir nehmen an, dass wir eine gewisse Menge an Erde aus dem Boden fördern müssen, um diese anschließend an Stellen zu bringen, an denen sie weiterverarbeitet werden kann. Die räumlichen Verteilungen vor und
 	nach dem Transport sind hierbei festgelegt und werden jeweils durch Wahrscheinlichkeitsmaße $\mu$ bzw. $\nu$ auf Räumen $\X$ bzw. $\Y$ modelliert. 
@@ -54,7 +54,7 @@
 
 	\begin{Proposition}
 		\label{proposition:eigenschaften_kopplungen}
-		Seien $\X$, $\Y$ polnische Räume und $M \subseteq \Probmeasures{\X}$ sowie $N \subseteq \Probmeasures{\Y}$. Dann gelten die folgenden Implikationen:
+		Seien $\X$, $\Y$ polnische Räume und $M \subseteq \Probmeasures{\X}$ sowie $N \subseteq \Probmeasures{\Y}$. Dann gelten die folgenden Implikationen.
 		\begin{enumeratethm}
 			\item Sind $M$ und $N$ straff, so ist auch $\Pi(M, N) \subseteq \Probmeasures{\X \times \Y}$ straff.
 			\item Sind $M$ und $N$ abgeschlossen, so ist auch $\Pi(M, N) \subseteq \Probmeasures{\X \times \Y}$ abgeschlossen.
@@ -246,7 +246,7 @@
 		Sei $\X \defby \R$ versehen mit der von $\abs{\cdot}$ induzierten Metrik und seien 
 		\[\mu_1 \; \defby \; \mathcal{N}(\lambda_1, \sigma_1^2), \quad \mu_2 \; \defby \; \mathcal{N}(\lambda_2, \sigma_2^2) \; \in \; \Probmeasures{\R}\] 
 		Normalverteilungen mit Erwartungswerten 
-		$\lambda_1,\lambda_2 \in \R$ und Varianzen $\sigma_1^2,\sigma_2^2 \in (0, \infty)$. Wir möchten $W_2(\mu_1, \mu_2)$ berechnen. Hierbei orientieren wir uns an \cite[Remark 2.31 und Figure 2.14]{Peyre.2019}.
+		$\lambda_1,\lambda_2 \in \R$ und Varianzen $\sigma_1^2,\sigma_2^2 \in (0, \infty)$. Wir möchten $W_2(\mu_1, \mu_2)$ berechnen. Die Idee hierfür entstammt \cite[Remark 2.31 und Figure 2.14]{Peyre.2019}.
 		
 		Sei $\pi \in \Pi(\mu_1, \mu_2)$ beliebig und sei $(Z_1, Z_2)^{\top}$ ein Zufallsvektor, der $\pi$ als Verteilung besitzt. Insbesondere existieren auch derartige Zufallsvariablen $X_1$ und $X_2$ mit Verteilung $\mathcal{N}(0, 1)$, dass
 		\[ Z_1 = \lambda_1 + \sigma_1 X_1 \quad \text{und} \quad Z_2 = \lambda_2 + \sigma_2 X_2 \]
