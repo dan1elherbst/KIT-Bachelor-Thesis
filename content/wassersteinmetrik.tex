@@ -27,16 +27,16 @@
 	\section{Kopplungen}
 	\label{subsec:kopplungen}
 	
-	Für die Motivation des optimalen Transports orientieren wir uns an \cite{Monge.1781}, mit der Monge im Jahr 1781 das Gebiet begründete.  
-	Die Ausgangssituation in Monges Formulierung können wir uns wie folgt vorstellen (vgl. \cite[S. 41--42]{Villani.2009}):
+	Für die Motivation des optimalen Transports orientieren wir uns an der Arbeit \cite{Monge.1781}, mit der Gaspard Monge im Jahr 1781 das Gebiet begründete.  
+	Die Ausgangssituation in Monges Formulierung können wir uns wie folgt vorstellen (vgl. \cite[S. 29--30]{Villani.2009}):
 	Wir nehmen an, dass wir eine gewisse Menge an Erde aus dem Boden fördern müssen, um diese anschließend an Stellen zu bringen, an denen sie weiterverarbeitet werden kann. Die räumlichen Verteilungen vor und
 	nach dem Transport sind hierbei festgelegt und werden jeweils durch Wahrscheinlichkeitsmaße $\mu$ bzw. $\nu$ auf Räumen $\X$ bzw. $\Y$ modelliert. 
 	Allgemeiner sollen Wahrscheinlichkeitsmaße hier also nicht den Zufall, sondern Verteilungen von Gütern (oder allgemeiner Masse) in einem Raum darstellen.
 	
 	\subfile{figures/figure1.tex}
 	
-	Im Folgenden wird nun nicht die mathematische Formalisierung des optimalen Transports von Monge präsentiert, sondern eine alternative Formulierung, die Kantorovich in seiner Arbeit \cite{Kantorovich.2006} im Jahr 1942 zuerst vorstellte.
-	Zunächst sehen wir uns an, wie mittels \emph{Kopplungen} ein Transportplan zwischen zwei Masseverteilungen $\mu$ und $\nu$ modelliert werden kann, der spezifiziert, woher wie viel Masse wohin transportiert werden soll.
+	Im Folgenden wird nun nicht die ursprüngliche mathematische Formalisierung dieser Situation von Monge präsentiert, sondern eine alternative Formulierung, die Leonid Vitaliyevich Kantorovich im Jahr 1942 in seiner Arbeit \cite{Kantorovich.2006} zuerst vorstellte.
+	Wir sehen uns zunächst an, wie mittels \emph{Kopplungen} ein Transportplan zwischen zwei Masseverteilungen $\mu$ und $\nu$ modelliert werden kann, der spezifiziert, woher wie viel Masse wohin transportiert werden soll.
 	
 	\begin{Definition}[Kopplung]
 		Seien $\X$ und $\Y$ topologische Räume sowie $M \subseteq \Probmeasures{\X}$ und $N \subseteq \Probmeasures{\Y}$. Wir definieren dann
@@ -192,7 +192,7 @@
 		die \emph{$p$-te Wassersteindistanz} zwischen $\mu$ und $\nu$.
 	\end{Definition}
 
-	Zunächst muss nachgewiesen werden, dass die Wassersteinmetrik tatsächlich ihren Namen verdient.
+	Zunächst muss nachgewiesen werden, dass sich die Wassersteinmetrik tatsächlich ihren Namen verdient.
 
 	\begin{Satz}
 		\label{satz:wassersteinmetrik_ist_metrik}
@@ -248,7 +248,7 @@
 		Normalverteilungen mit Erwartungswerten 
 		$\lambda_1,\lambda_2 \in \R$ und Varianzen $\sigma_1^2,\sigma_2^2 \in (0, \infty)$. Wir möchten $W_2(\mu_1, \mu_2)$ berechnen. Hierbei orientieren wir uns an \cite[Remark 2.31 und Figure 2.14]{Peyre.2019}.
 		
-		Sei dazu $\pi \in \Pi(\mu_1, \mu_2)$ beliebig und sei $(Z_1, Z_2)^{\top}$ ein Zufallsvektor, der $\pi$ als Verteilung besitzt. Insbesondere existieren auch derartige Zufallsvariablen $X_1$ und $X_2$ mit Verteilung $\mathcal{N}(0, 1)$, dass
+		Sei $\pi \in \Pi(\mu_1, \mu_2)$ beliebig und sei $(Z_1, Z_2)^{\top}$ ein Zufallsvektor, der $\pi$ als Verteilung besitzt. Insbesondere existieren auch derartige Zufallsvariablen $X_1$ und $X_2$ mit Verteilung $\mathcal{N}(0, 1)$, dass
 		\[ Z_1 = \lambda_1 + \sigma_1 X_1 \quad \text{und} \quad Z_2 = \lambda_2 + \sigma_2 X_2 \]
 		gilt. Nun ist 
 		\begin{align*}
