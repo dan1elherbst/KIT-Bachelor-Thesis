@@ -253,9 +253,9 @@
 	
 	\begin{proof}
 		Aussage (a) folgt aus der Stetigkeit von $y \mapsto d(y, C)$.
-		Weiter ist $C \subseteq A_n$ für alle $n \in \N$ und damit 
-		$C \subseteq \bigcap_{n \in \N} A_n$. 
-		Umgekehrt gibt es für ein beliebiges $y \in \bigcap_{n \in \N} A_n$
+		Weiter ist $C \subseteq U_n$ für alle $n \in \N$ und damit 
+		$C \subseteq \bigcap_{n \in \N} U_n$. 
+		Umgekehrt gibt es für ein beliebiges $y \in \bigcap_{n \in \N} U_n$
 		eine Folge $(x_n)_n \in C^\N$ mit $x_n \rightarrow y$. 
 		Wegen der Abgeschlossenheit von $C$ liegt $y$ damit in $C$, sodass (b) gezeigt ist.
 		Aussage (c) ist klar ($f_n$ ist als Komposition 
@@ -301,15 +301,15 @@
 		Hierfür beweisen wir zunächst die schwache Regularität von innen. 
 		Sei dazu $\varepsilon > 0$. Für $n \in \N$ gibt es jeweils abgeschlossene Mengen 
 		$C_n \subseteq B_n$ mit $\mu(B_n) - \mu(C_n) < \frac{\varepsilon}{3^n}$.
-		Wir wählen nun $N$ so groß, dass $\mu\left( B \setminus \bigcup_{n=1}^N B_n \right) 
+		Wir wählen nun $m$ so groß, dass $\mu\left( B \setminus \bigcup_{n=1}^m B_n \right) 
 		< \frac{\varepsilon}{2}$ ist (was wegen $\mu(B) < \infty$ immer geht). 
-		Für die abgeschlossene Menge $C := \bigcup_{n=1}^N C_n$, $C \subseteq B$, gilt dann die Ungleichung 
+		Für die abgeschlossene Menge $C := \bigcup_{n=1}^m C_n$, $C \subseteq B$, gilt dann die Ungleichung 
 		\begin{align*}
 			\mu(B) - \mu(C) = \mu(B\setminus C) \; &=
-			\; \mu\left( \left( B \setminus \bigcup_{n=1}^N B_n \right) \; \cup \; 
-			\left( \bigcup_{n=1}^N B_n  \setminus C \right) \right) \\
-			&\leq \; \mu \left( B \setminus \bigcup_{n=1}^N B_n \right) + 
-			\sum_{n=1}^{N} \mu(B_n \setminus C_n) \\
+			\; \mu\left( \left( B \setminus \bigcup_{n=1}^m B_n \right) \; \cup \; 
+			\left( \bigcup_{n=1}^m B_n  \setminus C \right) \right) \\
+			&\leq \; \mu \left( B \setminus \bigcup_{n=1}^m B_n \right) + 
+			\sum_{n=1}^{m} \mu(B_n \setminus C_n) \\
 			&<    \; \frac{\varepsilon}{2} + 
 			\sum_{n=1}^{\infty} \frac{\varepsilon}{3^n} \; = \; \varepsilon \text{,}
 		\end{align*}

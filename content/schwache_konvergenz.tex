@@ -87,11 +87,11 @@
 		
 		Für endliches $\X$ ist $\Bdcontfct{\X}$ endlichdimensional, also insbesondere auch reflexiv. 
 		Es bleibt zu zeigen, dass $\Bdcontfct{\X}$ für unendliches $\X$ nicht reflexiv ist. Seien dazu $x_n \in \X$ für $n \in \N$ paarweise verschieden und setze
-		$\fctmap{\delta_n}{\Bdcontfct{\X}}{\R}{f}{f(x_n)}$, $n \in \N$. Dann gilt sicherlich $\delta_n \in \Bdcontfct{\X}^\ast$ und $\norm{\delta_n}_{\Bdcontfct{\X}^\ast} = 1$ für alle $n \in \N$.
+		$\fctmap{l_{x_n}}{\Bdcontfct{\X}}{\R}{f}{f(x_n)}$, $n \in \N$. Dann gilt sicherlich $l_{x_n} \in \Bdcontfct{\X}^\ast$ und $\norm{l_{x_n}}_{\Bdcontfct{\X}^\ast} = 1$ für alle $n \in \N$.
 		Wir definieren
-		\[ \fctmap{\Psi}{\ell^1}{\Bdcontfct{\X}^\ast}{(a_n)_n}{\sum_{n=1}^{\infty} a_n \delta_n} \text{,} \]
+		\[ \fctmap{\Psi}{\ell^1}{\Bdcontfct{\X}^\ast}{(a_n)_n}{\sum_{n=1}^{\infty} a_n l_{x_n}} \text{,} \]
 		und möchten zeigen, dass es sich hierbei um eine isometrische Einbettung handelt. Fixiere eine Folge $a = (a_n)_n \in \ell^1$. Für $f \in \Bdcontfct{\X}$ ist sicherlich
-		\[ \left| \Psi(a)(f) \right| \; = \; \left| \sum_{n=1}^{\infty} a_n \delta_n(f) \right| \; = \; \left| \sum_{n=1}^{\infty} a_n f(x_n) \right| \; \leq \; \norm{a}_1 \norm{f}_{\infty} \text{,} \]
+		\[ \left| \Psi(a)(f) \right| \; = \; \left| \sum_{n=1}^{\infty} a_n l_{x_n}(f) \right| \; = \; \left| \sum_{n=1}^{\infty} a_n f(x_n) \right| \; \leq \; \norm{a}_1 \norm{f}_{\infty} \text{,} \]
 		also $\norm{\Psi(a)}_{\Bdcontfct{\X}^\ast} \leq \norm{a}_1$. Für $k \in \N$ sei nun 
 		\[\delta_k \defby \min_{1 \leq n < m \leq k} d(x_n, x_m)\] 
 		sowie

@@ -120,9 +120,9 @@
 		und möchten nachweisen, dass $T$ ein Homöomorphismus auf sein Bild ist. Da $R$ nach Hilfssatz~\ref{hilfssatz:einbettungsraum_R} separabel und metrisierbar ist, übertragen sich diese Eigenschaften dann auch auf $\Finitemeasures{\X}$.
 		
 		Wir zeigen zunächst die Injektivität. Seien dazu $\mu$, $\nu \in \Finitemeasures{\X}$ mit $T(\mu) = T(\nu)$. 
-		Sei außerdem $g \in \Bduniffct{\X}$. Dann gibt es eine Folge $(g_n)_n \in \mathcal{D}^\N$ mit $\norm{g - g_n}_\infty \to 0$, $n \to \infty$, was auch 
-		\[ \measureint{}{g_n}{\mu} \to \measureint{}{g}{\mu} \quad \text{und} \quad \measureint{}{g_n}{\nu} \to \measureint{}{g}{\nu}, \quad n \to \infty \text{,} \]
-		impliziert. Da aber $\measureint{}{g_n}{\mu} = \measureint{}{g_n}{\nu}$ für alle $n \in \N$ gilt, folgt auch $\measureint{}{g}{\mu} = \measureint{}{g}{\nu}$.
+		Sei außerdem $g \in \Bduniffct{\X}$. Dann gibt es eine Folge $(g_k)_k \in \mathcal{D}^\N$ mit $\norm{g - g_k}_\infty \to 0$, $n \to \infty$, was auch 
+		\[ \measureint{}{g_k}{\mu} \to \measureint{}{g}{\mu} \quad \text{und} \quad \measureint{}{g_k}{\nu} \to \measureint{}{g}{\nu}, \quad k \to \infty \text{,} \]
+		impliziert. Da aber $\measureint{}{g_k}{\mu} = \measureint{}{g_k}{\nu}$ für alle $k \in \N$ gilt, folgt auch $\measureint{}{g}{\mu} = \measureint{}{g}{\nu}$.
 		Folgerung~\ref{folgerung:gleichheit_von_maßen} liefert nun die Gleichheit $\mu = \nu$.
 		
 		Um den Beweis dieser Implikation abzuschließen, genügt es wegen Proposition~\ref{proposition:netz_konvergenz} zu beweisen, dass für jedes Netz $(\mu_\iota)_{\iota \in I}$ in $\Finitemeasures{\X}$ und $\mu \in \Finitemeasures{\X}$ die
@@ -139,18 +139,18 @@
 		Wegen $f_1 = \indfct_\X$ gilt auch
 		\[ \mu_\iota(\X) \; = \; \measureint{}{\indfct_\X}{\mu_\iota} \; \to \; \measureint{}{\indfct_\X}{\mu} \; = \; \mu(\X), \quad \iota \to \infty \text{,} \]
 		und damit können wir so eine Konstante $C < \infty$ und ein $\iota_0 \in I$ finden, dass $\mu_\iota(\X) \leq C$ für alle $\iota_0 \preceq \iota$ ist.
-		Sei $g \in \Bduniffct{\X}$ fest aber beliebig. Dann gibt es eine Folge $(g_n)_n \in \mathcal{D}^\N$ mit $\norm{g - g_n}_\infty \to 0$, $n \to \infty$. Für alle $n \in \N$ und $\iota_0 \preceq \iota$ folgt
+		Sei $g \in \Bduniffct{\X}$ fest aber beliebig. Dann gibt es eine Folge $(g_k)_k \in \mathcal{D}^\N$ mit $\norm{g - g_k}_\infty \to 0$, $k \to \infty$. Für alle $k \in \N$ und $\iota_0 \preceq \iota$ folgt
 		\begin{align*}
 			\left| \measureint{}{g}{\mu_\iota} - \measureint{}{g}{\mu} \right| \; &\leq \; 
-			\left| \measureint{}{g}{\mu_\iota} - \measureint{}{g_n}{\mu_\iota} \right| + 
-			\left| \measureint{}{g_n}{\mu_\iota} - \measureint{}{g_n}{\mu} \right| \\
+			\left| \measureint{}{g}{\mu_\iota} - \measureint{}{g_k}{\mu_\iota} \right| + 
+			\left| \measureint{}{g_k}{\mu_\iota} - \measureint{}{g_k}{\mu} \right| \\
 			& \qquad + 
-			\left| \measureint{}{g_n}{\mu} - \measureint{}{g}{\mu} \right| \\
-			&\leq \; 2 C \norm{g - g_n}_\infty + \left| \measureint{}{g_n}{\mu_\iota} - 
-			\measureint{}{g_n}{\mu} \right| \text{.}
+			\left| \measureint{}{g_k}{\mu} - \measureint{}{g}{\mu} \right| \\
+			&\leq \; 2 C \norm{g - g_k}_\infty + \left| \measureint{}{g_k}{\mu_\iota} - 
+			\measureint{}{g_k}{\mu} \right| \text{.}
 		\end{align*}
 		Mit \eqref{glg:5.1} folgern wir
-		\[ \limsup_{\iota \to \infty} \left| \measureint{}{g}{\mu_\iota} - \measureint{}{g}{\mu} \right| \; \leq \; 2 C \norm{g - g_n}_\infty \; \to \; 0, \quad n \to \infty \]
+		\[ \limsup_{\iota \to \infty} \left| \measureint{}{g}{\mu_\iota} - \measureint{}{g}{\mu} \right| \; \leq \; 2 C \norm{g - g_k}_\infty \; \to \; 0, \quad k \to \infty \]
 		und damit 
 		\[ \measureint{}{g}{\mu_\iota} \; \to \; \measureint{}{g}{\mu}, \quad \iota \to \infty \]
 		für alle $g \in \Bduniffct{\X}$. Satz~\ref{satz:portmanteau} liefert nun die schwache Konvergenz $\mu_\iota \xrightarrow{w} \mu$, $\iota \to \infty$.
@@ -293,16 +293,16 @@
 	
 	\begin{proof}
 		Sei $d$ eine Metrik, die $\X$ vollständig metrisiert und sei 
-		$\mathcal{D} \defby \setcomp{x_m}{m \in \N}$ eine abzählbare dichte Teilmenge von $\X$. 
-		Für $k \in \N$ gilt also $\bigcup_{m \in \N} B_{1/k}(x_m) = \X$ und Maßstetigkeit 
+		$\mathcal{D} \defby \setcomp{x_n}{n \in \N}$ eine abzählbare dichte Teilmenge von $\X$. 
+		Für $k \in \N$ gilt also $\bigcup_{n \in \N} B_{1/k}(x_n) = \X$ und Maßstetigkeit 
 		von unten impliziert 
-		$\lim_{M \to \infty} \mu(\bigcup_{m=1}^{M} B_{1/k}(x_m)) = \mu(\X)$.
+		$\lim_{m \to \infty} \mu(\bigcup_{n=1}^{m} B_{1/k}(x_n)) = \mu(\X)$.
 		
-		Sei nun $\varepsilon > 0$. Dann finden wir natürliche Zahlen $M_1 \leq M_2 \leq \dots$ mit
-		\[ \mu\left( \bigcup_{m=1}^{M_k} B_{1/k}(x_m) \right) \; \geq \; \mu(\X) - \frac{\varepsilon}{2^k} \]
+		Sei nun $\varepsilon > 0$. Dann finden wir natürliche Zahlen $m_1 \leq m_2 \leq \dots$ mit
+		\[ \mu\left( \bigcup_{n=1}^{m_k} B_{1/k}(x_n) \right) \; \geq \; \mu(\X) - \frac{\varepsilon}{2^k} \]
 		für alle $k \in \N$. Wir setzen nun
 		\[ S_\varepsilon 
-		\; \defby \; \bigcap_{k \in \N} \left( \bigcup_{m=1}^{M_k} B_{1/k}(x_m) \right) 
+		\; \defby \; \bigcap_{k \in \N} \left( \bigcup_{n=1}^{m_k} B_{1/k}(x_n) \right) 
 		\quad \text{und} \quad K_\varepsilon \defby \overline{S_\varepsilon} \text{.} \]
 		Offenbar ist $S_\varepsilon$ totalbeschränkt und damit ist $K_\varepsilon = \overline{S_\varepsilon}$ 
 		kompakt (letzteres wird etwa in \cite[Theorem 2.3.8]{Simon.2015} bewiesen, 
@@ -310,7 +310,7 @@
 		Außerdem berechnen wir
 		\begin{align*}
 			\mu(K_\varepsilon) \; &\geq \; \mu(S_\varepsilon) 
-			\; \geq \; \mu(\X) - \sum_{k=1}^{\infty} \left( \mu(\X) - \mu\left( \bigcup_{m=1}^{M_k} B_{1/k}(x_m) \right) \right) \\
+			\; \geq \; \mu(\X) - \sum_{k=1}^{\infty} \left( \mu(\X) - \mu\left( \bigcup_{n=1}^{m_k} B_{1/k}(x_n) \right) \right) \\
 			\; &\geq \; \mu(\X) - \sum_{k=1}^{\infty} \frac{\varepsilon}{2^k} \; = \; \mu(\X) - \varepsilon \text{.}
 		\end{align*} 
 		Weil $\varepsilon > 0$ beliebig gewählt war, ist $\mu$ also straff.
@@ -339,8 +339,8 @@
 		$\tilde{K} \subseteq \X$ mit $\mu(\tilde{K}) \geq 1 - \varepsilon$. Wir setzen nun $K \defby \tilde{K} \cap C$. Dann ist $K$ ebenfalls kompakt und 
 		erfüllt $K \subseteq B$ mit 
 		\[ \mu(B \setminus K) 
-		\; = \; \mu((B \setminus C) \cap (B \setminus \tilde{K})) 
-		\; \leq \; \mu(B \setminus C) + \mu(K^{\ast \mathsf{c}}) 
+		\; = \; \mu((B \setminus C) \cup (B \setminus \tilde{K})) 
+		\; \leq \; \mu(B \setminus C) + \mu(\tilde{K}^{\mathsf{c}}) 
 		\; \leq \; 2 \varepsilon \text{.} \]
 		Daher folgt 
 		\[\mu(B) 
@@ -354,7 +354,7 @@
 		\label{satz:prokhorov}
 		Sei $\X$ ein metrisierbarer topologischer Raum und $M \subseteq \Probmeasures{\X}$. Dann gelten die folgenden Aussagen.
 		\begin{enumeratethm}
-			\item Ist $\X$ separabel und $M \subseteq \Probmeasures{X}$ straff, so ist $\overline{M} \subseteq \Probmeasures{\X}$ kompakt.
+			\item Ist $\X$ separabel und $M \subseteq \Probmeasures{\X}$ straff, so ist $\overline{M} \subseteq \Probmeasures{\X}$ kompakt.
 			\item Ist $\X$ polnisch und $\overline{M} \subseteq \Probmeasures{\X}$ kompakt, so ist $M \subseteq \Probmeasures{X}$ straff.
 		\end{enumeratethm}
 	\end{Satz}
@@ -362,7 +362,7 @@
 	\begin{Bemerkung}
 		Meistens wird Satz~\ref{satz:prokhorov} in der folgenden Form verwendet: Ist $\X$ polnisch und $M \subseteq \Probmeasures{\X}$, so gilt
 		\[ M \text{ ist straff} \quad \iff \quad \overline{M} \text{ ist kompakt} \text{.} \]
-		Dies ist gerade die hilfreiche Charakterisierung kompakter Teilmengen von $\Probmeasures{X}$, die wir bereits angekündigt haben.
+		Dies ist gerade die hilfreiche Charakterisierung kompakter Teilmengen von $\Probmeasures{X}$, die zu Beginn des Abschnitts bereits angekündigt wurde.
 	\end{Bemerkung}
 	
 	\begin{proof}
@@ -371,8 +371,9 @@
 		dass jede Folge $(\mu_n)_n \in M^\N$ eine schwach konvergente Teilfolge besitzt. 
 		
 		Aufgrund der Straffheit von $M$ gibt es für jedes $m \in \N$ ein Kompaktum $K^{(m)} \subseteq \X$, 
-		das für alle $n \in \N$
-		\[ \mu_n(K^{(m)}) \geq 1 - \frac{1}{m+1} \label{glg:5.2} \tag{5.2} \]
+		das
+		\[ \mu(K^{(m)}) \geq 1 - \frac{1}{m+1} \label{glg:5.2} \tag{5.2} \]
+		für alle $\mu \in M$
 		erfüllt. Ohne Einschränkung dürfen wir außerdem annehmen, dass 
 		\[ K^{(m)} \subseteq K^{(m+1)} \label{glg:5.3} \tag{5.3} \] 
 		für alle $m \in \N$ gilt.
@@ -386,11 +387,11 @@
 		\[ \restr{\mu_{n_j}^{(1)}}{K^{(1)}} \; \xrightarrow{w} \; \nu^{(1)} \text{.} \]
 		Auf dieselbe Art und Weise lassen sich für alle $m\geq 2$ sukzessive Maße 
 		$\nu^{(m)} \in \Unitmeasures{K^{(m)}}$ und Teilfolgen $(\mu_{n_j}^{(m)})_j$ von $(\mu_{n_j}^{(m-1)})_j$ mit
-		\[ \restr{\mu_{n_j}^{(m)}}{K^{(m)}} \; \xrightarrow{w} \; \nu^{(m)}, \quad j \to \infty \]
+		\[ \restr{\mu_{n_j}^{(m)}}{K^{(m)}} \; \xrightarrow{w} \; \nu^{(m)}, \quad j \to \infty \text{,} \]
 		finden.
 		Nun diagonalisieren wir und erhalten mit $\mu_{n_j} \; \defby \; \mu_{n_j}^{(j)}$ eine Teilfolge 
 		$(\mu_{n_j})_j$ von $(\mu_n)_n$, die
-		\[ \restr{\mu_{n_j}}{K^{(m)}} \; \xrightarrow{w} \; \nu^{(m)}, \quad j \to \infty \]
+		\[ \restr{\mu_{n_j}}{K^{(m)}} \; \xrightarrow{w} \; \nu^{(m)}, \quad j \to \infty \text{,} \]
 		für alle $m \in \N$ erfüllt.
 		Außerdem können die Maße $\nu^{(m)}$, $m \in \N$, via 
 		$\nu^{(m)}(B) \defby \nu^{(m)}(B \cap K^{(m)})$ für $B \in \mathcal{B}(\X)$ einfach auf $\X$ fortgesetzt werden. 
@@ -401,7 +402,7 @@
 		
 		Wegen schwacher Regularität (vgl. Satz~\ref{satz:schwache_regularität}) genügt es, die Ungleichung \eqref{glg:5.4} 
 		für abgeschlossene Mengen zu zeigen. Sei also $m \in \N$ fixiert, $C \subseteq \X$ abgeschlossen 
-		und seien $\fct{f_k}{\X}{\R}$, $k \in \N$ die lipschitzstetigen, beschränkten Funktionen aus 
+		und seien $\fct{f_k}{\X}{\R}$ für $k \in \N$ die lipschitzstetigen, beschränkten Funktionen aus 
 		Hilfssatz~\ref{hilfssatz:offene_mengen} (wobei irgendeine Metrik auf $\X$, die $\X$ metrisiert, fixiert sei). Unter Ausnutzung von \eqref{glg:5.3} folgt nun 
 		\[ \measureint{K^{(m)}}{f_k}{\mu_{n_j}} \; \leq \; \measureint{K^{(m+1)}}{f_k}{\mu_{n_j}} \]
 		für alle $k, j \in \N$. Wegen 
@@ -418,7 +419,7 @@
 		
 		Zunächst verifizieren wir, dass $\nu$ ein Wahrscheinlichkeitsmaß ist. Die Bedingung $\nu(\emptyset) = 0$ ist klar. 
 		Weil $\nu^{(m)}$ in $\Unitmeasures{K^{(m)}}$ liegt und wir \eqref{glg:5.2} angenommen haben, gilt 
-		\[\nu^{(m)}(\X) = \nu^{(m)}(K^{(m)}) \in [1 - \frac{1}{m+1}, 1]\] 
+		\[\nu^{(m)}(\X) \; = \; \nu^{(m)}(K^{(m)}) \; \in \; [1 - \frac{1}{m+1}, 1]\] 
 		für alle $m \in \N$ und damit $\nu(\X) = 1$. Für die $\sigma$-Additivität seien 
 		$B_k \in \mathcal{B}(\X)$, $k \in \N$, paarweise disjunkt. Dann gilt
 		\begin{align*}
@@ -438,44 +439,44 @@
 		\begin{align*}
 			\limsup_{j \to \infty} \mu_{n_j}(C) \; &=    \; \lim_{m \to \infty} \limsup_{j \to \infty} 
 			\left( \mu_{n_j}(C \cap K^{(m)}) + \mu_{n_j}(C \cap K^{(m) \mathsf{c}}) \right) \\
-			&\leq \; \lim_{m \to \infty} \left( \nu^{(m)}(C) + \frac{1}{m+1} \right) 
+			&\leq \; \limsup_{m \to \infty} \left( \nu^{(m)}(C) + \frac{1}{m+1} \right) 
 			\; = \; \nu(C) \text{,}
 		\end{align*}
 		was den Beweis von (a) abschließt.
 		
-		Sei nun $\X$ polnisch und $\overline{M}$ kompakt. Außerdem sei $d$ eine Metrik, die $\X$ vollständig metrisiert 
+		Sei nun $\X$ polnisch und $\overline{M}$ kompakt. Wir möchten die Straffheit von $M$ zeigen. Sei $d$ eine Metrik, die $\X$ vollständig metrisiert 
 		und $\mathcal{D} \defby \setcomp{x_n}{n \in \N} \subseteq \X$ eine abzählbare dichte Teilmenge.
 		
-		Wir behaupten, dass für alle $\delta > 0$ ein solches $M_\delta \in \N$ existiert, dass
-		\[ \mu(\bigcup_{m=1}^{M_\delta} B_\delta(x_m)) \; > \; 1 - \delta \label{glg:5.5} \tag{5.5} \]
-		für alle $\mu \in M$ gilt. Denn falls es kein derartiges $M_\delta$ gibt, so lässt sich ein $\delta > 0$ finden, für das
-		für alle $M \in \N$ ein $\mu_M \in M$ existiert mit
-		\[ \mu_M(\bigcup_{m=1}^{M} B_\delta(x_m)) \; \leq \; 1 - \delta \text{.} \]
-		Insbesondere bedeutet das natürlich auch, dass wir für alle $M \in \N$ und $N \geq M$ 
-		\[ \mu_N(\bigcup_{m=1}^{M} B_\delta(x_m)) \; \leq \; 1 - \delta \]
-		abschätzen dürfen. Aufgrund der Kompaktheit von $\overline{M}$ gibt es eine Teilfolge $(\mu_{N_j})_j$ von $(\mu_N)_N$, 
-		die einen schwachen Grenzwert $\mu \in \Probmeasures{\X}$ besitzt. Fixiere nun ein $M \in \N$. 
-		Dann ist $\bigcup_{m=1}^{M} B_\delta(x_m)$
+		Wir behaupten, dass für alle $\delta > 0$ ein solches $m_\delta \in \N$ existiert, dass
+		\[ \mu(\bigcup_{n=1}^{m_\delta} B_\delta(x_n)) \; > \; 1 - \delta \label{glg:5.5} \tag{5.5} \]
+		für alle $\mu \in M$ gilt. Denn falls es kein derartiges $m_\delta$ gibt, so lässt sich ein $\delta > 0$ finden, für das
+		für alle $m \in \N$ ein $\mu_m \in M$ existiert mit
+		\[ \mu_m(\bigcup_{n=1}^{m} B_\delta(x_n)) \; \leq \; 1 - \delta \text{.} \]
+		Insbesondere bedeutet das natürlich auch, dass wir für alle $m \in \N$ und $k \geq m$ 
+		\[ \mu_k(\bigcup_{n=1}^{m} B_\delta(x_n)) \; \leq \; 1 - \delta \]
+		abschätzen dürfen. Aufgrund der Kompaktheit von $\overline{M}$ gibt es eine Teilfolge $(\mu_{k_j})_j$ von $(\mu_k)_k$, 
+		die einen schwachen Grenzwert $\mu \in \Probmeasures{\X}$ besitzt. Fixiere nun ein $m \in \N$. 
+		Dann ist $\bigcup_{n=1}^{m} B_\delta(x_n)$
 		offen und daher liefert Charakterisierung (v) des Portmanteau-Theorems (Satz~\ref{satz:portmanteau})
-		\[ \mu(\bigcup_{m=1}^{M} B_\delta(x_m)) 
-		\; \leq \; \liminf_{j \to \infty} \mu_{N_j}(\bigcup_{m=1}^{M} B_\delta(x_m)) 
+		\[ \mu(\bigcup_{n=1}^{m} B_\delta(x_n)) 
+		\; \leq \; \liminf_{j \to \infty} \mu_{k_j}(\bigcup_{n=1}^{m} B_\delta(x_n)) 
 		\; \leq \; 1 - \delta \text{.} \label{glg:5.6} \tag{5.6} \]
-		Wegen $\bigcup_{m=1}^{\infty} B_\delta(x_m) = \X$ und Maßstetigkeit von unten 
+		Wegen $\bigcup_{n=1}^{\infty} B_\delta(x_n) = \X$ und Maßstetigkeit von unten 
 		folgt aus \eqref{glg:5.6} unmittelbar 
 		\[ \mu(\X) \; \leq \; 1 - \delta \; < \; 1 \text{,} \]
 		was einen Widerspruch dazu darstellt, dass es sich bei $\mu$ um ein 
 		Wahrscheinlichkeitsmaß auf $\X$ handelt. Also muss unsere Behauptung in \eqref{glg:5.5} tatsächlich gelten.
 		Sei nun ein $\varepsilon > 0$ gegeben. Wir setzen 
 		\[ S_\varepsilon 
-		\; \defby \; \bigcap_{k \in \N} \bigcup_{m=1}^{M_{\varepsilon / 2^k}} 
-		B_{\varepsilon / 2^k}(x_m) \]
+		\; \defby \; \bigcap_{l \in \N} \bigcup_{n=1}^{m_{\varepsilon / 2^l}} 
+		B_{\varepsilon / 2^l}(x_n) \]
 		und verfahren nun ähnlich wie im Beweis von Satz~\ref{satz:straffheit}: Offensichtlich ist $S_\varepsilon$ total beschränkt und damit auch 
 		$ K_\varepsilon \defby \overline{S_\varepsilon}$ kompakt (vgl. \cite[Theorem 2.3.8]{Simon.2015}). 
 		Außerdem gilt für alle $\mu \in M$
 		\[
-		\mu(K_\varepsilon) \; \geq \; \mu(S_\varepsilon) \; = \; \mu\left(\bigcap_{k \in \N} \bigcup_{m=1}^{M_{\varepsilon / 2^k}} 
-		B_{\varepsilon / 2^k}(x_m)\right)
-		\; \geq \; 1 - \sum_{k=1}^{\infty} \frac{\varepsilon}{2^k} \; = \; 1 - \varepsilon
+		\mu(K_\varepsilon) \; \geq \; \mu(S_\varepsilon) \; = \; \mu\left(\bigcap_{l \in \N} \bigcup_{n=1}^{m_{\varepsilon / 2^l}} 
+		B_{\varepsilon / 2^l}(x_n)\right)
+		\; \geq \; 1 - \sum_{l=1}^{\infty} \frac{\varepsilon}{2^l} \; = \; 1 - \varepsilon
 		\]
 		und damit ist $M$ straff. Also folgt auch Aussage (b).
 	\end{proof}
