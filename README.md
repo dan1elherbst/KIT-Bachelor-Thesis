@@ -1,3 +1,4 @@
-# KIT-Bachelorarbeit
+# KIT-Bachelor-Thesis
 
-Bachelorarbeit zum Thema *Maße auf polnischen Räumen und die Wassersteinmetrik*.
+Bachelor thesis on the topic *Measures on Polish spaces and Wasserstein metrics*.
+The thesis is written in German.
